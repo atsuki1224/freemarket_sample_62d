@@ -140,3 +140,28 @@ header {
 }
 
 // ======ここからトップページバナー=画面==================================
+.main_image{
+  padding-top: 20px;
+  background-image:url("/top_page/sample.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 400px;
+}
+  .main_image_title{
+    font-size:60px;
+    padding-left: 50px;
+  }
+  .main_image_description{
+    padding: 20px 0 20px 50px;
+  }
+  .main_image_authentication{
+    font-size: 20px;
+    padding: 40px 0 20px 50px;
+
+  }
+    .main_image_authentication_app-store{
+      margin-right: 50px;
+      float: left;
+    }
+    // .main_image_authentication_google
