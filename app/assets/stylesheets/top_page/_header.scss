@@ -1,0 +1,142 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.left-float {
+  float: left;
+}
+
+.right-float {
+  float: right;
+}
+
+header {
+  height: 82px;
+  width: 1020px;
+  margin: 0 auto 20px;
+  padding: 8px 0 0;
+  .logo-and-search {
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    &__logo {
+    width: 134px;
+      img {
+        width: 134px;
+      }
+    }
+    &__search {
+      position: relative;
+      width: calc(100% - (134px + 16px));
+      a {
+        color: black;
+      }
+      input {
+        width: 100%;
+        height: 36px;
+        padding: 9px 32px 9px 8px;
+        background: #fafafa;
+        border-radius: 4px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+      }
+      i {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 36px;
+        line-height: 36px;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+
+  .header_lists {
+    height: 32px;
+    margin: 9px 0 0 0;
+    &__left {
+      ul{
+        .categories {
+          position: relative;
+          display: inline-block;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }
+          }
+        }
+        .brands {
+          position: relative;
+          display: inline-block;
+          padding: 0 0 0 16px;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }
+          
+          }
+        }
+
+        .like {
+          position: relative;
+          display: inline-block;
+          padding: 0 0 0 200px;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }
+          
+          }
+        }
+
+        .news {
+          position: relative;
+          display: inline-block;
+          padding: 0 0 0 16px;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }
+          
+          }
+        }
+
+        .to_do_list {
+          position: relative;
+          display: inline-block;
+          padding: 0 0 0 16px;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }
+          
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// ======ここからトップページバナー=画面==================================

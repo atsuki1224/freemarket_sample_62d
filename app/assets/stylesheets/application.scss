@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'font-awesome';
+
+// トップ画面用
+@import 'top_page/header';
+@import 'top_page/main';
