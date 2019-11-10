@@ -12,16 +12,15 @@
 |prefectures|string|null: false|<!-- 住所部分 -->
 |city|string|null: false|
 |adress|string|null: false|
-|Building_name|string|null: true|
+|building_name|string|null: true|
 |phone_number|string|null: true|
 |card_number|string|null: false|<!--カードデータ部分-->
 |validated_data|string|null: false|
 |security_code|string|null: false|
-|totalSales|string||<!--ユーザー詳細-->
-|merukariPoint|string||
-|niceCount|string||
-|profile|string|null: true|
-
+|total_profit|string||<!--ユーザー詳細-->
+|point|string||
+|nice_count|string||
+|user_profile|string|null: true|
 **Association**
 has_many :porducts
 has_many :nices
@@ -60,6 +59,8 @@ has_many :nices
 belongs_to :user
 belongs_to :category
 belongs_to :bland
+
+
 #### commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -69,6 +70,8 @@ belongs_to :bland
 **Association**
 belongs_to :product
 belongs_to :user
+
+
 #### imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -97,7 +100,7 @@ belongs_to :product
 belongs_to :user
 belongs_to :product
 
-#### userReviewテーブル
+#### user_reviewテーブル
 |Column|Type|Options|
 |------|----|-------|
 |buyer_id|integer|null: false, foreign_key: true|
@@ -111,11 +114,14 @@ belongs_to :seller, class_name: “User”
 |Column|Type|Options|
 |------|----|-------|
 |text|string||
+|product_id|integer|null: false, foreign_key:true|
+
 **Association**
 has_many :products
 #### blandテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|string||
+|product_id|integer|null: false, foreign_key:
 **Association**
 has_many :products
