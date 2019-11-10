@@ -208,4 +208,49 @@ header {
         }
 
         // ======ここから新着アイテム==================================
-          
+
+        // .new_item-wrapper
+          .new_item{
+            background-color:gainsboro;
+            height: 500px;
+            width: 100%;
+          }
+            .new_item_header{
+              height: 50px;
+            }
+              .new_item_header_title{
+                font-weight: bold;
+                padding: 40px 0 30px 20px;
+              }
+                
+                new_item_header_view-more{
+                  padding-left: 1000px;
+                }
+                
+            .new_item_contents{
+              padding: 70px;
+            }
+              .new_item_contents_img{
+                background-image:url("/top_page/item.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 200px;
+                height: 250px;
+                position: relative;
+              }
+                .new_item_contents_img_price{
+                  color: white;
+                  background-color: black;
+                  border-top-right-radius:50px;
+                  border-bottom-right-radius:50px;
+                  width: 100px;
+                  position: absolute;
+                  bottom: 0;
+                }
+                  
+              .new_item_contents_subject{
+                background-color: white;
+                width: 200px;
+              }
+                
+        
