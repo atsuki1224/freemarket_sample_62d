@@ -40,6 +40,8 @@ has_many : sellers through: :seller_userReviews, source: :buyer
 |item_condition|integer|null: false|
 |trade_status|string|null: false|
 |size|string|null: false|
+|category|string|null: false|
+|bland|string|null:false|
 <!-- 配送について -->
 |delivery_charge|string|null: false|
 |delivery_methot|string|null: false|
