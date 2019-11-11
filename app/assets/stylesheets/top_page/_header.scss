@@ -57,7 +57,7 @@ header {
     margin: 9px 0 0 0;
     &__left {
       ul{
-        .categories {
+        .header_categories {
           position: relative;
           display: inline-block;
           h2 {
@@ -142,15 +142,15 @@ header {
   width: 944px;
   margin: 0 auto;
 
-  .top_category_list_first{
+  .top_category_list_btn{
     
     position: absolute;
     font-size: 12px;
     width: 200px;
     background-color:white;
-    
+    display: none;
 
-      ul{
+      .top_category_list_list{
         padding: 0px;
         padding-bottom: 50px;
         
