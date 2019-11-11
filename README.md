@@ -18,17 +18,17 @@
 |validated_data|string|null: false|
 |security_code|integer|null: false|
 |total_profit|bigint||<!--ユーザー詳細-->
-|point|bigint||
+|point|bigint|null: true|
 |user_profile|string|null: true|
 **Association**
 has_many :porducts
 has_many :nices
 has_many :commnets
 has_many :messages
-has_many : buyer_userReview, class_name :”user_review”, foreign: :buyer_id
-has_many : buyers, through : :buyer_userReview, source: :seller
-has_many : seller_userReview, class_name:”user_review”,foreign_key: :seller_id
-has_many : sellers through: :seller_userReviews, source: :buyer
+has_many :buyer_userReview, class_name :”user_review”, foreign: :buyer_id
+has_many :buyers, through: :buyer_userReview, source: :seller
+has_many :seller_userReview, class_name:”user_review”, foreign_key: :seller_id
+has_many :sellers, through: :seller_userReviews, source: :buyer
 
 
 #### productsテーブル
@@ -116,7 +116,7 @@ belongs_to :seller, class_name: “User”
 |Column|Type|Options|
 |------|----|-------|
 |text|string||
-|product_id|integer|null: false, foreign_key:true|
+|product_id|integer|null: false, foreign_key: true|
 
 **Association**
 has_many :products
@@ -124,6 +124,6 @@ has_many :products
 |Column|Type|Options|
 |------|----|-------|
 |text|string||
-|product_id|integer|null: false, foreign_key:
+|product_id|integer|null: false, foreign_key: true|
 **Association**
 has_many :products
