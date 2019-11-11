@@ -46,11 +46,11 @@ belong_to :user
 <!-- 商品関係 -->
 |item_name|string|null: false|
 |description|text|null: false|
-|category|string|null: false|
 |item_condition|integer|null: false|
 |trade_status|string|null: false|
 |size|string|null: false|
-|bland|string|null: true|
+|bland_id|integer|null: true|
+|category_id|integer|null: false|
 <!-- 配送について -->
 |delivery_charge|string|null: false|
 |delivery_methot|string|null: false|
