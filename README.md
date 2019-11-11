@@ -37,10 +37,10 @@ has_many :sellers, through: :seller_userReviews, source: :buyer
 <!-- 商品関係 -->
 |item_name|string|null: false|
 |description|text|null: false|
+|category|string|null: false|
 |item_condition|integer|null: false|
 |trade_status|string|null: false|
 |size|string|null: false|
-|category|string|null: false|
 |bland|string|null: true|
 <!-- 配送について -->
 |delivery_charge|string|null: false|
@@ -49,7 +49,6 @@ has_many :sellers, through: :seller_userReviews, source: :buyer
 |delivery_time|string|null: false|
 <!-- 料金 -->
 |price|integer|null: false|
-
 |user_id|integer|null: false, foreign_key: true|
 **Association**
 has_many :images
@@ -105,25 +104,23 @@ belongs_to :product
 #### user_reviewテーブル
 |Column|Type|Options|
 |------|----|-------|
+|message|text|null: false|
+|trade_review|string|null: true|
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
-|trade_review|string|null: true|
-|message|text|null: false|
 **Association**
 belongs_to :buyer, class_name: “User”
 belongs_to :seller, class_name: “User”
 #### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string||
-|product_id|integer|null: false, foreign_key: true|
-
+|text|string|
 **Association**
 has_many :products
+
 #### blandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string||
-|product_id|integer|null: false, foreign_key: true|
+|text|string|
 **Association**
 has_many :products
