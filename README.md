@@ -9,15 +9,7 @@
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |birthday|data|null: false|
-|prefectures|string|null: false|<!-- 住所部分 -->
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string|null: true|
-|phone_number|string|null: true|
-|card_number|string|null: false|<!--カードデータ部分-->
-|validated_data|string|null: false|
-|security_code|integer|null: false|
-|total_profit|bigint|<!--ユーザー詳細-->
+|total_profit|bigint|default: 0|<!--ユーザー詳細-->
 |point|bigint|default: 0|
 |user_profile|string|null: true|
 **Association**
@@ -29,7 +21,24 @@ has_many :buyer_userReview, class_name:”user_review”, foreign_key: :buyer_id
 has_many :buyers, through: :buyer_userReview, source: :seller
 has_many :seller_userReview, class_name:”user_review”, foreign_key: :seller_id
 has_many :sellers, through: :seller_userReviews, source: :buyer
+has_one :card
+has_one :address
 
+#### cardsテーブル
+|card_number|string|null: false|<!--カードデータ部分-->
+|validated_data|string|null: false|
+|security_code|integer|null: false|
+**Association**
+belong_to :user
+
+#### addressテーブル
+|prefectures|string|null: false|<!-- 住所部分 -->
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string|null: true|
+|phone_number|string|null: true|
+**Association**
+belong_to :user
 
 #### productsテーブル
 |Column|Type|Options|
@@ -114,13 +123,13 @@ belongs_to :seller, class_name: “User”
 #### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|
+|text|string|null: false|
 **Association**
 has_many :products
 
 #### blandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|
+|text|string|null: false|
 **Association**
 has_many :products
