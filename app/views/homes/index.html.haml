@@ -1,18 +1,21 @@
 .main_image
-  .main_image_title
-    スマホでかんたん<br>
-    フリマアプリ
-  .main_image_description
-    メルカリはスマホカメラからすぐに出品できる<br>
-    購入時も安心な独自システムのアプリです
-  .main_image_authentication
-    .main_image_authentication_app-store
-      APP STORE
-    .main_image_authentication_google
-      Google Play
+  .main_image_box
+    .main_image_title
+      スマホで かんたん<br>
+      フリマアプリ
+    .main_image_description
+      Fmarketはスマホカメラからすぐに出品できる<br>
+      購入時も安心な独自システムのアプリです
+    .main_image_authentication
+      .main_image_authentication_app-store
+        =image_tag "/top_page/appstore.png", class: "footer_downloads_btns_appstore"
+      .main_image_authentication_google
+        =image_tag "/top_page/google.png", class: "footer_downloads_btns_googleplay"
 
 =render"homes/popular_category"
 =render"homes/category_contents"
 =render"homes/popular_brands"
 =render"homes/brands_contents"
+=render"homes/footer"
+=render"homes/exhibit"
   

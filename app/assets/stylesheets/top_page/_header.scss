@@ -142,29 +142,34 @@ header {
 // ======ここからトップページバナー画面==================================
 .main_image{
   padding-top: 20px;
-  background-image:url("/top_page/sample.png");
+  background-image:url("/top_page/top.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: auto;
+  
   height: 400px;
 }
-  .main_image_title{
-    font-size:60px;
-    padding-left: 50px;
-  }
-  .main_image_description{
-    padding: 20px 0 20px 50px;
-  }
-  .main_image_authentication{
-    font-size: 20px;
-    padding: 40px 0 20px 50px;
+  .main_image_box{
+    width: 800px;
+    margin: 0 auto;
 
   }
-    .main_image_authentication_app-store{
-      margin-right: 50px;
-      float: left;
+    .main_image_title{
+      font-size:60px;
+      padding-left: 50px;
+      font-weight: bold;
     }
-    // .main_image_authentication_google
+    .main_image_description{
+      padding: 20px 0 20px 50px;
+    }
+    .main_image_authentication{
+      font-size: 20px;
+      padding: 40px 0 20px 50px;
+
+    }
+      .main_image_authentication_app-store{
+        margin-right: 50px;
+        float: left;
+      }
 
     // ======ここから人気のカテゴリー一覧・人気のブランド一覧==================================
     .toppage_popular{
@@ -227,10 +232,11 @@ header {
               .new_item_header{
                 height: 50px;
                 position: relative;
+                padding-bottom: 10px;
               }
                 .new_item_header_title{
                   font-weight: bold;
-                  padding: 40px 0 30px 20px;
+                  padding: 40px 0 40px 20px;
                   display: inline-block;
                   font-size:24px;
                 }
@@ -251,7 +257,7 @@ header {
                   padding: 30px;
                 }
                   .new_item_contents_img{
-                    background-image:url("/top_page/item.jpg");
+                    
                     background-repeat: no-repeat;
                     background-size: cover;
                     width: 200px;
@@ -273,4 +279,136 @@ header {
                     width: 200px;
                   }
                   
-          
+// =======================ここからフッターの画像部分==================================
+.footer{
+  width: 100%;
+}
+  .footer_downloads{
+    background-image:url("/top_page/footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+  }
+  .footer-width{
+    width:900px;
+    margin: 0 auto;
+  }
+    .footer_downloads_messages{
+      color: cornsilk;
+      padding: 50px 0 30px 60px;
+    }
+      .footer_downloads_messages-top{
+        font-weight: bold;
+        font-size: 30px;
+      }
+        
+      .footer_downloads_messages-down{
+        font-size: 40px;
+      }
+        
+    .footer_downloads_btns{
+      padding: 0px 0 0px 60px;
+    }
+      .footer_downloads_btns_fmarket{
+        height: 60px;
+        width: 60px;
+        padding-right: 10px;
+      }
+      .footer_downloads_btns_appstore{
+        height: 50px;
+        width: 150px;
+        padding-right: 10px;
+      }
+      .footer_downloads_btns_googleplay{
+        height: 50px;
+        width:  150px;
+      }
+
+  // =======================ここからフッターの黒い部分==================================
+  .footer_black{
+    height: 470px;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+  }
+  .footer-guide_width{
+    width:1000px;
+    margin: 0 auto;
+   
+  }
+      .footer-guide{
+        padding-top: 20px;
+        
+      }
+      // =======================ここからフッター黒い部分共通部分==================================
+ 
+        .footer-guide_fmarket{
+          padding-right: 50px;
+          float: left;
+        }
+          .footer-guide_title{
+            font-weight: bold;
+            padding-bottom: 20px;
+          }
+          .footer-guide_list{
+            font-size: 12px;
+            padding-bottom: 20px;
+          }
+            .footer-guide_list_contents{
+              padding-bottom: 20px;
+            }
+            .footer-guide_list_logomark{
+              font-size: 40px;
+            }
+// =======================ここからフッター黒い部分タイトル==================================
+.footer-guide_help{
+  float: left;
+  padding-right: 50px;
+}
+.footer-guide_rule{
+  float: left;
+  padding-right: 50px;
+}
+.footer-guide_Country{
+  padding: 0;
+  padding-right: 50px;
+}
+// =======================ここからフッター最下部==================================
+.footer_bottom{
+  height: 70px;
+  clear: both;
+}
+.footer_bottom_contents{
+
+}
+
+.footer_bottom_contents_logo{
+ height: 60px;
+ width: 60px;
+ float: left;
+}
+.footer_bottom_contents_copy-right{
+  text-align: center;
+  padding-top: 30px;
+}
+// =======================ここから出品アイコン==================================
+.home_circle{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius:200px;
+  height: 170px;
+  width: 170px;
+  color: white;
+  background-color:crimson;
+}
+  .home_circle_contents{
+    text-align: center;
+    padding-top: 20px;
+  }
+    .home_circle_contents_title{
+      font-size: 25px;
+    }
+    .home_circle_contents_icon{
+      font-size: 70px;
+    }
