@@ -11,7 +11,7 @@
 }
 
 header {
-  height: 82px;
+  height: 73px;
   width: 1020px;
   margin: 0 auto 20px;
   padding: 8px 0 0;
@@ -138,6 +138,37 @@ header {
     }
   }
 }
+.top_category_width{
+  width: 944px;
+  margin: 0 auto;
+
+  .top_category_list_first{
+    
+    position: absolute;
+    font-size: 12px;
+    width: 200px;
+    background-color:white;
+    
+
+      ul{
+        padding: 0px;
+        padding-bottom: 50px;
+        
+    }
+        li{
+          list-style: none;
+          font-size: 13px;
+          padding: 10px;
+          
+          
+        }
+  }
+
+  
+
+}
+
+
 
 // ======ここからトップページバナー画面==================================
 .main_image{
