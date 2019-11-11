@@ -23,7 +23,7 @@
                 %h2
                   =fa_icon'list-ul'
                   カテゴリーから探す
-              %li.brands
+              %li.header_brands
                 %h2
                   =fa_icon 'tags'
                   ブランドから探す
@@ -32,15 +32,15 @@
                   =fa_icon 'heart'
                   いいね！一覧
 
-              %li.news
+              %li.header_news
                 %h2
                   =fa_icon'bell'
                   お知らせ
-              %li.to_do_list
+              %li.header_to_do_list
                 %h2
                   =fa_icon'check'
                   やることリスト
-              %li.to_do_list
+              %li.header_to_do_list
                 %h2
                   =fa_icon'user'
                   マイページ
@@ -51,4 +51,30 @@
         %li< メンズ
         %li< ベビー・キッズ
         %li< インテリア・住まい・小物
+
+  
+    .top_brand_list_btn
+      .top_brand_list_first
+        %li< シャネル
+        %li< ナイキ
+        %li< ルイヴィトン
+        %li< シュプリーム
+
+    .top_news
+      .top_news_image
+        =image_tag "/SVG/logo_red.svg", class: "top_news_image"
+      .top_news_content
+        .top_news_content_message
+          『シャーペン』を購入しました。発送までしばらくお待ちください。
+        .top_news_content_day
+          1日前
+
+    .top_to_do_list
+      .top_to_do_list_image
+        =image_tag "/SVG/logo_red.svg", class: "top_news_image"
+      .top__to_do_list_content
+        .top_to_do_list_content_message
+          出品者さんから『シャーペン』の取引メッセージがあります。
+        .top_to_do_list_content_day
+          1日前
   = yield
