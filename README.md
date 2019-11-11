@@ -17,8 +17,8 @@
 |card_number|string|null: false|<!--カードデータ部分-->
 |validated_data|string|null: false|
 |security_code|integer|null: false|
-|total_profit|bigint||<!--ユーザー詳細-->
-|point|bigint|null: true|
+|total_profit|bigint|<!--ユーザー詳細-->
+|point|bigint|default: 0|
 |user_profile|string|null: true|
 **Association**
 has_many :porducts
