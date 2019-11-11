@@ -17,9 +17,8 @@
 |card_number|string|null: false|<!--カードデータ部分-->
 |validated_data|string|null: false|
 |security_code|integer|null: false|
-|total_profit|string||<!--ユーザー詳細-->
-|point|string||
-|nice_count|string||
+|total_profit|bigint||<!--ユーザー詳細-->
+|point|bigint||
 |user_profile|string|null: true|
 **Association**
 has_many :porducts
@@ -48,6 +47,8 @@ has_many : sellers through: :seller_userReviews, source: :buyer
 |delivery_time|string|null: false|
 <!-- 料金 -->
 |price|integer|null: false|
+
+|user_id|integer|null: false, foreign_key: true|
 **Association**
 has_many :images
 has_many :commnets
