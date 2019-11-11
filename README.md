@@ -41,7 +41,7 @@ has_many : sellers through: :seller_userReviews, source: :buyer
 |trade_status|string|null: false|
 |size|string|null: false|
 |category|string|null: false|
-|bland|string|null:false|
+|bland|string|null: true|
 <!-- 配送について -->
 |delivery_charge|string|null: false|
 |delivery_methot|string|null: false|
