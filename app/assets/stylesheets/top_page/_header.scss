@@ -11,7 +11,7 @@
 }
 
 header {
-  height: 73px;
+  height: 55px;
   width: 1020px;
   margin: 0 auto 20px;
   padding: 8px 0 0;
@@ -86,7 +86,7 @@ header {
           }
         }
 
-        .like {
+        .header_like {
           position: relative;
           display: inline-block;
           padding: 0 0 0 200px;
@@ -118,7 +118,22 @@ header {
           }
         }
 
-        .header_to_do_list {
+        .header_todo {
+          position: relative;
+          display: inline-block;
+          padding: 0 0 0 16px;
+          h2 {
+            font-size: 13px;
+            font-weight: 400;
+            a {
+              display: block;
+              color: #333;
+              text-decoration: none;
+            }   
+          }
+        }
+
+        .header_mypage {
           position: relative;
           display: inline-block;
           padding: 0 0 0 16px;
@@ -130,7 +145,6 @@ header {
               color: #333;
               text-decoration: none;
             }
-          
           }
         }
 
@@ -138,22 +152,20 @@ header {
     }
   }
 }
-.top_category_width{
+.box_width{
   width: 944px;
   margin: 0 auto;
 
-  .top_category_list_btn{
-    
+  .category_box{
     position: absolute;
     font-size: 12px;
     width: 200px;
     background-color:white;
     display: none;
 
-      .top_category_list_list{
+      .list_category{
         padding: 0px;
         padding-bottom: 50px;
-        
     }
         li{
           list-style: none;
@@ -164,7 +176,7 @@ header {
         }
   }
 
-  .top_brand_list_btn{
+  .brand_box{
     
     position: absolute;
     margin-left: 150px;
@@ -173,21 +185,21 @@ header {
     background-color:white;
     display: none;
 
-      .top_brand_list_list{
-        padding: 0px;
-        padding-bottom: 50px;
+    .list_brand{
+      padding: 0px;
+      padding-bottom: 50px;
+      
+  }
+      li{
+        list-style: none;
+        font-size: 13px;
+        padding: 10px;
         
-    }
-        li{
-          list-style: none;
-          font-size: 13px;
-          padding: 10px;
-          
-          
-        }
+        
+      }
   }
   
-  .top_news{
+  .news_box{
     position: absolute;
     margin-left: 570px;
     font-size: 12px;
@@ -195,32 +207,22 @@ header {
     height:100px ;
     background-color:white;
     display: none;
-    .top_news_image{
+    .news_box_image{
       height: 50px;
       width: 50px;
       padding:10px;
       float: left;
     }
-    .top_news_content{
+    .news_box_content{
       padding-left: 30px;
       height: 50px;
       width: 200px;
       padding: 10px 0 0 30px;
 
-      .top_news_content_message{
-        // position: absolute;
-        // right: 0;
-        // clear: both;
-      }
-      .top_news_content_day{
-        // position: absolute;
-        // right: 0;
-        // clear: both;
-      }
     }
   }
 
-  .top_to_do_list{
+  .todo_box{
     position: absolute;
     margin-left: 670px;
     font-size: 12px;
@@ -228,28 +230,19 @@ header {
     height:100px ;
     background-color:white;
     display: none;
-    .top_to_do_list_image{
+
+    .todo_box_image{
       height: 50px;
       width: 50px;
       padding:10px;
       float: left;
     }
-    .top_to_do_list_content{
+    .todo_box_content{
       padding-left: 30px;
       height: 50px;
       width: 200px;
       padding: 10px 0 0 30px;
 
-      .top_to_do_list_content_message{
-        // position: absolute;
-        // right: 0;
-        // clear: both;
-      }
-      .top_to_do_list_content_day{
-        // position: absolute;
-        // right: 0;
-        // clear: both;
-      }
     }
   }
 
@@ -258,7 +251,7 @@ header {
 
 
 // ======ここからトップページバナー画面==================================
-.main_image{
+.banner{
   padding-top: 20px;
   background-image:url("/top_page/top.jpg");
   background-repeat: no-repeat;
@@ -266,25 +259,25 @@ header {
   
   height: 400px;
 
-  &_box{
+  &_width{
     width: 800px;
     margin: 0 auto;
 
   
-    .main_image_title{
+    .banner_title{
       font-size:60px;
       padding-left: 50px;
       font-weight: bold;
     }
-    .main_image_description{
+    .banner_description{
       padding: 20px 0 20px 50px;
     }
-    .main_image_authentication{
+    .banner_authentication{
       font-size: 20px;
       padding: 40px 0 20px 50px;
 
     
-      &_app-store{
+      .btn_app-store{
         margin-right: 50px;
         float: left;
       }
@@ -292,7 +285,7 @@ header {
   }
 }
     // ======ここから人気のカテゴリー一覧・人気のブランド一覧==================================
-    .toppage_popular{
+    .popular{
       height: 200px;
       text-align: center;
     
@@ -306,28 +299,9 @@ header {
         padding: 20px 0 0 350px;
         display: flex;
         text-align: center;
-      
-        toppage_popular_list_ladies{
-          margin-left: 70px;
-          margin-right: 30px;
-          background-color:#ccc;
-          border-radius: 30px;
-
-        }
+        margin-left: 70px;
           
-        toppage_popular_list_mens{
-          margin-right: 30px;
-          background-color: #ccc;
-          border-radius: 30px;
-        }
-          
-        toppage_popular_list_electronic-equipment{
-          margin-right: 30px;
-          background-color: #ccc;
-          border-radius: 30px;
-        }
-          
-        toppage_popular_list_toys{
+        popular_contents{
           margin-right: 30px;
           background-color: #ccc;
           border-radius: 30px;
@@ -336,190 +310,184 @@ header {
     }
         // ======ここから新着アイテム==================================
 
-        .new_item-wrapper{
-          background-color:gainsboro;
+        .new_item{
+          background-color: rgb(245, 245, 245);
            width: 100%;
-            
-        
-          .new_item{
-            background-color: rgb(245, 245, 245);
+          
+          &_width{
+            width: 1100px;
+            margin: 0 auto;
           
 
-            &_width{
-              width: 1100px;
-              margin: 0 auto;
+            .new_item_header{
+              height: 50px;
+              position: relative;
+              padding-bottom: 10px;
             
-
-              .new_item_header{
-                height: 50px;
-                position: relative;
-                padding-bottom: 10px;
-              
-                &_title{
-                  font-weight: bold;
-                  padding: 40px 0 40px 20px;
-                  display: inline-block;
-                  font-size:24px;
-                }
-                  
-                &_view-more{
-                  padding: 40px 0 30px 20px;
-                  color:blue;
-                  position: absolute;
-                  right: 0;
-                  display: inline-block;
-                  font-size: 15px;
-                }
+              .new_item_title{
+                font-weight: bold;
+                padding: 40px 0 40px 20px;
+                display: inline-block;
+                font-size:24px;
               }
-              .new_item_row {
-                display: flex;
-                flex-wrap: wrap;
                 
-                .new_item_contents{
-                  padding: 30px;
-                
-                  &_img{
-                    
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    width: 200px;
-                    height: 250px;
-                    position: relative;
+              .new_item_view-more{
+                padding: 40px 0 30px 20px;
+                color:blue;
+                position: absolute;
+                right: 0;
+                display: inline-block;
+                font-size: 15px;
+              }
+            }
+            .new_item_index {
+              display: flex;
+              flex-wrap: wrap;
+              
+              .new_item_contents{
+                padding: 30px;
+              
+                .contents_img{
                   
-                    .new_item_contents_img_price{
-                      color: white;
-                      background-color: black;
-                      border-top-right-radius:50px;
-                      border-bottom-right-radius:50px;
-                      width: 100px;
-                      position: absolute;
-                      bottom: 0;
-                    }
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  width: 200px;
+                  height: 250px;
+                  position: relative;
+                
+                  .contents_price{
+                    color: white;
+                    background-color: black;
+                    border-top-right-radius:50px;
+                    border-bottom-right-radius:50px;
+                    width: 100px;
+                    position: absolute;
+                    bottom: 0;
                   }
-                      
-                  &_subject{
-                    background-color: white;
-                    width: 200px;
-                  }
+                }
+                    
+                .contents_text{
+                  background-color: white;
+                  width: 200px;
                 }
               }
             }
           }
         }
+      
 // =======================ここからフッターの画像部分==================================
 .footer{
   width: 100%;
 }
-  .footer_downloads{
+  .footer__image{
     background-image:url("/top_page/footer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 300px;
   }
-  .footer-width{
+  .image_width{
     width:900px;
     margin: 0 auto;
   }
-    .footer_downloads_messages{
+    .download_messages{
       color: cornsilk;
       padding: 50px 0 30px 60px;
     }
-      .footer_downloads_messages-top{
+      .download_messages__top{
         font-weight: bold;
         font-size: 30px;
       }
         
-      .footer_downloads_messages-down{
+      .download_messages__down{
         font-size: 40px;
       }
         
-    .footer_downloads_btns{
+    .downloads_btns{
       padding: 0px 0 0px 60px;
     }
-      .footer_downloads_btns_fmarket{
+      .fmarket_btn{
         height: 60px;
         width: 60px;
         padding-right: 10px;
       }
-      .footer_downloads_btns_appstore{
+      .appstore_btn{
         height: 50px;
         width: 150px;
         padding-right: 10px;
       }
-      .footer_downloads_btns_googleplay{
+      .googleplay_btn{
         height: 50px;
         width:  150px;
       }
 
   // =======================ここからフッターの黒い部分==================================
-  .footer_black{
+  .footer__information{
     height: 470px;
     background-color: black;
     color: white;
     flex-wrap: wrap;
-  }
-  .footer-guide_width{
-    width:1000px;
-    margin: 0 auto;
-   
-  }
-      .footer-guide{
+  
+    .information_width{
+      width:1000px;
+      margin: 0 auto;
+    
+    
+      .guide_contents{
         padding-top: 20px;
         
       }
-      // =======================ここからフッター黒い部分共通部分==================================
- 
-        .footer-guide_fmarket{
+
+        .guide_fmarket{
           padding-right: 50px;
           float: left;
         }
-          .footer-guide_title{
+          .guide_title{
             font-weight: bold;
             padding-bottom: 20px;
           }
-          .footer-guide_list{
+          .guide_list{
             font-size: 12px;
             padding-bottom: 20px;
           }
-            .footer-guide_list_contents{
+            .guide_item{
               padding-bottom: 20px;
+              color:gray;
             }
-            .footer-guide_list_logomark{
+            .guide_item_logomark{
               font-size: 40px;
             }
+    }
+  }
 // =======================ここからフッター黒い部分タイトル==================================
-.footer-guide_help{
+.guide_help{
   float: left;
   padding-right: 50px;
 }
-.footer-guide_rule{
+.guide_rule{
   float: left;
   padding-right: 50px;
 }
-.footer-guide_Country{
+.guide_Country{
   padding: 0;
   padding-right: 50px;
 }
 // =======================ここからフッター最下部==================================
-.footer_bottom{
+.footer__bottom{
   height: 70px;
   clear: both;
-}
-.footer_bottom_contents{
 
-}
-
-.footer_bottom_contents_logo{
- height: 60px;
- width: 60px;
- float: left;
-}
-.footer_bottom_contents_copy-right{
-  text-align: center;
-  padding-top: 30px;
+  .bottom_contents_logo{
+  height: 60px;
+  width: 60px;
+  float: left;
+  }
+  .bottom_contents_copy-right{
+    text-align: center;
+    padding-top: 30px;
+  }
 }
 // =======================ここから出品アイコン==================================
-.home_circle{
+.exhibit_btn{
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -530,19 +498,21 @@ header {
   background-color:crimson;
   
 
-}
-  .home_circle_contents{
+
+  &__contents{
     text-align: center;
     padding-top: 20px;
     
-  }
-    .home_circle_contents_title{
+  
+    .exhibit_title{
       font-size: 25px;
       color:white;
       
       
     }
-    .home_circle_contents_icon{
+    .exhibit_icon{
       font-size: 60px;
       color: white;
     }
+  }
+}

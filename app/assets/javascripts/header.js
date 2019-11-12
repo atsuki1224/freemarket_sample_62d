@@ -1,10 +1,10 @@
 $(function() {
 
   $('.header_categories').hover(function(){
-      $('.top_category_list_btn').show();
+      $('.category_box').show();
   },
       function(){
-        $('.top_category_list_btn').hide();
+        $('.category_box').hide();
       }
 
   );
@@ -12,28 +12,28 @@ $(function() {
 
 
   $('.header_brands').hover(function(){
-    $('.top_brand_list_btn').show();
+    $('.brand_box').show();
   },
     function(){
-      $('.top_brand_list_btn').hide();
+      $('.brand_box').hide();
     }
 
   );
 
   $('.header_news').hover(function(){
-    $('.top_news').show();
+    $('.news_box').show();
   },
     function(){
-      $('.top_news').hide();
+      $('.news_box').hide();
     }
 
   );
 
-  $('.header_to_do_list').hover(function(){
-    $('.top_to_do_list').show();
+  $('.header_todo').hover(function(){
+    $('.todo_box').show();
   },
     function(){
-      $('.top_to_do_list').hide();
+      $('.todo_box').hide();
     }
 
   );
