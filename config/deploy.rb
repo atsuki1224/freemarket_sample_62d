@@ -2,6 +2,8 @@
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.11.2'
 
+set :linked_files, %w{ config/secrets.yml }
+
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_62d'
 
@@ -33,8 +35,6 @@ set :default_env, {
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
-
-set :linked_files, %w{ config/secrets.yml }
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
