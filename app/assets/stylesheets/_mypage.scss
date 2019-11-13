@@ -1,0 +1,502 @@
+// マイページ大枠 (navはファイルを別とする)
+.mypage {
+  margin: 40px auto 0;
+  width: 1020px;
+  &__content {
+    float: right;
+    width: 700px;
+    
+  }
+  &__container {
+    margin: 40px 0 0;
+    background: #fff;
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+// 各セクション毎のスタイル
+.mypage__user {
+  position: relative;
+  padding: 20px;
+  height: 155px;
+  background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?79784477");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #333;
+  }
+  &--name {
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+  &--info {
+    margin: 8px 0 0;
+    div {
+      display: inline-block;
+      font-size: 14px;
+      margin: 0 0 0 16px;
+      span {
+        margin: 0 0 0 8px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.mypage__noti-todo {
+  background: #fff;
+  &__select {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 50%;
+      a {
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 50%;
+      border-top: 2px solid #ea352d;
+    }
+    
+  }
+  &__content {
+    ul.tab-pane {
+      display: none;
+    }
+    ul.tab-pane.active {
+      display: block;
+      li{
+        position: relative;
+        border-bottom: 1px solid #eee;
+      }
+      .notification-list {
+        position: relative;
+        padding: 16px;
+        a {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          background: #eee;
+          color: #333;
+          line-height: 56px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.mypage__container {
+  &--head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    &.nice {
+      font-size: 24px;
+    }
+  }
+  &__select {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 50%;
+      a {
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 50%;
+      border-top: 2px solid #ea352d;
+    }
+  }
+  &__content {
+    ul.tab-pane {
+      display: none;
+    }
+    ul.tab-pane.active {
+      display: block;
+      .purchased-list {
+        position: relative;
+        padding: 16px;
+        a {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          background: #eee;
+          color: #333;
+          line-height: 56px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.mypage__listing {
+  background: #fff;
+  &--head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__select {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 33%;
+      a {
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 34%;
+      border-top: 2px solid #ea352d;
+    }
+  }
+  &__content {
+    ul.tab-pane {
+      display: none;
+    }
+    ul.tab-pane.active {
+      display: block;
+      .purchased-list {
+        position: relative;
+        padding: 16px;
+        a {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          background: #eee;
+          color: #333;
+          line-height: 56px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.mypage__review {
+  background: #fff;
+  &--head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__select {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 25%;
+      a {
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      color: #eee;
+      vertical-align: top;
+      width: 25%;
+      border-top: 2px solid #ea352d;
+    }
+  }
+  &__content {
+    ul.tab-pane {
+      display: none;
+    }
+    ul.tab-pane.active {
+      display: block;
+      .purchased-list {
+        position: relative;
+        padding: 16px;
+        a {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          background: #eee;
+          color: #333;
+          line-height: 56px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// マイページのリンク内コンテンツ用スタイル
+.mypage__item__link {
+  position: relative;
+  display: block;
+  min-height: 46px;
+  padding: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  img {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+  }
+  &__sold {
+    // border-width: 40px 40px 0 0;
+    &--badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      border-width: 40px 40px 0 0;
+      border-style: solid;
+      border-color: #ea352d transparent transparent transparent;
+      div {
+        position: absolute;
+        top: -30px;
+        z-index: 2;
+        color: #fff;
+        font-size: 9px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+    }
+  }
+  &__body {
+    margin: 0 40px 0 68px;
+    &--text {
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+    &--status {
+      display: inline-block;
+      margin: 8px 0 0 0;
+      padding: 5px 6px;
+      border-radius: 2px;
+      font-size: 12px;
+      color: #fff;
+      &.done {
+        background: #888;
+      }
+      &.awaiting {
+        background: #0099e8;
+      }
+    }
+    time {
+      display: inline-block;
+      color: #888;
+      .fa-clock {
+        color: #333;
+        margin: 0 8px 0 0;
+        font-size: 16px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .fa-chevron-right {
+    position: absolute; /* 矢印の位置の指定 */
+    right: 16px; /* 矢印の位置の指定 */
+    top: 50%; /* 矢印の位置の指定 */
+    font-size: 14px;
+    color: #333;
+    display: block;
+    box-sizing: inherit;
+  }
+  &--notfound {
+    padding: 160px 0 60px;
+    background: url(/assets/logo_gray.svg);
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+  }
+}
+.mypage__listing__link {
+  position: relative;
+  display: block;
+  min-height: 46px;
+  padding: 16px;
+  color: #333;
+  img {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+  }
+  &__body {
+    margin: 0 40px 0 68px;
+    &--text {
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+    &__detail {
+      color: #ccc;
+      font-size: 14px;
+      &--count {
+        display: inline-block;
+      }
+      &--status {
+        display: inline-block;
+        margin: 8px 0 0 0;
+        padding: 5px 6px;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #fff;
+        &.done {
+          background: #888;
+        }
+        &.awaiting {
+          background: #0099e8;
+        }
+      }
+    }
+  }
+  .fa-chevron-right {
+    position: absolute; /* 矢印の位置の指定 */
+    right: 16px; /* 矢印の位置の指定 */
+    top: 50%; /* 矢印の位置の指定 */
+    font-size: 14px;
+    color: #333;
+    display: block;
+    box-sizing: inherit;
+  }
+}
+
+// ページ遷移ボタン
+.mypage__history {
+  margin: 40px 0 0;
+  position: relative;
+  font-size: 0;
+  text-align: center;
+  &--prev {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 42px;
+    position: absolute;
+    left: 0;
+  }
+  &--next {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 42px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+// fontawsome系  ... clockに適用できない
+.fa {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  color: #ccc;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}

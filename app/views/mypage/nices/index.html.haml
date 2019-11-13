@@ -1,0 +1,30 @@
+.mypage.clearfix
+  = render '/mypage/nav'
+  .mypage__content
+    %section.mypage__container
+      .mypage__container--head.nice
+        いいね！一覧
+      .mypage__container__content
+        %ul#mypage-tab-transaction-now.mypage__item__link--list.tab-pane.active
+          %li
+            =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage__item__link" do
+              =image_tag "/assets/svg/logo_red.svg", class:"lazyload"
+              .mypage__item__link__body
+                .mypage__item__link__body--text
+                  商品名1
+                .mypage__item__link__body--text
+                  ¥1,000
+              =fa_icon 'chevron-right'
+          %li
+            =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage__item__link" do
+              =image_tag "/assets/svg/logo_red.svg", class:"lazyload"
+              .mypage__item__link__sold
+                .mypage__item__link__sold--badge
+                  %div<
+                    SOLD
+              .mypage__item__link__body
+                .mypage__item__link__body--text
+                  商品名2
+                .mypage__item__link__body--text
+                  ¥1,000
+              =fa_icon 'chevron-right'

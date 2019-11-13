@@ -1,0 +1,15 @@
+.mypage.clearfix
+  = render 'nav'
+  .mypage__content
+    %section.mypage__noti-todo
+      %ul.mypage__noti-todo__select
+        %li<>
+          =link_to "/mypage/notification", "data-toggle": "tab" do
+            お知らせ
+        %li.active<>
+          =link_to "#mypage-tab-todo", "data-toggle": "tab" do
+            やることリスト
+      .mypage__noti-todo__content
+        %ul#mypage-tab-todo.mypage__noti-todo__content.tab-pane.active
+          %li.mypage__item__link--notfound.bold
+            現在、やることリストはありません
