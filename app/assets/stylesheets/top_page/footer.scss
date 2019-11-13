@@ -1,0 +1,144 @@
+// =======================ここからフッターの画像部分==================================
+.footer{
+  width: 100%;
+
+  .footer__image{
+    background-image:url("/top_page/footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+  
+    .contents-area{
+      width:900px;
+      margin: 0 auto;
+    
+      .messages{
+        color: cornsilk;
+        padding: 50px 0 30px 60px;
+      
+        &__top{
+          font-weight: bold;
+          font-size: 30px;
+        }
+          
+        &__bottom{
+          font-size: 40px;
+        }
+      }
+          
+      .downloads-btns{
+        padding: 0px 0 0px 60px;
+      }
+        .fmarket-btn{
+          height: 60px;
+          width: 60px;
+          padding-right: 10px;
+        }
+        .appstore-btn{
+          height: 50px;
+          width: 150px;
+          padding-right: 10px;
+        }
+        .googleplay-btn{
+          height: 50px;
+          width:  150px;
+        }
+      }
+    }
+  // =======================ここからフッターの黒い部分==================================
+
+  .footer__information{
+    height: 470px;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+  
+    .information__area{
+      width:1000px;
+      margin: 0 auto;
+    
+    
+      .information-contents{
+        padding-top: 20px;
+        }
+
+        .information-contents__fmarket{
+          padding-right: 50px;
+          float: left;
+        }
+          .title{
+            font-weight: bold;
+            padding-bottom: 20px;
+          }
+          .list{
+            font-size: 12px;
+            padding-bottom: 20px;
+          }
+            .item{
+              padding-bottom: 20px;
+              color:gray;
+            }
+            .item__logomark{
+              font-size: 40px;
+            }
+    }
+  }
+// =======================ここからフッター黒い部分タイトル==================================
+.information-contents__help{
+  float: left;
+  padding-right: 50px;
+}
+.information-contents__rule{
+  float: left;
+  padding-right: 50px;
+}
+.information-contents__country{
+  padding: 0;
+  padding-right: 50px;
+}
+// =======================ここからフッター最下部==================================
+.footer__bottom{
+  height: 70px;
+  clear: both;
+
+  .logo{
+  height: 60px;
+  width: 60px;
+  float: left;
+  }
+  .copy-right{
+    text-align: center;
+    padding-top: 30px;
+  }
+}
+// =======================ここから出品アイコン==================================
+.sell-btn{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius:200px;
+  height: 170px;
+  width: 170px;
+  color: white;
+  background-color:crimson;
+  
+
+
+  &__contents{
+    text-align: center;
+    padding-top: 20px;
+    
+  
+    .sell-btn__title{
+      font-size: 25px;
+      color:white;
+      
+      
+    }
+    .sell-btn__icon{
+      font-size: 60px;
+      color: white;
+    }
+  }
+}
+}

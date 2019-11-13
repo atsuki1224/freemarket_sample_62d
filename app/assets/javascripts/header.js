@@ -1,41 +1,35 @@
 $(function() {
 
-  $('.header_categories').hover(function(){
-      $('.category_box').show();
+  $('#category').hover(function(){
+      $('.category-box').show();
   },
       function(){
-        $('.category_box').hide();
+        $('.category-box').hide();
       }
-
   );
 
-
-
-  $('.header_brands').hover(function(){
-    $('.brand_box').show();
+  $('#brand').hover(function(){
+    $('.brand-box').show();
   },
     function(){
-      $('.brand_box').hide();
+      $('.brand-box').hide();
     }
 
   );
 
-  $('.header_news').hover(function(){
-    $('.news_box').show();
+  $('#news').hover(function(){
+    $('.news-box').show();
   },
     function(){
-      $('.news_box').hide();
+      $('.news-box').hide();
     }
-
   );
 
-  $('.header_todo').hover(function(){
-    $('.todo_box').show();
+  $('#todo').hover(function(){
+    $('.todo-box').show();
   },
     function(){
-      $('.todo_box').hide();
+      $('.todo-box').hide();
     }
-
   );
-
 });

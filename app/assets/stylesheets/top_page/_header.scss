@@ -2,14 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.left-float {
-  float: left;
-}
-
-.right-float {
-  float: right;
-}
-
 header {
   height: 55px;
   width: 1020px;
@@ -21,6 +13,7 @@ header {
     padding: 0;
     &__logo {
     width: 134px;
+    float: left;
       img {
         width: 134px;
       }
@@ -28,6 +21,7 @@ header {
     &__search {
       position: relative;
       width: calc(100% - (134px + 16px));
+      float: right;
       a {
         color: black;
       }
@@ -52,14 +46,16 @@ header {
     }
   }
 
-  .header_lists {
+  .header-lists {
     height: 32px;
     margin: 9px 0 0 0;
     &__left {
+      float: left;
       ul{
-        .header_categories {
+        .header__title {
           position: relative;
           display: inline-block;
+          padding-left: 30px;
           h2 {
             font-size: 13px;
             font-weight: 400;
@@ -70,73 +66,16 @@ header {
             }
           }
         }
-        .header_brands {
+      }
+    }
+    &__right {
+      float: left;
+      ul{
+        li:first-child {padding:0 0 0 200px;}
+        .header__title {
           position: relative;
           display: inline-block;
-          padding: 0 0 0 16px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }
-          
-          }
-        }
-
-        .header_like {
-          position: relative;
-          display: inline-block;
-          padding: 0 0 0 200px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }
-          
-          }
-        }
-
-        .header_news {
-          position: relative;
-          display: inline-block;
-          padding: 0 0 0 16px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }
-          
-          }
-        }
-
-        .header_todo {
-          position: relative;
-          display: inline-block;
-          padding: 0 0 0 16px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }   
-          }
-        }
-
-        .header_mypage {
-          position: relative;
-          display: inline-block;
-          padding: 0 0 0 16px;
+          padding-left: 30px;
           h2 {
             font-size: 13px;
             font-weight: 400;
@@ -147,37 +86,33 @@ header {
             }
           }
         }
-
       }
     }
   }
 }
-.box_width{
+.box-area{
   width: 944px;
   margin: 0 auto;
 
-  .category_box{
+  .category-box{
     position: absolute;
     font-size: 12px;
     width: 200px;
     background-color:white;
     display: none;
 
-      .list_category{
-        padding: 0px;
-        padding-bottom: 50px;
+    .category-box__list{
+      padding: 0px;
+      padding-bottom: 50px;
     }
-        li{
-          list-style: none;
-          font-size: 13px;
-          padding: 10px;
-          
-          
-        }
+      li{
+        list-style: none;
+        font-size: 13px;
+        padding: 10px;
+      }
   }
 
-  .brand_box{
-    
+  .brand-box{
     position: absolute;
     margin-left: 150px;
     font-size: 12px;
@@ -185,21 +120,19 @@ header {
     background-color:white;
     display: none;
 
-    .list_brand{
+    .brand-box__list{
       padding: 0px;
       padding-bottom: 50px;
       
-  }
+    }
       li{
         list-style: none;
         font-size: 13px;
         padding: 10px;
-        
-        
       }
   }
   
-  .news_box{
+  .news-box{
     position: absolute;
     margin-left: 570px;
     font-size: 12px;
@@ -207,13 +140,13 @@ header {
     height:100px ;
     background-color:white;
     display: none;
-    .news_box_image{
+    .image{
       height: 50px;
       width: 50px;
       padding:10px;
       float: left;
     }
-    .news_box_content{
+    .content{
       padding-left: 30px;
       height: 50px;
       width: 200px;
@@ -222,7 +155,7 @@ header {
     }
   }
 
-  .todo_box{
+  .todo-box{
     position: absolute;
     margin-left: 670px;
     font-size: 12px;
@@ -231,13 +164,13 @@ header {
     background-color:white;
     display: none;
 
-    .todo_box_image{
+    .image{
       height: 50px;
       width: 50px;
       padding:10px;
       float: left;
     }
-    .todo_box_content{
+    .content{
       padding-left: 30px;
       height: 50px;
       width: 200px;
@@ -245,274 +178,4 @@ header {
 
     }
   }
-
-}
-
-
-
-// ======ここからトップページバナー画面==================================
-.banner{
-  padding-top: 20px;
-  background-image:url("/top_page/top.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  height: 400px;
-
-  &_width{
-    width: 800px;
-    margin: 0 auto;
-
-  
-    .banner_title{
-      font-size:60px;
-      padding-left: 50px;
-      font-weight: bold;
-    }
-    .banner_description{
-      padding: 20px 0 20px 50px;
-    }
-    .banner_authentication{
-      font-size: 20px;
-      padding: 40px 0 20px 50px;
-
-    
-      .btn_app-store{
-        margin-right: 50px;
-        float: left;
-      }
-    }
-  }
-}
-    // ======ここから人気のカテゴリー一覧・人気のブランド一覧==================================
-    .popular{
-      height: 200px;
-      text-align: center;
-    
-      &_title{
-        font-weight: bold;
-        padding:  50px 0 10px 0;
-        font-size: 30px;
-      }
-        
-      &_list{
-        padding: 20px 0 0 350px;
-        display: flex;
-        text-align: center;
-        margin-left: 70px;
-          
-        popular_contents{
-          margin-right: 30px;
-          background-color: #ccc;
-          border-radius: 30px;
-        }
-      }
-    }
-        // ======ここから新着アイテム==================================
-
-        .new_item{
-          background-color: rgb(245, 245, 245);
-           width: 100%;
-          
-          &_width{
-            width: 1100px;
-            margin: 0 auto;
-          
-
-            .new_item_header{
-              height: 50px;
-              position: relative;
-              padding-bottom: 10px;
-            
-              .new_item_title{
-                font-weight: bold;
-                padding: 40px 0 40px 20px;
-                display: inline-block;
-                font-size:24px;
-              }
-                
-              .new_item_view-more{
-                padding: 40px 0 30px 20px;
-                color:blue;
-                position: absolute;
-                right: 0;
-                display: inline-block;
-                font-size: 15px;
-              }
-            }
-            .new_item_index {
-              display: flex;
-              flex-wrap: wrap;
-              
-              .new_item_contents{
-                padding: 30px;
-              
-                .contents_img{
-                  
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                  width: 200px;
-                  height: 250px;
-                  position: relative;
-                
-                  .contents_price{
-                    color: white;
-                    background-color: black;
-                    border-top-right-radius:50px;
-                    border-bottom-right-radius:50px;
-                    width: 100px;
-                    position: absolute;
-                    bottom: 0;
-                  }
-                }
-                    
-                .contents_text{
-                  background-color: white;
-                  width: 200px;
-                }
-              }
-            }
-          }
-        }
-      
-// =======================ここからフッターの画像部分==================================
-.footer{
-  width: 100%;
-}
-  .footer__image{
-    background-image:url("/top_page/footer.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 300px;
-  }
-  .image_width{
-    width:900px;
-    margin: 0 auto;
-  }
-    .download_messages{
-      color: cornsilk;
-      padding: 50px 0 30px 60px;
-    }
-      .download_messages__top{
-        font-weight: bold;
-        font-size: 30px;
-      }
-        
-      .download_messages__down{
-        font-size: 40px;
-      }
-        
-    .downloads_btns{
-      padding: 0px 0 0px 60px;
-    }
-      .fmarket_btn{
-        height: 60px;
-        width: 60px;
-        padding-right: 10px;
-      }
-      .appstore_btn{
-        height: 50px;
-        width: 150px;
-        padding-right: 10px;
-      }
-      .googleplay_btn{
-        height: 50px;
-        width:  150px;
-      }
-
-  // =======================ここからフッターの黒い部分==================================
-  .footer__information{
-    height: 470px;
-    background-color: black;
-    color: white;
-    flex-wrap: wrap;
-  
-    .information_width{
-      width:1000px;
-      margin: 0 auto;
-    
-    
-      .guide_contents{
-        padding-top: 20px;
-        
-      }
-
-        .guide_fmarket{
-          padding-right: 50px;
-          float: left;
-        }
-          .guide_title{
-            font-weight: bold;
-            padding-bottom: 20px;
-          }
-          .guide_list{
-            font-size: 12px;
-            padding-bottom: 20px;
-          }
-            .guide_item{
-              padding-bottom: 20px;
-              color:gray;
-            }
-            .guide_item_logomark{
-              font-size: 40px;
-            }
-    }
-  }
-// =======================ここからフッター黒い部分タイトル==================================
-.guide_help{
-  float: left;
-  padding-right: 50px;
-}
-.guide_rule{
-  float: left;
-  padding-right: 50px;
-}
-.guide_Country{
-  padding: 0;
-  padding-right: 50px;
-}
-// =======================ここからフッター最下部==================================
-.footer__bottom{
-  height: 70px;
-  clear: both;
-
-  .bottom_contents_logo{
-  height: 60px;
-  width: 60px;
-  float: left;
-  }
-  .bottom_contents_copy-right{
-    text-align: center;
-    padding-top: 30px;
-  }
-}
-// =======================ここから出品アイコン==================================
-.exhibit_btn{
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  border-radius:200px;
-  height: 170px;
-  width: 170px;
-  color: white;
-  background-color:crimson;
-  
-
-
-  &__contents{
-    text-align: center;
-    padding-top: 20px;
-    
-  
-    .exhibit_title{
-      font-size: 25px;
-      color:white;
-      
-      
-    }
-    .exhibit_icon{
-      font-size: 60px;
-      color: white;
-    }
-  }
-}
+}      
