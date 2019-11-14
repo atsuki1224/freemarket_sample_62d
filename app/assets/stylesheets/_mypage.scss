@@ -1,4 +1,4 @@
-h2 {
+h2.idenfitication {
   color: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 1.5em;
@@ -7,7 +7,7 @@ h2 {
   text-align: center;
 }
 
-p {
+p.idenfitication {
   margin-top: 8px;
   font-size: 14px;
   color: #333333;
@@ -96,6 +96,7 @@ button.btn_red {
 
     .idenfitication_contents {
       padding: 64px;
+      border-top: 1px solid #161515;
       
       .form_group {
         margin-top: 40px;

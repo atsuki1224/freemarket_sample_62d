@@ -1,7 +1,7 @@
 .mypages_container
   .user_information
     %section.idenfitication
-      %h2 本人情報確認
+      %h2.idenfitication 本人情報確認
     %form.idenfitication_contents{action: "/",method: "post", novalidate:""}
       .caution_message
         %p.supplement
@@ -14,16 +14,16 @@
           
       .form_group
         %label.idenfitication お名前
-        %p 山田孝之
+        %p.idenfitication 山田孝之
       
       .form_group
         %label.idenfitication お名前カナ
-        %p ヤマダ タカユキ
+        %p.idenfitication ヤマダ タカユキ
         
       .form_group
         %label.idenfitication{for: "birthday"} 
           生年月日
-        %p 1990/5/26
+        %p.idenfitication 1990/5/26
 
       .form_group
         %label.idenfitication{for: "zip_code"}
