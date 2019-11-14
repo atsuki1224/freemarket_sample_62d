@@ -1,20 +1,19 @@
 .footer
   .footer__image
-    .contents-area
+    .footer__image--area
       .messages
         .messages__top
           スマホでかんたんフリマアプリ
         .messages__bottom
           今すぐ無料ダウンロード！
-      .download-btns
-        =image_tag "/SVG/logo_white.svg", class: "fmarket-btn"
-        =image_tag "/top_page/appstore.png", class: "appstore-btn"
-        =image_tag "/top_page/google.png", class: "googleplay-btn"
+      .download-btn
+        =image_tag "/SVG/logo_white.svg", class: "download-btn--fmarket"
+        =image_tag "/top_page/appstore.png", class: "download-btn--appstore"
+        =image_tag "/top_page/google.png", class: "download-btn--googleplay"
   .footer__information   
-    .information__area
+    .footer__information--area
       .information-contents
-
-        .information-contents__fmarket
+        .information-contents__box
           .title
             Fmarketについて
           .list
@@ -32,7 +31,7 @@
               =fa_icon"twitter", class: "footer-guide_fmarket_list_logomark_twitter"
               =fa_icon"facebook-square", class: "footer-guide_fmarket_list_logomark_facebook"
 
-        .information-contents__help
+        .information-contents__box
           .title
             ヘルプ＆ガイド
           .list
@@ -53,7 +52,7 @@
             .item
               Fmarketボックス
 
-        .information-contents__rule
+        .information-contents__box
           .title
             プライバシーと利用規約
           .list
@@ -74,7 +73,7 @@
             .item
               法令順守と犯罪抑止のために
 
-        .information-contents__country
+        .information-contents__box
           .title
             国
           .list
@@ -83,8 +82,7 @@
             .item
               United States
             
-            .footer__bottom
-              .logo
-              =image_tag "/SVG/logo_white.svg", class: "logo"
-              .copy-right
-                ©2019 Fmarket
+    .footer__bottom
+      =image_tag "/SVG/logo_white.svg", class: "footer__bottom--logo"
+      .footer__bottom--copy-right
+        ©2019 Fmarket

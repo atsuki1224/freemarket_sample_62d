@@ -1,6 +1,6 @@
 $(function() {
 
-  $('#category').hover(function(){
+  $('#header-category').hover(function(){
       $('.category-box').show();
   },
       function(){
@@ -8,7 +8,7 @@ $(function() {
       }
   );
 
-  $('#brand').hover(function(){
+  $('#header-brand').hover(function(){
     $('.brand-box').show();
   },
     function(){
@@ -17,7 +17,7 @@ $(function() {
 
   );
 
-  $('#news').hover(function(){
+  $('#header-news').hover(function(){
     $('.news-box').show();
   },
     function(){
@@ -25,7 +25,7 @@ $(function() {
     }
   );
 
-  $('#todo').hover(function(){
+  $('#header-todo').hover(function(){
     $('.todo-box').show();
   },
     function(){

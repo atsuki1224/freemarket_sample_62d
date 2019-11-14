@@ -1,73 +1,36 @@
 .header-wrapper
-  .default-container
-    %header
-      .logo-and-search.clearfix
-        =image_tag "/SVG/fmarket_logo_red.svg", class: "logo-and-search__logo "
-        .search
-          %form.logo-and-search__search
-            %input{value:"", placeholder:"何かお探しですか？" }
-            %i.fa.fa-search
-      .header-lists.clearfix
-        .header-lists__left
-          %ul
-            %li.header__title(id="category")
-              %h2
-                =fa_icon'list-ul'
-                カテゴリーから探す
-            %li.header__title(id="brand")
-              %h2
-                =fa_icon 'tags'
-                ブランドから探す
-        .header-lists__right  
-          %ul  
-            %li.header__title(id="nice")
-              %h2
-                =fa_icon 'heart'
-                いいね！一覧
+  .header
+    .header__logo-search.clearfix
+      =image_tag "/SVG/fmarket_logo_red.svg", class: "header__logo-search--logo"
+      %form.header__form
+        %input{value:"", placeholder:"何かお探しですか？", class:"header__form--input"}
+        %i.fa.fa-search
+    .headerlists.clearfix
+      %ul.headerlists__left
+        %li.header__item(id="header-category")
+          =link_to "#" ,class:"header__item--link parent" do
+            =fa_icon'list-ul', class:"parent"
+            カテゴリーから探す
+            
+        %li.header__item(id="header-brand")
+          =link_to "#",class:"header__item--link parent" do
+            =fa_icon 'tags', class:"parent"
+            ブランドから探す
 
-            %li.header__title(id="news")
-              %h2
-                =fa_icon'bell'
-                お知らせ
-            %li.header__title(id="todo")
-              %h2
-                =fa_icon'check'
-                やることリスト
-            %li.header__title(id="mypage")
-              %h2
-                =fa_icon'user'
-                マイページ
-
-  .box-area
-    .category-box
-      .category-box__list
-        %li< レディス
-        %li< メンズ
-        %li< ベビー・キッズ
-        %li< インテリア・住まい・小物
-
-  
-    .brand-box
-      .brand-box__list
-        %li< シャネル
-        %li< ナイキ
-        %li< ルイヴィトン
-        %li< シュプリーム
-
-    .news-box
-      .image
-        =image_tag "/SVG/logo_red.svg", class: "top_news_image"
-      .content
-        .content__message
-          『シャーペン』を購入しました。発送までしばらくお待ちください。
-        .content__day
-          1日前
-
-    .todo-box
-      .image
-        =image_tag "/SVG/logo_red.svg", class: "top_news_image"
-      .content
-        .content__message
-          出品者さんから『シャーペン』の取引メッセージがあります。
-        .content__day
-          1日前
+      %ul.headerlists__right  
+        %li.header__item(id="header-nice")
+          =link_to "#",class:"header__item--link" do
+            =fa_icon 'heart'
+            いいね！一覧
+        %li.header__item(id="header-news")
+          =link_to "#",class:"header__item--link" do
+            =fa_icon'bell'
+            お知らせ
+        %li.header__item(id="header-todo")
+          =link_to "#",class:"header__item--link" do
+            =fa_icon'check'
+            やることリスト
+        %li.header__item(id="heder-mypage")
+          =link_to "#",class:"header__item--link" do
+            =fa_icon'user'
+            マイページ

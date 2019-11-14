@@ -1,70 +1,61 @@
 // =======================ここからフッターの画像部分==================================
 .footer{
   width: 100%;
-
-  .footer__image{
+  &__image{
     background-image:url("/top_page/footer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 300px;
-  
-    .contents-area{
+    &--area{
       width:900px;
-      margin: 0 auto;
-    
+      margin: 0 auto;  
       .messages{
         color: cornsilk;
         padding: 50px 0 30px 60px;
-      
         &__top{
           font-weight: bold;
           font-size: 30px;
-        }
-          
+        }    
         &__bottom{
           font-size: 40px;
         }
-      }
-          
-      .downloads-btns{
+      }   
+      .download-btn{
         padding: 0px 0 0px 60px;
-      }
-        .fmarket-btn{
+        &--fmarket{
           height: 60px;
           width: 60px;
           padding-right: 10px;
         }
-        .appstore-btn{
+        &--appstore{
           height: 50px;
           width: 150px;
           padding-right: 10px;
         }
-        .googleplay-btn{
+        &--googleplay{
           height: 50px;
           width:  150px;
         }
       }
     }
+  }
   // =======================ここからフッターの黒い部分==================================
-
   .footer__information{
     height: 470px;
     background-color: black;
     color: white;
     flex-wrap: wrap;
   
-    .information__area{
+    &--area{
       width:1000px;
       margin: 0 auto;
     
     
       .information-contents{
         padding-top: 20px;
-        }
-
-        .information-contents__fmarket{
-          padding-right: 50px;
-          float: left;
+        &__box{
+        padding-right: 50px;
+        float: left;
         }
           .title{
             font-weight: bold;
@@ -77,38 +68,28 @@
             .item{
               padding-bottom: 20px;
               color:gray;
+              &__logomark{
+                font-size: 40px;
+              }
             }
-            .item__logomark{
-              font-size: 40px;
-            }
+      }
     }
   }
-// =======================ここからフッター黒い部分タイトル==================================
-.information-contents__help{
-  float: left;
-  padding-right: 50px;
-}
-.information-contents__rule{
-  float: left;
-  padding-right: 50px;
-}
-.information-contents__country{
-  padding: 0;
-  padding-right: 50px;
-}
 // =======================ここからフッター最下部==================================
-.footer__bottom{
-  height: 70px;
-  clear: both;
-
-  .logo{
-  height: 60px;
-  width: 60px;
-  float: left;
-  }
-  .copy-right{
-    text-align: center;
-    padding-top: 30px;
+  .footer__bottom{
+    height: 70px;
+    clear: both;
+    width:1000px;
+    margin: 0 auto;
+    &--logo{
+    height: 60px;
+    width: 60px;
+    float: left;
+    }
+    &--copy-right{
+      text-align: center;
+      padding-top: 30px;
+    }
   }
 }
 // =======================ここから出品アイコン==================================
@@ -121,24 +102,18 @@
   width: 170px;
   color: white;
   background-color:crimson;
-  
-
 
   &__contents{
     text-align: center;
     padding-top: 20px;
     
-  
-    .sell-btn__title{
-      font-size: 25px;
-      color:white;
-      
-      
-    }
-    .sell-btn__icon{
-      font-size: 60px;
-      color: white;
-    }
   }
-}
+  &__title{
+    font-size: 25px;
+    color:white;    
+  }
+  &__icon{
+    font-size: 60px;
+    color: white;
+  }
 }

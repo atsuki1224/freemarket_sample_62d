@@ -1,31 +1,29 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.header-wrapper{
+  background-color: #fff;
 
-header {
-  height: 55px;
-  width: 1020px;
-  margin: 0 auto 20px;
-  padding: 8px 0 0;
-  .logo-and-search {
-    height: 36px;
-    margin: 0;
-    padding: 0;
-    &__logo {
-    width: 134px;
-    float: left;
-      img {
-        width: 134px;
+  .header {
+    height: 55px;
+    width: 1020px;
+    margin: 0 auto 20px;
+    padding: 8px 0 0;
+    &__logo-search {
+      height: 36px;
+      margin: 0;
+      padding: 0;
+      &--logo {
+      width: 134px;
+      float: left;
+        img {
+          width: 134px;
+        }
       }
     }
-    &__search {
+    &__form {
       position: relative;
-      width: calc(100% - (134px + 16px));
+      margin-left: 45px;
+      width: calc(100% - (134px + 45px));
       float: right;
-      a {
-        color: black;
-      }
-      input {
+      &--input {
         width: 100%;
         height: 36px;
         padding: 9px 32px 9px 8px;
@@ -34,7 +32,7 @@ header {
         box-sizing: border-box;
         border: 1px solid #ccc;
       }
-      i {
+      .fa {
         position: absolute;
         top: 0;
         right: 0;
@@ -43,56 +41,50 @@ header {
         cursor: pointer;
         text-align: center;
       }
-    }
-  }
-
-  .header-lists {
-    height: 32px;
-    margin: 9px 0 0 0;
-    &__left {
-      float: left;
-      ul{
-        .header__title {
-          position: relative;
-          display: inline-block;
-          padding-left: 30px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }
-          }
-        }
+    }  
+    .headerlists {
+      height: 32px;
+      margin: 9px 0 0 0;
+      &__left {
+        float: left;
+      }
+      &__right {
+        float: right;
       }
     }
-    &__right {
-      float: left;
-      ul{
-        li:first-child {padding:0 0 0 200px;}
-        .header__title {
-          position: relative;
-          display: inline-block;
-          padding-left: 30px;
-          h2 {
-            font-size: 13px;
-            font-weight: 400;
-            a {
-              display: block;
-              color: #333;
-              text-decoration: none;
-            }
-          }
+    &__item {
+      position: relative;
+      display: inline-block;
+      padding-left: 30px;
+      padding: 0 11px;
+      cursor: pointer;
+      line-height: 32px;
+      &:first-child {padding-left: 0;}
+      &--link {
+        font-size: 14px;
+        font-weight: 400;
+        display: block;
+        color: #333;
+        text-decoration: none;
+        &.parent {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+      .fa {
+        font-size: 12px;
+        margin-right: 4px;
+        &.parent {
+          color: #ea352d;
+          font-size: 14px;
+          font-weight: 700;
         }
       }
     }
   }
 }
 .box-area{
-  width: 944px;
-  margin: 0 auto;
+  width: 100px;
 
   .category-box{
     position: absolute;
@@ -100,8 +92,8 @@ header {
     width: 200px;
     background-color:white;
     display: none;
-
-    .category-box__list{
+    
+    &__list{
       padding: 0px;
       padding-bottom: 50px;
     }
@@ -114,7 +106,6 @@ header {
 
   .brand-box{
     position: absolute;
-    margin-left: 150px;
     font-size: 12px;
     width: 200px;
     background-color:white;
@@ -132,50 +123,49 @@ header {
       }
   }
   
-  .news-box{
-    position: absolute;
-    margin-left: 570px;
-    font-size: 12px;
-    width: 300px;
-    height:100px ;
-    background-color:white;
-    display: none;
-    .image{
-      height: 50px;
-      width: 50px;
-      padding:10px;
-      float: left;
-    }
-    .content{
-      padding-left: 30px;
-      height: 50px;
-      width: 200px;
-      padding: 10px 0 0 30px;
-
-    }
+  
+}   
+.news-box{
+  position: absolute;
+  font-size: 12px;
+  width: 300px;
+  height:100px ;
+  background-color:white;
+  display: none;
+  .image{
+    height: 50px;
+    width: 50px;
+    padding:10px;
+    float: left;
   }
+  .content{
+    padding-left: 30px;
+    height: 50px;
+    width: 200px;
+    padding: 10px 0 0 30px;
 
-  .todo-box{
-    position: absolute;
-    margin-left: 670px;
-    font-size: 12px;
-    width: 300px;
-    height:100px ;
-    background-color:white;
-    display: none;
-
-    .image{
-      height: 50px;
-      width: 50px;
-      padding:10px;
-      float: left;
-    }
-    .content{
-      padding-left: 30px;
-      height: 50px;
-      width: 200px;
-      padding: 10px 0 0 30px;
-
-    }
   }
-}      
+}
+
+.todo-box{
+  position: absolute;
+  font-size: 12px;
+  width: 300px;
+  height:100px ;
+  background-color:white;
+  display: none;
+
+  .image{
+    height: 50px;
+    width: 50px;
+    padding:10px;
+    float: left;
+  }
+  .content{
+    padding-left: 30px;
+    height: 50px;
+    width: 200px;
+    padding: 10px 0 0 30px;
+
+  }
+}
