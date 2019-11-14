@@ -1,4 +1,4 @@
-h2{
+h2 {
   color: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 1.5em;
@@ -7,38 +7,38 @@ h2{
   text-align: center;
 }
 
-p{
+p {
   margin-top: 8px;
   font-size: 14px;
   color: #333333;
   font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;  
 }
 
-p.text_right{
+p.text_right {
   color: hsl(200, 100%, 45%);
   text-align: right;
   font-size: 14px;
   margin-top: 8px;
 }
 
-p.text_right ::after{ 
+p.text_right ::after { 
   content: ">";
   color: #0099e8;
 }
 
-a.detail_page{
+a.detail_page {
   color: #0099e8;
   text-decoration: none;
 }
 
-span.form_arbitrary{
+span.form_arbitrary {
   background-color: #ccc;
   font-size: 12px;
   margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    vertical-align: top;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  vertical-align: top;
 }
 
 input.input_default {
@@ -54,7 +54,7 @@ input.input_default {
   box-sizing: border-box;
   }
 
-select.default{
+select.default {
   background-repeat: no-repeat;
   background-size: 10px 30px;
   background-position: right 10px center;
@@ -70,13 +70,13 @@ select.default{
   box-sizing: border-box;
 }
 
-label.idenfitication{
+label.idenfitication {
   font-size: 14px;
   font-weight: 600;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-button.btn_red{
+button.btn_red {
   background-color: red;
   color: white;
   margin: 40px 0 0;
@@ -85,19 +85,19 @@ button.btn_red{
   font-size: 14px;
 }
 
-.mypages_container{
+.mypages_container {
   width: 100%;
   background-color: rgb(224, 228, 238);
 
-  .user_information{
+  .user_information {
     width: 700px;
     background-color: white;
     border-radius: 5px;
 
-    .idenfitication_contents{
+    .idenfitication_contents {
       padding: 64px;
       
-      .form_group{
+      .form_group {
         margin-top: 40px;
         }
       }
