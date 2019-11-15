@@ -2,17 +2,17 @@
   .mypage.clearfix
     = render 'nav'
     .mypage__content
-      %section.mypage__container
-        .mypage__container--head
+      %section.mypage__transaction
+        .mypage__transaction--head
           購入した商品
-        %ul.container__select
+        %ul.transaction__select
           %li
             =link_to "/mypage/purchase", "data-toggle": "tab" do
               取引中
           %li.active
             =link_to "#mypage-tab-transaction-now", "data-toggle": "tab" do
               過去の取引
-        .container__content
+        .transaction__content
           %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane.active
             %li
               =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage-link" do
@@ -20,8 +20,7 @@
                 .mypage-link__body
                   .mypage-link__body--text
                     「ノートパソコン」 を購入しました。
-                    %span
-                      取引が完了しました</span>
+                    取引が完了しました
                   .mypage-link__body--status.bold.done
                     取引完了
                 =fa_icon 'chevron-right'

@@ -3,9 +3,8 @@
     = render 'nav'
     .mypage__content
       %section.mypage__user
-        =link_to "ユーザーid毎のページurl" do
-          %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
+        =link_to "ユーザーid毎のページurl",  class:"mypage__user--link" do
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
           .mypage__user--name.bold<>
             TestUser
           .mypage__user--info
@@ -84,3 +83,4 @@
             %li.purchased-list
               =link_to "/jp/mypage/purchased/" do
                 一覧を見る
+            .headerlists.clearfix
