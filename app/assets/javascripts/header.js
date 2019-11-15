@@ -2,9 +2,9 @@ $(function() {
   $('#header-category').hover(function(){
       $('.category-box').show();
   },
-      function(){
-        $('.category-box').hide();
-      });
+    function(){
+      $('.category-box').hide();
+    });
 
   $('#header-brand').hover(function(){
     $('.brand-box').show();

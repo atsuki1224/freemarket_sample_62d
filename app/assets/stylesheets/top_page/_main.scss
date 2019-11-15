@@ -5,30 +5,31 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
-  &__area{
+  .textarea{
     width: 800px;
     margin: 0 auto;
-  }
-  &__title{
-    font-size:60px;
-    padding-left: 50px;
-    font-weight: bold;
-  }
-  &__description{
-    padding: 20px 0 20px 50px;
-  }
-  &__authentication{
-    font-size: 20px;
-    padding: 40px 0 20px 50px; 
-    .appstore-btn{
-      margin-right: 50px;
-      float: left;
-      height: 50px;
-      width: 150px;
+  
+    &__title{
+      font-size:60px;
+      padding-left: 50px;
+      font-weight: bold;
     }
-    .googleplay-btn{
-      height: 50px;
-      width:  150px;
+    &__description{
+      padding: 20px 0 20px 50px;
+    }
+    &__authentication{
+      font-size: 20px;
+      padding: 40px 0 20px 50px; 
+      .appstore-btn{
+        margin-right: 50px;
+        float: left;
+        height: 50px;
+        width: 150px;
+      }
+      .googleplay-btn{
+        height: 50px;
+        width:  150px;
+      }
     }
   }
 }
@@ -62,26 +63,27 @@
       width: 1100px;
       margin: 0 auto;
     }
-    &__header{
+    .item-header{
       height: 50px;
       position: relative;
       padding-bottom: 10px;
-    }
-      .title{
+    
+      &__title{
         font-weight: bold;
         padding: 40px 0 40px 20px;
         display: inline-block;
         font-size:24px;
       }    
-      .view-more{
+      &__view-more{
         padding: 40px 0 30px 20px;
         color:blue;
         position: absolute;
         right: 0;
         display: inline-block;
         font-size: 15px;
-      }    
-    &__index {
+      }   
+    } 
+    .item-index {
       display: flex;
       flex-wrap: wrap;
       .contents{
