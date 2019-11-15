@@ -1,0 +1,114 @@
+// =======================ここからフッターの画像部分==================================
+.footer{
+  width: 100%;
+  &__image{
+    background-image:url("/top_page/footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    &--area{
+      width:900px;
+      margin: 0 auto;  
+      .messages{
+        color: cornsilk;
+        padding: 50px 0 30px 60px;
+        &__top{
+          font-weight: bold;
+          font-size: 30px;
+        }    
+        &__bottom{
+          font-size: 40px;
+        }
+      }   
+      .download-btn{
+        padding: 0px 0 0px 60px;
+        &--fmarket{
+          height: 60px;
+          width: 60px;
+          padding-right: 10px;
+        }
+        &--appstore{
+          height: 50px;
+          width: 150px;
+          padding-right: 10px;
+        }
+        &--googleplay{
+          height: 50px;
+          width:  150px;
+        }
+      }
+    }
+  }
+  // =======================ここからフッターの黒い部分==================================
+  .footer__information{
+    height: 470px;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+    &--area{
+      width:1000px;
+      margin: 0 auto;
+      .information-contents{
+        padding-top: 20px;
+        &__box{
+        padding-right: 50px;
+        float: left;
+        }
+      .title{
+        font-weight: bold;
+        padding-bottom: 20px;
+      }
+      .list{
+        font-size: 12px;
+        padding-bottom: 20px;
+      }
+        .item{
+          padding-bottom: 20px;
+          color:gray;
+          &__logomark{
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+// =======================ここからフッター最下部==================================
+  .footer__bottom{
+    height: 70px;
+    clear: both;
+    width:1000px;
+    margin: 0 auto;
+    &--logo{
+    height: 60px;
+    width: 60px;
+    float: left;
+    }
+    &--copy-right{
+      text-align: center;
+      padding-top: 30px;
+    }
+  }
+}
+// =======================ここから出品アイコン==================================
+.sell-btn{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius:200px;
+  height: 170px;
+  width: 170px;
+  color: white;
+  background-color:crimson;
+  &__contents{
+    text-align: center;
+    padding-top: 20px; 
+  }
+  &__title{
+    font-size: 25px;
+    color:white;    
+  }
+  &__icon{
+    font-size: 60px;
+    color: white;
+  }
+}
