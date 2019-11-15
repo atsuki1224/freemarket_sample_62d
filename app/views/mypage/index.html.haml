@@ -55,25 +55,6 @@
           %ul#mypage-tab-todo.noti-todo__content.tab-pane
             %li.mypage-link--notfound.bold
               現在、やることリストはありません
-
-      -# %aside.modal{"data-modal": "banner", "data-close": "modal"}
-        .modal-inner.modal-banner
-          .modal-banner-eye-catch
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?2651893653"
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2651893653"
-          .modal-banner-body
-            %h2
-              今すぐ無料ダウンロード！
-            .bold
-              全ての機能を使えるスマホアプリはこちら！
-            .modal-banner-app.clearfix
-              =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8", target:"_blank", class:"pull-left" do
-                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2651893653"
-              =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja", target:"_blank", class:"pull-left" do
-                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2651893653"
-            =link_to "", class:"modal-banner-app-open", "data-toggle": "open-app", "data-url-scheme": "mercari://", "data-action": "app/launch", "data-play-id": "com.kouzoh.mercari" do
-              アプリで開く
-          <i class="icon-close" data-close="modal"></i>
       %section.mypage__transaction
         .mypage__transaction--head
           購入した商品
