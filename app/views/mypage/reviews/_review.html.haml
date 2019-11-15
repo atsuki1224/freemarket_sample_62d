@@ -1,7 +1,7 @@
 %section.mypage__review
   .mypage__container--head
     評価一覧
-  %ul.mypage__review__select
+  %ul.review__select
     %li{ class:controller.action_name == "index" ? 'active' : ''}
       =link_to "/mypage/review/history/", "data-toggle": "tab" do
         全て
@@ -14,23 +14,23 @@
     %li{ class:controller.action_name == "poor" ? 'active' : ''}
       =link_to "/mypage/review/history/poor/", "data-toggle": "tab" do
         悪い
-  .mypage__review__content
-    %ul#mypage-tab-transaction-new.mypage__item__link--list.tab-pane.active
+  .review__content
+    %ul#mypage-tab-transaction-new.tab-pane.active
       %li
-        =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage__item__link" do
+        =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage-link" do
           =image_tag "/assets/svg/logo_red.svg" #ユーザー画像
-          .mypage__item__link__body
-            .mypage__item__link__body--text
+          .mypage-link__body
+            .mypage-link__body--text
               =fa_icon "icon-good"
               [顔]出品者
-            .mypage__item__link__body--text
+            .mypage-link__body--text
               評価者
-            .mypage__item__link__body--text
+            .mypage-link__body--text
               評価メッセージ
-            .mypage__item__link__body--text
+            .mypage-link__body--text
               =fa_icon "icon-time"
               [時計]2019年11月3日 05:54
           =fa_icon 'chevron-right'
-    -# %ul#mypage-tab-transaction-old.mypage__item__link--list.tab-pane
+    -# %ul#mypage-tab-transaction-old.tab-pane
     -#   %li.mypage__item__link--notfound.bold
     -#     取引中の商品がありません

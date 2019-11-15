@@ -1,35 +1,36 @@
-.mypage.clearfix
-  = render 'nav'
-  .mypage__content
-    %section.mypage__noti-todo
-      %ul.mypage__noti-todo__select
-        %li.active<>
-          =link_to "#mypage-tab-notification", "data-toggle": "tab" do
-            お知らせ
-        %li<>
-          =link_to "/mypage/todo", "data-toggle": "tab" do
-            やることリスト
-      .mypage__noti-todo__content
-        %ul#mypage-tab-notification.mypage__noti-todo__content.tab-pane.active
-          %li
-            =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
-              =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
-              .mypage__item__link__body
-                .mypage__item__link__body--text
-                  事務局から個別メッセージ「Googleログイン通知」
-                %time
-                  = fa_icon 'clock'
-                  %span
-                    3 時間前
-              =fa_icon 'chevron-right'
-          %li
-            =link_to "https://www.mercari.com/jp/mypage/sales/bill/history/", class:"mypage__item__link" do
-              =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
-              .mypage__item__link__body
-                .mypage__item__link__body--text
-                  振込完了のお知らせ
-                %time
-                  =fa_icon 'clock'
-                  %span
-                    22 時間前
-              =fa_icon 'chevron-right'
+.mypage-wrapper
+  .mypage.clearfix
+    = render 'nav'
+    .mypage__content
+      %section.mypage__noti-todo
+        %ul.noti-todo__select
+          %li.active<>
+            =link_to "#mypage-tab-notification", "data-toggle": "tab" do
+              お知らせ
+          %li<>
+            =link_to "/mypage/todo", "data-toggle": "tab" do
+              やることリスト
+        .noti-todo__content
+          %ul#mypage-tab-notification.noti-todo__content.tab-pane.active
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-link" do
+                =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    事務局から個別メッセージ「Googleログイン通知」
+                  %time
+                    = fa_icon 'clock'
+                    %span
+                      3 時間前
+                =fa_icon 'chevron-right'
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/sales/bill/history/", class:"mypage-link" do
+                =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    振込完了のお知らせ
+                  %time
+                    =fa_icon 'clock'
+                    %span
+                      22 時間前
+                =fa_icon 'chevron-right'

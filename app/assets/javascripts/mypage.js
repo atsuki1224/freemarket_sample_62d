@@ -1,21 +1,19 @@
 $(function(){
-  $('.mypage__noti-todo__select > li').on('click',function(e){
+  $('.noti-todo__select > li').on('click',function(e){
     e.preventDefault();
-    var index = $('.mypage__noti-todo__select > li').index(this);
-    $('.mypage__noti-todo__select > li').removeClass('active');
-    $('.mypage__noti-todo__content > ul').removeClass('active'); 
-    console.log($(this));
-    $('.mypage__noti-todo__content > ul').eq(index).addClass('active'); 
+    var index = $('.noti-todo__select > li').index(this);
+    $('.noti-todo__select > li').removeClass('active');
+    $('.noti-todo__content > ul').removeClass('active'); 
+    $('.noti-todo__content > ul').eq(index).addClass('active'); 
     $(this).addClass('active');
   });
 
-  $('.mypage__container__select > li').on('click',function(e){
+  $('.transaction__select > li').on('click',function(e){
     e.preventDefault();
-    var index = $('.mypage__container__select > li').index(this);
-    $('.mypage__container__select  > li').removeClass('active');
-    $('.mypage__container__content > ul').removeClass('active'); 
-    console.log($(this));
-    $('.mypage__container__content > ul').eq(index).addClass('active'); 
+    var index = $('.transaction__select > li').index(this);
+    $('.transaction__select  > li').removeClass('active');
+    $('.transaction__content > ul').removeClass('active');
+    $('.transaction__content > ul').eq(index).addClass('active'); 
     $(this).addClass('active');
   });
 });

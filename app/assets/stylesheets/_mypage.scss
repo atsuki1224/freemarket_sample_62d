@@ -1,17 +1,19 @@
 // マイページ大枠 (navはファイルを別とする)
-.mypage {
-  margin: 40px auto 0;
-  width: 1020px;
-  &__content {
-    float: right;
-    width: 700px;
-    
-  }
-  &__container {
-    margin: 40px 0 0;
-    background: #fff;
-    &:first-child {
-      margin: 0;
+.mypage-wrapper {
+  background-color: #f3f3f3;
+  .mypage {
+    margin: 40px auto 0;
+    width: 1020px;
+    &__content {
+      float: right;
+      width: 700px;
+    }
+    &__container {
+      margin: 40px 0 0;
+      background: #fff;
+      &:first-child {
+        margin: 0;
+      }
     }
   }
 }
@@ -54,122 +56,127 @@
 }
 .mypage__noti-todo {
   background: #fff;
-  &__select {
-    border: 0;
-    background: #eee;
-    font-size: 0;
-    li {
-      position: relative;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 50%;
-      a {
+  .noti-todo {
+    &__select {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      li {
         position: relative;
-        display: block;
-        color: #333;
-        font-size: 16px;
-        line-height: 72px;
-        cursor: pointer;
-      }
-    }
-    .active {
-      background-color: #fff;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 50%;
-      border-top: 2px solid #ea352d;
-    }
-    
-  }
-  &__content {
-    ul.tab-pane {
-      display: none;
-    }
-    ul.tab-pane.active {
-      display: block;
-      li{
-        position: relative;
-        border-bottom: 1px solid #eee;
-      }
-      .notification-list {
-        position: relative;
-        padding: 16px;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
         a {
+          position: relative;
           display: block;
-          height: 56px;
-          margin: 0 auto;
-          background: #eee;
           color: #333;
-          line-height: 56px;
-          text-align: center;
+          font-size: 16px;
+          line-height: 72px;
+          cursor: pointer;
         }
       }
+      .active {
+        background-color: #fff;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
+        border-top: 2px solid #ea352d;
+      }
     }
+    &__content {
+      ul.tab-pane {
+        display: none;
+      }
+      ul.tab-pane.active {
+        display: block;
+        li{
+          position: relative;
+          border-bottom: 1px solid #eee;
+        }
+        .notification-list {
+          position: relative;
+          padding: 16px;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
+        }
+      }
   }
 }
-.mypage__container {
+}
+.mypage__transaction {
+  margin: 40px 0 0;
+  background: #fff;
   &--head {
     padding: 0 4%;
     background: #fafafa;
     font-size: 16px;
     line-height: 72px;
     font-weight: bold;
-    border-bottom: 1px solid #eee;
-    &.nice {
+    border-bottom: 1px solid #f5f5f5;
+    &.head-nice {
       font-size: 24px;
     }
   }
-  &__select {
-    border: 0;
-    background: #eee;
-    font-size: 0;
-    li {
-      position: relative;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 50%;
-      a {
+  .transaction {
+    &__select {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      li {
         position: relative;
-        display: block;
-        color: #333;
-        font-size: 16px;
-        line-height: 72px;
-        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
+        a {
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          cursor: pointer;
+        }
+      }
+      .active {
+        background-color: #fff;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
+        border-top: 2px solid #ea352d;
       }
     }
-    .active {
-      background-color: #fff;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 50%;
-      border-top: 2px solid #ea352d;
-    }
-  }
-  &__content {
-    ul.tab-pane {
-      display: none;
-    }
-    ul.tab-pane.active {
-      display: block;
-      .purchased-list {
-        position: relative;
-        padding: 16px;
-        a {
-          display: block;
-          height: 56px;
-          margin: 0 auto;
-          background: #eee;
-          color: #333;
-          line-height: 56px;
-          text-align: center;
+    &__content {
+      ul.tab-pane {
+        display: none;
+      }
+      ul.tab-pane.active {
+        display: block;
+        .purchased-list {
+          position: relative;
+          padding: 16px;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
         }
       }
     }
@@ -184,53 +191,55 @@
     line-height: 72px;
     font-weight: bold;
   }
-  &__select {
-    border: 0;
-    background: #eee;
-    font-size: 0;
-    li {
-      position: relative;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 33%;
-      a {
+  .listing {
+    &__select {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      li {
         position: relative;
-        display: block;
-        color: #333;
-        font-size: 16px;
-        line-height: 72px;
-        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 33%;
+        a {
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          cursor: pointer;
+        }
+      }
+      .active {
+        background-color: #fff;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 34%;
+        border-top: 2px solid #ea352d;
       }
     }
-    .active {
-      background-color: #fff;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 34%;
-      border-top: 2px solid #ea352d;
-    }
-  }
-  &__content {
-    ul.tab-pane {
-      display: none;
-    }
-    ul.tab-pane.active {
-      display: block;
-      .purchased-list {
-        position: relative;
-        padding: 16px;
-        a {
-          display: block;
-          height: 56px;
-          margin: 0 auto;
-          background: #eee;
-          color: #333;
-          line-height: 56px;
-          text-align: center;
+    &__content {
+      ul.tab-pane {
+        display: none;
+      }
+      ul.tab-pane.active {
+        display: block;
+        .purchased-list {
+          position: relative;
+          padding: 16px;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
         }
       }
     }
@@ -245,53 +254,121 @@
     line-height: 72px;
     font-weight: bold;
   }
-  &__select {
-    border: 0;
-    background: #eee;
-    font-size: 0;
-    li {
-      position: relative;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 25%;
-      a {
+  .review {
+    &__select {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      li {
         position: relative;
-        display: block;
-        color: #333;
-        font-size: 16px;
-        line-height: 72px;
-        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 25%;
+        a {
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          cursor: pointer;
+        }
+      }
+      .active {
+        background-color: #fff;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 25%;
+        border-top: 2px solid #ea352d;
       }
     }
-    .active {
-      background-color: #fff;
-      display: inline-block;
-      text-align: center;
-      color: #eee;
-      vertical-align: top;
-      width: 25%;
-      border-top: 2px solid #ea352d;
+    &__content {
+      ul.tab-pane {
+        display: none;
+      }
+      ul.tab-pane.active {
+        display: block;
+        .purchased-list {
+          position: relative;
+          padding: 16px;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
+        }
+      }
     }
   }
-  &__content {
-    ul.tab-pane {
-      display: none;
+}
+.mypage__container {
+  &--head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+    border-bottom: 1px solid #f5f5f5;
+    &.head-nice {
+      font-size: 24px;
     }
-    ul.tab-pane.active {
-      display: block;
-      .purchased-list {
+  }
+  .container {
+    &__select {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      li {
         position: relative;
-        padding: 16px;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
         a {
+          position: relative;
           display: block;
-          height: 56px;
-          margin: 0 auto;
-          background: #eee;
           color: #333;
-          line-height: 56px;
-          text-align: center;
+          font-size: 16px;
+          line-height: 72px;
+          cursor: pointer;
+        }
+      }
+      .active {
+        background-color: #fff;
+        display: inline-block;
+        text-align: center;
+        color: #eee;
+        vertical-align: top;
+        width: 50%;
+        border-top: 2px solid #ea352d;
+      }
+    }
+    &__content {
+      ul.tab-pane {
+        display: none;
+      }
+      ul.tab-pane.active {
+        display: block;
+        .purchased-list {
+          position: relative;
+          padding: 16px;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
         }
       }
     }
@@ -299,7 +376,7 @@
 }
 
 // マイページのリンク内コンテンツ用スタイル
-.mypage__item__link {
+.mypage-link {
   position: relative;
   display: block;
   min-height: 46px;
@@ -396,7 +473,7 @@
     color: #ccc;
   }
 }
-.mypage__listing__link {
+.mylisting-link {
   position: relative;
   display: block;
   min-height: 46px;
@@ -424,7 +501,7 @@
       text-overflow: ellipsis;
       line-height: 1.5;
     }
-    &__detail {
+    .listing__detail {
       color: #ccc;
       font-size: 14px;
       &--count {
@@ -470,10 +547,18 @@
     border-radius: 4px;
     background: #fff;
     border: 1px solid #ccc;
-    font-size: 14px;
-    line-height: 42px;
+    line-height: 40px;
     position: absolute;
     left: 0;
+    .fa-chevron-left {
+      position: absolute; /* 矢印の位置の指定 */
+      right: 16px; /* 矢印の位置の指定 */
+      top: 40%; /* 矢印の位置の指定 */
+      font-size: 14px;
+      color: #333;
+      display: block;
+      box-sizing: inherit;
+    }
   }
   &--next {
     display: inline-block;
@@ -482,10 +567,18 @@
     border-radius: 4px;
     background: #fff;
     border: 1px solid #ccc;
-    font-size: 14px;
-    line-height: 42px;
+    line-height: 40px;
     position: absolute;
     right: 0;
+    .fa-chevron-right {
+      position: absolute; /* 矢印の位置の指定 */
+      right: 16px; /* 矢印の位置の指定 */
+      top: 40%; /* 矢印の位置の指定 */
+      font-size: 14px;
+      color: #333;
+      display: block;
+      box-sizing: inherit;
+    }
   }
 }
 
