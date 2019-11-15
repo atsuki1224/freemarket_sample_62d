@@ -1,6 +1,6 @@
 $(function() {
   $('#header-category').hover(function(){
-      $('.category-box').show();
+    $('.category-box').show();
   },
     function(){
       $('.category-box').hide();
