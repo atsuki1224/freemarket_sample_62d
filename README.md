@@ -123,10 +123,11 @@ belongs_to :seller, class_name: “User”
 #### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|name|string|null: false|
+|ancestry|string|
 **Association**
 has_many :products
-
+has_ancestry
 #### blandテーブル
 |Column|Type|Options|
 |------|----|-------|
