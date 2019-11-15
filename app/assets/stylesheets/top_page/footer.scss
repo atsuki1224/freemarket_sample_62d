@@ -45,33 +45,30 @@
     background-color: black;
     color: white;
     flex-wrap: wrap;
-  
     &--area{
       width:1000px;
       margin: 0 auto;
-    
-    
       .information-contents{
         padding-top: 20px;
         &__box{
         padding-right: 50px;
         float: left;
         }
-          .title{
-            font-weight: bold;
-            padding-bottom: 20px;
+      .title{
+        font-weight: bold;
+        padding-bottom: 20px;
+      }
+      .list{
+        font-size: 12px;
+        padding-bottom: 20px;
+      }
+        .item{
+          padding-bottom: 20px;
+          color:gray;
+          &__logomark{
+            font-size: 40px;
           }
-          .list{
-            font-size: 12px;
-            padding-bottom: 20px;
-          }
-            .item{
-              padding-bottom: 20px;
-              color:gray;
-              &__logomark{
-                font-size: 40px;
-              }
-            }
+        }
       }
     }
   }
@@ -102,11 +99,9 @@
   width: 170px;
   color: white;
   background-color:crimson;
-
   &__contents{
     text-align: center;
-    padding-top: 20px;
-    
+    padding-top: 20px; 
   }
   &__title{
     font-size: 25px;

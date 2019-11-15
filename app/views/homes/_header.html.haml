@@ -30,7 +30,74 @@
           =link_to "#",class:"header__item--link" do
             =fa_icon'check'
             やることリスト
-        %li.header__item(id="heder-mypage")
+        %li.header__item(id="header-mypage")
           =link_to "#",class:"header__item--link" do
             =fa_icon'user'
             マイページ
+
+
+
+-# =====今後の実装で使います＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+-#   .header__logo-search.clearfix
+-#     =image_tag "/SVG/fmarket_logo_red.svg", class: "logo-search__logo "
+-#     %form.header-form
+-#       %input{value:"", placeholder:"何かお探しですか？" }
+-#       %i.fa.fa-search
+-#   .headerlists.clearfix
+-#     .header-lists__left
+-#       .header__item(id= "header-category" )
+-#         = link_to "#" do
+-#           =fa_icon'list-ul'
+-#           %apan カテゴリーから探す   
+-#           .box-area
+-#             .category-box
+-#               .category-box__list
+-#                 %li< レディス
+-#                 %li< メンズ
+-#                 %li< ベビー・キッズ
+-#                 %li< インテリア・住まい・小物
+
+-#       .header-lists__left--title(id= "header-brand")
+-#         = link_to "#" do
+-#           =fa_icon 'tags'      
+-#           %apan ブランドから探す
+-#           .box-area
+-#             .brand-box
+-#               .brand-box__list
+-#                 %li< シャネル
+-#                 %li< ナイキ
+-#                 %li< ルイヴィトン
+-#                 %li< シュプリーム
+
+-#     .header-lists__right      
+-#       .header-lists__right--title(id="header-nice")
+-#         =link_to "#" do
+-#           =fa_icon 'heart'
+-#           %span いいね！一覧
+
+-#       .header-lists__right--title(id="header-news")
+-#         =link_to "#" do
+-#           =fa_icon'bell'
+-#           %span お知らせ
+-#           .news-box 
+-#             =image_tag "/SVG/logo_red.svg", class: "image"
+-#             .content
+-#               .content__message
+-#                 『シャーペン』を購入しました。発送までしばらくお待ちください。
+-#               .content__day
+-#                 1日前
+-#       .header-lists__right--title(id="header-todo")
+-#         =link_to "#" do
+-#           =fa_icon'check'
+-#           %span やることリスト
+-#           .todo-box
+-#             =image_tag "/SVG/logo_red.svg", class: "image"
+-#             .content
+-#               .content__message
+-#                 出品者さんから『シャーペン』の取引メッセージがあります。
+-#               .content__day
+-#                 1日前
+-#       .header-lists__right--title(id="header-mypage")
+-#         =link_to "#" do
+-#           =fa_icon'user'
+-#           %span マイページ

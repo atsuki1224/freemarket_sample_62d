@@ -26,29 +26,24 @@
       height: 50px;
       width: 150px;
     }
-
     .googleplay-btn{
       height: 50px;
       width:  150px;
     }
-    }
-  
+  }
 }
     // ======ここから人気のカテゴリー一覧・人気のブランド一覧==================================
     .popular{
       height: 200px;
       text-align: center;
-    
       &__title{
         font-weight: bold;
         padding:  50px 0 10px 0;
         font-size: 30px;
-      }
-        
+      }   
       &__list{
         padding: 20px 0 0 350px;
         display: flex;
-        
       }    
       &__content{
         margin-right: 30px;
@@ -57,62 +52,60 @@
         padding: 0px 20px 0 20px;
         font-size: 15px;
         font-weight: bold;
-      }
-      
+      } 
     }
         // ======ここから新着アイテム=================================
-        .new-item{
-          background-color: rgb(245, 245, 245);
-           width: 100%;
-          
-          &__area{
-            width: 1100px;
-            margin: 0 auto;
-          }
-          &__header{
-            height: 50px;
-            position: relative;
-            padding-bottom: 10px;
-          }
-            .title{
-              font-weight: bold;
-              padding: 40px 0 40px 20px;
-              display: inline-block;
-              font-size:24px;
-            }    
-            .view-more{
-              padding: 40px 0 30px 20px;
-              color:blue;
-              position: absolute;
-              right: 0;
-              display: inline-block;
-              font-size: 15px;
-            }    
-          &__index {
-            display: flex;
-            flex-wrap: wrap;
-            .contents{
-              padding: 30px;
-              &__img{   
-                background-repeat: no-repeat;
-                background-size: cover;
-                width: 200px;
-                height: 250px;
-                position: relative;
-              }
-              &__price{
-                color: white;
-                background-color: black;
-                border-top-right-radius:50px;
-                border-bottom-right-radius:50px;
-                width: 100px;
-                position: absolute;
-                bottom: 0;
-              }     
-              &__text{
-                background-color: white;
-                width: 200px;
-              }
-            }  
-          }     
+  .new-item{
+    background-color: rgb(245, 245, 245);
+      width: 100%;
+    &__area{
+      width: 1100px;
+      margin: 0 auto;
+    }
+    &__header{
+      height: 50px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+      .title{
+        font-weight: bold;
+        padding: 40px 0 40px 20px;
+        display: inline-block;
+        font-size:24px;
+      }    
+      .view-more{
+        padding: 40px 0 30px 20px;
+        color:blue;
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        font-size: 15px;
+      }    
+    &__index {
+      display: flex;
+      flex-wrap: wrap;
+      .contents{
+        padding: 30px;
+        &__img{   
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 200px;
+          height: 250px;
+          position: relative;
         }
+        &__price{
+          color: white;
+          background-color: black;
+          border-top-right-radius:50px;
+          border-bottom-right-radius:50px;
+          width: 100px;
+          position: absolute;
+          bottom: 0;
+        }     
+        &__text{
+          background-color: white;
+          width: 200px;
+        }
+      }  
+    }     
+  }
