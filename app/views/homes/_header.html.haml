@@ -5,8 +5,8 @@
       %form.header__form
         %input{value:"", placeholder:"何かお探しですか？", class:"header__form--input"}
         %i.fa.fa-search
-    .headerlists.clearfix
-      %ul.headerlists__left
+    .header-lists.clearfix
+      %ul.header-lists__left
         %li.header__item(id="header-category")
           =link_to "#" ,class:"header__item--link parent" do
             =fa_icon'list-ul', class:"parent"
@@ -17,7 +17,7 @@
             =fa_icon 'tags', class:"parent"
             ブランドから探す
 
-      %ul.headerlists__right  
+      %ul.header-lists__right  
         %li.header__item(id="header-nice")
           =link_to "#",class:"header__item--link" do
             =fa_icon 'heart'
