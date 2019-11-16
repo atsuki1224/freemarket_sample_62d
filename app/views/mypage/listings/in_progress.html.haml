@@ -1,0 +1,44 @@
+.mypage-wrapper
+  .mypage.clearfix
+    = render '/mypage/nav'
+    .mypage__content
+      %section.mypage__listing
+        .mypage__listing--head
+          出品した商品
+        %ul.listing__select
+          %li
+            =link_to "/mypage/listings/listing/" do
+              出品中
+          %li.active
+            =link_to "#mypage-tab-transaction-old", "data-toggle": "tab" do
+              取引中
+          %li
+            =link_to "/mypage/listings/completed/" do
+              売却済み
+        .listing__content
+          %ul#mypage-tab-transaction-now
+            %li
+              =link_to "https://www.mercari.com/jp/items/m70068440240/", class:"mylisting-link" do
+                = image_tag "//static.mercdn.net/thumb/photos/m70068440240_1.jpg?1571484153", class:" is-higher-width lazyloaded"
+                .mylisting-link__body
+                  .mylisting-link__body--text
+                    iPhone
+                  .listing__detail
+                    .listing__detail--count
+                      =fa_icon 'heart'
+                      %span<
+                        15
+                    .listing__detail--count
+                      =fa_icon 'envelope'
+                      %span<
+                        3
+                    .listing__detail--status.bold.awaiting
+                      受取評価待ち / 発送待ち
+                =fa_icon 'chevron-right'
+      %ul.mypage__history
+        %li.mypage__history--prev
+          = link_to "/jp/mypage/listings/listing/?min_pager_id=5134918442" do
+            =fa_icon 'chevron-left'
+        %li.mypage__history--next
+          = link_to "/jp/mypage/listings/listing/?max_pager_id=5134918442" do
+            =fa_icon 'chevron-right'

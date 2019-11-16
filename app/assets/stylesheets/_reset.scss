@@ -7,13 +7,7 @@ html{
   color:#000;
   background:#FFF;
 }
-/*
-  TODO remove settings on BODY since we can't namespace it.
-*/
-/*
-  TODO test putting a class on HEAD.
-      - Fails on FF.
-*/
+
 body,
 div,
 dl,
@@ -86,9 +80,45 @@ h6 {
 }
 q:before,
 q:after {
-
+  content:'';
+}
+abbr,
+acronym {
+  border:0;
+  font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align:text-top;
+}
+sub {
+  vertical-align:text-bottom;
 }
 input,
 textarea,
 select {
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+a {
+  text-decoration: none;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size:100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color:#000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
 
+.clearfix {
+  display: block;
+  content: "";
+  clear: both;
+}

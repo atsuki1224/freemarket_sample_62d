@@ -1,0 +1,86 @@
+.mypage-wrapper
+  .mypage.clearfix
+    = render 'nav'
+    .mypage__content
+      %section.mypage__user
+        =link_to "ユーザーid毎のページurl",  class:"mypage__user--link" do
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
+          .mypage__user--name.bold<>
+            TestUser
+          .mypage__user--info
+            %div<>
+              評価
+              %span.bold
+                10
+            %div
+              出品数
+              %span.bold
+                5
+      %section.mypage__noti-todo
+        %ul.noti-todo__select
+          %li.active<>
+            =link_to "#mypage-tab-notification", "data-toggle": "tab" do
+              お知らせ
+          %li<>
+            =link_to "#mypage-tab-todo", "data-toggle": "tab" do
+              やることリスト
+        .noti-todo__content
+          %ul#mypage-tab-notification.noti-todo__content.tab-pane.active
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-link" do
+                =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    事務局から個別メッセージ「Googleログイン通知」
+                  %time
+                    =fa_icon 'clock'
+                    %span
+                      3 時間前
+                =fa_icon 'chevron-right'
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/sales/bill/history/", class:"mypage-link" do
+                =image_tag "/assets/svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    振込完了のお知らせ
+                  %time
+                    = fa_icon 'clock'
+                    %span
+                      22 時間前
+                =fa_icon 'chevron-right'
+            %li.notification-list
+              =link_to "/mypage/notification/" do
+                一覧を見る
+          %ul#mypage-tab-todo.noti-todo__content.tab-pane
+            %li.mypage-link--notfound.bold
+              現在、やることリストはありません
+      %section.mypage__transaction
+        .mypage__transaction--head
+          購入した商品
+        %ul.transaction__select
+          %li.active
+            =link_to "#mypage-tab-transaction-now", "data-toggle": "tab" do
+              取引中
+          %li
+            =link_to "#mypage-tab-transaction-old", "data-toggle": "tab" do
+              過去の取引
+        .transaction__content.clearfix
+          %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane.active
+            %li.mypage-link--notfound.bold
+              取引中の商品がありません
+          %ul#mypage-tab-transaction-old.mypage-link--list.tab-pane
+            %li
+              =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage-link" do
+                =image_tag "/assets/svg/logo_red.svg", class:"lazyload"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    「ノートパソコン」 を購入しました。
+                    %span
+                      取引が完了しました
+                  .mypage-link__body--status.bold.done
+                    取引完了
+                =fa_icon 'chevron-right'
+            %li.purchased-list
+              =link_to "/jp/mypage/purchased/" do
+                一覧を見る
+            .headerlists.clearfix
