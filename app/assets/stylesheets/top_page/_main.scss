@@ -1,0 +1,113 @@
+// ======ここからトップページバナー画面==================================
+.banner{
+  padding-top: 20px;
+  background-image:url("/top_page/top.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  .text-area{
+    width: 800px;
+    margin: 0 auto;
+  
+    &__title{
+      font-size:60px;
+      padding-left: 50px;
+      font-weight: bold;
+    }
+    &__description{
+      padding: 20px 0 20px 50px;
+    }
+    &__authentication{
+      font-size: 20px;
+      padding: 40px 0 20px 50px; 
+      .appstore-btn{
+        margin-right: 50px;
+        float: left;
+        height: 50px;
+        width: 150px;
+      }
+      .googleplay-btn{
+        height: 50px;
+        width:  150px;
+      }
+    }
+  }
+}
+    // ======ここから人気のカテゴリー一覧・人気のブランド一覧==================================
+    .popular{
+      height: 200px;
+      text-align: center;
+      &__title{
+        font-weight: bold;
+        padding:  50px 0 10px 0;
+        font-size: 30px;
+      }   
+      &__list{
+        padding: 20px 0 0 350px;
+        display: flex;
+      }    
+      &__content{
+        margin-right: 30px;
+        background-color: #ccc;
+        border-radius: 30px;
+        padding: 0px 20px 0 20px;
+        font-size: 15px;
+        font-weight: bold;
+      } 
+    }
+        // ======ここから新着アイテム=================================
+  .new-item{
+    background-color: rgb(245, 245, 245);
+      width: 100%;
+    &__area{
+      width: 1100px;
+      margin: 0 auto;
+    }
+    .item-header{
+      height: 50px;
+      position: relative;
+      padding-bottom: 10px;
+    
+      &__title{
+        font-weight: bold;
+        padding: 40px 0 40px 20px;
+        display: inline-block;
+        font-size:24px;
+      }    
+      &__view-more{
+        padding: 40px 0 30px 20px;
+        color:blue;
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        font-size: 15px;
+      }   
+    } 
+    .item-index {
+      display: flex;
+      flex-wrap: wrap;
+      .contents{
+        padding: 30px;
+        &__img{   
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 200px;
+          height: 250px;
+          position: relative;
+        }
+        &__price{
+          color: white;
+          background-color: black;
+          border-top-right-radius:50px;
+          border-bottom-right-radius:50px;
+          width: 100px;
+          position: absolute;
+          bottom: 0;
+        }     
+        &__text{
+          background-color: white;
+          width: 200px;
+        }
+      }  
+    }     
+  }
