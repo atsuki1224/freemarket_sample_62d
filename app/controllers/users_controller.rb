@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-def logout
-end
+  def logout
+  end
 
 end
