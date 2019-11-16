@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'todo' => 'mypage#todo'
       get 'purchase' => 'mypage#purchase'
       get 'purchased' => 'mypage#purchased'
+      get 'logout' => 'mypage#logout'
       namespace :listings do
         get 'listing' => '/mypage/listings#listing'
         get 'in_progress' => '/mypage/listings#in_progress'
@@ -26,5 +27,4 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "homes#index"
-  get 'user/logout' => 'users#logout'
 end

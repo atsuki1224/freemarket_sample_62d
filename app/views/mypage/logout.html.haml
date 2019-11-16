@@ -1,0 +1,8 @@
+.mypage-wrapper
+  .mypage.clearfix
+    =render 'mypage/nav'
+    .mypage__content
+      .wrapper
+        .log-out
+          =link_to "#", class:"log-out__btn" do
+            %span ログアウト
