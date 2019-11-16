@@ -14,14 +14,14 @@
  *= require_tree .
  */
 
-@import "reset";
-@import "font-awesome";
-
-// トップ画面用
-@import 'top_page/header';
-@import 'top_page/main';
-@import 'top_page/footer';
-// マイページ
+ @import 'font-awesome';
+ @import "reset";
+ // トップ画面用
+ @import 'top_page/header';
+ @import 'top_page/main';
+ @import 'top_page/footer';
+ @import "./users";
+// マイページ画面用
 @import "mypage";
 @import "defaults";
 @import "mypage-nav";
