@@ -12,7 +12,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-!/tmp/mysql.sock
 
 # Ignore Byebug command history file.
 .byebug_history
