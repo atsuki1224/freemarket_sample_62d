@@ -1,0 +1,40 @@
+.mainbox
+  = render partial:"resistration_header"
+
+  .logincontents
+    .box
+      .box__formarea
+        .logintittle
+          アカウントをお持ちでない方はこちら
+        .btnlist
+          %a{href:'/'}
+            .btnlist__list--resistration
+              新規会員登録
+        .formarea__underbar
+      .box__formarea
+        .btnlist
+          %a{href:'/'}
+            .btnlist__list--facebook
+              %p Facebookでログイン
+              =fa_icon 'facebook-square'
+          %a{href:'/'}
+            .btnlist__list--google
+              %p Googleでログイン
+              =image_tag "google-icon.png"
+      .box__formarea
+        .formbox
+          .formbox__text
+          %input.form{placeholder:'メールアドレス'}
+        .formbox
+          .formbox__text
+          %input.form{placeholder:'パスワード'}
+      .box__formarea
+        .robot
+          =image_tag "robot.png"
+        .submit
+          ログイン
+        .link
+          =link_to 'パスワードをお忘れの方'
+
+
+  =render partial:"index/resistration_shortfooter"

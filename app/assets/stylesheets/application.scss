@@ -22,6 +22,10 @@
 @import 'top_page/main';
 @import 'top_page/footer';
 
-@import 'user/logout'
+@import 'user/logout';
+
+@import 'user/user-resistration1';
+@import 'user/user-resistration2';
+//↑2ファイル ユーザー新規登録、ログイン用
 
 @import "./users";

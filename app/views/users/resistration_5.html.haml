@@ -1,0 +1,73 @@
+.mainbox
+  = render partial:"resistration_header_status_2"
+
+  .registcontents
+    .box
+      .box__tittle
+        %h3
+          発送元・お届け住所入力
+      .formarea
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              お名前
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)山田'}
+          %input.form{placeholder:'例)彩'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              お名前カナ
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)ヤマダ'}
+          %input.form{placeholder:'例)アヤ'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              郵便番号
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)111-1111'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              都道府県
+            .formbox__text--btn
+              必須
+          %select.prefform
+            %option{value:"",slected:""}="都道府県"
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              市町村
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)横浜市緑区'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              番地
+            .formbox__text--btnb
+              任意
+          %input.form{placeholder:'例)青山1-1-1'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              電話番号
+            .formbox__text--btnb
+              任意
+          %input.form{placeholder:'例)0901234567'}
+
+
+
+
+        .submit
+          次へ進む
+
+        .nextlink
+          =link_to '本人情報の登録について>', '/'
+
+  =render partial:"index/resistration_shortfooter"
+.plusarea

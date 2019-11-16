@@ -1,0 +1,24 @@
+.mainbox
+  = render partial:"resistration_header"
+
+  .registcontents
+    .box
+      .box__tittle
+        %h3 新規会員登録
+      .box__formarea
+        .btnlist
+          %a{href:'/'}
+
+            .btnlist__list--mail
+              %p メールアドレスで登録する
+              =fa_icon 'envelope-o'
+          %a{href:'/'}
+            .btnlist__list--facebook
+              %p Facebookで登録する
+              =fa_icon 'facebook-square'
+          %a{href:'/'}
+            .btnlist__list--google
+              %p Googleで登録する
+              =image_tag "google-icon.png"
+
+  = render partial:"resistration_longfooter"
