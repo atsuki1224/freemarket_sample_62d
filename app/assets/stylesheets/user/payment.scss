@@ -23,31 +23,31 @@
       margin: 0 auto;
       font-weight: bold;
     }
-    .formarea{
+    .formarea {
       background-color: white;
       padding:24px 20px 40px;
-      .formbox{
+      .formbox {
         width:343px;
         margin:0 auto;
         margin-bottom: 19px;
         padding: 3px;
-        .link{
+        .link {
           text-align: right;
-          a{
+          a {
             text-decoration:none;
             color:#0099e8;
             font-size: 12px;
           }
         }
-        &__cardlogo{
+        &__cardlogo {
           width:200px;
           height:50px;
-          img{
+          img {
             width:35px;
             height:30px;
           }
         }
-        &__text{
+        &__text {
           text-align: left;
           &--tittle{
             font-size: 13px;
@@ -56,13 +56,13 @@
             padding:8px 0 2px;
             display: inline-block;
             letter-spacing:1px;
-            a{
+            a {
               text-decoration:none;
               color:#0099e8;
               font-size: 12px;
             }
           }
-          &--btn{
+          &--btn {
             text-align: left;
             border-radius: 2px;
             background-color: #ea352d;
@@ -75,51 +75,16 @@
             line-height: 13px;
             vertical-align:5%;
           }
-          &--btnb{
-            text-align: left;
-            border-radius: 2px;
-            background-color: #ea352d;
-            display: inline-block;
-            color:white;
-            font-size: 11px;
-            padding: 3px 5px;
-            margin:0 5px ;
-            height:13px;
-            line-height: 13px;
-            vertical-align:5%;
-            background-color: lightgray;
-          }
-          p{
+          p {
             font-size: 14px;
           }
         }
-        .form{
+        .form {
           height:45px;
           width:310px;
           border:solid 1px #ccc;
           border-radius: 5px;
           margin:2px auto 5px;
-          padding:0 15px;
-          font-size: 15px;
-          letter-spacing: 0.5px;
-        }
-        .prefform{
-          height:45px;
-          width:310px;
-          border:solid 1px #ccc;
-          border-radius: 5px;
-          margin:2px auto 5px;
-          padding:0 15px;
-          font-size: 15px;
-          letter-spacing: 0.5px;
-          width:340px;
-        }
-        .halfform{
-          height:45px;
-          width:130px;
-          border:solid 1px #ccc;
-          border-radius: 5px;
-          margin:0 3px ;
           padding:0 15px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -136,45 +101,7 @@
           font-size: 16px;
           line-height: 1.5;
         }
-        .checkbox{
-          text-align: left;
-          padding:12px 0 0;
-          &__box{
-            width:18px;
-            height:16px;
-            border-radius: 5px;
-            display: inline-block;
-            border:1px solid #ccc;
-          }
-          p{
-            display: inline-block;
-            font-size: 14px;
-            vertical-align:20%;
-          }
-        }
-        .notice{
-          font-size: 14px;
-          color: gray;
-          text-align: left;
-          a{
-            text-decoration:none;
-            color:#0099e8;
-            font-size: 12px;
-          }
-        }
       }
-        &__certification{
-          width:300px;
-          height:74px;
-          border:solid 1px #ccc;
-        }
-        .confirmation{
-          font-size: 14px;
-          a{
-            text-decoration:none;
-            color:#0099e8;
-          }
-        }
       .submit{
         background: #ea352d;
         margin: 35px auto 0;
