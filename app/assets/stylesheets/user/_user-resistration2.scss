@@ -158,12 +158,8 @@
       }
     }
   }
-
   .registcontents{
-
-
     .box{
-      // height:344px;
       width:700px;
       background-color: white;
       margin:0 auto;
@@ -191,8 +187,6 @@
             }
           }
           .birthformarea{
-            // width:200px;
-            // height:200px;
             .birthform{
               width:400px;
               &__form--year{
@@ -200,7 +194,6 @@
                 float:left;
                 input{
                   width:50px;
-
                 }
               }
               &__form--month{
@@ -215,7 +208,6 @@
                 float:left;
                 input{
                   width:50px;
-
                 }
               }
             }
@@ -254,7 +246,6 @@
               font-size: 14px;
             }
           }
-
           .form{
             @include form_shape;
           }
@@ -308,14 +299,10 @@
             font-size: 14px;
             a{
               @include link_blue;
-              // text-decoration:none;
-              // color:#0099e8;
             }
           }
         .submit{
           background: #ea352d;
-
-          // display:inline-block;
           margin: 35px auto 0;
           width:341px;
           height:48px;
@@ -328,7 +315,6 @@
           margin:30px 165px;
           text-align: right;
           font-size: 14px;
-          // color:blue;
           a{
             @include link_blue;
           }
