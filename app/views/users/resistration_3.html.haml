@@ -1,0 +1,28 @@
+.mainbox
+  = render partial:"resistration_header_status_1"
+
+  .registcontents
+    .plusstatusbar
+      .plussatatusbar__bar
+        .plussatatusbar__bar--1
+
+    .box
+      .box__tittle
+        %h3
+          電話番号の確認
+      .formarea
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              携帯電話の電話番号
+          %input.form{placeholder:'携帯電話の番号を入力'}
+          .notice
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .submit
+          SMSを送信する
+        .formbox
+          .notice
+            *電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+  =render partial:"resistration_shortfooter"
+.plusarea
