@@ -69,4 +69,5 @@ gem "font-awesome-rails"
 gem 'haml-rails'
 gem 'mini_magick'
 gem 'ancestry'
+gem 'faker'
 

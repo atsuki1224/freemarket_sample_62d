@@ -53,6 +53,8 @@
         padding: 0px 20px 0 20px;
         font-size: 15px;
         font-weight: bold;
+        opacity: 0.7;
+        color: black;
       } 
     }
         // ======ここから新着アイテム=================================
@@ -87,12 +89,13 @@
       display: flex;
       flex-wrap: wrap;
       .contents{
-        padding: 30px;
+        padding: 10px;
+        margin: 20px 0 30px 0;
         &__img{   
           background-repeat: no-repeat;
           background-size: cover;
-          width: 200px;
-          height: 250px;
+          width: 170px;
+          height: 200px;
           position: relative;
         }
         &__price{
@@ -103,10 +106,12 @@
           width: 100px;
           position: absolute;
           bottom: 0;
+          opacity: 0.5;
         }     
         &__text{
           background-color: white;
           width: 200px;
+          height: 72px;
         }
       }  
     }     
