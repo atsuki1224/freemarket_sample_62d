@@ -1,0 +1,93 @@
+.mypage-payment {
+  margin: 40px 0 0;
+  background: #fff;
+  &--head {
+    font-size: 24px;
+    padding: 8px 24px;
+    line-height: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    &.head-center {
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+}
+.payment-info {
+  border-top: 1px solid #eee;
+  padding: 64px;
+  &__card {
+    border-bottom: 1px solid #eee;
+    &--head {
+      max-width: 320px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+    &--add-btn {
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 24px 0;
+      a {
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        text-align: center;
+        .fa {
+          margin-right: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__list {
+    li {
+      padding: 24px 0;
+    }
+  }
+  &--notregist {
+    position: relative;
+    display: block;
+    margin: 40px 0 0;
+    text-align: right;
+    a {
+      color: hsl(200, 100%, 45%);
+      font-size: 14px;
+    }
+    .fa-chevron-right {
+      margin: 0 0 0 8px;
+      font-size: 14px;
+      color: hsl(200, 100%, 45%);
+      display: inline-block;
+      box-sizing: inherit;
+    }
+  }
+}
+.cardform {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+  img {
+    vertical-align: middle;
+  }
+  &--num {
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+  &--submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 6px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ea352d;
+    color: #ea352d;
+    font-size: 14px;
+    line-height: 1em;
+  }
+}

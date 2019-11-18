@@ -17,6 +17,9 @@ class MypageController < ApplicationController
   def review
   end
 
+  def payment
+  end
+
   def logout
   end
 end

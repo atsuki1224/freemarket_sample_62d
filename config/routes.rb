@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'purchase' => 'mypage#purchase'
       get 'purchased' => 'mypage#purchased'
       get 'logout' => 'mypage#logout'
+      get 'payment' => 'mypage#payment'
       namespace :listings do
         get 'listing' => '/mypage/listings#listing'
         get 'in_progress' => '/mypage/listings#in_progress'
