@@ -1,0 +1,46 @@
+.mypage-wrapper
+  .mypage.clearfix
+    = render '/mypage/nav'
+    .mypage__content
+      %section.mypage-payment
+        .mypage-payment--head.head-center
+          クレジットカード情報入力
+        .payment-info
+          .payment-info__card
+            %form.formarea
+              .formbox
+                .formbox__text
+                  .formbox__text--tittle
+                    カード番号
+                  .formbox__text--btn
+                    必須
+                %input.form{placeholder:'半角数字のみ'}
+                .formbox__cardlogo
+                  =image_tag "card-logo/dinners_logo.png"
+                  =image_tag "card-logo/discovercard_logo.jpg"
+                  =image_tag "card-logo/jcb.jpeg"
+                  =image_tag "card-logo/sesoncard.png"
+                  =image_tag "card-logo/visa_logo.jpg"
+                .formbox
+                  .formbox__text
+                    .formbox__text--tittle
+                      有効期限
+                    .formbox__text--btn
+                      必須
+                  %select.selectform
+                    %option{value:"",slected:""}="01"
+                  月
+                  %select.selectform
+                    %option{value:"",slected:""}="19"
+                  年
+                .formbox
+                  .formbox__text
+                    .formbox__text--tittle
+                      セキュリティコード
+                    .formbox__text--btn
+                      必須
+                  %input.form{placeholder:'カード背面4桁もしくは3桁の番号'}
+                  .link
+                    =link_to 'カード裏面の番号とは?','/'
+                %button{type:"submit", class:"payment-info__card--add-btn red-btn"}
+                  追加する

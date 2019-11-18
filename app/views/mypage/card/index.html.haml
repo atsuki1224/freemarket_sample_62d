@@ -1,6 +1,6 @@
 .mypage-wrapper
   .mypage.clearfix
-    = render 'nav'
+    = render '/mypage/nav'
     .mypage__content
       %section.mypage-payment
         .mypage-payment--head.head-center
@@ -24,8 +24,8 @@
                     %button{type:"submit", class:"cardform--submit"}
                       削除する
             - else
-              .payment-info__card--add-btn.red-btn
-                = link_to "card-add" do
+              .payment-info__card--add-btn
+                = link_to "card-add", class:"red-btn" do
                   =fa_icon 'credit-card'
                   クレジットカードを追加する
             

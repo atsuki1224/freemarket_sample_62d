@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       get 'purchase' => 'mypage#purchase'
       get 'purchased' => 'mypage#purchased'
       get 'logout' => 'mypage#logout'
-      get 'payment' => 'mypage#payment'
+      namespace :card do
+        get '/' => '/mypage/card#index'
+        get 'new' => '/mypage/card#new'
+      end
       namespace :listings do
         get 'listing' => '/mypage/listings#listing'
         get 'in_progress' => '/mypage/listings#in_progress'
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "homes#index"
