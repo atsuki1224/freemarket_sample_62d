@@ -1,0 +1,45 @@
+.mypage-nav {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  &__list {
+    li {
+      line-height: 1;
+      border-top: 1px solid #eee;
+    }
+    li &--item  {
+      position: relative;
+      display: block;
+      max-height: 48px;
+      padding: 16px;
+      background: #fff;
+      font-size: 14px;
+      color: #333;
+      box-sizing: inherit;
+      &.active {
+        background: #eee;
+        font-weight: 600;
+      }
+      .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: #ccc;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        -webkit-transition: all ease-out .2s;
+        transition: all ease-out .2s
+      }
+      &:hover .fa-chevron-right {
+        -webkit-transform: translate(4px, -50%);
+        transform: translate(4px, -50%);
+        color: #333
+      }
+    }
+  }
+  &--head {
+    margin: 40px 4% 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

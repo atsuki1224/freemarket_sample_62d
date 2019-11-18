@@ -12,16 +12,16 @@
 |total_profit|bigint|default: 0|<!--ユーザー詳細-->
 |point|bigint|default: 0|
 |user_profile|string|null: true|
-### Association
 
-- :porducts
-- :nices
-- :commnets
-- :messages
-- :buyer_userReview, class_name:”user_review”, foreign_key: :buyer_id
-- :buyers, through: :buyer_userReview, source: :seller
-- :seller_userReview, class_name:”user_review”, foreign_key: :seller_id
-- :sellers, through: :seller_userReviews, source: :buyer
+### Association
+- has_many :porducts
+- has_many :nices
+- has_many :commnets
+- has_many :messages
+- has_many :buyer_userReview, class_name:”user_review”, foreign_key: :buyer_id
+- has_many :buyers, through: :buyer_userReview, source: :seller
+- has_many :seller_userReview, class_name:”user_review”, foreign_key: :seller_id
+- has_many :sellers, through: :seller_userReviews, source: :buyer
 - has_one :card
 - has_one :address
 
@@ -31,6 +31,7 @@
 |card_number|string|null: false|<!--カードデータ部分-->
 |validated_data|string|null: false|
 |security_code|integer|null: false|
+
 **Association**
 - belong_to :user
 
@@ -42,8 +43,9 @@
 |address|string|null: false|
 |building_name|string|null: true|
 |phone_number|string|null: true|
+
 **Association**
--  :user
+- belong_to :user
 
 #### productsテーブル
 |Column|Type|Options|
@@ -61,15 +63,15 @@
 |delivery_time|string|null: false|<!-- 料金 -->
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+
 **Association**
 - has_many :images
-- :commnets
-- :messages
-- :nices
+- has_many :commnets
+- has_many :messages
+- has_many :nices
 - belongs_to :user
 - belongs_to :category
 - belongs_to :bland
-
 
 #### commentsテーブル
 |Column|Type|Options|
@@ -77,10 +79,10 @@
 |product_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 |text|string|null: false|
+
 **Association**
 - belongs_to :product
 - belongs_to :user
-
 
 #### imagesテーブル
 |Column|Type|Options|
@@ -96,6 +98,7 @@
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+
 **Association**
 - belongs_to :user
 - belongs_to :product
@@ -119,20 +122,25 @@
 |trade_review|string|null: true|
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
+
 **Association**
 - belongs_to :buyer, class_name: “User”
 - belongs_to :seller, class_name: “User”
+
 #### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string|
+
 **Association**
--  :products
-has_ancestry
+- has_many :products
+- has_ancestry
+
 #### blandテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+
 **Association**
--  :products
+- has_many :products

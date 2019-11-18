@@ -11,8 +11,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
 @import 'font-awesome';
@@ -24,8 +24,15 @@
 
 @import 'user/logout';
 
+
 @import 'user/user-resistration1';
 @import 'user/user-resistration2';
 //↑2ファイル ユーザー新規登録、ログイン用
 
+
 @import "./users";
+
+// マイページ画面用
+@import "mypage";
+@import "defaults";
+@import "mypage-nav";
