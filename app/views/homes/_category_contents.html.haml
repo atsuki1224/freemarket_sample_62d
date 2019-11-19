@@ -8,7 +8,7 @@
         もっと見る＞
     .item-index
       - @products.each do |product|
-        -product_image = Image.find_by(product_id: product.id)
+        -product_image = product.images.first
         .contents
           .contents__img{style: "background-image: url(#{product_image.image});"}
             .contents__price
@@ -29,7 +29,6 @@
             ￥1,600
         .contents__text
           新品　NIKE AIR JORDAN1
-
       .contents
         .contents__img
           =image_tag "/top_page/item.jpg", class: "contents__img"
@@ -51,7 +50,6 @@
             ￥1,600
         .contents__text
           新品　NIKE AIR JORDAN1
-
       .contents
         .contents__img
           =image_tag "/top_page/item.jpg", class: "contents__img"
@@ -73,7 +71,6 @@
             ￥1,600
         .contents__text
           新品　NIKE AIR JORDAN1
-
       .contents
         .contents__img
           =image_tag "/top_page/item.jpg", class: "contents__img"
