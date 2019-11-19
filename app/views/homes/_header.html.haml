@@ -1,37 +1,37 @@
 .header-wrapper
   .header
-    .header__logo-search.clearfix
+    .header__logo-search
       =image_tag "/SVG/fmarket_logo_red.svg", class: "header__logo-search--logo"
       %form.header__form
         %input{value:"", placeholder:"何かお探しですか？", class:"header__form--input"}
         %i.fa.fa-search
-    .header-lists.clearfix
+    .header-lists
       %ul.header-lists__left
         %li.header__item(id="header-category")
-          =link_to "#" ,class:"header__item--link parent" do
+          =link_to "/#" ,class:"header__item--link parent" do
             =fa_icon'list-ul', class:"parent"
             カテゴリーから探す
             
         %li.header__item(id="header-brand")
-          =link_to "#",class:"header__item--link parent" do
+          =link_to "/#",class:"header__item--link parent" do
             =fa_icon 'tags', class:"parent"
             ブランドから探す
 
       %ul.header-lists__right  
         %li.header__item(id="header-nice")
-          =link_to "#",class:"header__item--link" do
+          =link_to "/mypage/nice/history/",class:"header__item--link" do
             =fa_icon 'heart'
             いいね！一覧
         %li.header__item(id="header-news")
-          =link_to "#",class:"header__item--link" do
+          =link_to "/mypage/notification/",class:"header__item--link" do
             =fa_icon'bell'
             お知らせ
         %li.header__item(id="header-todo")
-          =link_to "#",class:"header__item--link" do
+          =link_to "/mypage/todo/",class:"header__item--link" do
             =fa_icon'check'
             やることリスト
         %li.header__item(id="header-mypage")
-          =link_to "#",class:"header__item--link" do
+          =link_to "/mypage",class:"header__item--link" do
             =fa_icon'user'
             マイページ
 

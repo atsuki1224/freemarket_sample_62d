@@ -1,9 +1,8 @@
 .header-wrapper{
   background-color: #fff;
   .header {
-    height: 55px;
     width: 1020px;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     padding: 8px 0 0;
     &__logo-search {
       height: 36px;
@@ -44,12 +43,8 @@
     .header-lists {
       height: 32px;
       margin: 9px 0 0 0;
-      &__left {
-        float: left;
-      }
-      &__right {
-        float: right;
-      }
+      display: flex;
+      justify-content: space-between;
     }
     &__item {
       position: relative;
@@ -84,7 +79,7 @@
 }
 .box-area{
   width: 100px;
-
+  
   .category-box{
     position: absolute;
     font-size: 12px;

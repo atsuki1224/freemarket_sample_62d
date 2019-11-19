@@ -1,11 +1,14 @@
 .mypage-nav {
   float: left;
   width: 280px;
-  margin: 0 40px 0 0;
+  margin: 40px 40px 40px 0;
   &__list {
     li {
       line-height: 1;
       border-top: 1px solid #eee;
+      &:first-child {
+        border-top: none;
+      }
     }
     li &--item  {
       position: relative;
