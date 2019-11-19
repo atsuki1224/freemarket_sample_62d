@@ -1,40 +1,51 @@
 .mainbox
-  = render partial:"resistration_header"
+
+  = render partial:"resistration_header_status_1"
 
   .registcontents
     .box
-      .box__formarea
-        .box__tittle
-          アカウントをお持ちでない方はこちら
-        .btnlist
-          =link_to '/' do
-            .btnlist__list--resistration
-              新規会員登録
-        -# .formarea__underbar
-      .box__formarea
-        .btnlist
-          =link_to '/' do
-            .btnlist__list--facebook
-              %p Facebookでログイン
-              =fa_icon 'facebook-square'
-          =link_to '/' do
-            .btnlist__list--google
-              %p Googleでログイン
-              =image_tag "icons/google-icon.png"
-      .box__formarea
+      .box__tittle
+        %h3
+          電話番号の確認
+      .formarea
         .formbox
           .formbox__text
-          %input.form{placeholder:'メールアドレス'}
-        .formbox
-          .formbox__text
-          %input.form{placeholder:'パスワード'}
-      .box__formarea
-        .robot
-          =image_tag "robot.png"
+            .formbox__text--tittle
+              認証番号
+          %input.form{placeholder:'認証番号を入力'}
+          .notice
+            SNSで届いた認証番号を入力してください
         .submit
-          ログイン
-        .link
-          =link_to 'パスワードをお忘れの方'
+          認証して完了
+      .formarea__underbar
 
+    .box
+      .formarea
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              30秒たっても認証番号が届かない方へ
+          .notice
+            電話で認証番号を聞くこともできます。
+        .submit
+          電話で認証番号を聞く(通話無料)
+      .formarea__underbar
+
+    .box
+      .formarea
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              認証番号を再送することもできます。もう一度で電話番号を入力してください。
+            .formbox__text--tittle
+              =link_to '電話番号を再度入力する', '/'
+          .notice
+            *SMSが届かない場合は
+            =link_to 'SMS受信設定', '/'
+            を確認して、もう一度電話番号を入力してください。
+
+      .formarea__underbar
 
   =render partial:"resistration_shortfooter"
+.plusarea
+

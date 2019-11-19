@@ -1,59 +1,79 @@
 .mainbox
-  = render partial:"resistration_header_status_3"
+
+  = render partial:"resistration_header_status_2"
+
 
   .registcontents
     .box
       .box__tittle
         %h3
-          支払い方法
+
+          発送元・お届け住所入力
 
       .formarea
         .formbox
           .formbox__text
             .formbox__text--tittle
-              カード番号
+
+              お名前
             .formbox__text--btn
               必須
-          %input.form{placeholder:'半角数字のみ'}
-          .formbox__cardlogo
-            =image_tag "card-logo/dinners_logo.png"
-            =image_tag "card-logo/discovercard_logo.jpg"
-            =image_tag "card-logo/jcb.jpeg"
-            =image_tag "card-logo/sesoncard.png"
-            =image_tag "card-logo/visa_logo.jpg"
-          .formbox
-            .formbox__text
-              .formbox__text--tittle
-                有効期限
-              .formbox__text--btn
-                必須
-            -# %input.form{placeholder:'半角数字のみ'}
-
-            %select.selectform
-              %option{value:"",slected:""}="月"
-            %select.selectform
-              %option{value:"",slected:""}="年"
-
-
-          .formbox
-            .formbox__text
-              .formbox__text--tittle
-                セキュリティコード
-              .formbox__text--btn
-                必須
-            %input.form{placeholder:'カード背面4桁もしくは3桁の番号'}
-
-            .link
-              =link_to 'カード裏面の番号とは?','/'
-
-          .formbox__text--notice
-            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-        .submit
-          =link_to "/signup/resistration_7", class:"submit" do
-            SMSを送信する
+          %input.form{placeholder:'例)山田'}
+          %input.form{placeholder:'例)彩'}
         .formbox
-          .notice
-            *電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .formbox__text
+            .formbox__text--tittle
+              お名前カナ
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)ヤマダ'}
+          %input.form{placeholder:'例)アヤ'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              郵便番号
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)111-1111'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              都道府県
+            .formbox__text--btn
+              必須
+          %select.prefform
+            %option{value:"",slected:""}="都道府県"
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              市町村
+            .formbox__text--btn
+              必須
+          %input.form{placeholder:'例)横浜市緑区'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              番地
+            .formbox__text--btnb
+              任意
+          %input.form{placeholder:'例)青山1-1-1'}
+        .formbox
+          .formbox__text
+            .formbox__text--tittle
+              電話番号
+            .formbox__text--btnb
+              任意
+          %input.form{placeholder:'例)0901234567'}
+
+
+
+
+        .submit
+          次へ進む
+
+        .nextlink
+          =link_to '本人情報の登録について>', '/'
+
 
   =render partial:"resistration_shortfooter"
 .plusarea
