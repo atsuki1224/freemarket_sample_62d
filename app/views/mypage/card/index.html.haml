@@ -12,8 +12,8 @@
             - if true
               %ul.payment-info__list
                 %li
-                  %form{class:"cardform", action:"https://www.mercari.com/jp/mypage/card/delete/", method:"POST"}
-                    =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?210491352", width:"49", height:"15", alt:"visa"
+                  %form{class:"cardform", action:"/mypage/card/delete/", method:"POST"}
+                    =image_tag "card-logo/visa.svg", width:"49", height:"15", alt:"visa"
                     %input{type:"hidden", name:"__csrf_value", value:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
                     %input{type:"hidden", name:"card_sequence_no", value:"xxxxxxxxxxxxxxxxxxxxxxxx"}
                     .cardform--num<
@@ -28,7 +28,6 @@
                 = link_to "card-add", class:"red-btn" do
                   =fa_icon 'credit-card'
                   クレジットカードを追加する
-            
           .payment-info--notregist
             =link_to "/help_center/category/6/", target:"_blank" do
               支払い方法について

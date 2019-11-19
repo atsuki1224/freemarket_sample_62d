@@ -2,11 +2,12 @@
 .mypage-wrapper {
   background-color: #f3f3f3;
   .mypage {
-    margin: 40px auto 0;
+    margin: 0 auto 0px;
     width: 1020px;
     &__content {
       float: right;
       width: 700px;
+      margin-top: 40px;
     }
     // 以下、各セクション毎のスタイル
     &__user {
