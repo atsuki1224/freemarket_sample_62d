@@ -13,5 +13,7 @@ class Mypage::ReviewsController < ApplicationController
   def poor
     render 'index'
   end
+
+  
   
 end
