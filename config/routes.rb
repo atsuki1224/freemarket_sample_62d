@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'purchase' => 'mypage#purchase'
       get 'purchased' => 'mypage#purchased'
       get 'logout' => 'mypage#logout'
+      get 'identification' =>'mypage#identification'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
