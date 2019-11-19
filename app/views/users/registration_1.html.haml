@@ -7,7 +7,9 @@
         %h3 新規会員登録
       .box__formarea
         .btnlist
-          =link_to '/'  do
+
+          =link_to '/signup/resistration_2'  do
+
             .btnlist__list--mail
               %p メールアドレスで登録する
               =fa_icon 'envelope-o'
@@ -18,6 +20,8 @@
           =link_to '/'  do
             .btnlist__list--google
               %p Googleで登録する
-              =image_tag "google-icon.png"
+
+              =image_tag "icons/google-icon.png"
+
 
   = render partial:"resistration_longfooter"

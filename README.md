@@ -87,7 +87,7 @@
 #### imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: true|
+|image|string|null: false|
 |product_id|integer|null: false, foreign_key: true|
 
 **Association**
