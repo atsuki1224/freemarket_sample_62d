@@ -4,6 +4,6 @@ class Product < ApplicationRecord
   # has_many :messages
   # has_many :nices
   # belongs_to :user
-  # belongs_to :category
-  # belongs_to :bland
+  belongs_to :category
+  belongs_to :bland
 end

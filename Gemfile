@@ -73,4 +73,3 @@ gem 'haml-rails'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'faker'
-
