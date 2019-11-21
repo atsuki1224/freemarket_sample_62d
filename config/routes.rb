@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'purchase' => 'mypage#purchase'
       get 'purchased' => 'mypage#purchased'
       get 'logout' => 'mypage#logout'
+      get 'identification' =>'mypage#identification'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
@@ -32,5 +33,8 @@ Rails.application.routes.draw do
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # =====商品詳細ページの仮ルーティングです＝＝＝＝＝＝＝＝＝
+  resources :products do
+  end
   root "homes#index"
 end
