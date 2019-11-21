@@ -30,5 +30,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # =====商品詳細ページの仮ルーティングです＝＝＝＝＝＝＝＝＝
+  get 'products/:id' => 'products#detail'
   root "homes#index"
 end
