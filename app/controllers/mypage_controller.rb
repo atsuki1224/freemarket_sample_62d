@@ -19,4 +19,7 @@ class MypageController < ApplicationController
 
   def logout
   end
+
+  def identification
+  end
 end
