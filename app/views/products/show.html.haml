@@ -4,7 +4,7 @@
       COACHショルダーバック
     .item__image
       .item__image--main
-        = image_tag "#{@images[1].image}", class:"main-image"        
+        = image_tag "#{@images[0].image}", class:"main-image"        
       .item__image--sub
         -images = @product.images
         -@images.each do |image|
