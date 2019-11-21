@@ -4,6 +4,7 @@
   margin: 40px auto;
   width:680px ;
 }
+$link-color:#0099E8;
 
 .detail-wrapper{
   background-color: whitesmoke;
@@ -57,7 +58,7 @@
         font-size: 12px;
         .name{
           padding-left: 10px;
-          color:#0099E8 ;
+          color:$link-color ;
           display: block;
         }
         span{
@@ -85,7 +86,7 @@
         width:50px ;
       }
       .link{
-        color:#0099E8;
+        color:$link-color;
         display: block;
       }
     }
@@ -128,7 +129,6 @@
       width:620px ;
       padding-left: 30px;
       font-size: 18px;
-      // line-height: 10px;
     }
     &__bottom{
       display: flex;
@@ -145,7 +145,7 @@
         color: black;
       }
       .safe_and_relief{
-        color:#0099E8;
+        color:$link-color;
         margin: 30px 20px 30px 80px;
         padding-top: 2px;
       }
@@ -193,12 +193,12 @@
     &__left{
       position: absolute;
       left: 0;
-      color:#0099E8;
+      color:$link-color;
     }
     &__right{
       position: absolute;
       right: 0;
-      color:#0099E8;
+      color:$link-color;
     }
   }
   .icons{
@@ -219,7 +219,7 @@
     }
     .title{
       font-size: 22px;
-      color: #0099E8;
+      color: $link-color;
       font-weight: bold;
       margin-bottom: 10px;
       display: block;
