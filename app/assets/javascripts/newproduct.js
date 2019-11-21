@@ -17,18 +17,15 @@ $(function(){
           </li>`
     return html
   };
-  
+
   $(document).on("change", '.imagearea', function(e) {
     var file = e.target.files[0],
         reader = new FileReader();
-    // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
     }
-    // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
       return function(e) {
-        // .droparea/.previewの幅調整 ... 0かつファイル数10未満で drop行追加。
         var wd =$droparea.width();
         if ($("ul .imagearea").length == 4){
           $droparea.width(620);
@@ -37,12 +34,8 @@ $(function(){
         } else {
           $droparea.width(wd - 130);
         }
-        // .previewタグの形成
         var html = filepreview(e.target.result); 
-        // .previewの領域の中にロードした画像を表示するimageタグを追加
         $previewul.append(html);
-
-        //imgタグを階層式にしてドラッグさせる方法。
         if ($("ul .imagearea").length >= 10) {
           return false;
         } else {
@@ -59,10 +52,8 @@ $(function(){
   $(document).on("click", '.remove-btn', function() {
     var target = Number($('.remove-btn').index(this));
     $('.have-img-box').eq(target-1).remove();
-    
     $('.product-item__img--preview ul input').eq(target).appendTo($droparea);
     $('.imagearea:last').val('');
-    
     var wd =$droparea.width();
     if ($("ul .imagearea").length == 9) {
       $droparea.css('display', 'inline-block').width(120);

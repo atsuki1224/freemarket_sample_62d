@@ -1,4 +1,11 @@
 .product-wrapper
+  -# サーバーサイド実装でDBが整えばform_forと各selectへ訂正する。
+  -# f.select :size, Product.sizes.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+  -# f.select :delivery_time, Product.delivery_times.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+  -# f.select :delivery_method, Product.delivery_methods.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+  -# f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+  -# f.select :delivery_area, Product.delivery_areas.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+  -# f.select :condition, Product.conditions.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
   .header
     =link_to root_path, class:"header--img" do
       =image_tag "svg/fmarket_logo_red.svg"
@@ -102,7 +109,7 @@
             .form-required
               必須
           ¥
-          %input.product-item__subform--price
+          %input.product-item__subform--price{required:"true"}
           .product-item__subform--left
             販売手数料 (10%)
             .fee
