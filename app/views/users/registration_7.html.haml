@@ -1,10 +1,13 @@
 .mainbox
+
   = render partial:"resistration_header_status_3"
+
 
   .registcontents
     .box
       .box__tittle
         %h3
+
           支払い方法
 
       .formarea
@@ -49,11 +52,11 @@
           .formbox__text--notice
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .submit
-          =link_to "/signup/resistration_7", class:"submit" do
-            SMSを送信する
+          SMSを送信する
         .formbox
           .notice
             *電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
 
   =render partial:"resistration_shortfooter"
 .plusarea
