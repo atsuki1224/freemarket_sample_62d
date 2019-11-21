@@ -1,26 +1,27 @@
 .mainbox
+
   = render partial:"resistration_header"
 
-  .registcontents
+  .logincontents
     .box
       .box__formarea
-        .box__tittle
+        .logintittle
           アカウントをお持ちでない方はこちら
         .btnlist
-          =link_to '/' do
+          %a{href:'/'}
             .btnlist__list--resistration
               新規会員登録
-        -# .formarea__underbar
+        .formarea__underbar
       .box__formarea
         .btnlist
-          =link_to '/' do
+          %a{href:'/'}
             .btnlist__list--facebook
               %p Facebookでログイン
               =fa_icon 'facebook-square'
-          =link_to '/' do
+          %a{href:'/'}
             .btnlist__list--google
               %p Googleでログイン
-              =image_tag "icons/google-icon.png"
+              =image_tag "google-icon.png"
       .box__formarea
         .formbox
           .formbox__text
@@ -38,3 +39,4 @@
 
 
   =render partial:"resistration_shortfooter"
+
