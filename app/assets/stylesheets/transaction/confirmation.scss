@@ -21,8 +21,7 @@
     margin:0 auto;
     overflow: auto;
     background-color: white;
-    
-    
+
     .header_message{
       height: 65px;
       padding: 16px;
@@ -53,7 +52,7 @@
           font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           font-weight: bold;
         }  
-    }
+      }
     .buyForm{
       clear:  both;      
       padding-top: 8px;
@@ -61,7 +60,6 @@
         height: 33px;
         margin-top: 8px;
         box-sizing: border-box;
-        
         &__buyPrice{
           height: 33px;
           font-size: 20px;
@@ -132,7 +130,7 @@
       }
     }
   }
-  } 
+} 
     .contents_box {
       padding: 24px 87.5px;
       margin: 40px;
@@ -146,7 +144,6 @@
         width: 320px;
         font-size: 14px;
         position: relative;
-        
         .dataTitle{
           font-weight: bold;
           margin-bottom: 8px;
@@ -155,9 +152,7 @@
           position: absolute;
           right: 0;
           box-sizing: border-box;
-          
         }
-        
       }
     }
 }
@@ -185,6 +180,7 @@
 }
 .fooder_area{
   background-color: rgb(245, 245, 245);
+
   .footer {
     width: 456px;
     height: 220px;
@@ -197,6 +193,7 @@
         a{
           color: #000;
         }
+
       }
     }
     &--img {

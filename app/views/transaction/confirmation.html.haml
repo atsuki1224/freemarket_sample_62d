@@ -41,15 +41,19 @@
           山田孝之
         #p.buy_userInfo  
           建物名
-        %a{href: 'http://',class: 'userInfo-fix clearfix:after' } 
-          変更する >
+        %ul.fix
+          %li.delivery_fix(id="fix-category")
+            =link_to "/#" ,class:'userInfo-fix' do
+              変更する >
     #section.contents_box{class:"pay_contents"}
       .contents_box__inner
         #h3.dataTitle 
           支払い方法
         .adress.postalCode /
-        %a{href: 'http://', class: 'userInfo-fix' } 
-          変更する >
+        %ul.fix
+          %li.pay_fix(id="fix-category")
+            =link_to "/#" ,class:'userInfo-fix' do
+              変更する >
 .fooder_area 
   .footer
     %ul.footer--nav.clearfix
