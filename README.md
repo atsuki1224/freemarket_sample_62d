@@ -50,18 +50,18 @@
 
 #### productsテーブル
 |Column|Type|Options|
-|------|----|-------| 
+|------|----|-------|
 |item_name|string|null: false|<!-- 商品関係 -->
 |description|text|null: false|
 |item_condition|integer|null: false|
-|trade_status|string|null: false|
-|size|string|null: false|
+|trade_status|integer|null: false|
+|size|integer|null: false|
 |bland_id|integer|null: true|
 |category_id|integer|null: false|<!-- 配送について -->
-|delivery_charge|string|null: false|
-|delivery_methot|string|null: false|
-|delivery_area|string|null: false|
-|delivery_time|string|null: false|<!-- 料金 -->
+|delivery_charge|integer|null: false|
+|delivery_method|integer|null: false|
+|delivery_area|integer|null: false|
+|delivery_time|integer|null: false|<!-- 料金 -->
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -144,4 +144,5 @@
 |name|string|null: false|
 
 **Association**
+- belongs_to :category
 - has_many :products

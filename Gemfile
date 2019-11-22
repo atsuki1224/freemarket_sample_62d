@@ -73,5 +73,8 @@ gem 'haml-rails'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'faker'
+<<<<<<< HEAD
 gem 'active_hash'
 
+=======
+>>>>>>> 8c1f5ccebba796618a210045cbaeaa6e3a2b7ac6

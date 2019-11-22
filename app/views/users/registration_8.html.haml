@@ -1,10 +1,13 @@
 .mainbox
+
   = render partial:"resistration_header_status_4"
+
 
   .registcontents
     .box
       .box__tittle
         %h3
+
           会員登録完了
       .formarea
         .formbox
@@ -14,8 +17,7 @@
               %br
               会員登録が完了しました。
         .submit
-          = link_to root_path, class:"submit" do
-            メルカリを始める
+          メルカリを始める
         .formbox
           .notice
             *電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
@@ -23,6 +25,8 @@
         =link_to '/' do
           =image_tag "images(marcari_banner).jpeg"
 
+
+ 
 
   =render partial:"resistration_shortfooter"
 .plusarea

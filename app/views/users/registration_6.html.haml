@@ -1,15 +1,20 @@
 .mainbox
+
   = render partial:"resistration_header_status_2"
+
 
   .registcontents
     .box
       .box__tittle
         %h3
+
           発送元・お届け住所入力
+
       .formarea
         .formbox
           .formbox__text
             .formbox__text--tittle
+
               お名前
             .formbox__text--btn
               必須
@@ -64,11 +69,11 @@
 
 
         .submit
-          =link_to "/signup/resistration_6", class:"submit" do
-            次へ進む
+          次へ進む
 
         .nextlink
           =link_to '本人情報の登録について>', '/'
+
 
   =render partial:"resistration_shortfooter"
 .plusarea

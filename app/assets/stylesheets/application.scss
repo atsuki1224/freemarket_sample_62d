@@ -25,8 +25,8 @@
 @import 'user/logout';
 
 
-@import 'user/user-resistration1';
-@import 'user/user-resistration2';
+@import 'user/user-registration1';
+@import 'user/user-registration2';
 //↑2ファイル ユーザー新規登録、ログイン用
 
 
@@ -36,3 +36,6 @@
 @import "mypage";
 @import "defaults";
 @import "mypage-nav";
+
+// 商品詳細ページ用
+@import "products/product_detail"
