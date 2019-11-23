@@ -38,9 +38,10 @@
 #### addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|prefectures|string|null: false|<!-- 住所部分 -->
+|prefecture_id|integer|null: false|<!-- 住所部分 -->
 |city|string|null: false|
 |address|string|null: false|
+|user_id|integer|null: false|
 |building_name|string|null: true|
 |phone_number|string|null: true|
 
