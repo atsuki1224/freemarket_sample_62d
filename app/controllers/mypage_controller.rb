@@ -22,4 +22,7 @@ class MypageController < ApplicationController
 
   def identification
   end
+
+  def edit
+  end
 end
