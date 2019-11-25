@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'root' => 'homes#index'
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
       get 'purchased' => 'mypage#purchased'
       get 'logout' => 'mypage#logout'
       get 'identification' =>'mypage#identification'
+      get 'profile' => 'mypage#profile'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
