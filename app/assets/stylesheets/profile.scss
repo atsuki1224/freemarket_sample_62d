@@ -1,52 +1,54 @@
-.mypage__profile-title {
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  border-bottom: 1px solid #f5f5f5;
-  background-color: #ffffff;
-  text-align: center;
-  font-weight: bold;
-  padding: 8px 24px;
-  line-height: 1.4;
-  font-size: 18px;
-  font-size: 24px;
-  color: #333;
-}
-.mypage__profile-imagebox {
-  background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?79784477");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 156px;
-  .mypage__profile-user {
-    justify-content: center;
-    padding: 72px 16px 24px;
+.mypage__content {
+  &-title {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #ffffff;
     text-align: center;
-    line-height: 60px;
-    display: flex;
-    height: 60px;
-    width: 100%;
-    img {
-      border-radius: 50%;
-      overflow: hidden;
+    font-weight: bold;
+    padding: 8px 24px;
+    line-height: 1.4;
+    font-size: 18px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  &-imagebox {
+    background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?79784477");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 156px;
+    &-user {
+      justify-content: center;
+      padding: 72px 16px 24px;
+      text-align: center;
+      line-height: 60px;
+      display: flex;
       height: 60px;
-      width: 60px;
-    }
-    input.mypage__profile-user--name {
-      border: 1px solid #ccc;
-      margin: auto 0 auto 8px;
-      padding: 10px 16px 8px;
-      border-radius: 4px;
-      background: #fff;
-      font-size: 16px;
-      height: 28px;
-      width: 186px;
+      width: 100%;
+      img {
+        border-radius: 50%;
+        overflow: hidden;
+        height: 60px;
+        width: 60px;
+      }
+      &--name {
+        border: 1px solid #ccc;
+        margin: auto 0 auto 8px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        background: #fff;
+        font-size: 16px;
+        height: 28px;
+        width: 186px;
+      }
     }
   }
-}
-.mypage__profile-formcontents {
-  background-color: #fff;
-  padding: 40px 16px;
-  .mypage__profile-form {
-    .mypage__profile-form-text {
+
+  &-form {
+    background-color: #fff;
+    padding: 40px 16px;
+    &--text {
       border: 1px solid #ccc;
       background-color: #fff;
       box-sizing: border-box;
@@ -57,20 +59,20 @@
       padding: 10px;
       width: 100%;
     }
-  }
-  .mypage__profile-btn {
-    background-color: #ea352d;
-    border: 1px solid #ea352d;
-    text-align: center;
-    line-height: 48px;
-    margin-top: 16px;
-    font-size: 14px;
-    transition: all;
-    cursor: pointer;
-    color: #fff;
-    width: 100%;
-    a:visited {
+    &--btn {
+      background-color: #ea352d;
+      border: 1px solid #ea352d;
+      text-align: center;
+      line-height: 48px;
+      margin-top: 16px;
+      font-size: 14px;
+      transition: all;
+      cursor: pointer;
       color: #fff;
+      width: 100%;
+      a:visited {
+        color: #fff;
+      }
     }
   }
 }
