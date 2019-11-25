@@ -1,0 +1,187 @@
+=form_for @product do |f|
+  .product-wrapper
+    -# サーバーサイド実装でDBが整えばform_forと各selectへ訂正する。
+    -# f.select :size, Product.sizes.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    -# f.select :delivery_time, Product.delivery_times.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    -# f.select :delivery_method, Product.delivery_methods.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    -# f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    -# f.select :delivery_area, Product.delivery_areas.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    -# f.select :condition, Product.conditions.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+    .header
+      =link_to root_path, class:"header--img" do
+        =image_tag "svg/fmarket_logo_red.svg"
+    .newproduct__content.clearfix
+      %form.product-item
+        .product-item--head
+          商品の情報を入力
+        .product-item__img.clearfix
+          .product-item__img--title
+            出品画像
+            .form-required
+              必須
+          .product-item__img--text
+            最大10枚までアップロードできます
+          .product-item__img--preview
+            %ul<
+          %label.product-item__img--area
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            =f.fields_for :images do |i|
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+            %p
+              ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+        .product-item__form
+          .product-item__form--title
+            商品名
+            .form-required
+              必須
+          =f.text_field :item_name, class:'product-item__form--field',placeholder:"商品名（必須40字まで）", required:"true"
+          =f.hidden_field :trade_status, value:0
+          =f.hidden_field :bland_id, value:'',class:'bland_num'
+          =f.hidden_field :delivery_method, class:'delivery_method',value:''
+          =f.hidden_field :user_id, value:1
+          =f.hidden_field :size,class:"size_form",vlaue:''
+          =f.hidden_field :category_id, value:'',class:'category_num'
+
+          .product-item__form--title
+            商品説明
+            .form-required
+              必須
+          =f.text_area :description, class:'product-item__form--description',placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",  required:"true"
+        .product-item__form.clearfix
+          .product-item__form--title
+            商品の詳細
+          .product-item__subform
+            .product-item__subform--title
+              カテゴリー
+              .form-required
+                必須
+            -# =select("product","category_id", Category.where(id: 1..13).collect {|c| [ c.name, c.id ] }, { include_blank: true },{class:'product-item__subform--select',id:'category_box'})
+            =f.collection_select :category_id, Category.where(id: 1..13), :id, :name ,{},{class:'product-item__subform--select0',required:"true",id:'category_box'}
+            -# = f.hidden_field :category_id
+            -# %select.product-item__subform--select{required:"true"}
+            -#   %option(value="")<>---
+            -#   %option(value="1")<>レディース
+            -#   %option(value="2")<>メンズ
+            -#   %option(value="3")<>ベビー・キッズ
+            -#   %option(value="4")<>インテリア・住まい・小物
+            -#   %option(value="5")<>本・音楽・ゲーム
+            -#   %option(value="1328")<>おもちゃ・ホビー・グッズ
+            -#   %option(value="6")<>コスメ・香水・美容
+            -#   %option(value="7")<>家電・スマホ・カメラ
+            -#   %option(value="8")<>スポーツ・レジャー
+            -#   %option(value="9")<>ハンドメイド
+            -#   %option(value="1027")<>チケット
+            -#   %option(value="1318")<>自動車・オートバイ
+            -#   %option(value="10")<>その他
+            .product-item__subform--title
+              商品の状態
+              .form-required
+                必須
+            =f.select :item_condition, Product.item_conditions.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+            -# =i.select :condition, Product.condition.keys.to_a,include_blank:'----'.product-item__subform--select{required:"true"}
+              %option(value="")<>---
+              %option(value="1")<>新品、未使用
+              %option(value="2")<>未使用に近い
+              %option(value="3")<>目立った傷や汚れなし
+              %option(value="4")<>やや傷や汚れあり
+              %option(value="5")<>傷や汚れあり
+              %option(value="6")<>全体的に状態が悪い
+        .product-item__form.clearfix
+          .product-item__form--title
+            配送について
+
+            -# = Product.delivery_areas.keys[@p.delivery_area.to_i]
+            -# = @p.item_name
+            -# = @p.delivery_area
+          .product-item__subform
+            .product-item__subform--title
+              配送の負担
+              .form-required
+                必須
+            -# %select.product-item__subform--select{required:"true"}
+            = f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select6", required:"true"}
+            .product-item__subform--title
+              発送元の地域
+              .form-required
+                必須
+            -# %select.product-item__subform--select{required:"true"}
+            = f.select :delivery_area, Product.delivery_areas.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+
+            .product-item__subform--title
+              発送までの日数
+              .form-required
+                必須
+            = f.select :delivery_time, Product.delivery_times.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
+            -# .product-item__subform--select{required:"true"}
+
+        .product-item__form.clearfix
+          .product-item__form--title
+            販売価格(300〜9,999,999)
+          .product-item__subform
+            .product-item__subform--title
+              価格
+              .form-required
+                必須
+            ¥
+            =f.text_field :price, {class:'product-item__subform--price',required:"true"}
+            .product-item__subform--left
+              販売手数料 (10%)
+              .fee
+                販売手数料
+            .product-item__subform--left
+              販売利益
+              .profit
+                最終的利益値
+        .product-item__button
+          .product-item__button--notes
+            禁止されている出品、行為を必ずご確認ください。
+            またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            また、出品をもちまして加盟店規約に同意したことになります。
+          -# .product-item__button--submit
+          =f.submit class:'product-item__button--submit',value:'出品する'
+
+          %button.product-item__button--cancel
+            戻る
+
+    .footer
+      %ul.footer--nav.clearfix
+        %li<
+          = link_to "." do
+            プライバシーポリシー
+        %li<
+          = link_to "." do
+            メルカリ利用規約
+        %li<
+          = link_to "." do
+            特定商取引に関する表記
+      =link_to root_path, class:"footer--img" do
+        =image_tag "svg/logo_gray.svg"
+      .footer--text
+        © 2019 Mercari
