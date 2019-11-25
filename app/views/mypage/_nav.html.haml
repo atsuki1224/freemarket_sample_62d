@@ -72,7 +72,7 @@
     設定
   %ul.mypage-nav__list
     %li
-      =link_to "/mypage/profile/", class:"mypage-nav__list--item" do
+      =link_to "/mypage/profile/", class:"mypage-nav__list--item #{controller.action_name == "profile" ? 'active' : ''}" do
         プロフィール
         =fa_icon 'chevron-right'
     %li
@@ -88,7 +88,7 @@
         メール/パスワード
         =fa_icon 'chevron-right'
     %li
-      =link_to "/mypage/identification/", class:"mypage-nav__list--item" do
+      =link_to "/mypage/identification/", class:"mypage-nav__list--item #{controller.action_name == "identification" ? 'active' : ''}"do
         本人情報
         =fa_icon 'chevron-right'
     %li
