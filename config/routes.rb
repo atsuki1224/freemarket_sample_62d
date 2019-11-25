@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'root' => 'homes#index'
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
