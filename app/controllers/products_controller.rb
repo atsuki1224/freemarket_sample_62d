@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     begin
       @product = Product.new(product_params)
       @product.save
-    rescue　=> e
+    rescue=> e
       Rails.logger.debug e.message
     end
   end
