@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
     @child = Category.find_by(id:params[:child_id])
     @search = params[:bland_name]
 
+
+
     if @parent && @child && @search
          @blands1 = @parent.blands
          @blands2 = @child.blands
@@ -35,9 +37,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    binding.pry
-    @product.save
+    begin
+      @product = Product.new(product_params)
+      @product.save
+    rescue　=> e
+      Rails.logger.debug e.message
+    end
   end
 
   def show
