@@ -8,4 +8,7 @@ class ProductsController < ApplicationController
     @images = @product.images.order("created_at ASC").limit(10)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
 end
