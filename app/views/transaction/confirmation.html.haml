@@ -1,1 +1,72 @@
-.header
+.header_logo
+  =image_tag "/SVG/fmarket_logo_red.svg", class: "header_logo__confirmation"
+.trade_confirmation
+  .trade_confirmation__width_main
+    #h2.header_message
+      購入内容の確認
+    #seciton.buy_contents
+      .buy_contents__width_buyArea
+        .buy_contents__width_buyArea--item_image
+          =image_tag "/top_page/appstore.png", class: "buy_contents__width_buyArea--trade_item"
+        .buy_contents__width_buyArea--item_name
+          4℃ ピンキーリング ピンクゴールド ハートモチーフ 3号 本日限定価格⚠️
+        %form{class:"buyForm", action:"", method:"POST"}
+          .buyArea 
+            .buyArea__buyPrice 
+              ¥ 2,700
+            .buyArea__shippingFee 
+              送料込み
+          .point_box
+            .point_box__point_area  
+              ポイントはありません
+          .pay_area
+            .pay_area__pay_message  
+              支払い金額
+            .pay_area__pay_price  
+              ¥5,000
+          .error_message  
+            配送先と支払い方法の入力を完了してください。
+          %button.btn_grey{type:"submit"} 
+            購入する
+          
+    #section.contents_box{class:"delivery_contents"}
+      .contents_box__inner
+        #h3.dataTitle 
+          配送先
+        #adress.buy_userInfo--postal  
+          〒123-4567
+        #adress.buy_userInfo--street  
+          広島1-1-1
+        #adress.buy_userInfo--name  
+          山田孝之
+        #p.buy_userInfo  
+          建物名
+        %ul.fix
+          %li.delivery_fix(id="fix-category")
+            =link_to "/#" ,class:'userInfo-fix' do
+              変更する >
+    #section.contents_box{class:"pay_contents"}
+      .contents_box__inner
+        #h3.dataTitle 
+          支払い方法
+        .adress.postalCode /
+        %ul.fix
+          %li.pay_fix(id="fix-category")
+            =link_to "/#" ,class:'userInfo-fix' do
+              変更する >
+.fooder_area 
+  .footer
+    %ul.footer--nav.clearfix
+      %li<
+        = link_to "." do
+          プライバシーポリシー 
+      %li<
+        = link_to "." do
+          メルカリ利用規約
+      %li<
+        = link_to "." do
+          特定商取引に関する表記
+    =link_to root_path, class:"footer--img" do
+      =image_tag "svg/logo_gray.svg"
+    .footer--text
+      © 2019 Mercari 

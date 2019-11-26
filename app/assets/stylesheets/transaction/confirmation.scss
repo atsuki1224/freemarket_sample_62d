@@ -1,0 +1,214 @@
+.header_logo{
+  height: 128px;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  &__confirmation{
+  width: 185px;
+  height: 128px; 
+  display: block;
+  margin: auto;
+  }
+}
+.trade_confirmation{
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  &__width_main{
+    margin: 0;
+    padding: 0;
+    width: 700px;
+    box-sizing: border-box;
+    margin:0 auto;
+    overflow: auto;
+    background-color: white;
+
+    .header_message{
+      height: 65px;
+      padding: 16px;
+      text-align: center;
+      line-height: 65px;
+      font-size: 22px;
+      line-height: 1.4;
+      box-sizing: border-box;
+      font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      font-weight: bold;
+    }
+    .buy_contents{
+      padding-top: 24px;
+      border-top: 1px solid rgb(245, 245, 245);
+      &__width_buyArea{
+        width: 320px;
+        margin:0 auto;
+        &--trade_item{
+          height: 64px;
+          width: 64px;
+          float: left;
+        }
+        &--item_name{
+          height: 72px;
+          width: 240px;
+          float: right;
+          margin-left: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          font-weight: bold;
+        }  
+      }
+    .buyForm{
+      clear:  both;      
+      padding-top: 8px;
+      .buyArea{
+        height: 33px;
+        margin-top: 8px;
+        box-sizing: border-box;
+        &__buyPrice{
+          height: 33px;
+          font-size: 20px;
+          font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          text-align: right;
+          width: 160px;
+          float: left;
+          box-sizing: border-box;
+        }
+        &__shippingFee{
+          height:33px;
+          font-size: 14px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;;
+          float: right;
+          width: 152px;
+          text-align: left;
+          line-height: 33px;
+          margin-left: 8px;
+        }
+      }
+      .point_box{
+        &__point_area{
+          margin-top: 8px;
+          height: 16px;
+          padding: 16px;
+          font-size: 14px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          text-align: center;
+          overflow: hidden;
+          background-color: #c8cace;
+        }
+      }
+      .pay_area{
+        height: 60px;
+        width: 320px;
+        background-color: white;
+        &__pay_message{
+          font-size: 18px;
+          padding: 16px 0;
+          width: 160px;
+          float: left;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;;
+          font-weight: bold;
+        }
+        &__pay_price{
+          width: 160px;
+          float: right;
+          text-align: right;
+          padding: 16px 0;
+          font-size: 28px;
+          line-height: 28px;
+          box-sizing: border-box;
+          font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ',
+        }
+      }
+      .error_message{
+        font-size: 14px;
+        color: red;
+        margin-top: 8px;
+      }
+      button.btn_grey {
+        background-color: #888;
+        color: white;
+        margin-top: 8px;
+        height: 50px;
+        width: 100%;
+        font-size: 14px; 
+      }
+    }
+  }
+} 
+    .contents_box {
+      padding: 24px 87.5px;
+      margin: 40px;
+      font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ',;
+      position: relative;
+      color: #333333;
+      &__inner{
+        border-top: 1px solid rgb(245, 245, 245);
+        margin: 0 auto;
+        padding-top: 16px;
+        width: 320px;
+        font-size: 14px;
+        position: relative;
+        .dataTitle{
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        .userInfo-fix{
+          position: absolute;
+          right: 0;
+          box-sizing: border-box;
+        }
+      }
+    }
+}
+
+.trade_footer{
+  background-color: blue;
+  height: 140px;
+  width: 456px;
+  margin: 0 auto;
+  padding: 40px 0;
+  .nav{
+    display: inline;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    .term{
+      text-align: center;
+      font-size: 12px;
+      float: left;
+      font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ',;
+      color: #333333;
+      margin: 0 0 0 16px;
+    }
+  }
+}
+.fooder_area{
+  background-color: rgb(245, 245, 245);
+
+  .footer {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto; 
+    &--nav {
+      text-align: center;
+      li {
+        display: inline-block;
+        font-size: 11px;
+        a{
+          color: #000;
+        }
+
+      }
+    }
+    &--img {
+      display: block;
+      text-align: center;
+      margin: 40px auto 0;
+      img {
+        width: 80px;
+        height: 65px;
+      }
+    }
+    &--text {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+}
