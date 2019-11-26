@@ -27,18 +27,24 @@
           カテゴリー
         %th
           =link_to "#" ,class:"link"do
-            =">#{@category.name}"
+            =">#{@product.category.root.name}"
           =link_to "#" ,class:"link"do
-            =">#{@child_category.name}"
+            =">#{@product.category.parent.name}"
           =link_to "#" ,class:"link"do
-            =">#{@grand_child_category.name}"
+            =">#{@product.category.name}"
       %tr
         %th.gray
           ブランド
         %th.brand
-          -if @bland
+          -if @product.bland
             =link_to "#" ,class:"link"do
-              =@bland.name
+              =@product.bland.name
+      -if @product.size
+        %tr
+          %th.gray
+            商品のサイズ
+          %th
+            =@product.size
       %tr
         %th.gray
           商品の状態
@@ -118,7 +124,10 @@
     .products
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          .products-box__image
+            =image_tag "sample/product-sample.png",class:"products-box__image"
+            .sold_out
+              =image_tag "icons/sold_out.png",class:"sold_out"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -163,7 +172,7 @@
   -if @product.bland_id.present?
     .similar-item
       =link_to "#",class:"title"do
-        ="#{@bland.name} #{@grand_child_category.name} その他の出品"
+        ="#{@product.bland.name} #{@product.category.name} その他の出品"
       .products
         -@similar_items.each do |similar_item|
           .products-box
@@ -180,7 +189,7 @@
   -else 
     .similar-item
       =link_to "#",class:"title"do
-        ="#{@grand_child_category.name}(#{@category.name}) その他の出品"
+        ="#{@product.category.name}(#{@product.category.root.name}) その他の出品"
       .products
         -@similar_items.each do |similar_item|
           .products-box

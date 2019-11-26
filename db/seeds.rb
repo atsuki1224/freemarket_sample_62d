@@ -5,50 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# 30.times do
-#   Product.create(
-#      item_name: Faker::Book.unique.title,  
-#      description: Faker::Number.between(from: 1, to: 3),
-#      item_condition:Faker::Number.between(from: 1, to: 3),
-#      trade_status: Faker::Number.between(from: 1, to: 3),
-#      size: Faker::Number.between(from: 1, to: 3),
-#      bland_id:Faker::Number.between(from: 1, to: 10),
-#      category_id:Faker::Number.between(from: 1, to: 100),
-#      delivery_charge: Faker::Number.between(from: 1, to: 3),
-#      delivery_method: Faker::Number.between(from: 1, to: 3),
-#      delivery_area: Faker::Number.between(from: 1, to: 3),
-#      delivery_time: Faker::Number.between(from: 1, to: 3),
-#      price: Faker::Number.between(from: 100, to: 100000),
-#      user_id: Faker::Number.between(from: 1, to: 3),
-#    )
-# end
+require 'faker'
 ##### プロダクトテーブル用フェイカーです#############
 
-30.times do
-  Product.create(
-    item_name: Faker::Book.unique.title,
-    description: Faker::Number.between(from: 1, to: 3),
-    item_condition:Faker::Number.between(from: 1, to: 3),
-    trade_status: Faker::Number.between(from: 1, to: 3),
-    size: Faker::Number.between(from: 1, to: 3),
-    bland_id:Faker::Number.between(from: 1, to: 10),
-    category_id:Faker::Number.between(from: 1, to: 100),
-    delivery_charge: Faker::Number.between(from: 1, to: 3),
-    delivery_method: Faker::Number.between(from: 1, to: 3),
-    delivery_area: Faker::Number.between(from: 1, to: 3),
-    delivery_time: Faker::Number.between(from: 1, to: 3),
-    price: Faker::Number.between(from: 100, to: 100000),
-    user_id: Faker::Number.between(from: 1, to: 3),
-  )
-end
+# 300.times do
+#   Product.create(
+   
+#     item_name: Faker::Book.title,
+#     description: Faker::Number.between(from: 1, to: 3),
+#     item_condition: Faker::Number.between(from: 0, to: 5),
+#     trade_status: Faker::Number.between(from: 1, to: 3),
+#     size: Faker::Number.between(from: 1, to: 9),
+#     bland_id: Faker::Number.between(from: 1, to: 20),
+#     category_id: Faker::Number.between(from: 159, to: 1000),
+#     delivery_charge: Faker::Number.between(from: 0, to: 1),
+#     delivery_method: Faker::Number.between(from: 0, to: 8),
+#     delivery_area: Faker::Number.between(from: 0, to: 46),
+#     delivery_time: Faker::Number.between(from: 0, to: 2),
+#     price: Faker::Number.between(from: 100, to: 100000),
+#     user_id: Faker::Number.between(from: 1, to: 100),
+#     # created_at: Faker::Date.in_date_period,
+#     # updated_at: Faker::Date.in_date_period,
 
-# 10.times do
-#   Image.create(
-#     image: Faker::Placeholdit.image,
-#     product_id: 2,
-#     #  product_id: Faker::Number.unique.between(from: 1, to: 30),
-#    )
+#   )
 # end
+
+300.times do
+  Image.create(
+    image: Faker::Avatar.image,
+    product_id: Faker::Number.unique.between(from: 1, to: 300),
+   )
+end
 
 ####カテゴリーテーブル用です###########
 # parent_array = ['レディース','メンズ','ベビー・キッズ','インテリア・住まい・小物','本・音楽・ゲーム','おもちゃ・ホビー・グッズ','コスメ・香水・美容','家電・スマホ・カメラ','スポーツ・レジャー','ハンドメイド','チケット','自動車・オートバイ','その他']
@@ -68,9 +55,9 @@ end
 
 # end
 
-# ##########ブランドテーブル用です#################
+# # # ##########ブランドテーブル用です#################
 # bland_array = [["アサヒビール",152],["磯自慢",152],["一ノ蔵",152],["カミュ",152],["菊姫",152],["霧島酒造",152],["キリンビール",152],["久保田",152],["越乃寒梅",152],["サッポロビール",152],["薩摩酒造",152],["サントリー",152],["ザ・マッカラン",152],["松竹梅",152],["ジムビーム",152],["十四代",152],["ジョニーウォーカー",152],["宝酒造",152],["獺祭",152],["チョーヤ梅酒",152],["鍋島",152],["ニッカウヰスキー",152],["ネスレ",152],["博水社",152],["八海山",152],["濵田酒造",152],["バランタイン",152],["ヘネシー",152],["ホッピービバレッジ",152],["本坊酒造",152],["ランディ",152],["リンツ",152],["リンデマンス",152],["ルピシア",152]]
 # bland_array.each do |name|
-#  Bland.create(name: name[0], category_id: name[1])
+#  Bland.create(name: name[0],category_id: name[1])
 # end
 

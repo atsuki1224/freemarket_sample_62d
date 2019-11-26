@@ -9,8 +9,6 @@ $link-color:#0099E8;
 .detail-wrapper{
   background-color: whitesmoke;
   padding:1px 0 60px 0;
-  
-
   .item{
     @include box; 
     &__title{
@@ -228,7 +226,6 @@ $link-color:#0099E8;
       display: flex;
       flex-wrap: wrap;
     }
-
     .products-box{
       height: 360px;
       width: 230px;
@@ -239,14 +236,20 @@ $link-color:#0099E8;
         height: 240px;
         width: 230px;
         display: block;
+        position:relative;
       }
+      .sold_out{
+          position:absolute;
+          height: 108px;
+          width:104px;
+          top:0;
+        }
       &__text{
         height: 70px;
         background-color:white;
         padding: 10px 10px 0px 10px;
         font-size: 15px;
         color: black;
-        
       }
       &__bottom{
         height: 40px;
