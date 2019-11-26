@@ -1,0 +1,205 @@
+.detail-wrapper
+  .item
+    .item__title
+      = @product.item_name
+    .item__image
+      .item__image--main
+        = image_tag "#{@images[0].image}", class:"main-image"
+      .item__image--sub
+        -@images.each do |image|
+          = image_tag "#{image.image}", class:"img"
+
+    %table.item__detail
+      %tr.big
+        %th.gray
+          出品者
+        %th.seller
+          =link_to "#" ,class:"name"do
+            ヒロ
+          =image_tag "icons/smile-face.png",class:"face"
+          %span 1
+          =image_tag "icons/normal-face.png",class:"face"
+          %span 1
+          =image_tag "icons/frown-face.png",class:"face"
+          %span 1
+      %tr.big
+        %th.gray
+          カテゴリー
+        %th
+          =link_to "#" ,class:"link"do
+            =">#{@product.category.root.name}"
+          =link_to "#" ,class:"link"do
+            =">#{@product.category.parent.name}"
+          =link_to "#" ,class:"link"do
+            =">#{@product.category.name}"
+      %tr
+        %th.gray
+          ブランド
+        %th.brand
+          -if @product.bland
+            =link_to "#" ,class:"link"do
+              =@product.bland.name
+      -if @product.size
+        %tr
+          %th.gray
+            商品のサイズ
+          %th
+            =@product.size
+      %tr
+        %th.gray
+          商品の状態
+        %th
+          =@product.item_condition
+      %tr
+        %th.gray
+          配送料の負担
+        %th
+          =@product.delivery_charge
+      %tr
+        %th.gray
+          配送の方法
+        %th
+          =@product.delivery_method
+      %tr
+        %th.gray
+          配送元地域
+        %th
+          =link_to "#" ,class:"link"do
+            =@product.delivery_area
+      %tr
+        %th.gray
+          発送日の目安
+        %th
+          =@product.delivery_time
+    .item__price
+      ="￥#{@product.price.to_s(:delimited)}"
+    .tax
+      (税込)
+    .postage
+      送料込み
+    =link_to "#" ,class:"item__buy-btn"do
+      購入画面に進む
+    .caution
+      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+    .item__text
+      =@product.description
+    .item__bottom
+      %p.nice-btn
+        =link_to "#" do
+          =fa_icon "heart"
+          %span
+            いいね！
+      %p.report-btn
+        =link_to "#" do
+          =fa_icon "flag"
+          %span
+            不適切な商品の報告
+      =link_to "#",class:"safe_and_relief" do
+        =fa_icon "shopping-bag"
+        あんしん・あんぜんへの取り組み
+
+  .comment
+    .comment__caution
+      %span
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります
+    %textarea.comment__form
+    =link_to "#" ,class:"comment__btn"do
+      コメントする
+  .other-item
+    =link_to "#" ,class:"other-item__left"do
+      < EGOIST エゴイスト　デニム
+    =link_to "#" ,class:"other-item__right"do
+      イエナ コート チェスター 23区 ネイビー >
+  .icons
+    =link_to "#" do
+      =image_tag "sns-logo/facebook.png",class:"icons__btn"
+    =link_to "#" do
+      =image_tag "sns-logo/twitter.png",class:"icons__btn"
+    =link_to "#" do
+      =image_tag "sns-logo/pinterest.png",class:"icons__btn"
+
+  .same-seller-item
+    =link_to "#",class:"title"do
+      ヒロさんのその他の出品
+    .products
+      .products-box
+        =link_to "#" do
+          .products-box__image
+            =image_tag "sample/product-sample.png",class:"products-box__image"
+            .sold_out
+              =image_tag "icons/sold_out.png",class:"sold_out"
+          .products-box__text
+            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
+          .products-box__bottom
+            .price
+              ¥3,000
+            =fa_icon "heart",class:"nice"
+            %span
+              1
+      .products-box
+        =link_to "#" do
+          =image_tag "sample/product-sample.png",class:"products-box__image"
+          .products-box__text
+            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
+          .products-box__bottom
+            .price
+              ¥3,000
+            =fa_icon "heart",class:"nice"
+            %span
+              1
+      .products-box
+        =link_to "#" do
+          =image_tag "sample/product-sample.png",class:"products-box__image"
+          .products-box__text
+            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
+          .products-box__bottom
+            .price
+              ¥3,000
+            =fa_icon "heart",class:"nice"
+            %span
+              1
+      .products-box
+        =link_to "#" do
+          =image_tag "sample/product-sample.png",class:"products-box__image"
+          .products-box__text
+            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
+          .products-box__bottom
+            .price
+              ¥3,000
+            =fa_icon "heart",class:"nice"
+            %span
+              1
+  -if @product.bland_id.present?
+    .similar-item
+      =link_to "#",class:"title"do
+        ="#{@product.bland.name} #{@product.category.name} その他の出品"
+      .products
+        -@similar_items.each do |similar_item|
+          .products-box
+            =link_to "#" do
+              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
+              .products-box__text
+                =similar_item.item_name
+              .products-box__bottom
+                .price
+                  ="¥#{similar_item.price.to_s(:delimited)}"
+                =fa_icon "heart",class:"nice"
+                %span
+                  1
+  -else
+    .similar-item
+      =link_to "#",class:"title"do
+        ="#{@product.category.name}(#{@product.category.root.name}) その他の出品"
+      .products
+        -@similar_items.each do |similar_item|
+          .products-box
+            =link_to "#" do
+              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
+              .products-box__text
+                =similar_item.item_name
+              .products-box__bottom
+                .price
+                  ="¥#{similar_item.price.to_s(:delimited)}"
+                =fa_icon "heart",class:"nice"
+                %span
+                  1
