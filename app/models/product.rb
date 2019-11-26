@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   # has_many :messages
   # has_many :nices
   # belongs_to :user
-  belongs_to :category
-  belongs_to :bland
+  belongs_to :category, optional: true
+  belongs_to :bland, optional: true
 
   enum size:{"XXS以下":0,"XS(SS)":1,"S":2,"M":3,"L":4,"XL(LL)":5,"2XL(3L)":6,"3XL(4L)":7,"4XL(5L)以上":8,"FREESIZE":9}
   enum delivery_time:{"1~2日で発送":0,"2~3日で発送":1,"4~7日で発送":2}

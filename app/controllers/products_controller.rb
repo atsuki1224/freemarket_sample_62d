@@ -12,5 +12,6 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
+
   end
 end
