@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'faker'
 ##### プロダクトテーブル用フェイカーです#############
 
 
 # 300.times do
 #   Product.create(
-   
+
 #     item_name: Faker::Book.title,
 #     description: Faker::Number.between(from: 1, to: 3),
 #     item_condition: Faker::Number.between(from: 0, to: 5),
@@ -63,6 +64,7 @@ end
 # end
 
 
+
 # 30.times do
 #   Product.create(
 #     item_name: Faker::Book.unique.title,
@@ -80,16 +82,17 @@ end
 #     user_id: Faker::Number.between(from: 1, to: 3),
 #   )
 # end
+#
+# 30.times do
+#   Image.create(
+#     image: Faker::Avatar.unique.image,
+#     product_id: Faker::Number.unique.between(from: 1, to: 30),
+#   )
+# end
 
-####商品詳細表示用faker###########
-10.times do
-  Image.create(
-    image: Faker::Avatar.unique.image,
-    product_id: 1
-  )
-end
 
-####カテゴリーテーブル用です###########
+##↓↓↓↓↓  カテゴリー用のseedです。↓↓↓↓↓↓
+
 parent_array = ['レディース','メンズ','ベビー・キッズ','インテリア・住まい・小物','本・音楽・ゲーム','おもちゃ・ホビー・グッズ','コスメ・香水・美容','家電・スマホ・カメラ','スポーツ・レジャー','ハンドメイド','チケット','自動車・オートバイ','その他']
 parent_array.each do |parent|
 Category.create(name: parent)
@@ -106,4 +109,3 @@ grandchild_array.each do |grandchild|
 Category.create(name: grandchild[0],parent_id: grandchild[1])
 
 end
-

@@ -9,8 +9,10 @@ $link-color:#0099E8;
 .detail-wrapper{
   background-color: whitesmoke;
   padding:1px 0 60px 0;
+
+
   .item{
-    @include box; 
+    @include box;
     &__title{
       text-align: center;
       font-weight: bold;
@@ -41,7 +43,7 @@ $link-color:#0099E8;
           background-repeat: no-repeat;
           background-size: cover;
           box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
-        }  
+        }
       }
     }
     &__detail{
@@ -103,7 +105,7 @@ $link-color:#0099E8;
       font-size: 15px;
       display: inline-block;
     }
-    
+
     &__buy-btn{
       height:60px ;
       width:620px ;
@@ -165,8 +167,8 @@ $link-color:#0099E8;
     &__form{
       height:150px ;
       width: 620px;
-      margin: 5px auto 0 auto; 
-      display: block;     
+      margin: 5px auto 0 auto;
+      display: block;
     }
     &__btn{
       background-color:#AAAAAA;
@@ -243,29 +245,32 @@ $link-color:#0099E8;
           height: 108px;
           width:104px;
           top:0;
-        }
+
+           }
       &__text{
         height: 70px;
         background-color:white;
         padding: 10px 10px 0px 10px;
         font-size: 15px;
         color: black;
+
+
       }
       &__bottom{
         height: 40px;
         background-color:white;
-        position: relative;   
+        position: relative;
         .price{
           position: absolute;
           left: 0;
           padding: 10px 0 0 10px;
           font-size: 15px;
-          color: black; 
+          color: black;
         }
         .nice{
           position: absolute;
           right:0;
-          padding:13px 20px 0 0 ;   
+          padding:13px 20px 0 0 ;
         }
         span{
           display: block;
@@ -276,9 +281,9 @@ $link-color:#0099E8;
           color: black;
         }
       }
-    }  
+    }
   .similar-item{
     margin: 40px auto;
     width:760px ;
-  } 
+  }
 }
