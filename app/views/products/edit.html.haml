@@ -1,1 +1,87 @@
-Hello World
+.detail-wrapper
+  .item
+    .item__title
+      COACHショルダーバック
+    .item__image
+      .item__image--main
+        = image_tag "#{@images[0].image}", class:"main-image"        
+      .item__image--sub
+        -images = @product.images
+        -@images.each do |image|
+          = image_tag "#{image.image}", class:"img"
+
+    %table.item__detail
+      %tr
+        %th.gray
+          出品者
+        %th.seller
+          =link_to "#" ,class:"name"do
+            ヒロ
+      %tr.big
+        %th.gray
+          カテゴリー
+        %th
+          =link_to "#" ,class:"link"do
+            レディース
+          =link_to "#" ,class:"link"do
+            >靴
+          =link_to "#" ,class:"link"do
+            >スニーカー
+      %tr
+        %th.gray
+          ブランド
+        %th.brand
+          =link_to "#" ,class:"link"do
+            コーチ
+      %tr
+        %th.gray
+          商品の状態
+        %th
+          目立った傷や汚れなし
+      %tr
+        %th.gray
+          配送料の負担
+        %th
+          送料込み(出品者負担)
+      %tr
+        %th.gray
+          配送の方法
+        %th
+          ゆうゆうメルカリ便
+      %tr
+        %th.gray
+          配送元地域
+        %th
+          =link_to "#" ,class:"link"do
+            宮城県
+      %tr
+        %th.gray
+          発送日の目安
+        %th
+          2~3日で発送
+    .item__price
+      ￥3,000
+    .tax 
+      (税込)
+    .postage
+      送料込み
+    .item__text
+      レディースのLサイズ新品未使用です。
+      自宅にて保管してありましたが、状態は非常に良いです。
+      他、フリマアプリでも出品しておりますので購入をご検討の方は在庫確認のコメントをいただけると助かります。
+  .edit__content
+    .edit__content-update-btn
+      =link_to '商品の編集'
+    %p.edit__content-or or
+    .edit__content-stop-btn
+      =link_to '出品を一旦停止する'
+    .edit__content-delete-btn
+      =link_to 'この商品を削除する'
+
+  .comment
+    .comment__caution
+      %span
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります
+    %textarea.comment__form
+    =link_to "#" ,class:"comment__btn"do
+      コメントする
