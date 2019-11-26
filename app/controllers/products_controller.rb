@@ -37,12 +37,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    begin
       @product = Product.new(product_params)
-      @product.save
-    rescue=> e
-      Rails.logger.debug e.message
-    end
+      redirect_to action: :new  unless @product.save    
   end
 
   def show
@@ -52,7 +48,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
+    params.require(:product).permit(:item_nam,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
   end
 
 end
