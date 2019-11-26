@@ -1,5 +1,5 @@
 FactoryBot.define do
-    
+
     FactoryBot.define do
       factory :product do
         item_name       {'hoge'}
@@ -17,7 +17,9 @@ FactoryBot.define do
         user_id         {1}
       end
 
+
     end
+
 
   # factory :product do
   #   item_name {"pen"}
