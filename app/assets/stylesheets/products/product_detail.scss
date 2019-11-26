@@ -1,0 +1,289 @@
+@mixin box{
+  background-color:white;
+  padding: 24px 40px 40px 40px;
+  margin: 40px auto;
+  width:680px ;
+}
+$link-color:#0099E8;
+
+.detail-wrapper{
+  background-color: whitesmoke;
+  padding:1px 0 60px 0;
+
+
+  .item{
+    @include box;
+    &__title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    &__image{
+      float: left;
+      padding: 10px 22px 0 25px ;
+      &--main{
+        height: 300px;
+        width: 300px;
+        .main-image{
+        height: 300px;
+        width: 300px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
+        }
+      }
+      &--sub{
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        height: 120px;
+        .img{
+          height: 60px;
+          width: 60px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
+        }
+      }
+    }
+    &__detail{
+      width: 300px;
+      margin-top: 10px;
+      padding-left: 20px;
+      tr{
+        height: 50px;
+        width: 80px;
+      }
+      th.seller{
+        font-size: 12px;
+        .name{
+          padding-left: 10px;
+          color:$link-color ;
+          display: block;
+        }
+        span{
+          padding-right: 10px;
+        }
+        .face{
+          padding: 5px 0 0 10px;
+          height: 16px;
+          width: 16px;
+        }
+      }
+      tr.big{
+        height: 70px;
+        width: 80px;
+      }
+      th{
+        border: solid 1px gainsboro;
+        height: 40px;
+        width: 80px;
+        font-size: 12px;
+        padding-left: 5px;
+      }
+      th.gray{
+        background-color:whitesmoke;
+        width:50px ;
+      }
+      .link{
+        color:$link-color;
+        display: block;
+      }
+    }
+    &__price{
+      padding: 30px 0 0 180px;
+      font-size: 44px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .tax{
+      font-size: 10px;
+      padding-left: 10px;
+      display: inline-block;
+    }
+    .postage{
+      font-size: 15px;
+      display: inline-block;
+    }
+
+    &__buy-btn{
+      height:60px ;
+      width:620px ;
+      background-color: crimson;
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      margin: 20px  auto 0 auto ;
+      line-height: 60px;
+      display: block;
+    }
+    .caution{
+      color:red;
+      text-align: center;
+      font-size: 14px;
+      margin: 20px 0 50px 0;
+    }
+
+    &__text{
+      width:620px ;
+      padding-left: 30px;
+      font-size: 18px;
+    }
+    &__bottom{
+      display: flex;
+      font-size: 14px;
+      p{
+        background-color: whitesmoke;
+        margin: 30px 20px 30px 10px;
+        color: black;
+        padding: 2px 7px 2px 7px;
+        border-radius: 50px;
+      }
+      span{
+        padding:0 10px;
+        color: black;
+      }
+      .safe_and_relief{
+        color:$link-color;
+        margin: 30px 20px 30px 80px;
+        padding-top: 2px;
+      }
+    }
+  }
+  .comment{
+    @include box;
+    &__caution{
+      height:45px ;
+      background-color: #FFF6DE;
+      font-size:14px;
+      margin: 0 auto;
+      width: 620px;
+      span{
+        padding: 5px 10px 0 10px;
+        display: block;
+      }
+    }
+    &__form{
+      height:150px ;
+      width: 620px;
+      margin: 5px auto 0 auto;
+      display: block;
+    }
+    &__btn{
+      background-color:#AAAAAA;
+      display: inline-block;
+      margin: 5px auto 5px auto;
+      height: 50px;
+      width: 620px;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      display: block;
+      font-size: 14px;
+    }
+  }
+  .other-item{
+    font-size: 14px;
+    padding: 0px 40px 0px 40px;
+    width:680px ;
+    margin: 0 auto ;
+    position: relative;
+    height: 5px;
+    &__left{
+      position: absolute;
+      left: 0;
+      color:$link-color;
+    }
+    &__right{
+      position: absolute;
+      right: 0;
+      color:$link-color;
+    }
+  }
+  .icons{
+    @include box;
+    height: 80px;
+    clear: both;
+    text-align: center;
+    padding-top: 30px;
+    &__btn{
+      height: 60px;
+      width: 60px;
+      border-radius: 10px;
+    }
+  }
+    .same-seller-item{
+      margin: 40px auto;
+      width:770px ;
+    }
+    .title{
+      font-size: 22px;
+      color: $link-color;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .products{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .products-box{
+      height: 360px;
+      width: 230px;
+      margin: 0 23px 30px 0;
+      display: block;
+      box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
+      &__image{
+        height: 240px;
+        width: 230px;
+        display: block;
+        display: block;
+        position:relative;
+      }
+      .sold_out{
+      position:absolute;
+      height: 108px;
+      }	width:104px;
+      top:0;
+           }
+      &__text{
+        height: 70px;
+        background-color:white;
+        padding: 10px 10px 0px 10px;
+        font-size: 15px;
+        color: black;
+
+      }
+      &__bottom{
+        height: 40px;
+        background-color:white;
+        position: relative;
+        .price{
+          position: absolute;
+          left: 0;
+          padding: 10px 0 0 10px;
+          font-size: 15px;
+          color: black;
+        }
+        .nice{
+          position: absolute;
+          right:0;
+          padding:13px 20px 0 0 ;
+        }
+        span{
+          display: block;
+          position: absolute;
+          right:0;
+          padding:10px 5px 0 0 ;
+          font-size: 15px;
+          color: black;
+        }
+      }
+    }
+  .similar-item{
+    margin: 40px auto;
+    width:760px ;
+  }
+}
