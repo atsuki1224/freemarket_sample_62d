@@ -37,8 +37,10 @@ class ProductsController < ApplicationController
   end
 
   def create
+    
       @product = Product.new(product_params)
-      redirect_to action: :new,flash: {error:'エラーが発生しました、再度入力をお願いします'}  unless @product.save    
+      redirect_to action: :new,flash: {error:'エラーが発生しました、再度入力をお願いします'}  unless @product.save
+
   end
 
   def show
