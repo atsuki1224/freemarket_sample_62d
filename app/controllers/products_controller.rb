@@ -64,8 +64,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
   end
 
-  def edit
-    @product = Product.find(params[:id])
-    @images = @product.images.order("created_at ASC").limit(10)
-  end
 end

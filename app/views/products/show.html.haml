@@ -79,6 +79,8 @@
       送料込み
     =link_to "#" ,class:"item__buy-btn"do
       購入画面に進む
+
+        
     .caution
       この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     .item__text
@@ -97,6 +99,15 @@
       =link_to "#",class:"safe_and_relief" do
         =fa_icon "shopping-bag"
         あんしん・あんぜんへの取り組み
+
+  .edit__content
+    .edit__content-update-btn
+      =link_to '商品の編集'
+    %p.edit__content-or or
+    .edit__content-stop-btn
+      =link_to '出品を一旦停止する'
+    .edit__content-delete-btn
+      =link_to 'この商品を削除する'
 
   .comment
     .comment__caution
