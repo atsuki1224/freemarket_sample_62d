@@ -5,5 +5,6 @@ $(function() {
       $(".main-image").hide();
       $(".main-image").fadeIn("slow");
       return false;
-  });      
+  });
+  
 });

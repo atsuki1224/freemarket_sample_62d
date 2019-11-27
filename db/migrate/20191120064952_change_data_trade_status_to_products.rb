@@ -1,5 +1,6 @@
 class ChangeDataTradeStatusToProducts < ActiveRecord::Migration[5.0]
   def change
+
     change_column :products,:trade_status,:integer
     change_column :products,:size,:integer
     change_column :products,:delivery_charge,:integer

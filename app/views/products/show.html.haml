@@ -4,11 +4,11 @@
       = @product.item_name
     .item__image
       .item__image--main
-        = image_tag "#{@images[0].image}", class:"main-image"        
+        = image_tag "#{@images[0].image}", class:"main-image"
       .item__image--sub
         -@images.each do |image|
           = image_tag "#{image.image}", class:"img"
-       
+
     %table.item__detail
       %tr.big
         %th.gray
@@ -18,7 +18,7 @@
             ヒロ
           =image_tag "icons/smile-face.png",class:"face"
           %span 1
-          =image_tag "icons/normal-face.png",class:"face"  
+          =image_tag "icons/normal-face.png",class:"face"
           %span 1
           =image_tag "icons/frown-face.png",class:"face"
           %span 1
@@ -73,7 +73,7 @@
           =@product.delivery_time
     .item__price
       ="￥#{@product.price.to_s(:delimited)}"
-    .tax 
+    .tax
       (税込)
     .postage
       送料込み
@@ -117,7 +117,7 @@
       =image_tag "sns-logo/twitter.png",class:"icons__btn"
     =link_to "#" do
       =image_tag "sns-logo/pinterest.png",class:"icons__btn"
-    
+
   .same-seller-item
     =link_to "#",class:"title"do
       ヒロさんのその他の出品
@@ -186,7 +186,7 @@
                 =fa_icon "heart",class:"nice"
                 %span
                   1
-  -else 
+  -else
     .similar-item
       =link_to "#",class:"title"do
         ="#{@product.category.name}(#{@product.category.root.name}) その他の出品"
@@ -203,4 +203,3 @@
                 =fa_icon "heart",class:"nice"
                 %span
                   1
-
