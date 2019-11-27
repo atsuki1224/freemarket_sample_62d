@@ -1,7 +1,7 @@
 // ======ここからトップページバナー画面==================================
 .banner{
   padding-top: 20px;
-  background-image:url("/top_page/top.jpg");
+  background-image:url("/top_page/top.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
@@ -113,6 +113,7 @@
           background-color: white;
           width: 170px;
           height: 72px;
+          color:black;
         }
       }
     }
