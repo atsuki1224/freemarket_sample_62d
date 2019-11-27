@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    
+
       @product = Product.new(product_params)
       redirect_to action: :new,flash: {error:'エラーが発生しました、再度入力をお願いします'}  unless @product.save
 
@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:item_nam,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
+    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
   end
 
   def edit
