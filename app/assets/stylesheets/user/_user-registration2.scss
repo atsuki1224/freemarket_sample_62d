@@ -231,6 +231,7 @@
           }
           &__text{
             text-align: left;
+
             &--tittle{
               @include form_tittle;
               a{
@@ -266,6 +267,18 @@
           }
           .selectform{
             @include selectform;
+          }
+          .cardselect{
+            width: calc(50% - 38px);
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
           }
           .birthday{
             @include form_shape;
@@ -317,7 +330,6 @@
           color:white;
           line-height: 48px;
           font-size: 14px;
-
         }
         .nextlink{
           margin:30px 165px;

@@ -1,6 +1,6 @@
 .mainbox
   = render partial:"users/registrations/registration_header"
-  .registcontents
+  .logincontents
     = form_for(resource, as: resource_name, url: user_session_path(resource.id), html: { class:"box"}) do |f|
       .box__formarea
         .registtittle
