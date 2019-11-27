@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     if @product.destroy
-      redirect_to :root
+      redirect_to root_path
     else
       redirect_to action: :show,flash: {error:'エラーが発生しました。削除できませんでした。'} 
     end
