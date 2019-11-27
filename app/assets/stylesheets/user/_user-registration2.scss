@@ -189,23 +189,32 @@
           .birthformarea{
             .birthform{
               width:400px;
-              &__form--year{
+              #birthday_birthday_1i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
               }
-              &__form--month{
+              #birthday_birthday_2i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
               }
-              &__form--days{
+              #birthday_birthday_3i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
