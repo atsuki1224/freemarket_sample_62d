@@ -1,7 +1,5 @@
 .mainbox
-
   = render partial:"registration_header_status_1"
-
   .registcontents
     .box
       .box__tittle
@@ -16,9 +14,9 @@
           .notice
             SNSで届いた認証番号を入力してください
         .submit
-          認証して完了
+          =link_to registration_5_path, class:"submit" do
+            認証して完了
       .formarea__underbar
-
     .box
       .formarea
         .formbox
@@ -30,7 +28,6 @@
         .submit
           電話で認証番号を聞く(通話無料)
       .formarea__underbar
-
     .box
       .formarea
         .formbox
@@ -43,9 +40,7 @@
             *SMSが届かない場合は
             =link_to 'SMS受信設定', '/'
             を確認して、もう一度電話番号を入力してください。
-
       .formarea__underbar
-
   =render partial:"registration_shortfooter"
 .plusarea
 
