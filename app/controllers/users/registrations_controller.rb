@@ -64,6 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_card(session[:card_attributes])
     # @user.build_card(user_params(session[:card_attributes]))
     if @user.save!
+      session = nil
       sign_in User.find(@user.id) unless user_signed_in?
       render 'registration_7'
     else
