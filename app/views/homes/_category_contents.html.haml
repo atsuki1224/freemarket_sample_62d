@@ -7,35 +7,30 @@
       .item-header__view-more
         もっと見る＞
     .item-index
-      - @products.each do |product|
-        -product_image = product.images.first
+      - @ladies_products.each do |ladies_product|
+        -product_image = ladies_product.images.first
         .contents
-          .contents__img{style: "background-image: url(#{product_image.image});"}
-            .contents__price
-              = "¥,#{product.price}"
-          .contents__text
-            = product.item_name
-
+          =link_to"/products/#{ladies_product.id}"do
+            .contents__img{style: "background-image: url(#{product_image.image});"}
+              .contents__price
+                = "¥,#{ladies_product.price}"
+            .contents__text
+              = ladies_product.item_name
     .item-header
       .item-header__title
         メンズ新着アイテム
       .item-header__view-more
         もっと見る＞
     .item-index
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
+      - @mens_products.each do |mens_product|
+        -product_image = mens_product.images.first
+        .contents
+          =link_to"/products/#{mens_product.id}"do
+            .contents__img{style: "background-image: url(#{product_image.image});"}
+              .contents__price
+                = "¥,#{mens_product.price}"
+            .contents__text
+              = mens_product.item_name
 
     .item-header
       .item-header__title
@@ -43,20 +38,15 @@
       .item-header__view-more
         もっと見る＞
     .item-index
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
+      - @home_appliance_products.each do |home_appliance_product|
+        -product_image = home_appliance_product.images.first
+        .contents
+          =link_to"/products/#{home_appliance_product.id}"do
+            .contents__img{style: "background-image: url(#{product_image.image});"}
+              .contents__price
+                = "¥,#{home_appliance_product.price}"
+            .contents__text
+              = home_appliance_product.item_name
 
     .item-header
       .item-header__title
@@ -64,17 +54,12 @@
       .item-header__view-more
         もっと見る＞
     .item-index
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
-      .contents
-        .contents__img
-          =image_tag "/top_page/item.jpg", class: "contents__img"
-          .contents__price
-            ￥1,600
-        .contents__text
-          新品　NIKE AIR JORDAN1
+      - @toy_products.each do |toy_product|
+        -product_image = toy_product.images.first
+        .contents
+          =link_to"/products/#{toy_product.id}"do
+            .contents__img{style: "background-image: url(#{product_image.image});"}
+              .contents__price
+                = "¥,#{toy_product.price}"
+            .contents__text
+              = toy_product.item_name
