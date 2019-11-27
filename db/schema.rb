@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20191120153927) do
+=======
+ActiveRecord::Schema.define(version: 20191125083512) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id", null: false
+    t.string   "city",          null: false
+    t.string   "address",       null: false
+    t.string   "building_name"
+    t.string   "phone_number"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+>>>>>>> Stashed changes
 
   create_table "blands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -53,4 +68,13 @@ ActiveRecord::Schema.define(version: 20191120153927) do
     t.datetime "updated_at",                    null: false
   end
 
+<<<<<<< Updated upstream
+=======
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> Stashed changes
 end
