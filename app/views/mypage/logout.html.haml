@@ -4,5 +4,6 @@
     .mypage__content
       .wrapper
         .log-out
-          =link_to "#", class:"log-out__btn" do
-            %span ログアウト
+          = link_to destroy_user_session_path,  :method => 'delete' do
+            %span.log-out__btn 
+              ログアウト

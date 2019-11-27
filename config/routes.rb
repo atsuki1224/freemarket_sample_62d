@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+    get 'sign_out', to: "devise/sessions#destroy"
+    delete 'logout', to: "devise/session#destroy"
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do

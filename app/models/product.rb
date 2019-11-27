@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   validates :delivery_area,presence:true
   validates :delivery_time,presence:true
   validates :price,presence:true
-  validates :user_id,presence:true
+  # validates :user_id,presence:true
 
 #######enum用です#######################
   enum size:{'XXS以下':0,'XS(SS)':1,'S':2,'M':3,'L':4,'XL(LL)':5,'2XL(3L)':6,'3XL(4L)':7,'4XL(5L)以上':8,'FREESIZE':9}
