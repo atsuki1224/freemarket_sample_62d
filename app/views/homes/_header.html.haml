@@ -1,7 +1,7 @@
 .header-wrapper
   .header
     .header__logo-search
-      =link_to "/#" do
+      =link_to root_path do
         =image_tag "/SVG/fmarket_logo_red.svg", class: "header__logo-search--logo"
         %form.header__form
           %input{value:"", placeholder:"何かお探しですか？", class:"header__form--input"}
@@ -12,43 +12,37 @@
           =link_to "/#" ,class:"header__item--link parent" do
             =fa_icon'list-ul', class:"parent"
             カテゴリーから探す
-
         %li.header__item(id="header-brand")
           =link_to "/#",class:"header__item--link parent" do
             =fa_icon 'tags', class:"parent"
             ブランドから探す
 
-      //if user_signed_in?
       %ul.header-lists__right
-        %li.header__item(id="header-nice")
-          =link_to "/mypage/nice/history/",class:"header__item--link" do
-            =fa_icon 'heart'
-            いいね！一覧
-        %li.header__item(id="header-news")
-          =link_to "/mypage/notification/",class:"header__item--link" do
-            =fa_icon'bell'
-            お知らせ
-        %li.header__item(id="header-todo")
-          =link_to "/mypage/todo/",class:"header__item--link" do
-            =fa_icon'check'
-            やることリスト
-        %li.header__item(id="header-mypage")
-          =link_to "/mypage",class:"header__item--link" do
-            =fa_icon'user'
-            マイページ
-        //////else///////
-        -# %li.header__item(id="registration_btn")
-        -#   =link_to "/",class:"header__item--registration" do
-        -#     新規会員
-        -# %li.header__item(id="log_in_btn")
-        -#   =link_to "/",class:"header__item--log_in" do
-        -#     ログイン
-
-
-
+        - if user_signed_in?
+          %li.header__item(id="header-nice")
+            =link_to "/mypage/nice/history/",class:"header__item--link" do
+              =fa_icon 'heart'
+              いいね！一覧
+          %li.header__item(id="header-news")
+            =link_to "/mypage/notification/",class:"header__item--link" do
+              =fa_icon'bell'
+              お知らせ
+          %li.header__item(id="header-todo")
+            =link_to "/mypage/todo/",class:"header__item--link" do
+              =fa_icon'check'
+              やることリスト
+          %li.header__item(id="header-mypage")
+            =link_to "/mypage",class:"header__item--link" do
+              =fa_icon'user'
+              マイページ
+        - else
+          %li.header__item(id="registration_btn")
+            =link_to "/signup",class:"header__item--registration" do
+              新規会員登録
+          %li.header__item(id="log_in_btn")
+            =link_to "/users/sign_in",class:"header__item--log_in" do
+              ログイン
     = render "layouts/breadcrumbs"
-
-
 
 -# =====今後の実装で使います＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 -#   .header__logo-search.clearfix

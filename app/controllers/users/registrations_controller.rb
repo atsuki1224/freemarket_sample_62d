@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -41,28 +40,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
     session[:address_attributes] = user_params[:address_attributes]
     @user.build_card = Card.new if @user.build_card.blank?
+
     render 'registration_6'
   end
   
   def registration_7
     params[:user][:card_attributes][:validated_data] = params[:exp_year] + params[:exp_month]
-    # binding.pry
     session[:card_attributes] = user_params[:card_attributes]
     @user = User.new(
-        email: session[:email],
-        password: session[:password],
-        nickname: session[:nickname],
-        firstname: session[:firstname],
-        lastname: session[:lastname],
-        firstname_kana: session[:firstname_kana],
-        lastname_kana: session[:lastname_kana],
-        birthday: session[:birthday]
-        # address_attributes: session[:address_attributes][:zipcode, :prefecture_id, :city, :address, :phone_number],
-        # card_attributes: session[:card_attributes][:card_number, :validated_data , :security_code]
+      email: session[:email],
+      password: session[:password],
+      nickname: session[:nickname],
+      firstname: session[:firstname],
+      lastname: session[:lastname],
+      firstname_kana: session[:firstname_kana],
+      lastname_kana: session[:lastname_kana],
+      birthday: session[:birthday]
     )
     @user.build_address(session[:address_attributes])
     @user.build_card(session[:card_attributes])
-    # @user.build_card(user_params(session[:card_attributes]))
     if @user.save!
       session = nil
       sign_in User.find(@user.id) unless user_signed_in?
@@ -74,31 +70,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def user_params
-    # binding.pry
     params.require(:user).permit(
-        :email,
-        :password,
-        :nickname,
-        :firstname,
-        :lastname,
-        :firstname_kana,
-        :lastname_kana,
-        :birthday,
-        address_attributes: [:zipcode, :prefecture_id, :city, :address, :phone_number],
-        card_attributes: [:card_number, :validated_data, :security_code]
+      :email,
+      :password,
+      :nickname,
+      :firstname,
+      :lastname,
+      :firstname_kana,
+      :lastname_kana,
+      :birthday,
+      address_attributes: [:zipcode, :prefecture_id, :city, :address, :phone_number],
+      card_attributes: [:card_number, :validated_data, :security_code]
     )
   end
 
   def birthday_join
-    # パラメータ取得
     date = params[:birthday]
-
-    # ブランク時のエラー回避のため、ブランクだったら何もしない
     if date["birthday(1i)"].empty? && date["birthday(2i)"].empty? && date["birthday(3i)"].empty?
       return
     end
-
-    # 年月日別々できたものを結合して新しいDate型変数を作って返す
     Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
   end
 

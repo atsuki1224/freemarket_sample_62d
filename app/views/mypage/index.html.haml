@@ -10,7 +10,8 @@
             - if user_signed_in?
               = current_user.nickname
             - else
-              TestUser
+              ログインされていません
+              -# 後にコントローラのbefore_actionでログインページに飛ばす。
           .mypage__user--info
             %div<>
               評価
