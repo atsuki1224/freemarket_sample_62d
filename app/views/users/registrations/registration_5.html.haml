@@ -5,60 +5,61 @@
       .box__tittle
         %h3
           発送元・お届け住所入力
-      = f.fields_for :address ,@user.build_address || Address.new, html: {class:"formarea"} do |a|
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              お名前
-            .formbox__text--btn
-              必須
-          = f.text_field :firstname, { class:"form", placeholder:'例)山田', value:session[:firstname]}
-          = f.text_field :lastname, { class:"form", placeholder:'例)彩', value:session[:lastname]}
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              お名前カナ
-            .formbox__text--btn
-              必須
-          = f.text_field :firstname_kana, { class:"form", placeholder:'例)ヤマダ', value:session[:firstname_kana]}
-          = f.text_field :lastname_kana, { class:"form", placeholder:'例)アヤ', value:session[:lastname_kana]}
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              郵便番号
-            .formbox__text--btn
-              必須
-          = a.text_field :zipcode , { class:"form", placeholder:'例)111-1111'}
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              都道府県
-            .formbox__text--btn
-              必須
-          = a.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'default'
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              市町村
-            .formbox__text--btn
-              必須
-          = a.text_field :city, { class:"form", placeholder:'例)横浜市緑区'}
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              番地
-            .formbox__text--btnb
-              任意
-          = a.text_field :address, { class:"form", placeholder:'例)青山1-1-1'}
-        .formbox
-          .formbox__text
-            .formbox__text--tittle
-              電話番号
-            .formbox__text--btnb
-              任意
-          = a.phone_field :phone_number, { class:"form", placeholder:'例)0901234567'}
-        = f.submit "次へ進む", class:"submit"
-        .nextlink
-          =link_to '本人情報の登録について>', '/'
+      = f.fields_for :address ,@user.build_address || Address.new do |a|
+        .formarea
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                お名前
+              .formbox__text--btn
+                必須
+            = f.text_field :firstname, { class:"form", placeholder:'例)山田', value:session[:firstname]}
+            = f.text_field :lastname, { class:"form", placeholder:'例)彩', value:session[:lastname]}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                お名前カナ
+              .formbox__text--btn
+                必須
+            = f.text_field :firstname_kana, { class:"form", placeholder:'例)ヤマダ', value:session[:firstname_kana]}
+            = f.text_field :lastname_kana, { class:"form", placeholder:'例)アヤ', value:session[:lastname_kana]}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                郵便番号
+              .formbox__text--btn
+                必須
+            = a.text_field :zipcode , { class:"form", placeholder:'例)111-1111'}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                都道府県
+              .formbox__text--btn
+                必須
+            = a.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class:"selectform"
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                市町村
+              .formbox__text--btn
+                必須
+            = a.text_field :city, { class:"form", placeholder:'例)横浜市緑区'}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                番地
+              .formbox__text--btnb
+                任意
+            = a.text_field :address, { class:"form", placeholder:'例)青山1-1-1'}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                電話番号
+              .formbox__text--btnb
+                任意
+            = a.phone_field :phone_number, { class:"form", placeholder:'例)0901234567'}
+          = f.submit "次へ進む", class:"submit"
+          .nextlink
+            =link_to '本人情報の登録について>', '/'
   =render partial:"registration_shortfooter"
 .plusarea
