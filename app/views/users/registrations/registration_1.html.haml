@@ -1,5 +1,5 @@
 .mainbox
-  = render partial:"resistration_header"
+  = render partial:"registration_header"
 
   .registcontents
     .box
@@ -8,7 +8,7 @@
       .box__formarea
         .btnlist
 
-          =link_to '/signup/resistration_2'  do
+          =link_to registration_2_path do
 
             .btnlist__list--mail
               %p メールアドレスで登録する
@@ -24,4 +24,4 @@
               =image_tag "icons/google-icon.png"
 
 
-  = render partial:"resistration_longfooter"
+  = render partial:"registration_longfooter"

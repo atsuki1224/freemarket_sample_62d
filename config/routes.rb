@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users, module: :users, controllers: {
+    :registrations => 'users/registrations'
+  }
+  devise_scope :user do
+    scope :signup do
+      get '/' => 'users/registrations#registration_1'
+      get '/registration_2' => 'users/registrations#registration_2'
+      get '/registration_3' => 'users/registrations#registration_3'
+      get '/registration_4' => 'users/registrations#registration_4'
+      get '/registration_5' => 'users/registrations#registration_5'
+      get '/registration_6' => 'users/registrations#registration_6'
+      post '/registration_7' => 'users/registrations#registration_7'
+    end
+  end
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
