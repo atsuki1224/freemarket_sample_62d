@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127032844) do
+ActiveRecord::Schema.define(version: 20191127033041) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20191127032844) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_blands_on_category_id", using: :btree
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_number",    null: false
+    t.string   "validated_data", null: false
+    t.integer  "security_code",  null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
