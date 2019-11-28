@@ -11,46 +11,32 @@ RSpec.describe User, type: :model do
         expect(build(:user,user_profile: nil)).to be_valid
       end
     end
-
+    
     context 'can not save' do
+      let(:user) { build(:user,firstname: nil, lastname: nil, email: nil, password: nil, nickname: nil, birthday: nil, total_profit: nil, point: nil) }
+      before {user.valid?}
       it 'is invalid without firstname' do
-        user = build(:user,firstname: nil)
-        user.valid?
         expect(user.errors[:firstname]).to include("can't be blank")
       end
       it 'is invalid without lastname' do
-        user = build(:user,lastname: nil)
-        user.valid?
         expect(user.errors[:lastname]).to include("can't be blank")
       end
       it 'is invalid without email' do
-        user = build(:user,email: nil)
-        user.valid?
         expect(user.errors[:email]).to include("can't be blank")
       end
       it 'is invalid without password' do
-        user = build(:user,password: nil)
-        user.valid?
         expect(user.errors[:password]).to include("can't be blank")
       end
       it 'is invalid without nickname' do
-        user = build(:user,nickname: nil)
-        user.valid?
         expect(user.errors[:nickname]).to include("can't be blank")
       end
       it 'is invalid without birthday' do
-        user = build(:user,birthday: nil)
-        user.valid?
         expect(user.errors[:birthday]).to include("can't be blank")
       end
       it 'is invalid without total_profit' do
-        user = build(:user,total_profit: nil)
-        user.valid?
         expect(user.errors[:total_profit]).to include("can't be blank")
       end
       it 'is invalid without point' do
-        user = build(:user,point: nil)
-        user.valid?
         expect(user.errors[:point]).to include("can't be blank")
       end
     end
