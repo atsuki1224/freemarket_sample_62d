@@ -47,15 +47,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def registration_7
     params[:user][:card_attributes][:validated_data] = params[:exp_year] + params[:exp_month]
     session[:card_attributes] = user_params[:card_attributes]
-    # session[:address_attributes] = user_params[:address_attributes]
-    # session[:nickname] = user_params[:nickname]
-    # session[:email] = user_params[:email]
-    # session[:password] = user_params[:password]
-    # session[:firstname] = user_params[:firstname]
-    # session[:lastname] = user_params[:lastname]
-    # session[:firstname_kana] = user_params[:firstname_kana]
-    # session[:lastname_kana] = user_params[:lastname_kana]
-    # session[:birthday] = user_params[:birthday]
     @user = User.new(
       email: session[:email],
       password: session[:password],
