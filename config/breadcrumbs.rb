@@ -6,11 +6,50 @@ crumb :mypage do
   link "マイページ", mypage_index_path
 end
 
-crumb :profile do 
-  link "プロフィール", root_path
+crumb :notification do
+  link "お知らせ", mypage_index_path
   parent :mypage
 end
 
+crumb :todo do
+  link "やることリスト", mypage_index_path
+  parent :mypage
+end
+
+crumb :nice_index do
+  link "いいね一覧", mypage_index_path
+  parent :mypage
+end
+
+crumb :listing do
+  link "出品した商品 - 出品中", mypage_index_path
+  parent :mypage
+end
+
+crumb :in_progress do
+  link "出品した商品 - 取引中", mypage_index_path
+  parent :mypage
+end
+
+crumb :completed do
+  link "出品した商品 - 売却済み", mypage_index_path
+  parent :mypage
+end
+
+crumb :purchase do
+  link "購入した商品 - 取引中", mypage_index_path
+  parent :mypage
+end
+
+crumb :purchased do
+  link "購入した商品 - 過去の取引", mypage_index_path
+  parent :mypage
+end
+
+crumb :profile do 
+  link "プロフィール", mypage_index_path
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
