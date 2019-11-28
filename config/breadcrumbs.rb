@@ -65,6 +65,11 @@ crumb :logout do
   link "ログアウト", mypage_index_path
   parent :mypage
 end
+
+crumb :review_history do 
+  link "評価一覧", mypage_index_path
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
