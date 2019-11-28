@@ -1,8 +1,7 @@
 .mainbox
-  = render partial:"resistration_header_status"
-
+  = render partial:"registration_header_status"
   .registcontents
-    .box
+    = form_for @user, url: sms_confirmation_path, method: :get, html: {class:"box"} do |f|
       .box__tittle
         %h3
           会員情報入力
@@ -13,21 +12,21 @@
               ニックネーム
             .formbox__text--btn
               必須
-          %input.form{placeholder:'例)メルカリ太郎'}
+          = f.text_field :nickname, { class:"form", placeholder:'例)メルカリ太郎'}
         .formbox
           .formbox__text
             .formbox__text--tittle
               メールアドレス
             .formbox__text--btn
               必須
-          %input.form{placeholder:'PC・携帯どちらでも可'}
+          = f.email_field :email, { class:"form", placeholder:'PC・携帯どちらでも可'}
         .formbox
           .formbox__text
             .formbox__text--tittle
               パスワード
             .formbox__text--btn
               必須
-          %input.form{placeholder:'7文字以上'}
+          =f.password_field :password, { class:"form", placeholder:'7文字以上'}
           .checkbox
             //checkbox入ります
             .checkbox__box
@@ -46,16 +45,16 @@
               お名前(全角)
             .formbox__text--btn
               必須
-          %input.halfform{placeholder:'例)山田'}
-          %input.halfform{placeholder:'例)彩'}
+          =f.text_field :firstname, { class:"halfform", placeholder:'例)山田'}
+          =f.text_field :lastname, { class:"halfform", placeholder:'例)彩'}
         .formbox
           .formbox__text
             .formbox__text--tittle
               お名前カナ(全角)
             .formbox__text--btn
               必須
-          %input.halfform{placeholder:'例)ヤマダ'}
-          %input.halfform{placeholder:'例)アヤ'}
+          =f.text_field :firstname_kana, { class:"halfform", placeholder:'例)ヤマダ'}
+          =f.text_field :lastname_kana, { class:"halfform", placeholder:'例)アヤ'}
         .formbox
           .formbox__text
             //select-box入ります
@@ -65,17 +64,8 @@
               必須
           .birthformarea
             .birthform
-              .birthform__form--year
-                %select.birthday
-                  %option{value:"",slected:""}="年"
-              .birthform__form--month
-                %select.birthday
-                  %option{value:"",slected:""}="月"
-              .birthform__form--days
-                %select.birthday
-                  %option{value:"",slected:""}="日"
-            %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
+              != sprintf(f.date_select(:birthday, prefix:'birthday', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+              %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .formbox
           .formbox__certification
         .formbox
@@ -83,13 +73,7 @@
             「次へ進む」のボタンを押すことにより、
             =link_to '利用規約', '/'
             に同意したものとみなします
-        .submit
-
-          =link_to "/signup/resistration_3", class:"submit" do
-            次へ進む
-
-
+        = f.submit "次へ進む", class:"submit"
         .nextlink
           =link_to '本人情報の登録について>', '/'
-
-  =render partial:"resistration_shortfooter"
+  =render partial:"registration_shortfooter"

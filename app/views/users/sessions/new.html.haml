@@ -1,15 +1,13 @@
 .mainbox
-
-  = render partial:"resistration_header"
-
+  = render partial:"users/registrations/registration_header"
   .logincontents
-    .box
+    = form_for(resource, as: resource_name, url: user_session_path(resource.id), html: { class:"box"}) do |f|
       .box__formarea
-        .logintittle
+        .registtittle
           アカウントをお持ちでない方はこちら
         .btnlist
           %a{href:'/'}
-            .btnlist__list--resistration
+            .btnlist__list--registration
               新規会員登録
         .formarea__underbar
       .box__formarea
@@ -21,22 +19,18 @@
           %a{href:'/'}
             .btnlist__list--google
               %p Googleでログイン
-              =image_tag "google-icon.png"
+              =image_tag "icons/google-icon.png"
       .box__formarea
         .formbox
           .formbox__text
-          %input.form{placeholder:'メールアドレス'}
+          = f.email_field :email, autofocus: true, class:"form", autocomplete: "email", placeholder:'メールアドレス'
         .formbox
           .formbox__text
-          %input.form{placeholder:'パスワード'}
+          = f.password_field :password, class:"form", autocomplete: "current-password", placeholder:'パスワード'
       .box__formarea
         .robot
           =image_tag "robot.png"
-        .submit
-          ログイン
+        = f.submit "ログイン", class:"submit"
         .link
           =link_to 'パスワードをお忘れの方'
-
-
-  =render partial:"resistration_shortfooter"
-
+  =render partial:"users/registrations/registration_shortfooter"

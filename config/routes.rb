@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users, module: :users, controllers: {
+    :registrations => 'users/registrations'
+  }
+  devise_scope :user do
+    scope :signup do
+      get '/' => 'users/registrations#signup'
+      get '/registration' => 'users/registrations#registration'
+      get '/sms_confirmation' => 'users/registrations#sms_confirmation'
+      get '/sms_confirmation/sms/' => 'users/registrations#sms_confirmation_check'
+      get '/address_confirmation' => 'users/registrations#address_confirmation'
+      get '/card_confirmation' => 'users/registrations#card_confirmation'
+      post '/complete' => 'users/registrations#complete'
+    end
+  end
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
@@ -30,24 +44,14 @@ Rails.application.routes.draw do
       end
     end
   end
-
-
-
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :transaction do
     collection do
       get 'confirmation' => 'transaction#confirmation'
     end
   end
-
-
   resources :products, except: :index
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
-  resources :products, except: :index
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homes#index"
 
 end
