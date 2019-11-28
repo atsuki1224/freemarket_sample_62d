@@ -1,7 +1,7 @@
 .mainbox
   = render partial:"registration_header_status_3"
   .registcontents
-    = form_for @user, url: registration_7_path, method: :post, html: {class:"box"} do |f|
+    = form_for @user, url: complete_path, method: :post, html: {class:"box"} do |f|
       .box__tittle
         %h3
           支払い方法

@@ -102,52 +102,52 @@ describe Users::RegistrationsController, type: :controller do
       before do
         @request.env["devise.mapping"] = Devise.mappings[:user]
       end
-      it "renders the :registration_1 template" do
-        get :registration_1
-        expect(response).to render_template :registration_1
+      it "renders the :signup template" do
+        get :signup
+        expect(response).to render_template :signup
       end
-      it "renders the :registration_2 template" do
-        get :registration_2
-        expect(response).to render_template :registration_2
+      it "renders the :registration template" do
+        get :registration
+        expect(response).to render_template :registration
       end
-      context "registration_3 action" do
+      context "sms_confirmation action" do
         before do
-          get :registration_3,
+          get :sms_confirmation,
            params: page_3_params
         end
-        it "renders the :registration_3 template" do
-          expect(response).to render_template :registration_3
+        it "renders the :sms_confirmation template" do
+          expect(response).to render_template :sms_confirmation
         end
         it "params value on sesion(registration3)" do
           expect(session.keys).to eq ["nickname", "email", "password", "firstname", "lastname", "firstname_kana", "lastname_kana", "birthday"]
         end
       end
-      it "renders the :registration_4 template" do
-        get :registration_4
-        expect(response).to render_template :registration_4
+      it "renders the :sms_confirmation_sms template" do
+        get :sms_confirmation_check
+        expect(response).to render_template :sms_confirmation_check
       end
-      it "renders the :registration_5 template" do
-        get :registration_5
-        expect(response).to render_template :registration_5
+      it "renders the :address_confirmation template" do
+        get :address_confirmation
+        expect(response).to render_template :address_confirmation
       end
-      context "registration_6 action" do
+      context ":card_confirmation action" do
         before do
-          get :registration_6,
+          get :card_confirmation,
            params: page_6_params
         end
-        it "renders the :registration_6 template" do
-          expect(response).to render_template :registration_6
+        it "renders the :card_confirmation template" do
+          expect(response).to render_template :card_confirmation
         end
-        it "params value on sesion(registration6)" do
+        it "params value on sesion(card_confirmation)" do
           expect(session[:address_attributes].keys).to eq ["zipcode", "prefecture_id", "city", "address", "phone_number"]
         end
       end
-      context "registration_7 can save action" do
+      context ":complete can save action" do
         subject do
-          post :registration_7, params: page_7_params, session: page_7_session
+          post :complete, params: page_7_params, session: page_7_session
         end
-        it "renders the registration_7 template" do
-          expect(subject).to render_template :registration_7
+        it "renders the :complete template" do
+          expect(subject).to render_template :complete
         end
         it "User Record can save"do
           expect{subject}.to change(User, :count)
@@ -159,9 +159,9 @@ describe Users::RegistrationsController, type: :controller do
           expect{subject}.to change(Card, :count)
         end
       end
-      context "registration_7(noAddress) can not save action" do
+      context ":complete(noAddress) can not save action" do
         subject do
-          post :registration_7, params: page_7_params, session: noAddress_session
+          post :complete, params: page_7_params, session: noAddress_session
         end
         it "renders the registration_7 template" do
           expect(subject).to redirect_to(root_path)
@@ -176,9 +176,9 @@ describe Users::RegistrationsController, type: :controller do
           expect{subject}.not_to change(Card, :count)
         end
       end
-      context "registration_7(noCard) can not save action" do
+      context ":complete(noCard) can not save action" do
         subject do
-          post :registration_7, params: noCard_params, session: page_7_session
+          post :complete, params: noCard_params, session: page_7_session
         end
         it "renders the registration_7 template" do
           expect(subject).to redirect_to(root_path)

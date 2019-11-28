@@ -1,7 +1,7 @@
 .mainbox
   = render partial:"registration_header_status"
   .registcontents
-    = form_for @user, url: registration_3_path, method: :get, html: {class:"box"} do |f|
+    = form_for @user, url: sms_confirmation_path, method: :get, html: {class:"box"} do |f|
       .box__tittle
         %h3
           会員情報入力

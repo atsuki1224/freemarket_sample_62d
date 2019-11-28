@@ -3,14 +3,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  def registration_1
+  def signpu
   end
   
-  def registration_2
+  def registration
     @user = User.new
   end
   
-  def registration_3
+  def sms_confirmation
     @user = User.new
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -22,29 +22,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params[:user][:birthday] = birthday_join
     session[:birthday] = user_params[:birthday]
 
-    render 'registration_3'
+    render 'sms_confirmation'
   end
   
-  def registration_4
-    render 'registration_4'
+  def sms_confirmation_check
+    render 'sms_confirmation_check'
   end
   
-  def registration_5
+  def address_confirmation
     @user = User.new
     @user.build_address = Address.new if @user.build_address.blank?
 
-    render 'registration_5'
+    render 'address_confirmation'
   end
   
-  def registration_6
+  def card_confirmation
     @user = User.new
     session[:address_attributes] = user_params[:address_attributes]
     @user.build_card = Card.new if @user.build_card.blank?
 
-    render 'registration_6'
+    render 'card_confirmation'
   end
   
-  def registration_7
+  def complete
     params[:user][:card_attributes][:validated_data] = params[:exp_year] + params[:exp_month]
     session[:card_attributes] = user_params[:card_attributes]
     @user = User.new(
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(session[:address_attributes])
     @user.build_card(session[:card_attributes])
     if @user.save
-      render 'registration_7'
+      render 'complete'
     else
       redirect_to root_path
     end

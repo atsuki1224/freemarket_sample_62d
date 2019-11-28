@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     scope :signup do
-      get '/' => 'users/registrations#registration_1'
-      get '/registration_2' => 'users/registrations#registration_2'
-      get '/registration_3' => 'users/registrations#registration_3'
-      get '/registration_4' => 'users/registrations#registration_4'
-      get '/registration_5' => 'users/registrations#registration_5'
-      get '/registration_6' => 'users/registrations#registration_6'
-      post '/registration_7' => 'users/registrations#registration_7'
+      get '/' => 'users/registrations#signup'
+      get '/registration' => 'users/registrations#registration'
+      get '/sms_confirmation' => 'users/registrations#sms_confirmation'
+      get '/sms_confirmation/sms/' => 'users/registrations#sms_confirmation_check'
+      get '/address_confirmation' => 'users/registrations#address_confirmation'
+      get '/card_confirmation' => 'users/registrations#card_confirmation'
+      post '/complete' => 'users/registrations#complete'
     end
   end
   # 石原
