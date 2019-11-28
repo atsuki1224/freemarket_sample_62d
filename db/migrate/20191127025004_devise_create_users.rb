@@ -9,8 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :lastname_kana,  null: false
       t.string :nickname,       null: false
       t.datetime :birthday,     null: false
-      t.bigint :total_profit, 	default: 0
-      t.bigint :point,        	default: 0
+      t.bigint :total_profit, 	null: false,default: 0
+      t.bigint :point,        	null: false,default: 0
       t.string :user_profile,   null: true
 
       ## Database authenticatable
