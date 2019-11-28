@@ -7,7 +7,7 @@ class ChangeDataTradeStatusToProducts < ActiveRecord::Migration[5.0]
     change_column :products,:delivery_methot,:integer
     change_column :products,:delivery_area,:integer
     change_column :products,:delivery_time,:integer
-    rename_column :products, :delivery_methot ,:delivery_method
+    # rename_column :products, :delivery_methot ,:delivery_method
 
   end
 end
