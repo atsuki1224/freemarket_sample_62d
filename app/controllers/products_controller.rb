@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :select_product, {only:[:show, :destroy]}
 
   def new
 
@@ -44,9 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @images = @product.images.order("created_at ASC").limit(10)
-
     if @product.bland
       @similar_items = Product.where.not(
         id: params[:id]).where(
@@ -58,7 +57,19 @@ class ProductsController < ApplicationController
     end
 
   end
+  
+  def destroy
+    @product.destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      redirect_to action: :show,flash: {error:'エラーが発生しました。削除できませんでした。'} 
+    end
+  end
 
+  def select_product
+    @product = Product.find(params[:id])
+  end
   private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
