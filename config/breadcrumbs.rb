@@ -50,6 +50,21 @@ crumb :profile do
   link "プロフィール", mypage_index_path
   parent :mypage
 end
+
+crumb :card do 
+  link "支払い方法", mypage_index_path
+  parent :mypage
+end
+
+crumb :identification do 
+  link "本人情報の確認", mypage_index_path
+  parent :mypage
+end
+
+crumb :logout do 
+  link "ログアウト", mypage_index_path
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
