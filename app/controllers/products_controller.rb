@@ -11,8 +11,6 @@ class ProductsController < ApplicationController
     @child = Category.find_by(id:params[:child_id])
     @search = params[:bland_name]
 
-
-
     if @parent && @child && @search
          @blands1 = @parent.blands
          @blands2 = @child.blands
@@ -37,9 +35,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-
       @product = Product.new(product_params)
-      redirect_to action: :new,flash: {error:'エラーが発生しました、再度入力をお願いします'}  unless @product.save
+         if @product.save
+         else
+           redirect_to action: :new ,flash: {error:'エラーが発生しました、再度入力をお願いします'}
+        end
 
   end
 
@@ -56,12 +56,21 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
+  end
 
+  def search
+    if @name
+      @word = params[name]
+      @category = Category.where("name LIKE ?" "#{params[name]}")
+      @products = @category.products
+    end
+      @category = Category.find(499)
+      @products = @category.products
   end
 
   private
   def product_params
-    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
+    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)
   end
 
   def edit
