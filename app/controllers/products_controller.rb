@@ -58,6 +58,10 @@ class ProductsController < ApplicationController
 
   end
   
+  def edit
+    @products = Product.find(params[:id])
+  end
+
   def destroy
     @product.destroy
     if @product.destroy
