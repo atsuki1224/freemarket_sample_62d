@@ -102,7 +102,7 @@
 
   .edit__content
     .edit__content-update-btn
-      =link_to '商品の編集'
+      =link_to '商品の編集', "/products/#{product.id}/edit", method: :get
     %p.edit__content-or
     .edit__content-stop-btn
       =link_to '出品を一旦停止する'
