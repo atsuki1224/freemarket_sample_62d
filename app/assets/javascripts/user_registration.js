@@ -1,5 +1,5 @@
 $(function(){
-  console.log('hello');
+  // console.log('hello');
   $('#check').change(function(){
     if($(this).prop('checked')){
       // console.log('hello');

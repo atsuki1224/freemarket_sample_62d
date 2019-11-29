@@ -1,0 +1,43 @@
+.search_backgournd
+  .search_contents
+    .sidebar_contents
+      .sort
+        %select
+      .search_box
+        %p
+        詳細検索
+        .keyword_box
+          %p
+          キーワードを追加する
+          %input
+          カテゴリーを選択する
+          %select
+          %select
+    .maincontents
+      -if @products
+        -# #{@word}の検索結果
+        の検索結果
+        #{@products.length}件の表示
+        .products_contents
+        -@products.each do |p|
+          .product
+            .product__image
+            -if p.images[0]
+              -@i =p.images[0]
+              = image_tag "#{@i.image}", class:"search_img"
+
+              -# = image_tag "#{i.image}", class:"search_image"
+            .product__price
+              ¥#{p.price}
+            .product__name
+              =p.item_name
+
+      -else
+        %p.tittle の検索結果
+        %p.text 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        %p.tittle 新着商品
+        .products_contents
+          .product
+            .product__image
+            .product__price
+            .product__name

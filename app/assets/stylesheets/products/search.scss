@@ -1,0 +1,49 @@
+
+.search_backgournd{
+  background-color: #eeeeee;
+  padding:35px;
+  min-height: 900px;
+  .search_contents{
+
+    margin:0 auto;
+    width:75%;
+
+    .sort{
+      margin-bottom: 30px;
+    }
+    .sidebar_contents{
+      float:left;
+      width:200px;
+      .search_box{
+        background-color: #ffffff;
+      }
+    }
+    .maincontents{
+      margin-left: 50px;
+      float:right;
+      width:740px;
+      .product{
+        width:160px;
+        height:240px;
+        background-color: #ffffff;
+        display:inline-block;
+        margin:10px;
+        position:relative;
+        img{
+          width:160px;
+          height:200px;
+          position:absolute;
+          top:0;
+        }
+        &__price{
+          position: absolute;
+          bottom: 20px;
+        }
+        &__name{
+          position: absolute;
+          bottom: 0px;
+        }
+      }
+    }
+  }
+}
