@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20191128070344) do
+
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20191128070344) do
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "zipcode",       null: false
   end
 
   create_table "blands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,13 +81,26 @@ ActiveRecord::Schema.define(version: 20191128070344) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_trades_on_product_id", using: :btree
   end
-
-  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_transactions_on_product_id", using: :btree
+ 
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "firstname",                           null: false
+    t.string   "firstname_kana",                      null: false
+    t.string   "lastname",                            null: false
+    t.string   "lastname_kana",                       null: false
+    t.string   "nickname",                            null: false
+    t.datetime "birthday",                            null: false
+    t.bigint   "total_profit",           default: 0
+    t.bigint   "point",                  default: 0
+    t.string   "user_profile"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

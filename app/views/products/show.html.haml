@@ -1,15 +1,14 @@
 .detail-wrapper
   .item
     .item__title
-      COACHショルダーバック
+      = @product.item_name
     .item__image
       .item__image--main
-        = image_tag "#{@images[0].image}", class:"main-image"        
+        = image_tag "#{@images[0].image}", class:"main-image"
       .item__image--sub
-        -images = @product.images
         -@images.each do |image|
           = image_tag "#{image.image}", class:"img"
-       
+
     %table.item__detail
       %tr.big
         %th.gray
@@ -19,7 +18,7 @@
             ヒロ
           =image_tag "icons/smile-face.png",class:"face"
           %span 1
-          =image_tag "icons/normal-face.png",class:"face"  
+          =image_tag "icons/normal-face.png",class:"face"
           %span 1
           =image_tag "icons/frown-face.png",class:"face"
           %span 1
@@ -28,57 +27,64 @@
           カテゴリー
         %th
           =link_to "#" ,class:"link"do
-            レディース
+            =">#{@product.category.root.name}"
           =link_to "#" ,class:"link"do
-            >靴
+            =">#{@product.category.parent.name}"
           =link_to "#" ,class:"link"do
-            >スニーカー
+            =">#{@product.category.name}"
       %tr
         %th.gray
           ブランド
         %th.brand
-          =link_to "#" ,class:"link"do
-            コーチ
+          -if @product.bland
+            =link_to "#" ,class:"link"do
+              =@product.bland.name
+      -if @product.size
+        %tr
+          %th.gray
+            商品のサイズ
+          %th
+            =@product.size
       %tr
         %th.gray
           商品の状態
         %th
-          目立った傷や汚れなし
+          =@product.item_condition
       %tr
         %th.gray
           配送料の負担
         %th
-          送料込み(出品者負担)
+          =@product.delivery_charge
       %tr
         %th.gray
           配送の方法
         %th
-          ゆうゆうメルカリ便
+          =@product.delivery_method
       %tr
         %th.gray
           配送元地域
         %th
           =link_to "#" ,class:"link"do
-            宮城県
+            =@product.delivery_area
       %tr
         %th.gray
           発送日の目安
         %th
-          2~3日で発送
+          =@product.delivery_time
     .item__price
-      ￥3,000
-    .tax 
+      ="￥#{@product.price.to_s(:delimited)}"
+    .tax
       (税込)
     .postage
       送料込み
     =link_to "/products/#{@product.id}/confirmation" ,class:"item__buy-btn"do
       購入画面に進む
+
+        
     .caution
       この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     .item__text
-      レディースのLサイズ新品未使用です。
-      自宅にて保管してありましたが、状態は非常に良いです。
-      他、フリマアプリでも出品しておりますので購入をご検討の方は在庫確認のコメントをいただけると助かります。
+      =@product.description
     .item__bottom
       %p.nice-btn
         =link_to "#" do
@@ -94,6 +100,15 @@
         =fa_icon "shopping-bag"
         あんしん・あんぜんへの取り組み
 
+  .edit__content
+    .edit__content-update-btn
+      =link_to '商品の編集'
+    %p.edit__content-or
+    .edit__content-stop-btn
+      =link_to '出品を一旦停止する'
+    .edit__content-delete-btn
+      =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
+
   .comment
     .comment__caution
       %span
@@ -108,19 +123,22 @@
       イエナ コート チェスター 23区 ネイビー >
   .icons
     =link_to "#" do
-      =image_tag "sns-logo/facebook.png",class:"icons__btn"
+      =image_tag "icons/facebook.png",class:"icons__btn"
     =link_to "#" do
-      =image_tag "sns-logo/twitter.png",class:"icons__btn"
+      =image_tag "icons/twitter.png",class:"icons__btn"
     =link_to "#" do
-      =image_tag "sns-logo/pinterest.png",class:"icons__btn"
-    
+      =image_tag "icons/pinterest.png",class:"icons__btn"
+
   .same-seller-item
     =link_to "#",class:"title"do
       ヒロさんのその他の出品
     .products
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          .products-box__image
+            =image_tag "sample/sample1.jpg",class:"products-box__image"
+            .sold_out
+              =image_tag "icons/sold_out.png",class:"sold_out"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -131,7 +149,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -142,7 +160,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -153,7 +171,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -162,52 +180,37 @@
             =fa_icon "heart",class:"nice"
             %span
               1
-
-  .similar-item
-    =link_to "#",class:"title"do
-      COHCH バッグ その他の出品
-    .products
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
+  -if @product.bland_id.present?
+    .similar-item
+      =link_to "#",class:"title"do
+        ="#{@product.bland.name} #{@product.category.name} その他の出品"
+      .products
+        -@similar_items.each do |similar_item|
+          .products-box
+            =link_to "#" do
+              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
+              .products-box__text
+                =similar_item.item_name
+              .products-box__bottom
+                .price
+                  ="¥#{similar_item.price.to_s(:delimited)}"
+                =fa_icon "heart",class:"nice"
+                %span
+                  1
+  -else
+    .similar-item
+      =link_to "#",class:"title"do
+        ="#{@product.category.name}(#{@product.category.root.name}) その他の出品"
+      .products
+        -@similar_items.each do |similar_item|
+          .products-box
+            =link_to "#" do
+              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
+              .products-box__text
+                =similar_item.item_name
+              .products-box__bottom
+                .price
+                  ="¥#{similar_item.price.to_s(:delimited)}"
+                =fa_icon "heart",class:"nice"
+                %span
+                  1

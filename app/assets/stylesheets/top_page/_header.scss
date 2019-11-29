@@ -39,7 +39,7 @@
         cursor: pointer;
         text-align: center;
       }
-    }  
+    }
     .header-lists {
       height: 32px;
       margin: 9px 0 0 0;
@@ -54,6 +54,24 @@
       cursor: pointer;
       line-height: 32px;
       &:first-child {padding-left: 0;}
+      &--registration{
+          font-size: 13px;
+          color:white;
+          text-decoration: none;
+          background: #ea352d;
+          padding:7px 9px 5px;
+          border-radius: 2px;
+          line-height: 10px;
+      }
+      &--log_in{
+          font-size: 13px;
+          color:#0099e8;
+          text-decoration: none;
+          padding:7px 9px 5px;
+          border:solid 1px #0099e8;;
+          border-radius: 2px;
+          line-height: 10px;
+      }
       &--link {
         font-size: 14px;
         font-weight: 400;
@@ -79,14 +97,14 @@
 }
 .box-area{
   width: 100px;
-  
+
   .category-box{
     position: absolute;
     font-size: 12px;
     width: 200px;
     background-color:white;
     display: none;
-    
+
     &__list{
       padding: 0px;
       padding-bottom: 50px;
@@ -108,7 +126,7 @@
     &__list{
       padding: 0px;
       padding-bottom: 50px;
-      
+
     }
     li{
       list-style: none;
@@ -116,7 +134,7 @@
       padding: 10px;
     }
   }
-}   
+}
 .news-box{
   position: absolute;
   font-size: 12px;
@@ -159,5 +177,5 @@
     padding: 10px 0 0 30px;
 
   }
- 
+
 }

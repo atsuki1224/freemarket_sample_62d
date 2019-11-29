@@ -189,23 +189,32 @@
           .birthformarea{
             .birthform{
               width:400px;
-              &__form--year{
+              #birthday_birthday_1i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
               }
-              &__form--month{
+              #birthday_birthday_2i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
               }
-              &__form--days{
+              #birthday_birthday_3i{
+                @include form_shape;
+                width:100px;
+                margin-left: 10px;
                 display:inline-block;
-                float:left;
+                // float:left;
                 input{
                   width:50px;
                 }
@@ -259,6 +268,18 @@
           .selectform{
             @include selectform;
           }
+          .cardselect{
+            width: calc(50% - 38px);
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+          }
           .birthday{
             @include form_shape;
             width:100px;
@@ -309,7 +330,6 @@
           color:white;
           line-height: 48px;
           font-size: 14px;
-
         }
         .nextlink{
           margin:30px 165px;
