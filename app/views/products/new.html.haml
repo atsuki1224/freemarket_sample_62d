@@ -43,7 +43,7 @@
             =f.fields_for :images do |i|
               =i.file_field  :image, style:"opacity:0;", class:"imagearea"
             =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
+              =i.file_field  :image, style:"opacity:0;", class:"imagearea",required:"true"
             -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
             -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
             -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
@@ -65,7 +65,6 @@
           =f.hidden_field :trade_status, value:0
           =f.hidden_field :bland_id, value:'',class:'bland_num'
           =f.hidden_field :delivery_method, class:'delivery_method',value:''
-          =f.hidden_field :user_id, value:1
           =f.hidden_field :size,class:"size_form",vlaue:''
           =f.hidden_field :category_id, value:'',class:'category_num'
 
