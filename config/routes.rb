@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'card/new'
+
+  get 'card/show'
+
   # 石原
   # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
@@ -32,15 +36,17 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :transaction do 
-    collection do
-      get 'confirmation' => 'transaction#confirmation'
-    end
+  resources :trade, except: :index do
   end
 
-
-  resources :products, except: :index
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :products, except: :index do
+    member do
+      get :confirmation
+    end 
+    collection do
+      post 'pay/:id' => 'products#pay', as: 'pay'
+    end
+  end
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homes#index"
-
 end

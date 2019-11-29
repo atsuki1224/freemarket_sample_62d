@@ -122,11 +122,12 @@
       }
       button.btn_grey {
         background-color: #888;
-        color: white;
         margin-top: 8px;
         height: 50px;
         width: 100%;
         font-size: 14px; 
+        color: white;
+       
       }
     }
   }
@@ -148,10 +149,15 @@
           font-weight: bold;
           margin-bottom: 8px;
         }
-        .userInfo-fix{
-          position: absolute;
-          right: 0;
-          box-sizing: border-box;
+        .fix{
+          #fix-category{
+            .userInfo-fix{
+              position: absolute;
+              right: 0;
+              box-sizing: border-box;
+              color: #0099E8;
+            }
+          }
         }
       }
     }
