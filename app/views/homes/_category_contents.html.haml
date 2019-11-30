@@ -11,7 +11,7 @@
         -product_image = ladies_product.images.first
         .contents
           =link_to"/products/#{ladies_product.id}"do
-            -# .contents__img{style: "background-image: url(#{product_image.image});"}
+            .contents__img{style: "background-image: url(#{product_image.image});"}
               .contents__price
                 = "¥,#{ladies_product.price}"
             .contents__text
@@ -26,7 +26,7 @@
         -product_image = mens_product.images.first
         .contents
           =link_to"/products/#{mens_product.id}"do
-            -# .contents__img{style: "background-image: url(#{product_image.image});"}
+            .contents__img{style: "background-image: url(#{product_image.image});"}
               .contents__price
                 = "¥,#{mens_product.price}"
             .contents__text
@@ -42,7 +42,7 @@
         -product_image = home_appliance_product.images.first
         .contents
           =link_to"/products/#{home_appliance_product.id}"do
-            -# .contents__img{style: "background-image: url(#{product_image.image});"}
+            .contents__img{style: "background-image: url(#{product_image.image});"}
               .contents__price
                 = "¥,#{home_appliance_product.price}"
             .contents__text
@@ -58,7 +58,7 @@
         -product_image = toy_product.images.first
         .contents
           =link_to"/products/#{toy_product.id}"do
-            -# .contents__img{style: "background-image: url(#{product_image.image});"}
+            .contents__img{style: "background-image: url(#{product_image.image});"}
               .contents__price
                 = "¥,#{toy_product.price}"
             .contents__text
