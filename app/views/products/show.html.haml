@@ -15,7 +15,7 @@
           出品者
         %th.seller
           =link_to "#" ,class:"name"do
-            ヒロ
+            = @product.user.nickname
           =image_tag "icons/smile-face.png",class:"face"
           %span 1
           =image_tag "icons/normal-face.png",class:"face"

@@ -12,24 +12,27 @@
               ニックネーム
             .formbox__text--btn
               必須
-          = f.text_field :nickname, { class:"form", placeholder:'例)メルカリ太郎'}
+          = f.text_field :nickname, { class:"form", placeholder:'例)Fマケ太郎', required: true}
         .formbox
           .formbox__text
             .formbox__text--tittle
               メールアドレス
             .formbox__text--btn
               必須
-          = f.email_field :email, { class:"form", placeholder:'PC・携帯どちらでも可'}
+          = f.email_field :email, { class:"form", placeholder:'PC・携帯どちらでも可', required: true}
+          #mail_required
+            - if @mail_check == false
+              %p{ style:"color:red",autofocus: "ture" }
+                登録済みのメールアドレスです。
         .formbox
           .formbox__text
             .formbox__text--tittle
               パスワード
             .formbox__text--btn
               必須
-          =f.password_field :password, { class:"form", placeholder:'7文字以上'}
+          =f.password_field :password, { class:"form", placeholder:'7文字以上', minlength: 7, required: true}
           .checkbox
-            //checkbox入ります
-            .checkbox__box
+            %input{ type:"checkbox", id:"check", class:"checkbox__box"}
             %p
               パスワードを表示する
         .formbox
@@ -38,33 +41,31 @@
               本人確認
             %p
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          -# .form
         .formbox
           .formbox__text
             .formbox__text--tittle
               お名前(全角)
             .formbox__text--btn
               必須
-          =f.text_field :firstname, { class:"halfform", placeholder:'例)山田'}
-          =f.text_field :lastname, { class:"halfform", placeholder:'例)彩'}
+          =f.text_field :firstname, { class:"halfform", placeholder:'例)山田', required: true}
+          =f.text_field :lastname, { class:"halfform", placeholder:'例)彩', required: true}
         .formbox
           .formbox__text
             .formbox__text--tittle
               お名前カナ(全角)
             .formbox__text--btn
               必須
-          =f.text_field :firstname_kana, { class:"halfform", placeholder:'例)ヤマダ'}
-          =f.text_field :lastname_kana, { class:"halfform", placeholder:'例)アヤ'}
+          =f.text_field :firstname_kana, { class:"halfform", placeholder:'例)ヤマダ', required: true}
+          =f.text_field :lastname_kana, { class:"halfform", placeholder:'例)アヤ', required: true}
         .formbox
           .formbox__text
-            //select-box入ります
             .formbox__text--tittle
               生年月日
             .formbox__text--btn
               必須
           .birthformarea
             .birthform
-              != sprintf(f.date_select(:birthday, prefix:'birthday', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+              != sprintf(f.date_select(:birthday, prefix:'birthday', selected:1,use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
               %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .formbox
           .formbox__certification

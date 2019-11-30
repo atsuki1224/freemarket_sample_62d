@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   before_action :select_product, {only:[:show, :destroy]}
+  before_action :user_signed_in_check, only: [:new, :create, :destroy]
 
   def new
-
     @product = Product.new
     @product.images.build
 
@@ -15,16 +15,13 @@ class ProductsController < ApplicationController
     if @parent && @child && @search
          @blands1 = @parent.blands
          @blands2 = @child.blands
-
       if @blands2.empty?
           @blands = @blands1.search_name(params[:bland_name])
       else
           @blands = @blands2.search_name(params[:bland_name])
       end
-
     elsif @parent && @child ==nil && @search==nil
       @children = @parent.children
-
     elsif @child && @parent ==nil && @search==nil
       @grand_children = @child.children
     end
@@ -41,7 +38,6 @@ class ProductsController < ApplicationController
          else
            redirect_to action: :new ,flash: {error:'エラーが発生しました、再度入力をお願いします'}
         end
-
   end
 
   def show
@@ -83,5 +79,8 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)
   end
-
+  
+  def user_signed_in_check
+    redirect_to user_session_path unless user_signed_in?
+  end
 end
