@@ -59,6 +59,25 @@ class ProductsController < ApplicationController
 
   end
 
+  def search
+   if @name
+     @word = params[name]
+     @category = Category.where("name LIKE ?" "#{params[name]}")
+     @products = @category.products
+   end
+     @category = Category.find(499)
+     @products = @category.products
+ end
+
+ def destroy
+   @product.destroy
+   if @product.destroy
+     redirect_to root_path
+   else
+     redirect_to action: :show,flash: {error:'エラーが発生しました。削除できませんでした。'}
+   end
+end
+
   private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
