@@ -1,8 +1,9 @@
+- breadcrumb :logout
 .mypage-wrapper
   .mypage.clearfix
     =render 'mypage/nav'
     .mypage__content
       .wrapper
         .log-out
-          =link_to "#", class:"log-out__btn" do
-            %span ログアウト
+          =link_to destroy_user_session_path, method: :delete, class:"log-out__btn" do
+            %span(style="color:white;") ログアウト

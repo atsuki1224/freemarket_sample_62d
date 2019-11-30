@@ -15,7 +15,7 @@
           出品者
         %th.seller
           =link_to "#" ,class:"name"do
-            ヒロ
+            = @product.user.nickname
           =image_tag "icons/smile-face.png",class:"face"
           %span 1
           =image_tag "icons/normal-face.png",class:"face"
@@ -26,11 +26,11 @@
         %th.gray
           カテゴリー
         %th
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.root.id}" ,class:"link"do
             =">#{@product.category.root.name}"
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
             =">#{@product.category.parent.name}"
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.id}" ,class:"link"do
             =">#{@product.category.name}"
       %tr
         %th.gray
@@ -103,11 +103,11 @@
   .edit__content
     .edit__content-update-btn
       =link_to '商品の編集'
-    %p.edit__content-or or
+    %p.edit__content-or
     .edit__content-stop-btn
       =link_to '出品を一旦停止する'
     .edit__content-delete-btn
-      =link_to 'この商品を削除する'
+      =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
 
   .comment
     .comment__caution
@@ -123,11 +123,11 @@
       イエナ コート チェスター 23区 ネイビー >
   .icons
     =link_to "#" do
-      =image_tag "sns-logo/facebook.png",class:"icons__btn"
+      =image_tag "icons/facebook.png",class:"icons__btn"
     =link_to "#" do
-      =image_tag "sns-logo/twitter.png",class:"icons__btn"
+      =image_tag "icons/twitter.png",class:"icons__btn"
     =link_to "#" do
-      =image_tag "sns-logo/pinterest.png",class:"icons__btn"
+      =image_tag "icons/pinterest.png",class:"icons__btn"
 
   .same-seller-item
     =link_to "#",class:"title"do
@@ -136,7 +136,7 @@
       .products-box
         =link_to "#" do
           .products-box__image
-            =image_tag "sample/product-sample.png",class:"products-box__image"
+            =image_tag "sample/sample1.jpg",class:"products-box__image"
             .sold_out
               =image_tag "icons/sold_out.png",class:"sold_out"
           .products-box__text
@@ -149,7 +149,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -160,7 +160,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom
@@ -171,7 +171,7 @@
               1
       .products-box
         =link_to "#" do
-          =image_tag "sample/product-sample.png",class:"products-box__image"
+          =image_tag "sample/sample1.jpg",class:"products-box__image"
           .products-box__text
             新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
           .products-box__bottom

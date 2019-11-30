@@ -88,8 +88,18 @@ describe ProductsController do
         get :show, params: { id: product.id }
         expect(response).to render_template :show
       end
-
+        
+  end
 
 
   end
+
+  describe 'DELETE #destroy' do
+          it "deletes the product" do
+            product = create(:product)
+            expect do
+              delete :destroy, id: product
+            end.to change(Product, :count).by(-1)
+          end
+        end
 end

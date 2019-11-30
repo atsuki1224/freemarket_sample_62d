@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191122011259) do
+ActiveRecord::Schema.define(version: 20191127033041) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20191122011259) do
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "zipcode",       null: false
   end
 
   create_table "blands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -29,6 +30,15 @@ ActiveRecord::Schema.define(version: 20191122011259) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_blands_on_category_id", using: :btree
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_number",    null: false
+    t.string   "validated_data", null: false
+    t.integer  "security_code",  null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,26 +75,24 @@ ActiveRecord::Schema.define(version: 20191122011259) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name",                                        null: false
-    t.string   "first_name_kana",                                   null: false
-    t.string   "last_name",                                         null: false
-    t.string   "last_name_kana",                                    null: false
-    t.string   "nickname",                                          null: false
-    t.string   "email",                                             null: false
-    t.string   "encrypted_password",                   default: "", null: false
-    t.integer  "birthdate_year",                                    null: false
-    t.integer  "birthdate_month",                                   null: false
-    t.integer  "birthdate_day",                                     null: false
-    t.bigint   "total_profit",                         default: 0
-    t.bigint   "point",                                default: 0
-    t.integer  "phone_number",                                      null: false
-    t.text     "user_profile",           limit: 65535
+    t.string   "firstname",                           null: false
+    t.string   "firstname_kana",                      null: false
+    t.string   "lastname",                            null: false
+    t.string   "lastname_kana",                       null: false
+    t.string   "nickname",                            null: false
+    t.datetime "birthday",                            null: false
+    t.bigint   "total_profit",           default: 0,  null: false
+    t.bigint   "point",                  default: 0,  null: false
+    t.string   "user_profile"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
+
 end
