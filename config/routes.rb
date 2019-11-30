@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get 'logout' => 'mypage#logout'
       get 'identification' =>'mypage#identification'
       get 'profile' => 'mypage#profile'
+      patch 'profile_update' => 'mypage#profile_update'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
