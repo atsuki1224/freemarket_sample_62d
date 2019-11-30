@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  validates :email, presence:true
-  validates :password , presence:true
+  validates :email, uniqueness: true, presence:true
+  validates :password , length: { minimum: 7 }, presence:true
   validates :firstname, presence:true
   validates :lastname, presence:true
   validates :firstname_kana, presence:true
