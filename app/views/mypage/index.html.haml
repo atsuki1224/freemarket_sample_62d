@@ -7,11 +7,7 @@
         =link_to "ユーザーid毎のページurl",  class:"mypage__user--link" do
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
           .mypage__user--name.bold<>
-            - if user_signed_in?
-              = current_user.nickname
-            - else
-              ログインされていません
-              -# 後にコントローラのbefore_actionでログインページに飛ばす。
+            = current_user.nickname
           .mypage__user--info
             %div<>
               評価
