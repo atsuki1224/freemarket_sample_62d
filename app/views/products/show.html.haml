@@ -138,7 +138,7 @@
       .products
         -@same_seller_items.each do |same_seller_item|
           .products-box
-            =link_to "#" do
+            =link_to "/products/#{same_seller_item.id}" do
               =image_tag "#{same_seller_item.images.first.image}",class:"products-box__image"
               .products-box__text
                 =same_seller_item.item_name
@@ -156,7 +156,7 @@
       .products
         -@similar_items.each do |similar_item|
           .products-box
-            =link_to "#" do
+            =link_to "/products/#{similar_item.id}" do
               =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
               .products-box__text
                 =similar_item.item_name
@@ -173,7 +173,7 @@
       .products
         -@similar_items.each do |similar_item|
           .products-box
-            =link_to "#" do
+            =link_to "/products/#{similar_item.id}" do
               =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
               .products-box__text
                 =similar_item.item_name
