@@ -1,17 +1,18 @@
 - breadcrumb :profile
 =render "homes/sell-btn"
-.mypage-wrapper
-  .mypage.clearfix
-    =render 'mypage/nav'
-    .mypage__content
-      .mypage__content-title
-        プロフィール
-      .mypage__content-imagebox
-        %section.mypage__content-imagebox-user
-          =link_to "ユーザーid毎のページurl",  class:"mypage__content-user--link" do
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
-          %input.mypage__content-imagebox-user--name 
-      .mypage__content-form
-        %textarea{value:"", placeholder: "例)  こんにちは☆ ご覧いただきありがとうございmす！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取り引きできるよう心がけていますので、商品や発送方法などご質問ありましたらお気軽にどうぞ♪", class:"mypage__content-form--text"}
-        .mypage__content-form--btn
-          =link_to '変更する'
+=form_for @user, url: profile_update_mypage_index_path do |f|
+  .mypage-wrapper
+    .mypage.clearfix
+      =render 'mypage/nav'
+      .mypage__content
+        .mypage__content-title
+          プロフィール
+        .mypage__content-imagebox
+          %section.mypage__content-imagebox-user
+            =link_to "ユーザーid毎のページurl",  class:"mypage__content-user--link" do
+              = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
+            = f.text_field :nickname, class:"mypage__content-imagebox-user--name" ,value:@user.nickname
+
+        .mypage__content-form
+          =f.text_area :user_profile, value:@user.user_profile , class:"mypage__content-form--text"
+          =f.submit '変更する', class:"mypage__content-form--btn"
