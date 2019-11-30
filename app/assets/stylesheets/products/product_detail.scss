@@ -30,6 +30,7 @@ $link-color:#0099E8;
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
+        object-fit: contain;
         }
       }
       &--sub{
@@ -43,6 +44,7 @@ $link-color:#0099E8;
           background-repeat: no-repeat;
           background-size: cover;
           box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
+          object-fit: contain;
         }
       }
     }
@@ -122,13 +124,14 @@ $link-color:#0099E8;
       color:red;
       text-align: center;
       font-size: 14px;
-      margin: 20px 0 50px 0;
+      margin: 20px 0 0 0;
     }
 
     &__text{
       width:620px ;
       padding-left: 30px;
       font-size: 18px;
+      margin-top: 60px;
     }
     &__bottom{
       display: flex;

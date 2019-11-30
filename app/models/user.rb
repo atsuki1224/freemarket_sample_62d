@@ -14,7 +14,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_many :porducts
+  has_many :porducts
   # has_many :nices
   # has_many :commnets
   # has_many :messages

@@ -77,37 +77,40 @@
       (税込)
     .postage
       送料込み
-    =link_to "#" ,class:"item__buy-btn"do
-      購入画面に進む
+    -if @product.user.id != current_user.id
+      =link_to "#" ,class:"item__buy-btn"do
+        購入画面に進む
 
         
-    .caution
-      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+      .caution
+        この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     .item__text
       =@product.description
-    .item__bottom
-      %p.nice-btn
-        =link_to "#" do
-          =fa_icon "heart"
-          %span
-            いいね！
-      %p.report-btn
-        =link_to "#" do
-          =fa_icon "flag"
-          %span
-            不適切な商品の報告
-      =link_to "#",class:"safe_and_relief" do
-        =fa_icon "shopping-bag"
-        あんしん・あんぜんへの取り組み
+    -if @product.user.id != current_user.id 
+      .item__bottom
+        %p.nice-btn
+          =link_to "#" do
+            =fa_icon "heart"
+            %span
+              いいね！
+        %p.report-btn
+          =link_to "#" do
+            =fa_icon "flag"
+            %span
+              不適切な商品の報告
+        =link_to "#",class:"safe_and_relief" do
+          =fa_icon "shopping-bag"
+          あんしん・あんぜんへの取り組み
 
-  .edit__content
-    .edit__content-update-btn
-      =link_to '商品の編集'
-    %p.edit__content-or
-    .edit__content-stop-btn
-      =link_to '出品を一旦停止する'
-    .edit__content-delete-btn
-      =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
+  -if @product.user.id == current_user.id
+    .edit__content
+      .edit__content-update-btn
+        =link_to '商品の編集'
+      %p.edit__content-or
+      .edit__content-stop-btn
+        =link_to '出品を一旦停止する'
+      .edit__content-delete-btn
+        =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
 
   .comment
     .comment__caution
@@ -131,55 +134,21 @@
 
   .same-seller-item
     =link_to "#",class:"title"do
-      ヒロさんのその他の出品
-    .products
-      .products-box
-        =link_to "#" do
-          .products-box__image
-            =image_tag "sample/sample1.jpg",class:"products-box__image"
-            .sold_out
-              =image_tag "icons/sold_out.png",class:"sold_out"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/sample1.jpg",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/sample1.jpg",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
-      .products-box
-        =link_to "#" do
-          =image_tag "sample/sample1.jpg",class:"products-box__image"
-          .products-box__text
-            新品/タグつき》B.C STOCK ダブルVカラーチェスターコート
-          .products-box__bottom
-            .price
-              ¥3,000
-            =fa_icon "heart",class:"nice"
-            %span
-              1
+      ="#{@product.user.nickname}さんのその他の出品"
+      .products
+        -@same_seller_items.each do |same_seller_item|
+          .products-box
+            =link_to "#" do
+              =image_tag "#{same_seller_item.images.first.image}",class:"products-box__image"
+              .products-box__text
+                =same_seller_item.item_name
+              .products-box__bottom
+                .price
+                  ="¥#{same_seller_item.price.to_s(:delimited)}"
+                =fa_icon "heart",class:"nice"
+                %span
+                  1
+
   -if @product.bland_id.present?
     .similar-item
       =link_to "#",class:"title"do

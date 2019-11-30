@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   # has_many :messages
   # has_many :nices
 
-  # belongs_to :user,optional:true
+  belongs_to :user,optional:true
   belongs_to :category,optional:true
   belongs_to :bland,optional:true
   validates :item_name,presence:true
