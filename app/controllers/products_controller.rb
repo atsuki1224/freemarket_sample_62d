@@ -62,6 +62,17 @@ class ProductsController < ApplicationController
     @products = Product.find(params[:id])
   end
 
+  def update
+    @products = Product.find(params[:id])
+    if @products.update(product_params)
+      binding.pry
+      redirect_to action: :show
+    else 
+      binding.pry
+      redirect_to action: :show,flash: {error:'エラーが発生しました。編集できませんでした。'} 
+    end
+  end
+
   def destroy
     @product.destroy
     if @product.destroy

@@ -53,6 +53,6 @@ Rails.application.routes.draw do
   end
   resources :products, except: :index
   root "homes#index"
-  get 'products/:id/edit' => 'products#edit'
+  get 'products/:id/edit' => 'products#update'
 
 end

@@ -26,12 +26,12 @@
         %th.gray
           カテゴリー
         %th
-          =link_to "#" ,class:"link"do
-            =">#{@product.category.root.name}"
-          =link_to "#" ,class:"link"do
-            =">#{@product.category.parent.name}"
-          =link_to "#" ,class:"link"do
-            =">#{@product.category.name}"
+          -# =link_to "#" ,class:"link"do
+          -#   =">#{@product.category.root.name}"
+          -# =link_to "#" ,class:"link"do
+          -#   =">#{@product.category.parent.name}"
+          -# =link_to "#" ,class:"link"do
+          -#   =">#{@product.category.name}"
       %tr
         %th.gray
           ブランド
@@ -102,7 +102,7 @@
 
   .edit__content
     .edit__content-update-btn
-      =link_to '商品の編集', "/products/#{product.id}/edit", method: :get
+      =link_to '商品の編集', "/products/#{@product.id}/edit", method: :get
     %p.edit__content-or
     .edit__content-stop-btn
       =link_to '出品を一旦停止する'
