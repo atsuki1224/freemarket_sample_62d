@@ -7,64 +7,62 @@
         .user_information
           %section.idenfitication
             %h2.idenfitication 本人情報の確認
-          = form_for '' do |f|
-            .idenfitication_contents
-              .caution_message
-                %p.supplement
-                  お客さまの本人情報をご登録ください。
-                  %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-                .caution_message__text_right
-                  %p.text_right
-                    %a.detail_page{href: "http:twitter.com", target: "blank"}
-                      本人確認書類のアップロードについて
-                  
-              .form_group
-                %label.idenfitication お名前
-                %p.idenfitication 山田孝之
-              
-              .form_group
-                %label.idenfitication お名前カナ
-                %p.idenfitication ヤマダ タカユキ
-                
-              .form_group
-                %label.idenfitication{for: "birthday"} 
-                  生年月日
-                %p.idenfitication 1990/5/26
-
-              .form_group
-                %label.idenfitication{for: "zip_code"}
-                  郵便番号
-                %span.form_arbitrary 任意
-              %input.input_default{type: "text",value: "",placeholder: "例) 1234567"}
-
-              .form_group
-                %label.idenfitication{for: "prefcture", class: "select_prefectures"}
-                  都道府県
-                %span.form_arbitrary 任意
-                .select_wrap
-                  .i.icon_arrow_bottom
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'default'
-              .form_group
-                %label.idenfitication{for: "city"}
-                  市区町村
-                %span.form_arbitrary 任意
-              %input.input_default{type: "text",value: "",placeholder: "例) 横浜市緑区"}
-
-              .form_group
-                %label.idenfitication{for: "adress"}
-                  市区町村
-                %span.form_arbitrary 任意
-              %input.input_default{type: "text",value: "",placeholder: "例) 青山1_1_1"}
-
-              .form_group
-                %label.idenfitication{for: "building_name"}
-                  市区町村
-                %span.form_arbitrary 任意
-              %input.input_default{type: "text",value: "",placeholder: "例) 山田ビル101"}
-              
-              %button.btn_red{type:"submit"} 登録する
-              
-              .form_group
-                %p{class:"text_right"}
-                  %a.detail_page{href: "http", target:"_blank"} 
-                    本人情報の登録について
+          = form_for @user, url: identification_update_mypage_index_path do |f|
+            =f.fields_for :address, @user.address do |a|
+              .idenfitication_contents
+                .caution_message
+                  %p.supplement
+                    お客さまの本人情報をご登録ください。
+                    %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+                  .caution_message__text_right
+                    %p.text_right
+                      %a.detail_page{href: "http:twitter.com", target: "blank"}
+                        本人確認書類のアップロードについて
+                    
+                .form_group
+                  %label.idenfitication お名前
+                  %p.idenfitication
+                    =@user.firstname
+                    =@user.lastname
+                .form_group
+                  %label.idenfitication お名前カナ
+                  %p.idenfitication
+                    =@user.firstname_kana
+                    =@user.lastname_kana
+                .form_group
+                  %label.idenfitication{for: "birthday"} 
+                    生年月日
+                  %p.idenfitication
+                    =@user.birthday.strftime("%Y/%m/%d")
+                .form_group
+                  %label.idenfitication{for: "zip_code"}
+                    郵便番号
+                  %span.form_arbitrary 任意
+                = a.text_field :zipcode , { class:"input_default", placeholder:'例)1234567', value: "#{@user.address.zipcode}", required: true}
+                .form_group
+                  %label.idenfitication{for: "prefcture", class: "select_prefectures"}
+                    都道府県
+                  %span.form_arbitrary 任意
+                  .select_wrap
+                    .i.icon_arrow_bottom
+                      = a.collection_select :prefecture_id, Prefecture.all, :id, :name, selected:@user.address.prefecture_id, class: 'default'
+                .form_group
+                  %label.idenfitication{for: "city"}
+                    市区町村
+                  %span.form_arbitrary 任意
+                = a.text_field :city, { class:"input_default", placeholder:'例)横浜市緑区', value: "#{@user.address.city}", required: true}
+                .form_group
+                  %label.idenfitication{for: "adress"}
+                    番地
+                  %span.form_arbitrary 任意
+                = a.text_field :address, { class:"input_default", placeholder:'例)青山1-1-1', value: "#{@user.address.address}"}
+                .form_group
+                  %label.idenfitication{for: "building_name"}
+                    建物名
+                  %span.form_arbitrary 任意
+                = a.phone_field :building_name, { class:"input_default", placeholder:"例) 山田ビル101",value: "#{@user.address.building_name}"}
+                =f.submit "登録する", class:"btn_red"
+                .form_group
+                  %p{class:"text_right"}
+                    %a.detail_page{href: "http", target:"_blank"} 
+                      本人情報の登録について
