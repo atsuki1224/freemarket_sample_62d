@@ -26,11 +26,11 @@
         %th.gray
           カテゴリー
         %th
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.root.id}" ,class:"link"do
             =">#{@product.category.root.name}"
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
             =">#{@product.category.parent.name}"
-          =link_to "#" ,class:"link"do
+          =link_to "/category/#{@product.category.id}" ,class:"link"do
             =">#{@product.category.name}"
       %tr
         %th.gray
