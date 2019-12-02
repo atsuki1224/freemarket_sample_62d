@@ -80,8 +80,8 @@ class ProductsController < ApplicationController
   def purchase
     Payjp.api_key = "sk_test_cee4ee20cc4c2035c1e7b76d"
     Payjp::Charge.create(
-      amount: 809, # 決済する値段
-      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      amount: 809, 
+      card: params['payjp-token'], 
       currency: 'jpy'
     )
   end
