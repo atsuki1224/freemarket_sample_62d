@@ -9,7 +9,7 @@
       - @chanel_products.each do |chanel_product|
         -product_image = chanel_product.images.first
         .contents
-          =link_to"/products/#{chanel_product.id}"do
+          =link_to product_path(chanel_product) do
             .contents__img{style: "background-image: url(#{product_image.image});"}
               -if chanel_product.trade_status != 0
                 .sold_out
@@ -28,7 +28,7 @@
       - @louis_vuitton_products.each do |louis_vuitton_product|
         -product_image = louis_vuitton_product.images.first
         .contents
-          =link_to"/products/#{louis_vuitton_product.id}"do
+          =link_to product_path(louis_vuitton_product) do
             .contents__img{style: "background-image: url(#{product_image.image});"}
               -if louis_vuitton_product.trade_status != 0
                 .sold_out
@@ -47,7 +47,7 @@
       - @supreme_products.each do |supreme_product|
         -product_image = supreme_product.images.first
         .contents
-          =link_to"/products/#{supreme_product.id}"do
+          =link_to product_path(supreme_product) do
             .contents__img{style: "background-image: url(#{product_image.image});"}
               -if supreme_product.trade_status != 0
                 .sold_out
@@ -66,7 +66,7 @@
       - @nike_products.each do |nike_product|
         -product_image = nike_product.images.first
         .contents
-          =link_to"/products/#{nike_product.id}"do
+          =link_to product_path(nike_product) do
             .contents__img{style: "background-image: url(#{product_image.image});"}
               -if nike_product.trade_status != 0
                 .sold_out

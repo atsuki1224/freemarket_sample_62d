@@ -80,17 +80,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  require 'payjp'
-
-  def purchase
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-      amount: 809, 
-      card: params['payjp-token'], 
-      currency: 'jpy'
-    )
-  end
-
   private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)

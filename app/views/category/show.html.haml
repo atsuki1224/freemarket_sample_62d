@@ -9,7 +9,7 @@
       - @products.each do |product|
         -product_image = product.images.first
         .contents
-          =link_to"/products/#{product.id}"do
+          =link_to product_path(product) do
             .contents__img{style: "background-image: url(#{product_image.image});"}
               -if product.trade_status != 0
                 .sold_out
