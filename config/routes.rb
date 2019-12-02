@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'card/show'
 
   devise_for :users, module: :users, controllers: {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
   }
   devise_scope :user do
     scope :signup do
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       get 'logout' => 'mypage#logout'
       get 'identification' =>'mypage#identification'
       get 'profile' => 'mypage#profile'
+      patch 'profile_update' => 'mypage#profile_update'
+      patch 'identification_update' => 'mypage#identification_update'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
@@ -49,6 +51,7 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :category, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :trade, except: :index do
     collection do
