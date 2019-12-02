@@ -67,15 +67,11 @@ class ProductsController < ApplicationController
     end
   end
 
-  def select_product
+  def confirmation
     @product = Product.find(params[:id])
   end
-  private
-  def product_params
-    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
-  end
-  
-  def confirmation
+
+  def select_product
     @product = Product.find(params[:id])
   end
 
@@ -88,6 +84,11 @@ class ProductsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+  end
+
+  private
+  def product_params
+    params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:user_id,:price,:trade_status,images_attributes: [:destroy,:id,:image])
   end
 
 end

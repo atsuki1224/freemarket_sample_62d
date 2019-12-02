@@ -120,14 +120,21 @@
         color: red;
         margin-top: 8px;
       }
-      button.btn_grey {
-        background-color: #888;
+      .payjp_checkout_box{
+       color: red; 
+      }
+      
+      .btn_grey {  
+        
+        input {
+        border: 1px solid #888!important;
+        background: linear-gradient(#888,#888)!important;
         margin-top: 8px;
         height: 50px;
         width: 100%;
         font-size: 14px; 
         color: white;
-       
+       }
       }
     }
   }

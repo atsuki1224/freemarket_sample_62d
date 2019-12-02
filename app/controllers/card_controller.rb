@@ -7,7 +7,23 @@ class CardController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
-  def pay #payjpとCardのデータベース作成を実施します。
+  def pay
+    product = Product.find(params[:product_id])
+    # transactionテーブルを作る
+    Trade.create(user_id:1, product_id: params[:product_id])
+    #プロダクトテーブルを探してトレードステータスを２に変更
+    product.update(trade_status:2)
+
+    Payjp.api_key = 'sk_test_cee4ee20cc4c2035c1e7b76d'
+    charge = Payjp::Charge.create(
+    :amount => product.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+  )
+  redirect_to root_path
+  end
+
+  def create #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -20,9 +36,9 @@ class CardController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to action: "index"
       else
-        redirect_to action: "pay"
+        redirect_to action: "create"
       end
     end
   end

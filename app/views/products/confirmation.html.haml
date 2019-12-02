@@ -26,12 +26,10 @@
               ¥5,000
           .error_message  
             配送先と支払い方法の入力を完了してください。
-          :plain
-            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開鍵"></script>
-          %button.btn_grey
-            = link_to "購入する" ,trade_index_path(product_id: @product.id), method: :POST
-          
-             
+          = form_tag("/card/pay/1", method: :post,class: :btn_grey) do
+            = hidden_field_tag :product_id, @product.id 
+            %script.payjp-button{:src=>"https://checkout.pay.jp/" , "data-key"=>"pk_test_cd3c1d3f0420b3bc72b91a90","data-text"=>"購入する"}
+
     #section.contents_box{class:"delivery_contents"}
       .contents_box__inner
         #h3.dataTitle 

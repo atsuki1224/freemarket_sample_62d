@@ -51,18 +51,23 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :trade, except: :index do
+    collection do
+      post 'pay/:id' => 'products#pay', as: 'pay'
+    end
   end
 
   resources :products, except: :index do
     member do
       get :confirmation
     end 
-  resources :transaction do
-    collection do
-      post 'pay/:id' => 'products#pay', as: 'pay'
-    end
   end
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :products, except: :index
+  resources :products, except: :index 
+  resources :card, except: :index do
+    collection do
+      post 'pay/:id' => 'card#pay', as: 'pay'
+    end
+  end
   root "homes#index"
+
 end
