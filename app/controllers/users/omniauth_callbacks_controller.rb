@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
-  def facebook_oauth2
+  def facebook
     callback_for(:facebook)
   end
 
@@ -31,14 +31,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path and return
   end
 
+  def after_sign_in_path_for(resource)
+    mypage_index_path
+  end
+
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 
   # GET|POST /resource/auth/twitter
-  def passthru
-    callback_for(:google)
-    super
-  end
+  # def passthru
+  #   callback_for(:google)
+  #   super
+  # end
 
   # GET|POST /users/auth/twitter/callback
   # def failure

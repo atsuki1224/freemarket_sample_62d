@@ -10,7 +10,7 @@
             .btnlist__list--mail
               %p メールアドレスで登録する
               =fa_icon 'envelope-o'
-          =link_to user_facebook_oauth2_omniauth_authorize_path, method: :post  do
+          =link_to user_facebook_omniauth_authorize_path, method: :post  do
             .btnlist__list--facebook
               %p Facebookで登録する
               =fa_icon 'facebook-square'

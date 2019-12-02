@@ -8,9 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def registration
     @user = User.new
-    session["devise.provider"] = params[:provider]
-    @user[:nickname] = session["devise.#{session["devise.provider"]}_data"]["info"]["name"]
-    @user[:email] = session["devise.#{session["devise.provider"]}_data"]["info"]["email"]
+    if params[:provider].present? 
+      session["devise.provider"] = params[:provider]
+      @user[:nickname] = session["devise.#{session["devise.provider"]}_data"]["info"]["name"]
+      @user[:email] = session["devise.#{session["devise.provider"]}_data"]["info"]["email"]
+    end
     @mail_check = true
   end
   
@@ -48,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
     session[:address_attributes] = user_params[:address_attributes]
     @user.build_card = Card.new if @user.build_card.blank?
-    
+
     render 'card_confirmation'
   end
   
