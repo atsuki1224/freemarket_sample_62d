@@ -2,6 +2,10 @@ class Product < ApplicationRecord
 
   has_many :images,dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy:true
+
+  # has_many :commnets
+  # has_many :messages
+  # has_many :nices
   
   has_one :trade
   belongs_to :user,optional:true

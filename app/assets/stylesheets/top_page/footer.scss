@@ -29,12 +29,14 @@
         }
         &--appstore{
           height: 50px;
-          width: 150px;
+          width: 170px;
           padding-right: 10px;
+          border-radius: 5px;
         }
         &--googleplay{
           height: 50px;
-          width:  150px;
+          width:  170px;
+          border-radius: 5px;
         }
       }
     }
