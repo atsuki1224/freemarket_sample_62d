@@ -77,4 +77,7 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'faker'
 gem 'active_hash'
-gem 'gretel'
+gem "gretel"
+gem 'payjp'
+gem 'dotenv-rails'
+
