@@ -143,7 +143,7 @@
           .products-box
             =link_to "/products/#{same_seller_item.id}" do
               .products-box__image
-                =image_tag "#{same_seller_item.images.first.image}",class:"main-image"
+                =image_tag "#{same_seller_item.images.first.image}",class:"item-image"
                 -if same_seller_item.trade_status != 0
                   .sold_out
                     =image_tag "icons/sold_out.png",class:"sold_out"
@@ -165,7 +165,7 @@
             .products-box
               =link_to "/products/#{similar_item.id}" do
                 .products-box__image
-                  =image_tag "#{similar_item.images.first.image}",class:"main-image"
+                  =image_tag "#{similar_item.images.first.image}",class:"item-image"
                   -if similar_item.trade_status != 0
                     .sold_out
                       =image_tag "icons/sold_out.png",class:"sold_out"
@@ -186,7 +186,7 @@
             .products-box
               =link_to "/products/#{similar_item.id}" do
                 .products-box__image
-                  =image_tag "#{similar_item.images.first.image}",class:"main-image"
+                  =image_tag "#{similar_item.images.first.image}",class:"item-image"
                   -if similar_item.trade_status != 0
                     .sold_out
                       =image_tag "icons/sold_out.png",class:"sold_out"
