@@ -14,7 +14,7 @@
             .btnlist__list--facebook
               %p Facebookで登録する
               =fa_icon 'facebook-square'
-          =link_to '/'  do
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
             .btnlist__list--google
               %p Googleで登録する
               =image_tag "icons/google-icon.png"

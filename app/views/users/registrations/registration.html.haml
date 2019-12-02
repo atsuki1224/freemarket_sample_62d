@@ -12,14 +12,14 @@
               ニックネーム
             .formbox__text--btn
               必須
-          = f.text_field :nickname, { class:"form", placeholder:'例)Fマケ太郎', required: true}
+          = f.text_field :nickname, { class:"form", value:@user.nickname, placeholder:'例)Fマケ太郎', required: true}
         .formbox
           .formbox__text
             .formbox__text--tittle
               メールアドレス
             .formbox__text--btn
               必須
-          = f.email_field :email, { class:"form", placeholder:'PC・携帯どちらでも可', required: true}
+          = f.email_field :email, { class:"form", value:@user.email, placeholder:'PC・携帯どちらでも可', required: true}
           #mail_required
             - if @mail_check == false
               %p{ style:"color:red",autofocus: "ture" }
@@ -30,7 +30,11 @@
               パスワード
             .formbox__text--btn
               必須
-          =f.password_field :password, { class:"form", placeholder:'7文字以上', minlength: 7, required: true}
+          - if @user.email.present?
+            %input{ type:"password", disabled: true, class:"form", style:"background: #ccc;"}
+            =f.hidden_field :password, value:''
+          - else
+            =f.password_field :password, { class:"form", placeholder:'7文字以上', minlength: 7, required: true}
           .checkbox
             %input{ type:"checkbox", id:"check", class:"checkbox__box"}
             %p
