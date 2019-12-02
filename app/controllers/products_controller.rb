@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def purchase
-    Payjp.api_key = "sk_test_cee4ee20cc4c2035c1e7b76d"
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: 809, 
       card: params['payjp-token'], 
