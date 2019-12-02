@@ -81,10 +81,8 @@
     .postage
       送料込み
     -if @product.user.id != current_user.id
-      =link_to "#" ,class:"item__buy-btn"do
-        購入画面に進む
-
-        
+      =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
+        購入画面に進む 
       .caution
         この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     .item__text

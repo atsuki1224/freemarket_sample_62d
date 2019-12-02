@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :select_product, {only:[:show, :destroy]}
+  before_action :select_product, {only:[:show, :destroy, :confirmation]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy]
 
   def new
@@ -73,9 +73,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def confirmation
+  end
+
   def select_product
     @product = Product.find(params[:id])
   end
+
+  require 'payjp'
+
+  def purchase
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      amount: 809, 
+      card: params['payjp-token'], 
+      currency: 'jpy'
+    )
+  end
+
   private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)

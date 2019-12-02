@@ -10,7 +10,7 @@
           =image_tag "/top_page/appstore.png", class: "buy_contents__width_buyArea--trade_item"
         .buy_contents__width_buyArea--item_name
           4℃ ピンキーリング ピンクゴールド ハートモチーフ 3号 本日限定価格⚠️
-        %form{class:"buyForm", action:"", method:"POST"}
+        .buyForm
           .buyArea 
             .buyArea__buyPrice 
               ¥ 2,700
@@ -26,9 +26,10 @@
               ¥5,000
           .error_message  
             配送先と支払い方法の入力を完了してください。
-          %button.btn_grey{type:"submit"} 
-            購入する
-          
+          = form_tag("/card/pay/1", method: :post,class: :btn_grey) do
+            = hidden_field_tag :product_id, @product.id 
+            %script.payjp-button{:src=>"https://checkout.pay.jp/" , "data-key"=>ENV["PAYJP_PUBLIC_KEY"] ,"data-text"=>"購入する"}
+
     #section.contents_box{class:"delivery_contents"}
       .contents_box__inner
         #h3.dataTitle 

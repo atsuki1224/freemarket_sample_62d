@@ -62,7 +62,7 @@ input.input_default {
   box-sizing: border-box;
   }
 
-select#_prefecture_id {
+select#user_address_attributes_prefecture_id {
   background-repeat: no-repeat;
   background-size: 10px 30px;
   background-position: right 10px center;
@@ -84,7 +84,7 @@ label.idenfitication {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-button.btn_red {
+input.btn_red {
   background-color: red;
   color: white;
   margin: 40px 0 0;

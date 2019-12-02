@@ -73,6 +73,7 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :bland
+- has_one :trade
 
 #### commentsテーブル
 |Column|Type|Options|
@@ -146,3 +147,13 @@
 **Association**
 - belongs_to :category
 - has_many :products
+
+#### tradeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+
+**Association**
+- belongs_to :product
+- belong_to :user
