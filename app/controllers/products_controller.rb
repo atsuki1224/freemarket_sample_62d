@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :select_product, {only:[:show, :destroy]}
+  before_action :select_product, {only:[:show, :destroy, :confirmation]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy]
 
   def new
@@ -73,7 +73,6 @@ class ProductsController < ApplicationController
   end
 
   def confirmation
-    @product = Product.find(params[:id])
   end
 
   def select_product

@@ -1,10 +1,5 @@
 class CardController < ApplicationController
   require "payjp"
-  
-  def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
-  end
 
   def pay
     product = Product.find(params[:product_id])
@@ -17,7 +12,13 @@ class CardController < ApplicationController
     :card => params['payjp-token'],
     :currency => 'jpy',
   )
-  redirect_to root_path
+  if 
+    Trade.create && product.update(trade_status:1) 
+    redirect_to root_path
+  else
+    confirmation_product_path(@product)
+  end
+
   end
 
 end
