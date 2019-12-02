@@ -13,7 +13,7 @@ class CardController < ApplicationController
     :currency => 'jpy',
   )
   if 
-    Trade.create && product.update(trade_status:1) 
+    Trade.create(user_id:params[:user_id], product_id: params[:product_id]) && product.update(trade_status:1) 
     redirect_to root_path
   else
     confirmation_product_path(@product)
