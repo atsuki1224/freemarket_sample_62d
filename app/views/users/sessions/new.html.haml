@@ -6,7 +6,7 @@
         .registtittle
           アカウントをお持ちでない方はこちら
         .btnlist
-          %a{href:'/'}
+          = link_to "/signup" do
             .btnlist__list--registration
               新規会員登録
         .formarea__underbar
@@ -32,5 +32,5 @@
           =image_tag "robot.png"
         = f.submit "ログイン", class:"submit"
         .link
-          =link_to 'パスワードをお忘れの方'
+          =link_to 'パスワードをお忘れの方' 
   =render partial:"users/registrations/registration_shortfooter"
