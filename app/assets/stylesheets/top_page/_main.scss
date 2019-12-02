@@ -1,7 +1,7 @@
 // ======ここからトップページバナー画面==================================
 .banner{
   padding-top: 20px;
-  background-image:url("/top_page/top.png");
+  background-image:image-url("toppage/top.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
@@ -24,11 +24,13 @@
         margin-right: 50px;
         float: left;
         height: 50px;
-        width: 150px;
+        width: 170px;
+        border-radius: 5px;
       }
       .googleplay-btn{
         height: 50px;
-        width:  150px;
+        width:  170px;
+        border-radius: 5px;
       }
     }
   }
