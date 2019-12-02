@@ -5,6 +5,9 @@
     .item__image
       .item__image--main
         = image_tag "#{@images[0].image}", class:"main-image"
+        -if @product.trade_status != 0
+          .sold_out
+            =image_tag "icons/sold_out.png",class:"sold_out"
       .item__image--sub
         -@images.each do |image|
           = image_tag "#{image.image}", class:"img"
@@ -139,7 +142,11 @@
         -@same_seller_items.each do |same_seller_item|
           .products-box
             =link_to "/products/#{same_seller_item.id}" do
-              =image_tag "#{same_seller_item.images.first.image}",class:"products-box__image"
+              .products-box__image
+                =image_tag "#{same_seller_item.images.first.image}",class:"main-image"
+                -if same_seller_item.trade_status != 0
+                  .sold_out
+                    =image_tag "icons/sold_out.png",class:"sold_out"
               .products-box__text
                 =same_seller_item.item_name
               .products-box__bottom
@@ -153,33 +160,41 @@
     .similar-item
       =link_to "#",class:"title"do
         ="#{@product.bland.name} #{@product.category.name} その他の出品"
-      .products
-        -@similar_items.each do |similar_item|
-          .products-box
-            =link_to "/products/#{similar_item.id}" do
-              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
-              .products-box__text
-                =similar_item.item_name
-              .products-box__bottom
-                .price
-                  ="¥#{similar_item.price.to_s(:delimited)}"
-                =fa_icon "heart",class:"nice"
-                %span
-                  1
+        .products
+          -@similar_items.each do |similar_item|
+            .products-box
+              =link_to "/products/#{similar_item.id}" do
+                .products-box__image
+                  =image_tag "#{similar_item.images.first.image}",class:"main-image"
+                  -if similar_item.trade_status != 0
+                    .sold_out
+                      =image_tag "icons/sold_out.png",class:"sold_out"
+                .products-box__text
+                  =similar_item.item_name
+                .products-box__bottom
+                  .price
+                    ="¥#{similar_item.price.to_s(:delimited)}"
+                  =fa_icon "heart",class:"nice"
+                  %span
+                    1
   -else
     .similar-item
       =link_to "#",class:"title"do
         ="#{@product.category.name}(#{@product.category.root.name}) その他の出品"
-      .products
-        -@similar_items.each do |similar_item|
-          .products-box
-            =link_to "/products/#{similar_item.id}" do
-              =image_tag "#{similar_item.images.first.image}",class:"products-box__image"
-              .products-box__text
-                =similar_item.item_name
-              .products-box__bottom
-                .price
-                  ="¥#{similar_item.price.to_s(:delimited)}"
-                =fa_icon "heart",class:"nice"
-                %span
-                  1
+        .products
+          -@similar_items.each do |similar_item|
+            .products-box
+              =link_to "/products/#{similar_item.id}" do
+                .products-box__image
+                  =image_tag "#{similar_item.images.first.image}",class:"main-image"
+                  -if similar_item.trade_status != 0
+                    .sold_out
+                      =image_tag "icons/sold_out.png",class:"sold_out"
+                  .products-box__text
+                    =similar_item.item_name
+                  .products-box__bottom
+                    .price
+                      ="¥#{similar_item.price.to_s(:delimited)}"
+                    =fa_icon "heart",class:"nice"
+                    %span
+                      1
