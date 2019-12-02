@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :select_product, {only:[:show, :destroy]}
+  before_action :select_product, {only:[:show, :destroy, :confirmation]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy]
 
   def new
@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
+    @same_seller_items = Product.where.not(id: params[:id]).where(user_id: @product.user.id).limit(6)
   end
 
   def search
@@ -72,9 +73,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def confirmation
+  end
+
   def select_product
     @product = Product.find(params[:id])
   end
+
   private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)

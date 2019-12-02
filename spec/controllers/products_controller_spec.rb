@@ -5,6 +5,7 @@ describe ProductsController do
   let(:category){create(:category)}
   let(:bland){create(:bland)}
   let(:image){create(:image)}
+  
   describe '#new' do
     it "renders the :new template" do
       get :new
