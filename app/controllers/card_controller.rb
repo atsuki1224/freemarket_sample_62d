@@ -1,5 +1,4 @@
 class CardController < ApplicationController
-  require "payjp"
 
   def pay
     product = Product.find(params[:product_id])
@@ -17,5 +16,4 @@ class CardController < ApplicationController
   )
 
   end
-
 end
