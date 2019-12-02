@@ -12,6 +12,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
+  def facebook_oauth2
+    callback_for(:facebook)
+  end
+
   def callback_for(provider)
     @user = User.find_oauth(request.env["omniauth.auth"])
     if @user.persisted?

@@ -12,7 +12,7 @@
         .formarea__underbar
       .box__formarea
         .btnlist
-          %a{href:'/'}
+          = link_to user_facebook_oauth2_omniauth_authorize_path, method: :post do
             .btnlist__list--facebook
               %p Facebookでログイン
               =fa_icon 'facebook-square'
