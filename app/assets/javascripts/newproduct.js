@@ -75,6 +75,25 @@ $(function(){
     $('.profit').text("¥" + profit.toLocaleString())
   })
 
+  $('.product-item__form--title').click(function(){
+
+    var image = $('.imagearea').val();
+    if (image===''){
+
+      $('.product-item__img--area').css('border','solid 2px orange');
+      $(window).scrollTop(200);
+      $('.product-item__img--area').after(`<div class="notice_form"><p> 画像を選択してください</p></div>`);
+      //   setTimeout(funtion(){
+      //     $('.notice_form').remove();
+      //       $('.product-item__img--area').css('border','');
+      // }1000);
+    alert('画像を選択してください');
+        $('.product-item__img--area').change(function(){
+          $('.product-item__img--area').css('border','');
+          $('.notice_form').remove();
+        });
+    }
+  })
 
 //////////カテゴリ用//////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓///////////////////////////////////////
 
@@ -136,10 +155,9 @@ $(function(){
       })
       })
   });
-
-
 /////////////サイズ、ブランド表示用条件////////////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   $(document).on('change','.product-item__subform--select3',function(){
+
     var val = $('#category_box').val();
     var val2 = $('.product-item__subform--select2').val();
     var val3 = $('.product-item__subform--select3 option:selected').val();
@@ -169,7 +187,10 @@ $(function(){
     };
     if (val==1 ||val==2 ||val==3||val==4 ||val==7 ||val==9||val==12||val2==104){
       $(this).after('<div class="product-item__subform--title5">ブランド<div class="form-required--gray">任意</div><input type="text" name="bland_form",class="product-item__subform--select5",id="bland_box",{}></div>');
-    }});
+    }
+
+
+  });
 
 /////////////ブランド用////////////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓//////////////
 
@@ -217,7 +238,7 @@ $(function(){
                           <option value="らくらくメルカリ便">らくらくメルカリ便</option>
                           <option value="ゆうメール">ゆうメール</option>
                           <option value="レターパック">レターパック</option>
-                          <option value="普通郵便(定形、定形外)">普通郵便(定形、定形外)</option>
+                          <option value="普通郵便(定型、定形外)">普通郵便(定形、定形外)</option>
                           <option value="クロネコヤマト">クロネコヤマト</option>
                           <option value="クリックポスト">クリックポスト</option>
                           <option value="ゆうパック">ゆうパック</option>
@@ -239,23 +260,17 @@ $(function(){
   /////////////////サブミット//////////////////////////////////
 
   $(document).on('submit','#new_product',function(){
+    var val3 = $('.product-item__subform--select3').val();
+    var val2 = $('.product-item__subform--select2').val();
+    $('.product-item__subform--select0 option:selected').val(val3);
+        if(val3 ===''){
+            $('.product-item__subform--select0 option:selected').val(val2);
+        }
+        var a = $('.product-item__subform--select0 option:selected').val();
+        var a =  $('.product-item__subform--select0 option:selected').val();
 
-     ////////////カテゴリch///////////
-    $('.product-item__subform--select2').ready(function(){
-      var val = $('.product-item__subform--select2').val();
-      $('.product-item__subform--select0 option:selected').val(val);
-      ////カテゴリgch////////////////
-    });
-    $('.product-item__subform--select2').ready(function(){
-      var val = $('.product-item__subform--select2').val();
-      $('.product-item__subform--select0 option:selected').val(val);
-      ////カテゴリ保存用、条件///////////////////
-    });
-    $('.product-item__subform--select3').ready(function(){
-        var val = $('.product-item__subform--select3').val();
-        if(0<= val <9999){
-      $('.product-item__subform--select0 option:selected').val(val);
-    }});
+
+
 
     $('body').append(`<div class="modal-content">
                         <div class="tittle">
@@ -279,5 +294,20 @@ $(function(){
     $('.modal-content').fadeIn('slow');
     $('body').append('<div class="modal-overlay"></div>');
     $('.modal-overlay').fadeIn('slow');
-})
+});
+
+/////////////////edit サブミット//////////////////////////////////
+
+  $(document).on('submit','.edit_product',function(){
+    var val3 = $('.product-item__subform--select3').val();
+    var val2 = $('.product-item__subform--select2').val();
+console.log(val3)
+console.log(val2)
+    $('.product-item__subform--select0 option:selected').val(val3);
+        if(val3 ===''){
+            $('.product-item__subform--select0 option:selected').val(val2);
+        }
+        var a = $('.product-item__subform--select0 option:selected').val();
+        var a =  $('.product-item__subform--select0 option:selected').val();
+  })
 })

@@ -1,4 +1,4 @@
-=form_for @products, url: "/products/#{@products.id}" do |f|
+=form_for @product, url: "/products/#{@product.id}" do |f|
   .product-wrapper
     -# サーバーサイド実装でDBが整えばform_forと各selectへ訂正する。
     -# f.select :size, Product.sizes.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
@@ -124,6 +124,22 @@
                 必須
             -# %select.product-item__subform--select{required:"true"}
             = f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select6", required:"true"}
+            .product-item__subform--title7{id:"d_list"}
+              配送の方法
+              .form-required
+                必須
+              =f.select :delivery_method, {class:"product-item__subform--select7", required:"true"}
+              -# {id:"charge_box"}
+                %option(value="")<>-----
+                %option(value="未定")<>未定
+                %option(value="らくらくメルカリ便")<>らくらくメルカリ便
+                %option(value="ゆうメール")<>ゆうメール
+                %option(value="レターパック")<>レターパック
+                %option(value="普通郵便(定形、定形外)")<>普通郵便(定形、定形外)
+                %option(value="クロネコヤマト")<>クロネコヤマト
+                %option(value="クリックポスト")<>クリックポスト
+                %option(value="ゆうパック")<>ゆうパック
+                %option(value="ゆうパケット")<>ゆうパケット
             .product-item__subform--title
               発送元の地域
               .form-required

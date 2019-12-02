@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
 
 
     if @parent && @child && @search
-         @blands1 = @parent.blands
-         @blands2 = @child.blands
+        @blands1 = @parent.blands
+        @blands2 = @child.blands
 
       if @blands2.empty?
           @blands = @blands1.search_name(params[:bland_name])
@@ -38,7 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-
       @product = Product.new(product_params)
       redirect_to action: :new,flash: {error:'エラーが発生しました、再度入力をお願いします'}  unless @product.save
 
@@ -59,17 +58,14 @@ class ProductsController < ApplicationController
   end
   
   def edit
-    @products = Product.find(params[:id])
-    @products.images.build
-
+    @product = Product.find(params[:id])
+    @product.images.build
 
     #//////カテゴリ、ブランド用////////
       @parents = Category.sort_parents
       @parent = Category.find_by(id:params[:category_id])
       @child = Category.find_by(id:params[:child_id])
       @search = params[:bland_name]
-  
-  
   
       if @parent && @child && @search
           @blands1 = @parent.blands
@@ -95,12 +91,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @products = Product.find(params[:id])
-    if @products.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
       binding.pry
       redirect_to action: :show
     else 
-      binding.pry
       redirect_to action: :show,flash: {error:'エラーが発生しました。編集できませんでした。'} 
     end
   end
