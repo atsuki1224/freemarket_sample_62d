@@ -15,7 +15,8 @@ $(function(){
               </div>
             </div>
           </li>`
-    return html
+
+          return html
   };
 
   $(document).on("change", '.imagearea', function(e) {

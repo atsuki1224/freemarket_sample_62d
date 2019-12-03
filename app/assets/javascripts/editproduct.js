@@ -1,38 +1,32 @@
 $(function(){
-
-  window.onload = function(e) {
-    console.log("hello")
-    // var file = e.target.files[0],
-        var file = $(".have_image_box").image,
-        reader = new FileReader();
-        console.log(file)
-    if(file < 0){
-      return false;
-    }
-    reader.onload = (function(file) {
-      return function(e) {
-        var wd =$droparea.width();
-        if ($("ul .imagearea").length == 4){
-          $droparea.width(620);
-        } else if ($("ul .imagearea").length == 5) {
-          $droparea.addClass("row2").width(490);
-        } else {
-          $droparea.width(wd - 130);
-        }
-        var html = filepreview(e.target.result);
-        $previewul.append(html);
-        if ($("ul .imagearea").length >= 10) {
-          return false;
-        } else {
-          $('.imagearea:last').appendTo($previewul);
-          if ($("ul .imagearea").length == 10) {
-            $droparea.css('display', 'none');
-          }
-        }
-      };
-    })(file);
-    // reader.readAsDataURL(file);
-  }
+  // window.onload = function(e) {
+  //   // var file = e.target.files[0],
+  //     var file = $(".imagearea").image,
+  //     reader = new FileReader();
+  //     var wd =$droparea.width();
+  //     if ($("ul .imagearea").length == 4){
+  //       $droparea.width(620);
+  //     } else if ($("ul .imagearea").length == 1) {
+  //       $droparea.addClass("row2").width(490);
+  //     } else if ($("ul .imagearea").length == 2) {
+  //       $droparea.addClass("row2").width(360);
+  //     } else if ($("ul .imagearea").length == 5) {
+  //       $droparea.addClass("row2").width(620);
+  //     } else if ($("ul .imagearea").length == 3) {
+  //       $droparea.addClass("row2").width(230);
+  //     } else if ($("ul .imagearea").length == 6) {
+  //       $droparea.addClass("row2").width(490);
+  //     } else if ($("ul .imagearea").length == 7) {
+  //       $droparea.addClass("row2").width(360);
+  //     } else if ($("ul .imagearea").length == 8) {
+  //       $droparea.addClass("row2").width(230);
+  //     } else if ($("ul .imagearea").length == 9) {
+  //       $droparea.addClass("row2").width(1000);
+  //     } else {
+  //       $droparea.width(wd - 130);
+  //     }
+  // }
+})
 /////////////////edit サブミット//////////////////////////////////
 
   $(document).on('submit','.edit_product',function(){
@@ -45,4 +39,3 @@ $(function(){
         var a = $('.product-item__subform--select0 option:selected').val();
         var a =  $('.product-item__subform--select0 option:selected').val();
   })
-})
