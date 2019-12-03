@@ -1,43 +1,162 @@
 .search_backgournd
-  .search_contents
+  .search_contents.clearfix
     .sidebar_contents
-      .sort
-        %select
-      .search_box
-        %p
-        詳細検索
-        .keyword_box
-          %p
-          キーワードを追加する
-          %input
-          カテゴリーを選択する
-          %select
-          %select
+      =form_tag(search_products_path,method:'get',id:'search_product') do
+        .sort
+          = select_tag 'sort_search', options_for_select({'価格の安い順': 'price ASC', '価格の高い順': 'price DESC', '出品の古い順': 'created_at ASC','出品の新しい順':'created_at DESC','いいねの多い順':''}, 1), include_blank: '並べ替え',class:'form_box'
+
+        .search_box
+          %p.tittle 詳細検索
+          .search_box__form
+            %p.key
+              =fa_icon 'plus'
+              キーワードを追加する
+            =text_field_tag :item_name_or_description_cont,"",id:'search_field',class:'form_box',placeholder:'例)値下げ'
+          .search_box__form
+            %p.key
+              =fa_icon 'bars'
+              カテゴリーを選択する
+            =select_tag 'category_id_eq_any[]',options_from_collection_for_select(@category,:id,:name,0),class:'form_box', include_blank: 'すべて'
+            =text_field_tag 'category_id_eq_any[]','',id:'category_hidden_form'
+          .search_box__form
+            %p.key
+              =fa_icon 'tags'
+              ブランド名から探す
+            =text_field_tag :bland_name,'',id:'search_bland_field',class:'form_box',placeholder:'例)シャネル'
+            =text_field_tag 'bland_id_eq_any[]','',id:'bland_hidden_form'
+          .search_box__form--size
+            %p.key
+              =fa_icon 'check-square'
+              サイズを指定する
+            = select_tag 'category_id_eq_any[]', options_for_select({'メンズ服のサイズ': '2', 'レディース服のサイズ': '1', 'ベビー服のサイズ': '3'}, ''), include_blank: 'すべて',class:'form_box',id:'size_form'
+            .sizeform
+              - n=0
+              -Product.sizes.each do |i|
+                =check_box_tag 'size_eq_any[]',"#{n}",{multiple:true,include_blank:'',checked:false},class:'size_check'
+                =label_tag :size,"#{i[0]}"
+                - n+=1
+
+          .search_box__form
+            %p.key
+              =fa_icon 'bitcoin'
+              価格
+
+            = select_tag '', options_for_select({'300~1000':'300~1000', '1000~5000':'1000~5000', '5000~10000':'5000~10000','10000~30000':'10000~30000','30000~50000':'30000~50000','50000~':'50000~',}, 1), include_blank: true,class:'form_box',id:"price_form"
+            = text_field_tag :price_gteq,"",id:'price_min',class:'form_box_half',placeholder:'¥min'
+            %p.symbol ~
+            =text_field_tag :price_lteq,"",id:'price_max',class:'form_box_half',placeholder:'¥max'
+          .search_box__form
+            %p.key
+              =fa_icon 'star'
+              商品の状態
+            =check_box_tag 'item_condition_eq_any[]',"",{multiple:true,include_blank:''},checked:false,class:'item_condition_check'
+            =label_tag :"すべて"
+            - n=0
+            -Product.item_conditions.each do |i|
+              =check_box_tag 'item_condition_eq_any[]',"#{n}",{multiple:true,checked:false},class:'item_condition_check'
+              =label_tag :"#{i[0]}"
+              - n+=1
+
+          .search_box__form
+            %p.key
+              =fa_icon 'truck'
+              配送料の負担
+            =check_box_tag 'delivery_charge_eq_any[]',"",{multiple:true,include_blank:''},checked:false,class:'delivery_charge_check'
+            =label_tag :"すべて"
+            - n=0
+            -Product.delivery_charges.each do |i|
+              =check_box_tag 'delivery_charge_eq_any[]',"#{n}",{multiple:true,include_blank:''},checked:false,class:'delivery_charge_check'
+              =label_tag :"#{i[0]}"
+              - n+=1
+
+          .search_box__form
+            %p.key
+              =fa_icon 'cart-plus'
+              販売状況
+            =check_box_tag 'trade_status_eq_any[]',"",{multiple:true,include_blank:''},checked:false,class:'trade_stastus_check'
+            =label_tag :"すべて"
+            =check_box_tag 'trade_status_eq_any[]',"0",{multiple:true,include_blank:''},checked:false,class:'trade_stastus_check'
+            =label_tag :"販売中"
+            =check_box_tag 'trade_status_eq_any[]',"1",{multiple:true,include_blank:''},checked:false,class:'trade_stastus_check'
+            =label_tag :'売り切れ'
+
+          .search_box__btn
+            .search_box__btn--clear
+              クリア
+          .search_box__btn
+            .search_box__btn--submit
+              =submit_tag '完了'
+
+
+
     .maincontents
-      -if @products
-        -# #{@word}の検索結果
-        の検索結果
-        #{@products.length}件の表示
+      -unless @products.empty? || @products.nil?
+        -if @word.blank?
+          %p.tittle
+            検索結果
+        -else
+          %p.tittle
+            #{@word}
+          %p
+            の検索結果
+        %p.result
+          1-#{@products.length}件の表示
         .products_contents
         -@products.each do |p|
-          .product
-            .product__image
-            -if p.images[0]
-              -@i =p.images[0]
-              = image_tag "#{@i.image}", class:"search_img"
-
-              -# = image_tag "#{i.image}", class:"search_image"
-            .product__price
-              ¥#{p.price}
-            .product__name
-              =p.item_name
+          =link_to product_path(p) do
+            .product
+              .product__image
+              -if p.images[0]
+                -@i =p.images[0]
+                = image_tag "#{@i.image}", class:"search_img"
+              .product__price
+                ¥
+                =number_with_delimiter(p.price)
+              .product__name
+                =p.item_name
 
       -else
-        %p.tittle の検索結果
+        %p.tittle #{@word}の検索結果
         %p.text 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        %br
+        %br
         %p.tittle 新着商品
         .products_contents
-          .product
-            .product__image
-            .product__price
-            .product__name
+          -@new_products.each do |p|
+            .product
+              .product__image
+                -@i =p.images[0]
+                = image_tag "#{@i.image}", class:"search_img"
+              .product__price
+                ¥
+                =number_with_delimiter(p.price)
+              .product__name
+                =p.item_name
+
+//////////////ソート用のフォームです/////////////////////////////////
+
+=form_tag(search_products_path,method:'get',class:'sort_link') do
+  =hidden_field_tag :sort,"",id:'sort_link_box',class:'sort_link_box'
+  =hidden_field_tag :name,"#{@search_name[:name]}",id:'sort_word',class:'sort_word'
+  =hidden_field_tag :item_name_or_description_cont,"#{@search_name[:item_name_or_description_cont]}"
+  =hidden_field_tag :bland_name,"#{@search_name[:bland_name]}"
+  =hidden_field_tag :price_gteq,"#{@search_name[:price_gteq]}"
+  =hidden_field_tag :category_name,"#{@search_name[:category_name]}"
+  - if @search_name[:category_id_eq_any]
+    -@search_name[:category_id_eq_any].each do |c|
+      =hidden_field_tag 'category_id_eq_any[]',"#{c}"
+  - if @search_name[:bland_id_eq_any]
+    -@search_name[:bland_id_eq_any].each do |b|
+      =hidden_field_tag 'bland_id_eq_any[]',"#{b}"
+  =hidden_field_tag :price_lteq,"#{@search_name[:price_lteq]}"
+  =hidden_field_tag :price_gteq,"#{@search_name[:price_gteq]}"
+  -unless @search_name[:size_eq_any]==nil
+    =hidden_field_tag 'size_eq_any[]',"#{@search_name[:size_eq_any]}"
+  -unless @search_name[:item_condition_eq_any]==nil
+    =hidden_field_tag 'item_condition_eq_any[]',"#{@search_name[:item_condition_eq_any]}"
+  -unless @search_name[:delivery_charge_eq_any]==nil
+    =hidden_field_tag 'delivery_charge_eq_any[]',"#{@search_name[:delivery_charge_eq_any]}"
+  -unless @search_name[:trade_status_eq_any]==nil
+    =hidden_field_tag 'trade_status_eq_any[]',"#{@search_name[:trade_status_eq_any]}"
+
+  =submit_tag '', class:'sort_link_btn'
