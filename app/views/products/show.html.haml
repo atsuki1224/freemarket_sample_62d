@@ -80,13 +80,19 @@
       (税込)
     .postage
       送料込み
-    -if @product.user.id != current_user.id
+    -if @product.user.id != current_user.id && @product.trade_status == 0
       =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
         購入画面に進む 
       .caution
         この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+        
+    -if @product.trade_status != 0
+      .item__buy-btn-gray
+        売り切れました 
+      
     .item__text
       =@product.description
+
     -if @product.user.id != current_user.id 
       .item__bottom
         %p.nice-btn
@@ -103,7 +109,7 @@
           =fa_icon "shopping-bag"
           あんしん・あんぜんへの取り組み
 
-  -if @product.user.id == current_user.id
+  -if @product.user.id == current_user.id && @product.trade_status == 0 
     .edit__content
       .edit__content-update-btn
         =link_to '商品の編集'
