@@ -80,7 +80,7 @@
       (税込)
     .postage
       送料込み
-    -if @product.user.id != current_user.id
+    -if @product.user.id != current_user.id && @product.trade_status == 0
       =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
         購入画面に進む 
       .caution
