@@ -78,7 +78,6 @@ gem 'ancestry'
 gem 'faker'
 gem 'active_hash'
 gem 'gretel'
-
 gem 'dotenv-rails'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-facebook'
