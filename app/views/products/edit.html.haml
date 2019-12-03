@@ -20,9 +20,16 @@
             最大10枚までアップロードできます
           .product-item__img--preview
             %ul<
+              - if @product.images
+                %li.have-img-box 
+                  =image_tag@product.images[0].image
+                  %input.imagearea {style:"opacity:0;", type="file"} 
+                  .preview-list
+                    .preview-list__btn
+                      編集
+                    .preview-list__btn
+                      %a.remove-btn 削除
           %label.product-item__img--area
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
             =f.fields_for :images do |i|
               =i.file_field  :image, style:"opacity:0;", class:"imagearea"
             =f.fields_for :images do |i|
@@ -128,18 +135,8 @@
               配送の方法
               .form-required
                 必須
-              =f.select :delivery_method, {class:"product-item__subform--select7", required:"true"}
-              -# {id:"charge_box"}
-                %option(value="")<>-----
-                %option(value="未定")<>未定
-                %option(value="らくらくメルカリ便")<>らくらくメルカリ便
-                %option(value="ゆうメール")<>ゆうメール
-                %option(value="レターパック")<>レターパック
-                %option(value="普通郵便(定形、定形外)")<>普通郵便(定形、定形外)
-                %option(value="クロネコヤマト")<>クロネコヤマト
-                %option(value="クリックポスト")<>クリックポスト
-                %option(value="ゆうパック")<>ゆうパック
-                %option(value="ゆうパケット")<>ゆうパケット
+              =f.select :delivery_method, Product.delivery_methods.keys.to_a,  {include_blank:"----"}, {class:"product-item__subform--select7", required:"true"}
+
             .product-item__subform--title
               発送元の地域
               .form-required
@@ -166,6 +163,7 @@
             =f.text_field :price, {class:'product-item__subform--price',required:"true"}
             .product-item__subform--left
               販売手数料 (10%)
+              
               .fee
                 販売手数料
             .product-item__subform--left

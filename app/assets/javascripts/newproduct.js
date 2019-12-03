@@ -21,6 +21,7 @@ $(function(){
   $(document).on("change", '.imagearea', function(e) {
     var file = e.target.files[0],
         reader = new FileReader();
+        console.log(file)
     if(file.type.indexOf("image") < 0){
       return false;
     }
@@ -246,7 +247,7 @@ $(function(){
                         </select>
                       </div>`)
       }else{
-        $(this).after('<div class="product-item__subform--title7",id="d_list">配送の方法<div class="form-required">必須</div><select class="product-item__subform--select7",id="charge_box",{}><option value="">-----</option><option value="未定">未定</option><option value="クロネコヤマト">クロネコヤマト</option><option value="ゆうパック">ゆうパック</option><option value="ゆうメール">ゆうメール</option></select></div>');
+        $(this).after('<div class="product-item__subform--title",id="d_list">配送の方法<div class="form-required">必須</div><select class="product-item__subform--select7",id="charge_box",{}><option value="">-----</option><option value="未定">未定</option><option value="クロネコヤマト">クロネコヤマト</option><option value="ゆうパック">ゆうパック</option><option value="ゆうメール">ゆうメール</option></select></div>');
       }
   });
 
@@ -295,19 +296,4 @@ $(function(){
     $('body').append('<div class="modal-overlay"></div>');
     $('.modal-overlay').fadeIn('slow');
 });
-
-/////////////////edit サブミット//////////////////////////////////
-
-  $(document).on('submit','.edit_product',function(){
-    var val3 = $('.product-item__subform--select3').val();
-    var val2 = $('.product-item__subform--select2').val();
-console.log(val3)
-console.log(val2)
-    $('.product-item__subform--select0 option:selected').val(val3);
-        if(val3 ===''){
-            $('.product-item__subform--select0 option:selected').val(val2);
-        }
-        var a = $('.product-item__subform--select0 option:selected').val();
-        var a =  $('.product-item__subform--select0 option:selected').val();
-  })
 })
