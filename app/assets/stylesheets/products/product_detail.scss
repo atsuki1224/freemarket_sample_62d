@@ -127,6 +127,18 @@ $link-color:#0099E8;
       line-height: 60px;
       display: block;
     }
+    &__buy-btn-gray{
+      height:60px ;
+      width:620px ;
+      background-color: gray;
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      margin: 20px  auto 0 auto ;
+      line-height: 60px;
+      display: block;
+    }
     .caution{
       color:red;
       text-align: center;
