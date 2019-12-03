@@ -8,6 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def registration
     @user = User.new
+    if params[:provider].present? 
+      session["devise.provider"] = params[:provider]
+      @user[:nickname] = session["devise.#{session["devise.provider"]}_data"]["info"]["name"]
+      @user[:email] = session["devise.#{session["devise.provider"]}_data"]["info"]["email"]
+    end
     @mail_check = true
   end
   
@@ -64,6 +69,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
     @user.build_address(session[:address_attributes])
     @user.build_card(session[:card_attributes])
+    if session["devise.#{session["devise.provider"]}_data"].present?
+      @user.password = Devise.friendly_token[0, 20]
+      @user.build_sns_credential(
+          uid: session["devise.#{session["devise.provider"]}_data"]["uid"],
+          provider: session["devise.#{session["devise.provider"]}_data"]["provider"]
+      )
+    end
     if @user.save
       sign_in User.find(@user.id) unless user_signed_in?
       render 'complete'

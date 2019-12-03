@@ -1,7 +1,15 @@
 class ProductsController < ApplicationController
-  before_action :select_product, {only:[:show, :destroy]}
-  before_action :user_signed_in_check, only: [:new, :create, :destroy]
 
+  before_action :select_product, {only:[:show, :destroy, :confirmation]}
+  before_action :user_signed_in_check, only: [:new, :create, :destroy]
+  before_action :correct_referer
+
+  def correct_referer
+    if request.referer.nil?
+      redirect_to root_url
+    end
+  end
+  
   def new
     @product = Product.new
     @product.images.build
@@ -50,6 +58,7 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
+    @same_seller_items = Product.where.not(id: params[:id]).where(user_id: @product.user.id).limit(6)
   end
 
   def search
@@ -93,6 +102,9 @@ class ProductsController < ApplicationController
     else
       redirect_to action: :show,flash: {error:'エラーが発生しました。削除できませんでした。'}
     end
+  end
+
+  def confirmation
   end
 
   def select_product

@@ -9,7 +9,7 @@
           プロフィール
         .mypage__content-imagebox
           %section.mypage__content-imagebox-user
-            =link_to "ユーザーid毎のページurl",  class:"mypage__content-user--link" do
+            =link_to mypage_index_path,  class:"mypage__content-user--link" do
               = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60", height:"60"
             = f.text_field :nickname, class:"mypage__content-imagebox-user--name" ,value:@user.nickname
 
