@@ -17,7 +17,7 @@
             .formbox__cardlogo
               =image_tag "card-logo/dinners_logo.png"
               =image_tag "card-logo/discovercard_logo.jpg"
-              =image_tag "card-logo/jcb.jpeg"
+              =image_tag "/assets/card-logo/jcb.jpeg"
               =image_tag "card-logo/sesoncard.png"
               =image_tag "card-logo/visa_logo.jpg"
             .formbox
@@ -64,6 +64,6 @@
               = c.text_field :security_code, { class: "form", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4" , required: true}
               .link
                 =link_to 'カード裏面の番号とは?','/'
-          =f.submit "次へ進む", class:"submit" 
+          =f.submit "次へ進む", class:"submit"
   =render partial:"registration_shortfooter"
 .plusarea
