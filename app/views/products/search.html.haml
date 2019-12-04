@@ -102,18 +102,19 @@
         %p.result
           1-#{@products.length}件の表示
         .products_contents
-        -@products.each do |p|
-          =link_to product_path(p) do
-            .product
-              .product__image
-              -if p.images[0]
-                -@i =p.images[0]
-                = image_tag "#{@i.image}", class:"search_img"
-              .product__price
-                ¥
-                =number_with_delimiter(p.price)
-              .product__name
-                =p.item_name
+          -@products.each do |p|
+            =link_to product_path(p) do
+              .product
+                .product__image
+                -if p.images[0]
+                  -@i =p.images[0]
+                  = image_tag "#{@i.image}", class:"search_img"
+                .product__price
+                  ¥
+                  =number_with_delimiter(p.price)
+                .product__name
+                  =p.item_name
+          =paginate @products ,class:'page'
 
       -else
         %p.tittle #{@word}の検索結果
@@ -132,6 +133,7 @@
                 =number_with_delimiter(p.price)
               .product__name
                 =p.item_name
+          =paginate @new_products
 
 //////////////ソート用のフォームです/////////////////////////////////
 

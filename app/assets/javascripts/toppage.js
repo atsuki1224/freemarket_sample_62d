@@ -35,7 +35,6 @@ $(function() {
       }
     })
   });
-  
   $('.header__form i').click(function(){
     $('#search_link')[0].click();
   })

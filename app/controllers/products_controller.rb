@@ -1,14 +1,6 @@
 class ProductsController < ApplicationController
-
-  before_action :select_product, {only:[:show, :destroy, :confirmation]}
+  before_action :select_product, {only:[:show, :destroy,:controller]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy]
-  before_action :correct_referer
-
-  def correct_referer
-    if request.referer.nil?
-      redirect_to root_url
-    end
-  end
 
   def new
     @product = Product.new
@@ -58,7 +50,7 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
-    @same_seller_items = Product.where.not(id: params[:id]).where(user_id: @product.user.id).limit(6)
+     @same_seller_items = Product.where.not(id: params[:id]).where(user_id: @product.user.id).limit(6)
   end
 
   def search
@@ -73,16 +65,16 @@ class ProductsController < ApplicationController
       @sort = "#{params[:sort]}"
       @p = Product.ransack(search_name) if @sort
       @products = @p.result if @p
-      @products = @products.order(@sort) if @products
+      @products = @products.order(@sort).page(params[:page]).per(15) if @products
 
       @search_name = search_name
-      @new_products = Product.where(updated_at:Time.now.all_year)
+      @new_products = Product.where(updated_at:Time.now.all_year).page(params[:page]).per(15)
       @word = search_name[:item_name_or_description_cont] if search_name[:item_name_or_description_cont]
 
       if params[:name].present?
-          @products = Product.where('item_name LIKE ?',"%#{params[:name]}%")
+          @products = Product.where('item_name LIKE ?',"%#{params[:name]}%").page(params[:page]).per(15)
           @word = params[:name]
-          @products = @products.order(@sort) if @sort
+          @products = @products.order(@sort).page(params[:page]).per(15) if @sort
       end
 
       respond_to do |format|
@@ -91,6 +83,8 @@ class ProductsController < ApplicationController
       end
   end
 
+
+
   def destroy
     @product.destroy
     if @product.destroy
@@ -98,9 +92,6 @@ class ProductsController < ApplicationController
     else
       redirect_to action: :show,flash: {error:'エラーが発生しました。削除できませんでした。'}
     end
-  end
-
-  def confirmation
   end
 
   def select_product
