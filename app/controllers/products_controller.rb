@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :select_product, {only:[:show, :destroy,:controller]}
-  before_action :user_signed_in_check, only: [:new, :create, :destroy]
+
+
+  before_action :select_product, {only:[:show, :destroy, :confirmation]}
+  before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
+  before_action :correct_referer
+
 
   def new
     @product = Product.new
