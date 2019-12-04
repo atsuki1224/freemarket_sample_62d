@@ -247,8 +247,8 @@ $(function(){
     })
      var bland = blands.shift();
      $('.bland_num').val(bland.bland_id);
+    });
   });
-});
   /////////////    サイズ   //////////////////////////
   $(document).on('change','.product-item__subform--select4',function(){
     var val = $('.product-item__subform--select4 option:selected').val();
@@ -280,7 +280,7 @@ $(function(){
                         </select>
                       </div>`)
       }else{
-        $(this).after('<div class="product-item__subform--title",id="d_list">配送の方法<div class="form-required">必須</div><select class="product-item__subform--select7",id="charge_box",{}><option value="">-----</option><option value="未定">未定</option><option value="クロネコヤマト">クロネコヤマト</option><option value="ゆうパック">ゆうパック</option><option value="ゆうメール">ゆうメール</option></select></div>');
+        $(this).after('<div class="product-item__subform--title7",id="d_list">配送の方法<div class="form-required">必須</div><select class="product-item__subform--select7",id="charge_box",{}><option value="">-----</option><option value="未定">未定</option><option value="クロネコヤマト">クロネコヤマト</option><option value="ゆうパック">ゆうパック</option><option value="ゆうメール">ゆうメール</option></select></div>');
       }
   });
 
@@ -328,5 +328,5 @@ $(function(){
     $('.modal-content').fadeIn('slow');
     $('body').append('<div class="modal-overlay"></div>');
     $('.modal-overlay').fadeIn('slow');
-});
+  });
 })

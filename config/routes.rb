@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, module: :users, controllers: {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
+    :omniauth_callbacks =>  "users/omniauth_callbacks"
   }
+
   devise_scope :user do
     scope :signup do
       get '/' => 'users/registrations#signup'
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
       get 'logout' => 'mypage#logout'
       get 'identification' =>'mypage#identification'
       get 'profile' => 'mypage#profile'
+      patch 'profile_update' => 'mypage#profile_update'
+      patch 'identification_update' => 'mypage#identification_update'
       namespace :card do
         get '/' => '/mypage/card#index'
         get 'new' => '/mypage/card#new'
@@ -44,14 +48,40 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
+  resources :category, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :transaction do
+  resources :trade, except: :index do
     collection do
-      get 'confirmation' => 'transaction#confirmation'
+      post 'pay/:id' => 'products#pay', as: 'pay'
     end
   end
+
+  resources :products, except: :index do
+    collection do
+      get 'search'
+    end
+  end
+
+
+  resources :products, except: :index do
+    member do
+      get :confirmation
+    end
+  end
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :products, except: :index
+  resources :card, except: :index do
+    collection do
+      post 'pay/:id' => 'card#pay', as: 'pay'
+    end
+  end
+
+
+
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root "homes#index"
   get 'products/:id/edit' => 'products#update'
 

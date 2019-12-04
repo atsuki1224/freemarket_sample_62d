@@ -13,11 +13,11 @@
                 カード番号
               .formbox__text--btn
                 必須
-            = c.text_field :card_number, { class:"form", placeholder:'半角数字のみ'}
+            = c.text_field :card_number, { class:"form", placeholder:'半角数字のみ', minlength: "16", maxlength: "16", required: true}
             .formbox__cardlogo
               =image_tag "card-logo/dinners_logo.png"
               =image_tag "card-logo/discovercard_logo.jpg"
-              =image_tag "card-logo/jcb.jpeg"
+              =image_tag "card-logo/JCB_logo.png"
               =image_tag "card-logo/sesoncard.png"
               =image_tag "card-logo/visa_logo.jpg"
             .formbox
@@ -26,7 +26,7 @@
                   有効期限
                 .formbox__text--btn
                   必須
-              %select.cardselect{name: "exp_month", type: "text"}
+              %select.cardselect{name: "exp_month", type: "text", required: true}
                 %option{value: ""} --
                 %option{value: "1"}01
                 %option{value: "2"}02
@@ -41,7 +41,7 @@
                 %option{value: "11"}11
                 %option{value: "12"}12
               %span 月
-              %select.cardselect{name: "exp_year", type: "text"}
+              %select.cardselect{name: "exp_year", type: "text", required: true}
                 %option{value: ""} --
                 %option{value: "2019"}19
                 %option{value: "2020"}20
@@ -61,9 +61,9 @@
                   セキュリティコード
                 .formbox__text--btn
                   必須
-              = c.text_field :security_code, { class: "form", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4" }
+              = c.text_field :security_code, { class: "form", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4" , required: true}
               .link
                 =link_to 'カード裏面の番号とは?','/'
-          =f.submit "次へ進む", class:"submit" 
+          =f.submit "次へ進む", class:"submit"
   =render partial:"registration_shortfooter"
 .plusarea

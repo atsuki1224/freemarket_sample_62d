@@ -3,11 +3,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  def signpu
+  def signup
   end
   
   def registration
     @user = User.new
+    if params[:provider].present? 
+      session["devise.provider"] = params[:provider]
+      @user[:nickname] = session["devise.#{session["devise.provider"]}_data"]["info"]["name"]
+      @user[:email] = session["devise.#{session["devise.provider"]}_data"]["info"]["email"]
+    end
+    @mail_check = true
   end
   
   def sms_confirmation
@@ -21,8 +27,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:lastname_kana] = user_params[:lastname_kana]
     params[:user][:birthday] = birthday_join
     session[:birthday] = user_params[:birthday]
-
-    render 'sms_confirmation'
+    if User.find_by(email: session[:email]).present?
+      @mail_check = false
+      render "users/registrations/registration", mail_check: @mail_check
+    else
+      render 'sms_confirmation'
+    end
   end
   
   def sms_confirmation_check
@@ -59,10 +69,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
     @user.build_address(session[:address_attributes])
     @user.build_card(session[:card_attributes])
+    if session["devise.#{session["devise.provider"]}_data"].present?
+      @user.password = Devise.friendly_token[0, 20]
+      @user.build_sns_credential(
+          uid: session["devise.#{session["devise.provider"]}_data"]["uid"],
+          provider: session["devise.#{session["devise.provider"]}_data"]["provider"]
+      )
+    end
     if @user.save
+      sign_in User.find(@user.id) unless user_signed_in?
       render 'complete'
     else
       redirect_to root_path
+    end
+  end
+
+  def mail_check
+    if User.find_by(email: params[:email]).present?
+      @result = false
+    else
+      @result = true
     end
   end
 
