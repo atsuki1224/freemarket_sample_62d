@@ -80,20 +80,45 @@
       (税込)
     .postage
       送料込み
-    -if @product.user.id != current_user.id && @product.trade_status == 0
-      =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
-        購入画面に進む 
-      .caution
-        この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-        
-    -if @product.trade_status != 0
-      .item__buy-btn-gray
-        売り切れました 
+    -if user_signed_in?
+      -if @product.user.id != current_user.id && @product.trade_status == 0
+        =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
+          購入画面に進む 
+        .caution
+          この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          
+      -if @product.trade_status != 0
+        .item__buy-btn-gray
+          売り切れました
+    -else
+      -if @product.trade_status == 0
+        =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
+          購入画面に進む 
+          .caution
+            この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+      -else
+        .item__buy-btn-gray
+          売り切れました
       
     .item__text
       =@product.description
-
-    -if @product.user.id != current_user.id 
+    -if user_signed_in?
+      -if @product.user.id != current_user.id 
+        .item__bottom
+          %p.nice-btn
+            =link_to "#" do
+              =fa_icon "heart"
+              %span
+                いいね！
+          %p.report-btn
+            =link_to "#" do
+              =fa_icon "flag"
+              %span
+                不適切な商品の報告
+          =link_to "#",class:"safe_and_relief" do
+            =fa_icon "shopping-bag"
+            あんしん・あんぜんへの取り組み
+    -else
       .item__bottom
         %p.nice-btn
           =link_to "#" do
@@ -109,16 +134,17 @@
           =fa_icon "shopping-bag"
           あんしん・あんぜんへの取り組み
 
-  -if @product.user.id == current_user.id && @product.trade_status == 0 
-    .edit__content
-      .edit__content-update-btn
-        =link_to '商品の編集'
-      %p.edit__content-or
-      .edit__content-stop-btn
-        =link_to '出品を一旦停止する'
-      .edit__content-delete-btn
-        =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
-
+  -if user_signed_in?
+    -if @product.user.id == current_user.id && @product.trade_status == 0 
+      .edit__content
+        .edit__content-update-btn
+          =link_to '商品の編集'
+        %p.edit__content-or
+        .edit__content-stop-btn
+          =link_to '出品を一旦停止する'
+        .edit__content-delete-btn
+          =link_to 'この商品を削除する', product_path(@product.id), method: :delete, data: { confirm: '削除しますか？' }
+  -else
   .comment
     .comment__caution
       %span
