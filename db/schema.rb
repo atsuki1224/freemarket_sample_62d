@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127033041) do
+ActiveRecord::Schema.define(version: 20191202110508) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -74,6 +74,22 @@ ActiveRecord::Schema.define(version: 20191127033041) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_trades_on_product_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname",                           null: false
     t.string   "firstname_kana",                      null: false
@@ -81,8 +97,8 @@ ActiveRecord::Schema.define(version: 20191127033041) do
     t.string   "lastname_kana",                       null: false
     t.string   "nickname",                            null: false
     t.datetime "birthday",                            null: false
-    t.bigint   "total_profit",           default: 0,  null: false
-    t.bigint   "point",                  default: 0,  null: false
+    t.bigint   "total_profit",           default: 0
+    t.bigint   "point",                  default: 0
     t.string   "user_profile"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

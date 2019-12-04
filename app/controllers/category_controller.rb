@@ -11,6 +11,5 @@ class CategoryController < ApplicationController
     else
       @products = Product.where(category_id: @category.id).order("created_at DESC")
     end
-  
   end
 end

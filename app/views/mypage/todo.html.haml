@@ -12,6 +12,29 @@
             =link_to "#mypage-tab-todo", "data-toggle": "tab" do
               やることリスト
         .noti-todo__content
+          %ul#mypage-tab-notification.noti-todo__content.tab-pane
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-link" do
+                =image_tag "svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    事務局から個別メッセージ「Googleログイン通知」
+                  %time
+                    = fa_icon 'clock'
+                    %span
+                      3 時間前
+                =fa_icon 'chevron-right'
+            %li
+              =link_to "https://www.mercari.com/jp/mypage/sales/bill/history/", class:"mypage-link" do
+                =image_tag "svg/logo_red.svg", class:"lazyloaded"
+                .mypage-link__body
+                  .mypage-link__body--text
+                    振込完了のお知らせ
+                  %time
+                    =fa_icon 'clock'
+                    %span
+                      22 時間前
+                =fa_icon 'chevron-right'
           %ul#mypage-tab-todo.noti-todo__content.tab-pane.active
             %li.mypage-link--notfound.bold
               現在、やることリストはありません

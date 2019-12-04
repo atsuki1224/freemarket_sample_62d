@@ -12,11 +12,11 @@
         .formarea__underbar
       .box__formarea
         .btnlist
-          %a{href:'/'}
+          = link_to user_facebook_omniauth_authorize_path, method: :post do
             .btnlist__list--facebook
               %p Facebookでログイン
               =fa_icon 'facebook-square'
-          %a{href:'/'}
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
             .btnlist__list--google
               %p Googleでログイン
               =image_tag "icons/google-icon.png"
