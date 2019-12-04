@@ -2,7 +2,7 @@
   .header
     .header__logo-search
       =link_to root_path do
-        =image_tag "/SVG/fmarket_logo_red.svg", class: "header__logo-search--logo"
+        =image_tag "svg/fmarket_logo_red.svg", class: "header__logo-search--logo"
       %form.header__form
         %input{name:params[:name],placeholder:"何かお探しですか",id:'search_field',class:'search'}
           =link_to '',  search_products_path(id:'name'),id:'search_link'
