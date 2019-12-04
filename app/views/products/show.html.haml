@@ -83,27 +83,27 @@
     -if user_signed_in?
       -if @product.user.id != current_user.id && @product.trade_status == 0
         =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
-          購入画面に進む 
+          購入画面に進む
         .caution
           この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          
+
       -if @product.trade_status != 0
         .item__buy-btn-gray
           売り切れました
     -else
       -if @product.trade_status == 0
         =link_to confirmation_product_path(@product) ,class:"item__buy-btn"do
-          購入画面に進む 
-          .caution
-            この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          購入画面に進む
+        .caution
+          この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
       -else
         .item__buy-btn-gray
           売り切れました
-      
+
     .item__text
       =@product.description
     -if user_signed_in?
-      -if @product.user.id != current_user.id 
+      -if @product.user.id != current_user.id
         .item__bottom
           %p.nice-btn
             =link_to "#" do
@@ -135,7 +135,7 @@
           あんしん・あんぜんへの取り組み
 
   -if user_signed_in?
-    -if @product.user.id == current_user.id && @product.trade_status == 0 
+    -if @product.user.id == current_user.id && @product.trade_status == 0
       .edit__content
         .edit__content-update-btn
           =link_to '商品の編集'
