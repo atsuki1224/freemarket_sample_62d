@@ -31,8 +31,9 @@
         %th
           =link_to "/category/#{@product.category.root.id}" ,class:"link"do
             =">#{@product.category.root.name}"
-          =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
-            =">#{@product.category.parent.name}"
+          -if @product.category.id >= 159
+            =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
+              =">#{@product.category.parent.name}"
           =link_to "/category/#{@product.category.id}" ,class:"link"do
             =">#{@product.category.name}"
       %tr
