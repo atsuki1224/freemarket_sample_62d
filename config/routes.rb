@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :omniauth_callbacks =>  "users/omniauth_callbacks"
   }
-  
+
   devise_scope :user do
     scope :signup do
       get '/' => 'users/registrations#signup'
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   resources :category, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :trade, except: :index do
@@ -58,17 +58,30 @@ Rails.application.routes.draw do
   end
 
   resources :products, except: :index do
+    collection do
+      get 'search'
+    end
+  end
+
+
+  resources :products, except: :index do
     member do
       get :confirmation
-    end 
+    end
   end
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :products, except: :index 
+  resources :products, except: :index
   resources :card, except: :index do
     collection do
       post 'pay/:id' => 'card#pay', as: 'pay'
     end
   end
+
+
+
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root "homes#index"
 
 end

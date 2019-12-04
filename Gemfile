@@ -85,4 +85,4 @@ gem 'omniauth-google-oauth2'
 gem "gretel"
 gem 'payjp'
 gem 'dotenv-rails'
-
+gem 'ransack'
