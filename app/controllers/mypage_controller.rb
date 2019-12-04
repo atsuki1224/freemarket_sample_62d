@@ -63,7 +63,7 @@ class MypageController < ApplicationController
       :user_profile,
       address_attributes: [:zipcode, :prefecture_id, :city, :address, :phone_number],
       card_attributes: [:card_number, :validated_data, :security_code]
-    ).merge(user_id: current_user.id)
+    )
   end
 
   protected
