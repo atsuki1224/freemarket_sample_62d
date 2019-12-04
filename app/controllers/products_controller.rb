@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :select_product, {only:[:show, :destroy]}
 
   def new
-
     @product = Product.new
     @product.images.build
 
@@ -12,21 +11,16 @@ class ProductsController < ApplicationController
     @child = Category.find_by(id:params[:child_id])
     @search = params[:bland_name]
 
-
-
     if @parent && @child && @search
         @blands1 = @parent.blands
         @blands2 = @child.blands
-
       if @blands2.empty?
           @blands = @blands1.search_name(params[:bland_name])
       else
           @blands = @blands2.search_name(params[:bland_name])
       end
-
     elsif @parent && @child ==nil && @search==nil
       @children = @parent.children
-
     elsif @child && @parent ==nil && @search==nil
       @grand_children = @child.children
     end
@@ -54,12 +48,10 @@ class ProductsController < ApplicationController
         id: params[:id]).where(
           category_id: @product.category.id).limit(6)
     end
-
   end
   
   def edit
     @product = Product.find(params[:id])
-    @product.images.build
 
     #//////カテゴリ、ブランド用////////
       @parents = Category.sort_parents
@@ -70,20 +62,16 @@ class ProductsController < ApplicationController
       if @parent && @child && @search
           @blands1 = @parent.blands
           @blands2 = @child.blands
-  
         if @blands2.empty?
             @blands = @blands1.search_name(params[:bland_name])
         else
             @blands = @blands2.search_name(params[:bland_name])
         end
-  
       elsif @parent && @child ==nil && @search==nil
         @children = @parent.children
-  
       elsif @child && @parent ==nil && @search==nil
         @grand_children = @child.children
       end
-  
       respond_to do |format|
         format.html
         format.json
@@ -93,7 +81,10 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      binding.pry
+      del_num = params[:del_img].split(",")
+      del_num.each do |d|
+        @product.images[d.to_i].destroy
+      end
       redirect_to action: :show
     else 
       redirect_to action: :show,flash: {error:'エラーが発生しました。編集できませんでした。'} 

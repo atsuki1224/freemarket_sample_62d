@@ -1,12 +1,5 @@
 =form_for @product, url: "/products/#{@product.id}" do |f|
   .product-wrapper
-    -# サーバーサイド実装でDBが整えばform_forと各selectへ訂正する。
-    -# f.select :size, Product.sizes.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-    -# f.select :delivery_time, Product.delivery_times.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-    -# f.select :delivery_method, Product.delivery_methods.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-    -# f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-    -# f.select :delivery_area, Product.delivery_areas.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-    -# f.select :condition, Product.conditions.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"} 
     .newproduct__content.clearfix
       %form.product-item
         .product-item--head
@@ -19,117 +12,21 @@
           .product-item__img--text
             最大10枚までアップロードできます
             .product-item__img--preview
+              %input{id:"del_img", type:"hidden", name: "del_img"}
               %ul<
-                - if @product.images
-                  %li.have-img-box
-                    =image_tag@product.images[0].image
-                    %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                    .preview-list
-                      .preview-list__btn
-                        編集
-                      .preview-list__btn
-                        %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[1].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[2].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[3].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[4].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[5].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[6].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[7].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -# %li.have-img-box 
-                  -#   =image_tag@product.images[8].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
-                  -#   %li.have-img-box 
-                  -#   =image_tag@product.images[9].image
-                  -#   %input.imagearea{style:"opacity:0;", type:"file", class:"imagearea"} 
-                  -#   .preview-list
-                  -#     .preview-list__btn
-                  -#       編集
-                  -#     .preview-list__btn
-                  -#       %a.remove-btn 削除
+                - if @product.images.present?
+                  - @product.images.each_with_index do |img,i|
+                    %li.have-img-box
+                      =image_tag img.image
+                      .preview-list
+                        .preview-list__btn
+                          編集
+                        .preview-list__btn
+                          %a.remove-btn__edit{"data-img": i} 削除
             %label.product-item__img--area
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              =f.fields_for :images do |i|
-                =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
-              -# %input{type:"file", style:"opacity:0;", class:"imagearea"}
+              - 10.times do
+                =f.fields_for :images , Image.new do |i|
+                  = i.file_field  :image, style:"opacity:0;", class:"imagearea"
               %p
                 ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
         .product-item__form
@@ -143,8 +40,6 @@
           =f.hidden_field :delivery_method, class:'delivery_method',value:''
           =f.hidden_field :user_id, value:1
           =f.hidden_field :size,class:"size_form",vlaue:''
-          =f.hidden_field :category_id, value:'',class:'category_num'
-
           .product-item__form--title
             商品説明
             .form-required
@@ -158,71 +53,46 @@
               カテゴリー
               .form-required
                 必須
-            -# =select("product","category_id", Category.where(id: 1..13).collect {|c| [ c.name, c.id ] }, { include_blank: true },{class:'product-item__subform--select',id:'category_box'})
-            =f.collection_select :category_id, Category.where(id: 1..13), :id, :name ,{},{class:'product-item__subform--select0',required:"true",id:'category_box'}
-            -# = f.hidden_field :category_id
-            -# %select.product-item__subform--select{required:"true"}
-            -#   %option(value="")<>---
-            -#   %option(value="1")<>レディース
-            -#   %option(value="2")<>メンズ
-            -#   %option(value="3")<>ベビー・キッズ
-            -#   %option(value="4")<>インテリア・住まい・小物
-            -#   %option(value="5")<>本・音楽・ゲーム
-            -#   %option(value="1328")<>おもちゃ・ホビー・グッズ
-            -#   %option(value="6")<>コスメ・香水・美容
-            -#   %option(value="7")<>家電・スマホ・カメラ
-            -#   %option(value="8")<>スポーツ・レジャー
-            -#   %option(value="9")<>ハンドメイド
-            -#   %option(value="1027")<>チケット
-            -#   %option(value="1318")<>自動車・オートバイ
-            -#   %option(value="10")<>その他
+            - if @product.category.id <= 13
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{},{class:'product-item__subform--select2',required:"true",id:'category_box'}
+            - elsif @product.category_id <=  158
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: @product.category_id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
+              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{},{class:'product-item__subform--select3',required:"true",id:'box_2'}
+            - else
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: Category.find_by(id: @product.category_id).parent.id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected:Category.find_by(id: @product.category_id).parent.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
+              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select3',required:"true",id:'box_2'}
             .product-item__subform--title
               商品の状態
               .form-required
                 必須
             =f.select :item_condition, Product.item_conditions.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-            -# =i.select :condition, Product.condition.keys.to_a,include_blank:'----'.product-item__subform--select{required:"true"}
-              %option(value="")<>---
-              %option(value="1")<>新品、未使用
-              %option(value="2")<>未使用に近い
-              %option(value="3")<>目立った傷や汚れなし
-              %option(value="4")<>やや傷や汚れあり
-              %option(value="5")<>傷や汚れあり
-              %option(value="6")<>全体的に状態が悪い
         .product-item__form.clearfix
           .product-item__form--title
             配送について
-
-            -# = Product.delivery_areas.keys[@p.delivery_area.to_i]
-            -# = @p.item_name
-            -# = @p.delivery_area
           .product-item__subform
             .product-item__subform--title
               配送の負担
               .form-required
                 必須
-            -# %select.product-item__subform--select{required:"true"}
             = f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select6", required:"true"}
             .product-item__subform--title7{id:"d_list"}
               配送の方法
               .form-required
                 必須
               =f.select :delivery_method, Product.delivery_methods.keys.to_a,  {include_blank:"----"}, {class:"product-item__subform--select7", required:"true"}
-
             .product-item__subform--title
               発送元の地域
               .form-required
                 必須
-            -# %select.product-item__subform--select{required:"true"}
             = f.select :delivery_area, Product.delivery_areas.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-
             .product-item__subform--title
               発送までの日数
               .form-required
                 必須
             = f.select :delivery_time, Product.delivery_times.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select", required:"true"}
-            -# .product-item__subform--select{required:"true"}
-
         .product-item__form.clearfix
           .product-item__form--title
             販売価格(300〜9,999,999)
@@ -247,12 +117,9 @@
             禁止されている出品、行為を必ずご確認ください。
             またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
             また、出品をもちまして加盟店規約に同意したことになります。
-          -# .product-item__button--submit
           =f.submit class:'product-item__button--submit',value:'編集する'
-
           %button.product-item__button--cancel
             キャンセル
-
     .footer
       %ul.footer--nav.clearfix
         %li<

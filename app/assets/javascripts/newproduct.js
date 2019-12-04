@@ -4,7 +4,6 @@ $(function(){
   $droparea = $(".product-item__img--area");
 
   function filepreview(loadedImageUri){
-    var target = Number($("ul .imagearea").length) + 1;
     var html =`
           <li class="have-img-box">
             <img src=${loadedImageUri}>
@@ -22,27 +21,24 @@ $(function(){
   $(document).on("change", '.imagearea', function(e) {
     var file = e.target.files[0],
         reader = new FileReader();
-        console.log(file)
     if(file.type.indexOf("image") < 0){
       return false;
     }
     reader.onload = (function(file) {
       return function(e) {
         var wd =$droparea.width();
-        if ($("ul .imagearea").length == 4){
+        if ($(".have-img-box").length == 4){
           $droparea.width(620);
-        } else if ($("ul .imagearea").length == 5) {
-          $droparea.addClass("row2").width(490);
         } else {
           $droparea.width(wd - 130);
         }
         var html = filepreview(e.target.result);
         $previewul.append(html);
-        if ($("ul .imagearea").length >= 10) {
+        $('.imagearea:last').appendTo($previewul);
+        if ($(".have-img-box").length <= 9) {
           return false;
         } else {
-          $('.imagearea:last').appendTo($previewul);
-          if ($("ul .imagearea").length == 10) {
+          if ($(".have-img-box").length == 10) {
             $droparea.css('display', 'none');
           }
         }
@@ -52,16 +48,16 @@ $(function(){
   })
 
   $(document).on("click", '.remove-btn', function() {
-    var target = Number($('.remove-btn').index(this));
-    $('.have-img-box').eq(target-1).remove();
+    var target = Number($('.remove-btn').index(this)+$('.remove-btn__edit').length);
+    $('.have-img-box').eq(target).remove();
     $('.product-item__img--preview ul input').eq(target).appendTo($droparea);
     $('.imagearea:last').val('');
     var wd =$droparea.width();
-    if ($("ul .imagearea").length == 9) {
-      $droparea.css('display', 'inline-block').width(120);
-    } else if ($("ul .imagearea").length == 4){
+    if ($(".have-img-box").length == 9) {
+      $droparea.css('display', 'inline-block').width(100);
+    } else if ($(".have-img-box").length == 4){
       $droparea.width(100);
-    } else if ($("ul .imagearea").length == 5) {
+    } else if ($(".have-img-box").length == 5) {
       $droparea.removeClass("row2");
       $droparea.width(wd + 130);
     } else {
@@ -96,6 +92,42 @@ $(function(){
         });
     }
   })
+  var init_wd = $droparea.width();
+  var init_imgs = ($(".product-item__img--preview ul li").length);
+  if(init_imgs == 10){
+    $droparea.css('display', 'none');
+  } else if(init_imgs == 5){
+    $droparea.width();
+  } else if (init_imgs < 5){
+    $droparea.width(init_wd - (130 * init_imgs));
+  } else if (init_imgs < 9) {
+    $droparea.width(init_wd - (130 * (init_imgs - 5) ));
+  }
+  
+  $(document).on("click", '.remove-btn__edit', function() {
+    var target = Number($('.remove-btn__edit').index(this));
+    if($("#del_img").val() == ""){
+      var del_num = [];
+    } else {
+     var del_num = $("#del_img").val().split(',');
+    }
+    del_num.push($(this).data('img'));
+    $("#del_img").val(del_num);
+    $('.have-img-box').eq(target).remove();
+    $('.imagearea:last').val('');
+    var wd =$droparea.width();
+    if ($(".have-img-box").length == 9) {
+      $droparea.css('display', 'inline-block').width(100);
+    } else if ($(".have-img-box").length == 4){
+      $droparea.width(100);
+    } else if ($(".have-img-box").length == 5){
+      $droparea.removeClass("row2");
+      $droparea.width(wd + 130);
+    } else {
+      $droparea.width(wd + 130);
+    }
+  })
+
 
 //////////カテゴリ用//////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓///////////////////////////////////////
 
