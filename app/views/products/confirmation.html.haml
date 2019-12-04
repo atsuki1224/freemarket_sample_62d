@@ -29,7 +29,7 @@
             配送先と支払い方法の入力を完了してください。
           = form_tag("/card/pay/1", method: :post,class: :btn_grey) do
             = hidden_field_tag :product_id, @product.id 
-            %script.payjp-button{:src=>"https://checkout.pay.jp/" , "data-key"=>'sk_test_cee4ee20cc4c2035c1e7b76d' ,"data-text"=>"購入する"}
+            %script.payjp-button{:src=>"https://checkout.pay.jp/" , "data-key"=>ENV["PAYJP_PUBLIC_KEY"] ,"data-text"=>"購入する"}
 
     #section.contents_box{class:"delivery_contents"}
       .contents_box__inner
