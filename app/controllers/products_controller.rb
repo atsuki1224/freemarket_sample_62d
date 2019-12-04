@@ -74,16 +74,16 @@ class ProductsController < ApplicationController
       @sort = "#{params[:sort]}"
       @p = Product.ransack(search_name) if @sort
       @products = @p.result if @p
-      @products = @products.order(@sort).page(params[:page]).per(15) if @products
+      @products = @products.order(@sort).page(params[:page]).per(20) if @products
 
       @search_name = search_name
-      @new_products = Product.where(updated_at:Time.now.all_year).page(params[:page]).per(15)
+      @new_products = Product.where(updated_at:Time.now.all_year).page(params[:page]).per(20)
       @word = search_name[:item_name_or_description_cont] if search_name[:item_name_or_description_cont]
 
       if params[:name].present?
-          @products = Product.where('item_name LIKE ?',"%#{params[:name]}%").page(params[:page]).per(15)
+          @products = Product.where('item_name LIKE ?',"%#{params[:name]}%").page(params[:page]).per(20)
           @word = params[:name]
-          @products = @products.order(@sort).page(params[:page]).per(15) if @sort
+          @products = @products.order(@sort).page(params[:page]).per(20) if @sort
       end
 
       respond_to do |format|
