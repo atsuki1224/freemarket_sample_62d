@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
   before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
   before_action :correct_referer
 
+  def correct_referer
+    if request.referer.nil?
+      redirect_to root_url
+    end
+  end
 
   def new
     @product = Product.new
