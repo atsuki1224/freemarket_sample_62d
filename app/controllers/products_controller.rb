@@ -3,13 +3,7 @@ class ProductsController < ApplicationController
 
   before_action :select_product, {only:[:show, :destroy, :confirmation]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
-  before_action :correct_referer
 
-  def correct_referer
-    if request.referer.nil?
-      redirect_to root_url
-    end
-  end
 
   def new
     @product = Product.new
@@ -41,11 +35,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-      @product = Product.new(product_params)
-         if @product.save
-         else
-           redirect_to action: :new ,flash: {error:'エラーが発生しました、再度入力をお願いします'}
-        end
+    @product = Product.new(product_params)
+      if @product.save
+      else
+        redirect_to action: :new ,flash: {error:'エラーが発生しました、再度入力をお願いします'}
+    end
   end
 
   def show
