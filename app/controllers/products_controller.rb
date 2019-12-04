@@ -70,8 +70,7 @@ class ProductsController < ApplicationController
       @new_products = Product.where(updated_at:Time.now.all_year)
       @word = search_name[:item_name_or_description_cont] if search_name[:item_name_or_description_cont]
 
-      if params[:name]
-        unless params[:name].empty?
+      if params[:name] && unless params[:name].empty?
           @products = Product.where('item_name LIKE ?',"%#{params[:name]}%")
           @word = params[:name]
           @products = @products.order(@sort) if @sort
