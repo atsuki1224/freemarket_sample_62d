@@ -6,7 +6,6 @@ class Product < ApplicationRecord
   # has_many :commnets
   # has_many :messages
   # has_many :nices
-
   
   has_one :trade
   belongs_to :user,optional:true
