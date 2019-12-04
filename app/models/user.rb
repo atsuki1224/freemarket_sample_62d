@@ -16,7 +16,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
-  has_many :porducts
+  has_many :products
   # has_many :nices
   # has_many :commnets
   # has_many :messages
