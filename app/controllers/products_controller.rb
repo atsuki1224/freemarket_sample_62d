@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
 
-  before_action :select_product, {only:[:show, :destroy, :confirmation]}
+  before_action :select_product, {except:[:new, :create, :search]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
 
 
@@ -85,7 +85,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       del_num = params[:del_img].split(",")
       del_num.each do |d|
@@ -127,8 +126,6 @@ class ProductsController < ApplicationController
       end
   end
 
-
-
   def destroy
     @product.destroy
     if @product.destroy
@@ -138,11 +135,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  private
   def select_product
     @product = Product.find(params[:id])
   end
 
-  private
   def product_params
     params.require(:product).permit(:item_name,:description,:item_condition,:trade_status,:size,:bland_id,:category_id,:delivery_charge,:delivery_method,:delivery_area,:delivery_time,:price,:trade_status,images_attributes: [:destroy,:id,:image]).merge(user_id:current_user.id)
   end
