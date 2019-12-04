@@ -93,8 +93,6 @@ class ProductsController < ApplicationController
       end
   end
 
-
-
   def destroy
     @product.destroy
     if @product.destroy
