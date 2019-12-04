@@ -10,6 +10,6 @@ class HomesController < ApplicationController
     @louis_vuitton_products = Product.where(bland_id: 6155).order("created_at DESC").limit(10)
     @supreme_products = Product.where(bland_id: 8413).order("created_at DESC").limit(10)
     @nike_products = Product.where(bland_id: 3813).order("created_at DESC").limit(10)
-
+　　　
   end
 end
