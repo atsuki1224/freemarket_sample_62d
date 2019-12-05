@@ -67,24 +67,27 @@
       margin: 0 auto;
     }
     .item-header{
-      height: 50px;
+      height: 75px;
       position: relative;
-      padding-bottom: 10px;
-      
+      box-sizing: border-box;      
+      color: #333333;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 
       &__title{
         font-weight: bold;
-        padding: 40px 0 40px 20px;
         display: inline-block;
         font-size:24px;
+        padding: 42px 0 10px 0;
       }
       &__view-more{
         padding: 40px 0 30px 20px;
-        color:blue;
+        color: rgb(0, 149, 238);
         position: absolute;
         right: 0;
         display: inline-block;
         font-size: 15px;
+        font-weight: 600;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       }
     }
     .contents:hover{
