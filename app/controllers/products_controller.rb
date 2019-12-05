@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :select_product, {except:[:new, :create, :search]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
 
+
   def new
     @product = Product.new
     @product.images.build
@@ -102,21 +103,28 @@ class ProductsController < ApplicationController
       @children = @parent.children if @parent
       @grand_children = @child.children if @child
 
+      ##########カテゴリ配列処理###########
+      @category_ids = @parent.descendant_ids << @parent.id if @parent
+      ##########カテゴリの追加検索###############
+      # Product.where(category_id:@category_ids)
+
       @sort = "#{params[:sort]}"
       @p = Product.ransack(search_name) if @sort
       @products = @p.result if @p
       @products = @products.order(@sort).page(params[:page]).per(20) if @products
+      @products = @products.where(category_id:@category_ids) if @category_ids.present?
 
       @search_name = search_name
       @new_products = Product.where(updated_at:Time.now.all_year).page(params[:page]).per(20)
       @word = search_name[:item_name_or_description_cont] if search_name[:item_name_or_description_cont]
 
+     #### ヘッダー利用時、商品名のみの検索結果のソート#################
       if params[:name].present?
           @products = Product.where('item_name LIKE ?',"%#{params[:name]}%").page(params[:page]).per(20)
           @word = params[:name]
           @products = @products.order(@sort).page(params[:page]).per(20) if @sort
       end
-
+      
       respond_to do |format|
         format.html
         format.json
@@ -146,7 +154,7 @@ class ProductsController < ApplicationController
   end
 
   def search_name
-      params.permit(:name,:item_name_or_description_cont,:bland_name,:price_gteq,:price_lteq,:sort,:utf8,:category_name,:category_id_eq,bland_id_eq_any:[],category_id_eq_any:[], size_eq_any:[],item_condition_eq_any:[],delivery_charge_eq_any:[],trade_status_eq_any:[])
+      params.permit(:name,:item_name_or_description_cont,:bland_name,:category_id,:price_gteq,:price_lteq,:sort,:utf8,bland_id_eq_any:[],category_id_eq_any:[], size_eq_any:[],item_condition_eq_any:[],delivery_charge_eq_any:[],trade_status_eq_any:[])
   end
 
 end
