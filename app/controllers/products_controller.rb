@@ -1,17 +1,14 @@
 class ProductsController < ApplicationController
-
-
   before_action :select_product, {except:[:new, :create, :search]}
   before_action :user_signed_in_check, only: [:new, :create, :destroy, :confirmation]
-
 
   def new
     @product = Product.new
     @product.images.build
   #//////カテゴリ、ブランド用////////
     @parents = Category.sort_parents
-    @parent = Category.find(params[:category_id])
-    @child = Category.find(params[:child_id])
+    @parent = Category.find(params[:category_id]) if params[:category_id].present?
+    @child = Category.find(params[:child_id])     if params[:child_id].present?
     @search = params[:bland_name]
 
     if @parent && @child && @search
@@ -61,8 +58,8 @@ class ProductsController < ApplicationController
   def edit
     #//////カテゴリ、ブランド用////////
       @parents = Category.sort_parents
-      @parent = Category.find(params[:category_id])
-      @child = Category.find(params[:child_id])
+      @parent = Category.find(params[:category_id]) if params[:category_id].present?
+      @child = Category.find(params[:child_id])     if params[:child_id].present?
       @search = params[:bland_name]
   
       if @parent && @child && @search

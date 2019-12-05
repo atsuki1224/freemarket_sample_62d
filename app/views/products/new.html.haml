@@ -45,11 +45,9 @@
             .form-required
               必須
           =f.text_field :item_name, class:'product-item__form--field',placeholder:"商品名（必須40字まで）", required:"true"
-          =f.hidden_field :trade_status, value:0
           =f.hidden_field :bland_id, value:'',class:'bland_num'
           =f.hidden_field :delivery_method, class:'delivery_method',value:''
           =f.hidden_field :size,class:"size_form",vlaue:''
-          =f.hidden_field :category_id, value:'',class:'category_num'
           .product-item__form--title
             商品説明
             .form-required

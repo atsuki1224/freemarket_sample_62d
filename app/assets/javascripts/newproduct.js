@@ -293,19 +293,26 @@ $(function(){
 
   /////////////////サブミット//////////////////////////////////
 
+  $(document).on('submit','.product-item__button--submit',function(){
+    var val3 = $('.product-item__subform--select3').val();
+    var val2 = $('.product-item__subform--select2').val();
+    $('.product-item__subform--select0 option:selected').val(val3);
+      if(val3 ===''){
+        $('.product-item__subform--select0 option:selected').val(val2);
+      }
+      var a = $('.product-item__subform--select0 option:selected').val();
+      var a =  $('.product-item__subform--select0 option:selected').val();
+    });
+
   $(document).on('submit','#new_product',function(){
     var val3 = $('.product-item__subform--select3').val();
     var val2 = $('.product-item__subform--select2').val();
     $('.product-item__subform--select0 option:selected').val(val3);
-        if(val3 ===''){
-            $('.product-item__subform--select0 option:selected').val(val2);
-        }
-        var a = $('.product-item__subform--select0 option:selected').val();
-        var a =  $('.product-item__subform--select0 option:selected').val();
-
-
-
-
+      if(val3 ===''){
+          $('.product-item__subform--select0 option:selected').val(val2);
+      }
+      var a = $('.product-item__subform--select0 option:selected').val();
+      var a =  $('.product-item__subform--select0 option:selected').val();
     $('body').append(`<div class="modal-content">
                         <div class="tittle">
                           <div class="text">
