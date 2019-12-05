@@ -1,8 +1,5 @@
-=form_for @product do |f|
+=form_for @product, url: "/products/#{@product.id}" do |f|
   .product-wrapper
-    .header
-      =link_to root_path, class:"header--img" do
-        =image_tag "svg/fmarket_logo_red.svg"
     .newproduct__content.clearfix
       %form.product-item
         .product-item--head
@@ -14,40 +11,30 @@
               必須
           .product-item__img--text
             最大10枚までアップロードできます
-          .product-item__img--preview
-            %ul<
-          %label.product-item__img--area
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea"
-            =f.fields_for :images do |i|
-              =i.file_field  :image, style:"opacity:0;", class:"imagearea",required:"true"
-            %p
-              ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+            .product-item__img--preview
+              %input{id:"del_img", type:"hidden", name: "del_img"}
+              %ul<
+                - if @product.images.present?
+                  - @product.images.each_with_index do |img,i|
+                    %li.have-img-box
+                      =image_tag img.image
+                      .preview-list
+                        .preview-list__btn
+                          編集
+                        .preview-list__btn
+                          %a.remove-btn__edit{"data-img": i} 削除
+            %label.product-item__img--area
+              - 10.times do
+                =f.fields_for :images , Image.new do |i|
+                  = i.file_field  :image, style:"opacity:0;", class:"imagearea"
+              %p
+                ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
         .product-item__form
           .product-item__form--title
             商品名
             .form-required
               必須
           =f.text_field :item_name, class:'product-item__form--field',placeholder:"商品名（必須40字まで）", required:"true"
-          =f.hidden_field :bland_id, value:'',class:'bland_num'
-          =f.hidden_field :delivery_method, class:'delivery_method',value:''
-          =f.hidden_field :size,class:"size_form",vlaue:''
           .product-item__form--title
             商品説明
             .form-required
@@ -61,7 +48,17 @@
               カテゴリー
               .form-required
                 必須
-            =f.collection_select :category_id, Category.where(id: 1..13), :id, :name ,{},{class:'product-item__subform--select0',required:"true",id:'category_box'}
+            - if @product.category.id <= 13
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{},{class:'product-item__subform--select2',id:'category_box'}
+            - elsif @product.category_id <=  158
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: @product.category_id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
+              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{},{class:'product-item__subform--select3',id:'box_2'}
+            - else
+              =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: Category.find_by(id: @product.category_id).parent.id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
+              =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected:Category.find_by(id: @product.category_id).parent.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
+              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select3',id:'box_2'}
             .product-item__subform--title
               商品の状態
               .form-required
@@ -76,6 +73,11 @@
               .form-required
                 必須
             = f.select :delivery_charge, Product.delivery_charges.keys.to_a, {include_blank:"----"}, {class:"product-item__subform--select6", required:"true"}
+            .product-item__subform--title7{id:"d_list"}
+              配送の方法
+              .form-required
+                必須
+              =f.select :delivery_method, Product.delivery_methods.keys.to_a,  {include_blank:"----"}, {class:"product-item__subform--select7", required:"true"}
             .product-item__subform--title
               発送元の地域
               .form-required
@@ -96,24 +98,24 @@
                 必須
             %span<>
               ¥
-            =f.text_field :price, class:'product-item__subform--price',required: true
+            =f.text_field :price, {class:'product-item__subform--price',required:"true"}
             .product-item__subform--left
               販売手数料 (10%)
+              
               .fee
                 販売手数料
             .product-item__subform--left
               販売利益
               .profit
-                最終的利益額
+                最終的利益値
         .product-item__button
           .product-item__button--notes
             禁止されている出品、行為を必ずご確認ください。
             またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
             また、出品をもちまして加盟店規約に同意したことになります。
-          =f.submit class:'product-item__button--submit',value:'出品する'
+          =f.submit class:'product-item__button--submit',value:'編集する'
           %button.product-item__button--cancel
-            戻る
-
+            キャンセル
     .footer
       %ul.footer--nav.clearfix
         %li<
@@ -121,7 +123,7 @@
             プライバシーポリシー
         %li<
           = link_to "." do
-            フリマケ利用規約
+            メルカリ利用規約
         %li<
           = link_to "." do
             特定商取引に関する表記
