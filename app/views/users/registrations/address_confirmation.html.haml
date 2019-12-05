@@ -48,9 +48,16 @@
             .formbox__text
               .formbox__text--tittle
                 番地
+              .formbox__text--btn
+                必須
+            = a.text_field :address, { class:"form", placeholder:'例)青山1-1-1'}
+          .formbox
+            .formbox__text
+              .formbox__text--tittle
+                建物名
               .formbox__text--btnb
                 任意
-            = a.text_field :address, { class:"form", placeholder:'例)青山1-1-1'}
+            = a.text_field :building_name, { class:"form", placeholder:'例)青山ビル 105号室'}
           .formbox
             .formbox__text
               .formbox__text--tittle

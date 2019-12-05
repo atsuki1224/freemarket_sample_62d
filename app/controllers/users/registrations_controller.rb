@@ -5,17 +5,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def signup
   end
-  
+
   def registration
     @user = User.new
-    if params[:provider].present? 
+    if params[:provider].present?
       session["devise.provider"] = params[:provider]
       @user[:nickname] = session["devise.#{session["devise.provider"]}_data"]["info"]["name"]
       @user[:email] = session["devise.#{session["devise.provider"]}_data"]["info"]["email"]
     end
     @mail_check = true
   end
-  
+
   def sms_confirmation
     @user = User.new
     session[:nickname] = user_params[:nickname]
@@ -34,18 +34,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render 'sms_confirmation'
     end
   end
-  
+
   def sms_confirmation_check
     render 'sms_confirmation_check'
   end
-  
+
   def address_confirmation
     @user = User.new
     @user.build_address = Address.new if @user.build_address.blank?
 
     render 'address_confirmation'
   end
-  
+
   def card_confirmation
     @user = User.new
     session[:address_attributes] = user_params[:address_attributes]
@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     render 'card_confirmation'
   end
-  
+
   def complete
     params[:user][:card_attributes][:validated_data] = params[:exp_year] + params[:exp_month]
     session[:card_attributes] = user_params[:card_attributes]
@@ -103,7 +103,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :firstname_kana,
       :lastname_kana,
       :birthday,
-      address_attributes: [:zipcode, :prefecture_id, :city, :address, :phone_number],
+      address_attributes: [:zipcode, :prefecture_id, :city, :address,:building_name,:phone_number],
       card_attributes: [:card_number, :validated_data, :security_code]
     )
   end

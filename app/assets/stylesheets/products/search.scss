@@ -73,6 +73,10 @@
           margin-bottom: 17px;
           background-color: #ffffff;
           text-align: left;
+          label[for='category_ids[]']{
+            width:110px;
+            display:inline-block;
+          }
           p{
             font-size: 12px;
           }
@@ -199,7 +203,7 @@ clear : both;
     appearance: none;
 }
 #category_hidden_form{
-  display:none;
+  // display:none;
 }
 #bland_hidden_form{
   display:none;

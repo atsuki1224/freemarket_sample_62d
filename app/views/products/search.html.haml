@@ -16,8 +16,7 @@
             %p.key
               =fa_icon 'bars'
               カテゴリーを選択する
-            =select_tag 'category_id_eq_any[]',options_from_collection_for_select(@category,:id,:name,0),class:'form_box', include_blank: 'すべて'
-            =text_field_tag 'category_id_eq_any[]','',id:'category_hidden_form'
+            =select_tag 'category_id',options_from_collection_for_select(@category,:id,:name,0),class:'form_box', include_blank: 'すべて',id:'parent_category_id'
           .search_box__form
             %p.key
               =fa_icon 'tags'
@@ -144,12 +143,15 @@
   =hidden_field_tag :bland_name,"#{@search_name[:bland_name]}"
   =hidden_field_tag :price_gteq,"#{@search_name[:price_gteq]}"
   =hidden_field_tag :category_name,"#{@search_name[:category_name]}"
+  =hidden_field_tag :category_id,"#{@search_name[:category_id]}"
+
   - if @search_name[:category_id_eq_any]
     -@search_name[:category_id_eq_any].each do |c|
       =hidden_field_tag 'category_id_eq_any[]',"#{c}"
   - if @search_name[:bland_id_eq_any]
     -@search_name[:bland_id_eq_any].each do |b|
       =hidden_field_tag 'bland_id_eq_any[]',"#{b}"
+
   =hidden_field_tag :price_lteq,"#{@search_name[:price_lteq]}"
   =hidden_field_tag :price_gteq,"#{@search_name[:price_gteq]}"
   -unless @search_name[:size_eq_any]==nil
