@@ -28,9 +28,7 @@
           .formbox__text
           = f.password_field :password, class:"form", autocomplete: "current-password", placeholder:'パスワード'
       .box__formarea
-        .robot
-          =image_tag "robot.png"
         = f.submit "ログイン", class:"submit"
         .link
-          =link_to 'パスワードをお忘れの方' 
+          =link_to 'パスワードをお忘れの方'
   =render partial:"users/registrations/registration_shortfooter"
