@@ -55,14 +55,14 @@ class ProductsController < ApplicationController
     end
     @same_seller_items = Product.where.not(params[:id]).where(user_id: @product.user.id).limit(6)
   end
-  
+
   def edit
     #//////カテゴリ、ブランド用////////
       @parents = Category.sort_parents
       @parent = Category.find(params[:category_id]) if params[:category_id].present?
       @child = Category.find(params[:child_id])     if params[:child_id].present?
       @search = params[:bland_name]
-  
+
       if @parent && @child && @search
           @blands1 = @parent.blands
           @blands2 = @child.blands
@@ -89,16 +89,16 @@ class ProductsController < ApplicationController
         @product.images[d.to_i].destroy
       end
       redirect_to action: :show
-    else 
-      redirect_to action: :show,flash: {error:'エラーが発生しました。編集できませんでした。'} 
+    else
+      redirect_to action: :show,flash: {error:'エラーが発生しました。編集できませんでした。'}
     end
   end
 
   def search
       @product = Product.new
       @category = Category.sort_parents
-      @parent = Category.find(params[:category_id])
-      @child = Category.find(params[:child_id])
+      @parent = Category.find(params[:category_id]) if params[:category_id].present?
+      @child = Category.find(params[:child_id]) if params[:child_id].present?
       @blands = Bland.where('name LIKE ?',"%#{params[:bland_name]}") unless params[:bland_name].empty? if params[:bland_name]
       @children = @parent.children if @parent
       @grand_children = @child.children if @child
@@ -124,7 +124,7 @@ class ProductsController < ApplicationController
           @word = params[:name]
           @products = @products.order(@sort).page(params[:page]).per(20) if @sort
       end
-      
+
       respond_to do |format|
         format.html
         format.json
