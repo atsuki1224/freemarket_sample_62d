@@ -35,6 +35,7 @@
             .form-required
               必須
           =f.text_field :item_name, class:'product-item__form--field',placeholder:"商品名（必須40字まで）", required:"true"
+          =f.hidden_field :bland_id, value:'',class:'bland_num'
           .product-item__form--title
             商品説明
             .form-required
@@ -54,7 +55,7 @@
             - elsif @product.category_id <=  158
               =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: @product.category_id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
               =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected: @product.category.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
-              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{},{class:'product-item__subform--select3',id:'box_2'}
+              =f.collection_select :category_id, Category.where(id: 159..1000), :id, :name ,{include_blank:"----"},{class:'product-item__subform--select3',id:'box_2'}
             - else
               =f.collection_select :category_id, Category.where(id: 1..13), :id, :name , {selected:Category.find_by(id: Category.find_by(id: @product.category_id).parent.id).parent.id} ,{class:'product-item__subform--select0',required:"true",id:'category_box'}
               =f.collection_select :category_id, Category.where(id: 14..158), :id, :name ,{selected:Category.find_by(id: @product.category_id).parent.id},{class:'product-item__subform--select2',required:"true",id:'box_2'}
