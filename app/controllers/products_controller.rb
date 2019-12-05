@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
     @product.images.build
   #//////カテゴリ、ブランド用////////
     @parents = Category.sort_parents
-    @parent = Category.find_by(id:params[:category_id])
-    @child = Category.find_by(id:params[:child_id])
+    @parent = Category.find(params[:category_id])
+    @child = Category.find(params[:child_id])
     @search = params[:bland_name]
 
     if @parent && @child && @search
@@ -46,23 +46,23 @@ class ProductsController < ApplicationController
     @images = @product.images.order("created_at ASC").limit(10)
     if @product.bland
       @similar_items = Product.where.not(
-        id: params[:id]).where(
-          category_id: @product.category.id, bland_id: @product.bland.id).limit(6)
+        params[:id]
+      ).where(
+        category_id: @product.category.id, bland_id: @product.bland.id).limit(6)
     else
       @similar_items = Product.where.not(
-        id: params[:id]).where(
-          category_id: @product.category.id).limit(6)
+        params[:id]
+      ).where(
+        category_id: @product.category.id).limit(6)
     end
-    @same_seller_items = Product.where.not(id: params[:id]).where(user_id: @product.user.id).limit(6)
+    @same_seller_items = Product.where.not(params[:id]).where(user_id: @product.user.id).limit(6)
   end
   
   def edit
-    @product = Product.find(params[:id])
-
     #//////カテゴリ、ブランド用////////
       @parents = Category.sort_parents
-      @parent = Category.find_by(id:params[:category_id])
-      @child = Category.find_by(id:params[:child_id])
+      @parent = Category.find(params[:category_id])
+      @child = Category.find(params[:child_id])
       @search = params[:bland_name]
   
       if @parent && @child && @search
@@ -99,8 +99,8 @@ class ProductsController < ApplicationController
   def search
       @product = Product.new
       @category = Category.sort_parents
-      @parent = Category.find_by(id:params[:category_id])
-      @child = Category.find_by(id:params[:child_id])
+      @parent = Category.find(params[:category_id])
+      @child = Category.find(params[:child_id])
       @blands = Bland.where('name LIKE ?',"%#{params[:bland_name]}") unless params[:bland_name].empty? if params[:bland_name]
       @children = @parent.children if @parent
       @grand_children = @child.children if @child
