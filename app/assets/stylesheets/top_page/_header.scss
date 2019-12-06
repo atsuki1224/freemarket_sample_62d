@@ -97,42 +97,51 @@
 }
 .box-area{
   width: 100px;
-
   .category-box{
+    z-index: 1;
     position: absolute;
+    right: 1014px;
     font-size: 12px;
-    width: 200px;
+    width: 220px;
     background-color:white;
     display: none;
 
     &__list{
       padding: 0px;
-      padding-bottom: 50px;
     }
       li{
         list-style: none;
         font-size: 13px;
-        padding: 10px;
+        padding: 14px 12px 14px 12px;
+        color: black;
+      }
+      li:hover{
+       background-color: #ea352d;
+       color: white;
       }
   }
 
   .brand-box{
+    z-index: 1;
     position: absolute;
+    right: 838px;
     font-size: 12px;
-    width: 200px;
+    width: 220px;
     background-color:white;
     display: none;
-
     &__list{
       padding: 0px;
-      padding-bottom: 50px;
-
     }
     li{
       list-style: none;
       font-size: 13px;
-      padding: 10px;
+      padding: 14px 12px 14px 12px;
+      color: black;
     }
+    li:hover{
+      background-color: #ea352d;
+      color: white;
+     }
   }
 }
 .news-box{

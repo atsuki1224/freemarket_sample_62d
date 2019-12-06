@@ -1,12 +1,12 @@
 $(function() {
-  $('#header-category').hover(function(){
+  $('.header-category').hover(function(){
     $('.category-box').show();
   },
     function(){
       $('.category-box').hide();
     });
 
-  $('#header-brand').hover(function(){
+  $('.header-brand').hover(function(){
     $('.brand-box').show();
   },
     function(){

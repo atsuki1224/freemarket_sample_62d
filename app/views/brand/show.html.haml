@@ -1,0 +1,20 @@
+.new-item
+  .new-item__area
+    .item-header
+      .item-header__title
+        ="#{@brand.name}新着アイテム"
+      .item-header__view-more
+        もっと見る＞
+    .item-index
+      - @products.each do |product|
+        -product_image = product.images.first
+        .contents
+          =link_to product_path(product) do
+            .contents__img{style: "background-image: url(#{product_image.image});"}
+              -if product.trade_status != 0
+                .sold_out
+                  =image_tag "icons/sold_out.png",class:"sold_out"
+              .contents__price
+                = "¥,#{product.price}"
+            .contents__text
+              = product.item_name
