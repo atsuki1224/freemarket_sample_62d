@@ -31,8 +31,9 @@
         %th
           =link_to "/category/#{@product.category.root.id}" ,class:"link"do
             =">#{@product.category.root.name}"
-          =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
-            =">#{@product.category.parent.name}"
+          -if @product.category.id >= 159
+            =link_to "/category/#{@product.category.parent.id}" ,class:"link"do
+              =">#{@product.category.parent.name}"
           =link_to "/category/#{@product.category.id}" ,class:"link"do
             =">#{@product.category.name}"
       %tr
@@ -138,7 +139,7 @@
     -if @product.user.id == current_user.id && @product.trade_status == 0
       .edit__content
         .edit__content-update-btn
-          =link_to '商品の編集'
+          =link_to '商品の編集', edit_product_path(@product.id)
         %p.edit__content-or
         .edit__content-stop-btn
           =link_to '出品を一旦停止する'

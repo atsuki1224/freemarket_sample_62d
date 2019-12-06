@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191202110508) do
+ActiveRecord::Schema.define(version: 20191205035448) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -57,21 +57,21 @@ ActiveRecord::Schema.define(version: 20191202110508) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "item_name",                     null: false
-    t.text     "description",     limit: 65535, null: false
-    t.integer  "item_condition",                null: false
-    t.integer  "trade_status",                  null: false
+    t.string   "item_name",                                 null: false
+    t.text     "description",     limit: 65535,             null: false
+    t.integer  "item_condition",                            null: false
+    t.integer  "trade_status",                  default: 0, null: false
     t.integer  "size"
     t.integer  "bland_id"
-    t.integer  "category_id",                   null: false
-    t.integer  "delivery_charge",               null: false
-    t.integer  "delivery_method",               null: false
-    t.integer  "delivery_area",                 null: false
-    t.integer  "delivery_time",                 null: false
-    t.integer  "price",                         null: false
-    t.integer  "user_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "category_id",                               null: false
+    t.integer  "delivery_charge",                           null: false
+    t.integer  "delivery_method",                           null: false
+    t.integer  "delivery_area",                             null: false
+    t.integer  "delivery_time",                             null: false
+    t.integer  "price",                                     null: false
+    t.integer  "user_id",                                   null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20191202110508) do
     t.string   "lastname_kana",                       null: false
     t.string   "nickname",                            null: false
     t.datetime "birthday",                            null: false
-    t.bigint   "total_profit",           default: 0,  null: false
-    t.bigint   "point",                  default: 0,  null: false
+    t.bigint   "total_profit",           default: 0
+    t.bigint   "point",                  default: 0
     t.string   "user_profile"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

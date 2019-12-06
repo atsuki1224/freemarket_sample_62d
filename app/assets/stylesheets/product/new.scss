@@ -36,7 +36,6 @@
         }
         &--preview {
           flex: 1;
-          float: left;
           ul {
             li {
               width:114px;
@@ -87,7 +86,7 @@
           flex: 2;
           float: right;
           &.row2 {
-            margin-top: -162px;
+            margin-top: -162px; 
           }
           input.imagearea {
             width: 100%;

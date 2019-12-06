@@ -8,6 +8,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-  = render 'homes/header'
-  = yield
-  = render 'homes/footer'
+    - unless controller_name == 'registrations' || controller_name == 'sessions' || (controller_name == 'products' && (controller.action_name == 'new' || controller.action_name == 'edit' || controller.action_name == 'confirmation'))
+      = render 'homes/header'
+  
+    = yield
+
+    - unless controller_name == 'registrations' || controller_name == 'sessions' || (controller_name == 'products' && (controller.action_name == 'new' || controller.action_name == 'edit' || controller.action_name == 'confirmation'))
+      = render 'homes/footer'

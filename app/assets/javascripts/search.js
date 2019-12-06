@@ -4,7 +4,7 @@ $(function(){
   });
 
 ////// カテゴリー //////////P  change///////////////////
-  $('#category_id_eq_any_').change(function(){
+  $('#parent_category_id').change(function(){
 
     var url = $(this).attr('action')
     var val = $(this).val();
@@ -12,6 +12,9 @@ $(function(){
     var form2 = $('.form_box3')
     form.remove();
     form2.remove();
+
+    $(this).attr('name','category_id');
+    $('.form_box2').attr('name','')
 
     $.ajax({
           type:'GET',
@@ -23,31 +26,27 @@ $(function(){
     .done(function(children){
 
       var val = children[0];
-      $('#category_hidden_form').val()
+      var val2 = $('#category_hidden_form').val()
 
-      val.child_ids.forEach(function(child_id){
-      $('#category_hidden_form').after(`<input type="text" name="category_id_eq_any[]" id="category_hidden_form" value="${child_id}">`);
-      })
-      $('#category_id_eq_any_').after('<select name="category_id_eq_any[]", class="form_box2",id="category_name_2"></select>');
+      $('#parent_category_id').after('<select name="", class="form_box2",id="category_child_id"></select>');
       $('.form_box2').append($('<option>').html('すべて').val(''));
 
       children.forEach(function(child){
         $('.form_box2').append($('<option>').html(child.name).val(child.id));
       });
+      var val2 = $('#parent_category_id').val()
     });
   });
 ////// カテゴリー //////////C  change/////////////////////
   $(document).on('change','.form_box2',function(){
 
-    var a = $('#category_id_eq_any_').val();
-    $('#category_hidden_form').val('');
-
-    var i = $('#category_hidden_form').val();
     var url = $(this).attr('action')
     var val = $(this).val();
     var form = $('.form_box3')
     form.remove();
 
+    $('#parent_category_id').attr('name','');
+    $(this).attr('name','category_id')
     $.ajax({
           type:'GET',
           url:url,
@@ -62,6 +61,10 @@ $(function(){
         $('.form_box3').append(`<input type="checkbox" name="category_id_eq_any[]" value=${g.grandchild_id} id="category_name_3"><label for="category_ids[]">${g.grandchild_name}</label> `);
       }});
     });
+    if(val==''){
+        $(this).attr('name','')
+
+    }
   });
 //////// PRICE ////////// change////////////////////////
   $(document).on('change','#price_form',function(){
@@ -136,22 +139,9 @@ $(function(){
 ////////  サブミット   ///////////////////////////////////////
   $(document).on('submit','#search_product',function(){
 
-    var val = $('#category_name_3').val();
     var val = $(".form_box3 input[type='checkbox']:checked").val();
     var val2 = $('.form_box2').val();
-    var category_val = $('#category_id_eq_any_').val();
-    var a = $('#category_id_eq_any_').val();
-
-    if(val>=0 && val<1500){
-      $('#category_id_eq_any_').val('');
-      $('#category_name_2').val('');
-      $('.form_box2').val('');
-    }
-
-    if(val2=''){
-    }else{
-      $('#category_id_eq_any_').val('');
-    }
+    var val3 = $('#parent_category_id').val();
 
     if(val==='' && val2===''){
     }else{
