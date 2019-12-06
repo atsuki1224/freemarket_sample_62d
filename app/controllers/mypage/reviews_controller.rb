@@ -1,4 +1,4 @@
-class Mypage::ReviewsController < ApplicationController
+class Mypage::ReviewsController < MypageController
   def index
   end
 

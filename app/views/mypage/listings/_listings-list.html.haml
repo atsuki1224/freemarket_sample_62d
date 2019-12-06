@@ -1,0 +1,35 @@
+- if (products.length != 0)
+  - products.each do |product|
+    %li
+      =link_to product_path(product.id), class:"mylisting-link" do
+        = image_tag product.images.first.image
+        .mylisting-link__body
+          .mylisting-link__body--text
+            = product.item_name
+          .listing__detail
+            .listing__detail--count
+              =fa_icon 'heart'
+              %span<
+                15
+            .listing__detail--count
+              =fa_icon 'envelope'
+              %span<
+                3
+            - if product.trade_status == 0
+              .mypage-link__body--status.bold.awaiting
+                出品中
+            - elsif product.trade_status == 1
+              .mypage-link__body--status.bold.awaiting
+                受取評価待ち / 発送待ち
+            - else
+              .mypage-link__body--status.bold.done
+                取引完了
+        =fa_icon 'chevron-right'
+- else
+  %li.mypage-link--notfound.bold
+    - if controller.action_name == "listing"
+      出品中の商品がありません
+    - elsif controller.action_name == "in_progress"
+      取引中の商品がありません
+    - elsif controller.action_name == "completed"
+      取引済みの商品がありません

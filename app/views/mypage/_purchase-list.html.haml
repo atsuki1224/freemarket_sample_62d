@@ -1,0 +1,27 @@
+- if (products.length != 0)
+  - products.each do |product|
+    %li
+      =link_to product_path(product.id), class:"mypage-link" do
+        =image_tag product.images.first.image, class:"lazyload"
+        .mypage-link__body
+          .mypage-link__body--text
+            - if (product.user_id != current_user.id && product.trade_status == 1)
+              = "「#{product.item_name}」の取引中です。"
+            - elsif (product.user_id != current_user.id && product.trade_status == 2)
+              = "「#{product.item_name}」を購入しました。取引が完了しました"
+          - if product.trade_status == 0
+            .mypage-link__body--status.bold.awaiting
+              出品中
+          - elsif product.trade_status == 1
+            .mypage-link__body--status.bold.awaiting
+              取引中
+          - else
+            .mypage-link__body--status.bold.done
+              取引完了
+        =fa_icon 'chevron-right'
+- else
+  %li.mypage-link--notfound.bold
+    - if controller.action_name == "purchase"
+      取引中の商品がありません
+    - elsif controller.action_name == "purchased"
+      購入済みの商品がありません
