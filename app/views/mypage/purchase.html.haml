@@ -15,5 +15,6 @@
               過去の取引
         .transaction__content
           %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane.active
-            %li.mypage-link--notfound.bold
-              取引中の商品がありません
+            = render partial: "purchase-list", locals: {products: @user.trade_products.where(trade_status: 1)}
+          %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane
+            = render partial: "purchase-list", locals: {products: @user.trade_products.where(trade_status: 2)}

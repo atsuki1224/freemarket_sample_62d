@@ -14,14 +14,7 @@
             =link_to "#mypage-tab-transaction-now", "data-toggle": "tab" do
               過去の取引
         .transaction__content
+          %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane
+            = render partial: "purchase-list", locals: {products: @user.trade_products.where(trade_status: 1)}
           %ul#mypage-tab-transaction-now.mypage-link--list.tab-pane.active
-            %li
-              =link_to "https://www.mercari.com/jp/transaction/order_status/m70068440240/", class:"mypage-link" do
-                =image_tag "svg/logo_red.svg", class:"lazyload"
-                .mypage-link__body
-                  .mypage-link__body--text
-                    「ノートパソコン」 を購入しました。
-                    取引が完了しました
-                  .mypage-link__body--status.bold.done
-                    取引完了
-                =fa_icon 'chevron-right'
+            = render partial: "purchase-list", locals: {products: @user.trade_products.where(trade_status: 2)}

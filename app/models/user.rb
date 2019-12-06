@@ -24,6 +24,8 @@ class User < ApplicationRecord
   # has_many :buyers, through: :buyer_userReview, source: :seller
   # has_many :seller_userReview, class_name:”user_review”, foreign_key: :seller_id
   # has_many :sellers, through: :seller_userReviews, source: :buyer
+  has_many :trades 
+  has_many :trade_products , through: :trades, source: :product
   has_one :card
   accepts_nested_attributes_for :card
   has_one :address

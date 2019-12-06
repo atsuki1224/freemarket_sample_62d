@@ -1,9 +1,11 @@
 .header-wrapper{
   background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  margin-bottom: 3px;
   .header {
     width: 1020px;
     margin: 0 auto;
-    padding: 8px 0 0;
+    padding: 8px 0;
     &__logo-search {
       height: 36px;
       margin: 0;

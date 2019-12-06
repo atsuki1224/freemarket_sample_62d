@@ -1,6 +1,17 @@
-.breadcrumbs-list {
+.breadcrumbs {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  border-top: 1px solid #eee;
+  ul{
+    width: 1020px;
+    margin: 0 auto;
+  }
+  &--list {
+    padding: 16px 0;
+    .current {
+      font-weight: bold;
+    }
+  }
   a:visited {
     color: black;
   }
