@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     @parent = Category.find_by(id:params[:category_id])
     @child = Category.find_by(id:params[:child_id])
     @search = params[:bland_name]
+    @all_products = Product.all
 
     if @parent && @child && @search
          @blands1 = @parent.blands
