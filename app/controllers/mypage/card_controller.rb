@@ -1,5 +1,5 @@
 
-class Mypage::CardController < ApplicationController
+class Mypage::CardController < MypageController
   def index
   end
 

@@ -3,6 +3,7 @@
 // マイページ大枠 (navはファイルを別とする)
 .mypage-wrapper {
   background-color: #f3f3f3;
+  min-width: 1020px;
   .mypage {
     margin: 0 auto 0px;
     width: 1020px;
@@ -16,7 +17,7 @@
       position: relative;
       padding: 20px;
       height: 155px;
-      background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?79784477");
+      background: image-url("other/user-bg.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
@@ -481,7 +482,7 @@
   }
   &--notfound {
     padding: 160px 0 60px;
-    background: url(/assets/logo_gray.svg);
+    background: image-url("svg/logo_gray.svg");
     background-repeat: no-repeat;
     background-position: center 40px;
     background-size: 78px 85px;

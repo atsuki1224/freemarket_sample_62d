@@ -44,6 +44,7 @@
           %li.header__item(id="log_in_btn")
             =link_to "/users/sign_in",class:"header__item--log_in" do
               ログイン
+
         .box-area
           .category-box(class="header-category")
             .category-box__list
@@ -62,8 +63,12 @@
                 %li< ルイヴィトン
               =link_to "/brand/8413" do
                 %li< シュプリーム
-    = render "layouts/breadcrumbs"
+  
     
+
+  = render "layouts/breadcrumbs"
+
+
 -# =====今後の実装で使います＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 -#   .header__logo-search.clearfix
 -#     =image_tag "/SVG/fmarket_logo_red.svg", class: "logo-search__logo "

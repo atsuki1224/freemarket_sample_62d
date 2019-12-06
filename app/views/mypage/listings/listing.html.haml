@@ -18,28 +18,11 @@
               売却済み
         .listing__content
           %ul#mypage-tab-transaction-now.tab-pane.active
-            %li
-              =link_to "https://www.mercari.com/jp/items/m70068440240/", class:"mylisting-link" do
-                = image_tag "//static.mercdn.net/thumb/photos/m70068440240_1.jpg?1571484153"
-                .mylisting-link__body
-                  .mylisting-link__body--text
-                    iPhone
-                  .listing__detail
-                    .listing__detail--count
-                      =fa_icon 'heart'
-                      %span<
-                        15
-                    .listing__detail--count
-                      =fa_icon 'envelope'
-                      %span<
-                        3
-                    .listing__detail--status.bold.awaiting
-                      出品中
-                =fa_icon 'chevron-right'
+            = render partial: "listings-list", locals: {products: @user.products.where(trade_status: 0)}
       %ul.mypage__history
         %li.mypage__history--prev
-          = link_to "/jp/mypage/listings/listing/?min_pager_id=5134918442" do
+          = link_to "/mypage/listings/listing" do
             =fa_icon 'chevron-left'
         %li.mypage__history--next
-          = link_to "/jp/mypage/listings/listing/?max_pager_id=5134918442" do
+          = link_to "/mypage/listings/listing" do
             =fa_icon 'chevron-right'

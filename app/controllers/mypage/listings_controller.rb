@@ -1,4 +1,4 @@
-class Mypage::ListingsController < ApplicationController
+class Mypage::ListingsController < MypageController
   def listing
   end
 
@@ -7,4 +7,5 @@ class Mypage::ListingsController < ApplicationController
 
   def completed
   end
+  
 end
