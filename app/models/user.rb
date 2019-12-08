@@ -26,6 +26,7 @@ class User < ApplicationRecord
   # has_many :sellers, through: :seller_userReviews, source: :buyer
   has_many :trades 
   has_many :trade_products , through: :trades, source: :product
+  has_one :credit_card
   has_one :card
   accepts_nested_attributes_for :card
   has_one :address

@@ -10,7 +10,7 @@
           .payment-info__card
             .payment-info__card--head
               クレジットカード一覧
-            - if true
+            - if @user.credit_card.present?
               %ul.payment-info__list
                 %li
                   %form{class:"cardform", action:"/mypage/card/delete/", method:"POST"}
@@ -18,15 +18,17 @@
                     %input{type:"hidden", name:"__csrf_value", value:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
                     %input{type:"hidden", name:"card_sequence_no", value:"xxxxxxxxxxxxxxxxxxxxxxxx"}
                     .cardform--num<
-                      ************ABCD
+                      = "**** **** **** " + @default_card_information.last4
                     .cardform--num<
-                      12 / 31
+                      - exp_month = @default_card_information.exp_month.to_s
+                      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                      = exp_month + " / " + exp_year
                     %input{type:"hidden", name:"method", value:"card"}
-                    %button{type:"submit", class:"cardform--submit"}
+                    = link_to card_path, method: :delete, class:"cardform--submit" do
                       削除する
             - else
               .payment-info__card--add-btn
-                = link_to "card-add", class:"red-btn" do
+                = link_to "/mypage/card/create", class:"red-btn" do
                   =fa_icon 'credit-card'
                   クレジットカードを追加する
           .payment-info--notregist

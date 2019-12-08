@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191205035448) do
+ActiveRecord::Schema.define(version: 20191208042053) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id", null: false
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20191205035448) do
     t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
+
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,8 +106,8 @@ ActiveRecord::Schema.define(version: 20191205035448) do
     t.string   "lastname_kana",                       null: false
     t.string   "nickname",                            null: false
     t.datetime "birthday",                            null: false
-    t.bigint   "total_profit",           default: 0
-    t.bigint   "point",                  default: 0
+    t.bigint   "total_profit",           default: 0,  null: false
+    t.bigint   "point",                  default: 0,  null: false
     t.string   "user_profile"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -111,4 +120,5 @@ ActiveRecord::Schema.define(version: 20191205035448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "credit_cards", "users"
 end

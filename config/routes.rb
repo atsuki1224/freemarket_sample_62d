@@ -29,8 +29,9 @@ Rails.application.routes.draw do
       patch 'profile_update' => 'mypage#profile_update'
       patch 'identification_update' => 'mypage#identification_update'
       namespace :card do
-        get '/' => '/mypage/card#index'
-        get 'new' => '/mypage/card#new'
+        get '/' => '/mypage/card#show'
+        get 'create' => '/mypage/card#edit'
+        post 'update' => '/mypage/card#update'
       end
       namespace :listings do
         get 'listing' => '/mypage/listings#listing'
@@ -71,7 +72,7 @@ Rails.application.routes.draw do
   end
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :products, except: :index
-  resources :card, except: :index do
+  resource :card, controller: :card do
     collection do
       post 'pay/:id' => 'card#pay', as: 'pay'
     end
