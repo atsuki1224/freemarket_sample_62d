@@ -142,6 +142,7 @@ $(function(){
     var form5 =  $('.product-item__subform1 > input');
     var url = $(this).attr('action')
 
+
     form.remove();
     form2.remove();
     form3.remove();
@@ -297,12 +298,10 @@ $(function(){
     var val3 = $('.product-item__subform--select3').val();
     var val2 = $('.product-item__subform--select2').val();
     $('.product-item__subform--select0 option:selected').val(val3);
-      if(val3 ===''){
-        $('.product-item__subform--select0 option:selected').val(val2);
-      }
-      var a = $('.product-item__subform--select0 option:selected').val();
-      var a =  $('.product-item__subform--select0 option:selected').val();
-    });
+
+          $('.product-item__subform--select0 option:selected').val(val2);
+        }
+        var new_product_id = $('.new_product_id').text()
 
   $(document).on('submit','#new_product',function(){
     var val3 = $('.product-item__subform--select3').val();
@@ -328,7 +327,7 @@ $(function(){
                             <a href='/products/new'>続けて出品する</a>
                           </div>
                           <div class="link2">
-                            <a href='/'>商品ページへ行ってシェアする</a>
+                            <a href='/products/${new_product_id}'>商品ページへ行ってシェアする</a>
                           </div>
                         </div>
                       </div>`);

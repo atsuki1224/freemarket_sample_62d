@@ -86,6 +86,11 @@ $(function(){
     $('.size_check').css('display','inline-block');
     $('.sizeform label').css('display','inline-block');
     $('.size_check').prop('checked',false);
+    var val = $('#size_form option:selected').val();
+    if(val===''){
+      $('.size_check').css('display','none');
+      $('.sizeform label').css('display','none');
+  }
   });
 
 //////チェックボックス、フォーム値 クリア//////////////////////////////////////
@@ -156,7 +161,6 @@ $(function(){
     $('.size_check').css('display','none');
     $('.sizeform label').css('display','none');
     $('.search_box__form input').prop('checked',false);
-
   })
 
 })

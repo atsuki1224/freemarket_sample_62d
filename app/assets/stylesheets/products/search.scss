@@ -8,7 +8,7 @@
     .sort{
       margin: 5px 0 30px; ;
       select{
-        width:280px;
+        width:98%;
         height:50px;
         color:black;
         background-color: #ffffff;
@@ -16,7 +16,7 @@
     }
     .sidebar_contents{
       float:left;
-      width:280px;
+      width:25%;
       .search_box{
         padding:10px;
         background-color: #ffffff;
@@ -51,7 +51,7 @@
           margin: 20px 0 3px;
         }
         .form_box{
-          width:250px;
+          width:98%;
           height:45px;
           color:black;
           border-radius: 3px;
@@ -86,7 +86,7 @@
         }
         label[for='size']{
           display:none;
-          width:100px;
+          width:110px;
         }
         .form_box_half{
           width:110px;
@@ -106,7 +106,7 @@
       margin-left: 40px;
       margin-top: 10px;
       float:left;
-      width:740px;
+      width:68%;
       nav{
         margin: 20px 0 10px 8px;
         width:300px;
