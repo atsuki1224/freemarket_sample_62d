@@ -297,7 +297,7 @@ $(function(){
    $(document).on('submit','#new_product',function(){
      var val3 = $('.product-item__subform--select3').val();
      var val2 = $('.product-item__subform--select2').val();
-     var new_product_id = $('.new_product_id').text()
+
      $('.product-item__subform--select0 option:selected').val(val3);
        if(val3 ===''){
            $('.product-item__subform--select0 option:selected').val(val2);
@@ -319,7 +319,7 @@ $(function(){
                              <a href='/products/new'>続けて出品する</a>
                            </div>
                            <div class="link2">
-                             <a href='/products/${new_product_id}'>商品ページへ行ってシェアする</a>
+                             <a href='/'>TOPページへ戻る</a>
                            </div>
                          </div>
                        </div>`);
