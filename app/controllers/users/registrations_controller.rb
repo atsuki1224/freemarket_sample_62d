@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:lastname_kana] = user_params[:lastname_kana]
     params[:user][:birthday] = birthday_join
     session[:birthday] = user_params[:birthday]
-    if User.find_by(email: session[:email]).present?
+    if User.find_by(email: session[:email]).present? || session[:email].match(/\A[\x21-\x3f\x41-\x7e]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i) == nil
       @mail_check = false
       render "users/registrations/registration", mail_check: @mail_check
     else

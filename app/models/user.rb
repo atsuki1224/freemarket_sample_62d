@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, uniqueness: true, presence:true
+  validates :email, uniqueness: true, presence:true, format: { with: /\A[\x21-\x3f\x41-\x7e]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i }
   validates :password , length: { minimum: 7 }, presence:true, on: :create
   validates :password , length: { minimum: 7}, on: :update, allow_blank: true
   validates :firstname, presence:true
@@ -27,8 +27,6 @@ class User < ApplicationRecord
   has_many :trades 
   has_many :trade_products , through: :trades, source: :product
   has_one :credit_card
-  has_one :card
-  accepts_nested_attributes_for :card
   has_one :address
   accepts_nested_attributes_for :address
   has_one :sns_credential
