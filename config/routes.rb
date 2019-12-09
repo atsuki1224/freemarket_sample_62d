@@ -15,8 +15,6 @@ Rails.application.routes.draw do
       post '/complete' => 'users/registrations#complete'
     end
   end
-  # 石原
-  # このファイルのコントローラは仮のため、ディレクトリ構造に合わせて各ビュー内のパスも合わせる事。
   resources :mypage, only: :index do
     collection do
       get 'notification' => 'mypage#notification'

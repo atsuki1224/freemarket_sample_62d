@@ -1,20 +1,7 @@
 class CardController < ApplicationController
   require "payjp"
   before_action :get_payjp_info, only: [:pay, :create, :delete, :show]
-  
-  def create
-    if params['payjp-token'].blank?
-      redirect_to card_confirmation_path
-    else
-      customer = Payjp::Customer.create(
-        email: session[:email],
-        card: params['payjp-token']
-      )
-      session[:customer_id] = customer.id
-      session[:card_id] = customer.default_card
-      redirect_to complete_path
-    end
-  end
+
 
   def pay
     product = Product.find(params[:product_id])

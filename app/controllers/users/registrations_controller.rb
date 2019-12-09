@@ -66,6 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birthday: session[:birthday]
     )
     @user.build_address(session[:address_attributes])
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer = Payjp::Customer.create(
       email: session[:email],
       card: params['payjp-token']
