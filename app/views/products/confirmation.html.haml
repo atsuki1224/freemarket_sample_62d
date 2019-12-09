@@ -36,13 +36,13 @@
         #h3.dataTitle
           配送先
         #adress.buy_userInfo--postal 
-          〒123-4567
+          = "〒#{current_user.address.zipcode}"
         #adress.buy_userInfo--street  
-          広島1-1-1
+          = "#{current_user.address.prefecture.name}#{current_user.address.city}#{current_user.address.address}"
         #adress.buy_userInfo--name  
-          山田孝之
+          = "#{current_user.firstname} #{current_user.lastname}"
         #p.buy_userInfo  
-          建物名
+          = current_user.address.building_name
         %ul.fix
           %li.delivery_fix(id="fix-category")
             =link_to "/#" ,class:'userInfo-fix' do

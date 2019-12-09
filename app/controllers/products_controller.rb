@@ -55,8 +55,7 @@ class ProductsController < ApplicationController
         category_id: @product.category.id).limit(6)
     end
     @same_seller_items = Product.where.not(params[:id]).where(user_id: @product.user.id).limit(6)
-
-    
+ 
   end
 
   def edit
