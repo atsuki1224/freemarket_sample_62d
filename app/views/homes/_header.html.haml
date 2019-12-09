@@ -10,11 +10,11 @@
           %i.fa.fa-search
     .header-lists
       %ul.header-lists__left
-        %li.header__item(id="header-category")
+        %li.header__item(class="header-category")
           =link_to "/#" ,class:"header__item--link parent" do
             =fa_icon'list-ul', class:"parent"
             カテゴリーから探す
-        %li.header__item(id="header-brand")
+        %li.header__item(class="header-brand")
           =link_to "/#",class:"header__item--link parent" do
             =fa_icon 'tags', class:"parent"
             ブランドから探す
@@ -44,7 +44,30 @@
           %li.header__item(id="log_in_btn")
             =link_to "/users/sign_in",class:"header__item--log_in" do
               ログイン
+
+        .box-area
+          .category-box(class="header-category")
+            .category-box__list
+              -@parent_categories = Category.where(id: 1..13).order("created_at ASC")
+              -@parent_categories.each do |parent_category|
+                =link_to "/category/#{parent_category.id}" do
+                  %li< #{parent_category.name}              
+        .box-area
+          .brand-box(class="header-brand")
+            .brand-box__list
+              =link_to "/brand/2447" do
+                %li< シャネル
+              =link_to "/brand/3813" do
+                %li< ナイキ
+              =link_to "/brand/6155" do
+                %li< ルイヴィトン
+              =link_to "/brand/8413" do
+                %li< シュプリーム
+  
+    
+
   = render "layouts/breadcrumbs"
+
 
 -# =====今後の実装で使います＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 -#   .header__logo-search.clearfix

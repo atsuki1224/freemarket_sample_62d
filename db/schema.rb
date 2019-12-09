@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20191205035448) do
     t.string   "lastname_kana",                       null: false
     t.string   "nickname",                            null: false
     t.datetime "birthday",                            null: false
-    t.bigint   "total_profit",           default: 0
-    t.bigint   "point",                  default: 0
+    t.bigint   "total_profit",           default: 0,  null: false
+    t.bigint   "point",                  default: 0,  null: false
     t.string   "user_profile"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   end
 
   resources :category, only: :show
+  resources :brand, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :trade, except: :index do
     collection do
