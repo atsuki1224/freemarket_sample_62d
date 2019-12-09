@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:lastname_kana] = user_params[:lastname_kana]
     params[:user][:birthday] = birthday_join
     session[:birthday] = user_params[:birthday]
-    if User.find_by(email: session[:email]).present?
+    if User.find_by(email: session[:email]).present? || session[:email].match(/\A[\x21-\x3f\x41-\x7e]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i) == nil
       @mail_check = false
       render "users/registrations/registration", mail_check: @mail_check
     else
@@ -55,8 +55,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
-    params[:user][:card_attributes][:validated_data] = params[:exp_year] + params[:exp_month]
-    session[:card_attributes] = user_params[:card_attributes]
     @user = User.new(
       email: session[:email],
       password: session[:password],
@@ -68,7 +66,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birthday: session[:birthday]
     )
     @user.build_address(session[:address_attributes])
-    @user.build_card(session[:card_attributes])
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer = Payjp::Customer.create(
+      email: session[:email],
+      card: params['payjp-token']
+      )
+    @user.build_credit_card(customer_id: customer.id, card_id: customer.default_card)
     if session["devise.#{session["devise.provider"]}_data"].present?
       @user.password = Devise.friendly_token[0, 20]
       @user.build_sns_credential(
