@@ -40,7 +40,7 @@
         #adress.buy_userInfo--street  
           = "#{current_user.address.prefecture.name}#{current_user.address.city}#{current_user.address.address}"
         #adress.buy_userInfo--name  
-          = current_user.nickname
+          = "#{current_user.firstname} #{current_user.lastname}"
         #p.buy_userInfo  
           = current_user.address.building_name
         %ul.fix
