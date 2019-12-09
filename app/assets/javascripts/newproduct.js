@@ -103,7 +103,7 @@ $(function(){
   } else if (init_imgs < 9) {
     $droparea.width(init_wd - (130 * (init_imgs - 5) ));
   }
-  
+
   $(document).on("click", '.remove-btn__edit', function() {
     var target = Number($('.remove-btn__edit').index(this));
     if($("#del_img").val() == ""){
@@ -294,45 +294,38 @@ $(function(){
 
   /////////////////サブミット//////////////////////////////////
 
-  $(document).on('submit','.product-item__button--submit',function(){
-    var val3 = $('.product-item__subform--select3').val();
-    var val2 = $('.product-item__subform--select2').val();
-    $('.product-item__subform--select0 option:selected').val(val3);
+   $(document).on('submit','#new_product',function(){
+     var val3 = $('.product-item__subform--select3').val();
+     var val2 = $('.product-item__subform--select2').val();
+     var new_product_id = $('.new_product_id').text()
+     $('.product-item__subform--select0 option:selected').val(val3);
+       if(val3 ===''){
+           $('.product-item__subform--select0 option:selected').val(val2);
+       }
+       var a = $('.product-item__subform--select0 option:selected').val();
+       var a =  $('.product-item__subform--select0 option:selected').val();
+     $('body').append(`<div class="modal-content">
+                         <div class="tittle">
+                           <div class="text">
+                             <P>出品が完了しました</P>
+                           </div>
+                         </div>
+                         <div class="textarea">
+                           <div class="text">
+                             <p>あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+                             </p>
+                           </div>
+                           <div class="link1">
+                             <a href='/products/new'>続けて出品する</a>
+                           </div>
+                           <div class="link2">
+                             <a href='/products/${new_product_id}'>商品ページへ行ってシェアする</a>
+                           </div>
+                         </div>
+                       </div>`);
+     $('.modal-content').fadeIn('slow');
+     $('body').append('<div class="modal-overlay"></div>');
+     $('.modal-overlay').fadeIn('slow');
 
-          $('.product-item__subform--select0 option:selected').val(val2);
-        }
-        var new_product_id = $('.new_product_id').text()
-
-  $(document).on('submit','#new_product',function(){
-    var val3 = $('.product-item__subform--select3').val();
-    var val2 = $('.product-item__subform--select2').val();
-    $('.product-item__subform--select0 option:selected').val(val3);
-      if(val3 ===''){
-          $('.product-item__subform--select0 option:selected').val(val2);
-      }
-      var a = $('.product-item__subform--select0 option:selected').val();
-      var a =  $('.product-item__subform--select0 option:selected').val();
-    $('body').append(`<div class="modal-content">
-                        <div class="tittle">
-                          <div class="text">
-                            <P>出品が完了しました</P>
-                          </div>
-                        </div>
-                        <div class="textarea">
-                          <div class="text">
-                            <p>あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-                            </p>
-                          </div>
-                          <div class="link1">
-                            <a href='/products/new'>続けて出品する</a>
-                          </div>
-                          <div class="link2">
-                            <a href='/products/${new_product_id}'>商品ページへ行ってシェアする</a>
-                          </div>
-                        </div>
-                      </div>`);
-    $('.modal-content').fadeIn('slow');
-    $('body').append('<div class="modal-overlay"></div>');
-    $('.modal-overlay').fadeIn('slow');
-  });
+   });
 })
