@@ -49,8 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def card_confirmation
     @user = User.new
     session[:address_attributes] = user_params[:address_attributes]
-    @user.build_card = Card.new if @user.build_card.blank?
-
+    
     render 'card_confirmation'
   end
 
