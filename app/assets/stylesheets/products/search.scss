@@ -16,7 +16,7 @@
     }
     .sidebar_contents{
       float:left;
-      width:25%;
+      width:23%;
       .search_box{
         padding:10px;
         background-color: #ffffff;
@@ -60,7 +60,7 @@
 
         }
         .form_box2{
-          width:250px;
+          width:98%;
           height:45px;
           color:black;
           border-radius: 3px;
@@ -74,7 +74,7 @@
           background-color: #ffffff;
           text-align: left;
           label[for='category_ids[]']{
-            width:110px;
+            width:42%;
             display:inline-block;
           }
           p{
@@ -86,7 +86,7 @@
         }
         label[for='size']{
           display:none;
-          width:110px;
+          width:42%;
         }
         .form_box_half{
           width:110px;
